@@ -18,6 +18,13 @@ const eventsManager = (() => {
       events[eventName].push(callbackFn);
       return this;
     },
+    once(eventName, callbackFn) {
+      const fn = (...args) => {
+        this.off(eventName, fn);
+        callbackFn(...args);
+      };
+      return this.on(eventName, fn);
+    },
     off(eventName, callbackFn) {
       if (events[eventName]) {
         for (let i = 0; i < events[eventName].length; i += 1) {
