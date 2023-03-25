@@ -1,6 +1,11 @@
 import "./style.css";
 import Events from "./events";
 
-Events.on();
-Events.off();
-Events.emit();
+function doOnEventOne() {
+  console.log("Done because of event one!");
+}
+
+Events.on("eventOne", doOnEventOne);
+Events.off("eventOne", doOnEventOne);
+Events.on("eventOne", doOnEventOne);
+Events.emit("eventOne");
