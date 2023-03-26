@@ -21,3 +21,4 @@ Events.emit("eventTwo");
 Events.emit("eventTwo");
 
 window.dataManager = DataManager;
+Events.emit("init");

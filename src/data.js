@@ -1,3 +1,5 @@
+import Events from "./events";
+
 const dataManager = (() => {
   const data = {
     projects: {},
@@ -53,6 +55,8 @@ const dataManager = (() => {
     createProject("trash");
     createProject("general");
   };
+
+  Events.on("init", init);
 
   return { createTask, createProject, init, data };
 })();
