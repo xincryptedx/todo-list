@@ -12,6 +12,11 @@ const dataManager = (() => {
     low: 1,
   };
 
+  const Project = (projectName) => ({
+    name: projectName.toString(),
+    tasks: {},
+  });
+
   const Task = () => ({
     userSetName: "",
     description: "",
@@ -34,13 +39,20 @@ const dataManager = (() => {
   // Move task
   // Remove task
   // Create project
+  const createProject = (name = "project") => {
+    const projectName = name.toString();
+
+    const internalName = `__project_${Object.keys(data.projects).length}`;
+
+    data.projects[internalName] = Project(projectName);
+  };
   // Move project
   // Remove project
   // Get data (also emit event with the data)
   // Set data (also emit event with the data)
   // Sub to appropriate events for getting or setting data
 
-  return { createTask, data };
+  return { createTask, createProject, data };
 })();
 
 export default dataManager;
