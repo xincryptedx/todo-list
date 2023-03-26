@@ -1,5 +1,6 @@
 import "./style.css";
 import Events from "./events";
+import DataManager from "./data";
 
 function doOnEventOne() {
   console.log("Done because of event one!");
@@ -18,3 +19,5 @@ Events.emit("eventOne");
 Events.once("eventTwo", doOnEventTwo);
 Events.emit("eventTwo");
 Events.emit("eventTwo");
+
+window.dataManager = DataManager;
