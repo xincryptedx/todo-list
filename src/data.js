@@ -13,10 +13,14 @@ const dataManager = (() => {
   };
 
   // Create task
-  const createTask = (project) => {
-    const internalName = `__category_${Object.keys(data.projects).length}`;
+  const createTask = (project = "general") => {
+    const projectName = project.toString();
 
-    data[project][internalName] = {
+    const internalName = `__task_${
+      Object.keys(data.projects[projectName]).length
+    }`;
+
+    data.projects[projectName][internalName] = {
       userSetName: "",
       description: "",
       priority: TaskPriority.low,
