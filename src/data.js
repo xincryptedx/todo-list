@@ -1,9 +1,6 @@
 const dataManager = (() => {
   const data = {
-    projects: {
-      general: {},
-      trash: {},
-    },
+    projects: {},
   };
 
   const TaskPriority = {
@@ -27,7 +24,7 @@ const dataManager = (() => {
   });
 
   // Create task
-  const createTask = (project = "general") => {
+  const createTask = (project = "__project_0") => {
     const projectName = project.toString();
 
     const internalName = `__task_${
@@ -52,7 +49,12 @@ const dataManager = (() => {
   // Set data (also emit event with the data)
   // Sub to appropriate events for getting or setting data
 
-  return { createTask, createProject, data };
+  const init = () => {
+    createProject("trash");
+    createProject("general");
+  };
+
+  return { createTask, createProject, init, data };
 })();
 
 export default dataManager;
