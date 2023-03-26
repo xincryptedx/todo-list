@@ -30,10 +30,10 @@ const dataManager = (() => {
     const projectName = project.toString();
 
     const internalName = `__task_${
-      Object.keys(data.projects[projectName]).length
+      Object.keys(data.projects[projectName].tasks).length
     }`;
 
-    data.projects[projectName][internalName] = Task();
+    data.projects[projectName].tasks[internalName] = Task();
   };
   // Move task
   // Remove task
