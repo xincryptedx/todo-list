@@ -24,6 +24,9 @@ const dataManager = (() => {
       userSetName: "",
       description: "",
       priority: TaskPriority.low,
+      dueDate: null,
+      hasSubtasks: false,
+      subtasks: {},
     };
   };
   // Move task
