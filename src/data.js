@@ -27,7 +27,8 @@ const dataManager = (() => {
 
   // Create task
   const createTask = (project = "__project_0") => {
-    const projectName = project.toString();
+    let projectName = project.toString();
+    if (!data.projects[projectName]) projectName = "__project_1";
 
     const internalName = `__task_${
       Object.keys(data.projects[projectName].tasks).length
