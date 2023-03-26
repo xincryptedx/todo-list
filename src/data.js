@@ -12,6 +12,15 @@ const dataManager = (() => {
     low: 1,
   };
 
+  const Task = () => ({
+    userSetName: "",
+    description: "",
+    priority: TaskPriority.low,
+    dueDate: null,
+    hasSubtasks: false,
+    subtasks: {},
+  });
+
   // Create task
   const createTask = (project = "general") => {
     const projectName = project.toString();
@@ -20,14 +29,7 @@ const dataManager = (() => {
       Object.keys(data.projects[projectName]).length
     }`;
 
-    data.projects[projectName][internalName] = {
-      userSetName: "",
-      description: "",
-      priority: TaskPriority.low,
-      dueDate: null,
-      hasSubtasks: false,
-      subtasks: {},
-    };
+    data.projects[projectName][internalName] = Task();
   };
   // Move task
   // Remove task
