@@ -57,6 +57,16 @@ const dataManager = (() => {
     uid: newUID(),
   });
 
+  const validateProject = (internalName) => {
+    let validatedName = internalName;
+
+    if (!data.projects[internalName]) {
+      validatedName = defaultProject;
+    }
+
+    return validatedName;
+  };
+
   const createTask = (internalProjectName) => {
     let project = internalProjectName;
     if (!data.projects[project]) {
@@ -113,6 +123,7 @@ const dataManager = (() => {
     createProject,
     getTask,
     changeProject,
+    validateProject,
     init,
     data,
     defaultProject,
