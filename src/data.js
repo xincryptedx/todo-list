@@ -54,7 +54,7 @@ const dataManager = (() => {
     subtasks: {},
   });
 
-  const getDefaultProject = () => {
+  const getGeneralProject = () => {
     let foundProjectUID;
     Object.keys(data.projects).forEach((key) => {
       if (data.projects[key].type === "general") foundProjectUID = key;
@@ -71,20 +71,19 @@ const dataManager = (() => {
   };
 
   const defaultProjects = {
-    general: getDefaultProject(),
-    trash: getTrashProject(),
+    general: "",
+    trash: "",
   };
 
   const validateProject = (projectUID, setDefault = true) => {
-    let validatedName = projectUID;
-    const defaultProject = getDefaultProject();
+    let validatedUID = projectUID;
     if (!data.projects[projectUID] && setDefault) {
-      validatedName = defaultProject;
+      validatedUID = defaultProjects.general;
     }
     if (!data.projects[projectUID] && !setDefault) {
-      validatedName = undefined;
+      validatedUID = undefined;
     }
-    return validatedName;
+    return validatedUID;
   };
 
   const createTask = (projectUID) => {
@@ -146,6 +145,8 @@ const dataManager = (() => {
   const init = () => {
     createProject("Trash", "trash");
     createProject("General", "general");
+    defaultProjects.general = getGeneralProject();
+    defaultProjects.trash = getTrashProject();
   };
 
   Events.on("init", init);
