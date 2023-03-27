@@ -90,7 +90,7 @@ const dataManager = (() => {
   const createProject = (name = "project") => {
     const projectName = name.toString();
 
-    const internalName = `__project_${Object.keys(data.projects).length}`; // Change
+    const internalName = newUID();
     const project = Project(projectName);
 
     data.projects[internalName] = project;
