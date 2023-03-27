@@ -1,9 +1,11 @@
 import Events from "./events";
 
+let defaultProject;
+
 const dataManager = (() => {
   const data = {
     projects: {},
-    UIDs: [],
+    tasks: {},
   };
 
   const TaskPriority = {
@@ -14,25 +16,32 @@ const dataManager = (() => {
 
   const newUID = () => {
     let uid = Math.random().toString(36).substring(2, 32);
+
     let isDuplicate = true;
+    const checkDuplicates = () => {
+      Object.values(data.tasks).forEach((task) => {
+        if (task.uid === uid) {
+          uid = Math.random().toString(36).substring(2, 32);
+          isDuplicate = true;
+        }
+      });
+    };
+
     while (isDuplicate) {
       isDuplicate = false;
-      if (data.UIDs.includes(uid)) {
-        uid = Math.random().toString(36).substring(2, 32);
-        isDuplicate = true;
-      }
+      checkDuplicates();
     }
-    data.UIDs.push(uid);
+
     return uid;
   };
 
   const Project = (projectName) => ({
     name: projectName.toString(),
-    tasks: {},
     uid: newUID(),
   });
 
-  const Task = () => ({
+  const Task = (projectObject) => ({
+    project: projectObject,
     userSetName: "",
     description: "",
     priority: TaskPriority.low,
@@ -42,16 +51,13 @@ const dataManager = (() => {
     uid: newUID(),
   });
 
-  // Create task
-  const createTask = (project = "__project_0") => {
-    let projectName = project.toString();
-    if (!data.projects[projectName]) projectName = "__project_1";
+  const createTask = (project) => {
+    let projectObject = project;
+    if (!data.projects[project]) projectObject = defaultProject;
 
-    const internalName = `__task_${
-      Object.keys(data.projects[projectName].tasks).length
-    }`;
+    const internalName = `__task_${Object.keys(data.tasks).length}`;
 
-    data.projects[projectName].tasks[internalName] = Task();
+    data.tasks[internalName] = Task(projectObject);
   };
   // Move task
   // Remove task
@@ -60,8 +66,11 @@ const dataManager = (() => {
     const projectName = name.toString();
 
     const internalName = `__project_${Object.keys(data.projects).length}`;
+    const project = Project(projectName);
 
-    data.projects[internalName] = Project(projectName);
+    data.projects[internalName] = project;
+
+    return project;
   };
   // Move project
   // Remove project
@@ -71,12 +80,12 @@ const dataManager = (() => {
 
   const init = () => {
     createProject("trash");
-    createProject("general");
+    defaultProject = createProject("general");
   };
 
   Events.on("init", init);
 
-  return { createTask, createProject, init, data };
+  return { createTask, createProject, init, data, defaultProject };
 })();
 
 export default dataManager;
