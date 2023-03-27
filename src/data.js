@@ -62,6 +62,14 @@ const dataManager = (() => {
     return foundProjectUID;
   };
 
+  const getTrashProject = () => {
+    let foundProjectUID;
+    Object.keys(data.projects).forEach((key) => {
+      if (data.projects[key].type === "trash") foundProjectUID = key;
+    });
+    return foundProjectUID;
+  };
+
   const validateProject = (projectUID, setDefault = true) => {
     let validatedName = projectUID;
     const defaultProject = getDefaultProject();
@@ -103,12 +111,13 @@ const dataManager = (() => {
     let objectToMove;
 
     Object.keys(data.projects).forEach((key) => {
-      if (uid === key) objectToMove = data.projects[key];
+      if (uid === key) objectToMove = key;
     });
     Object.keys(data.tasks).forEach((key) => {
-      if (uid === key) objectToMove = data.tasks[key];
+      if (uid === key) objectToMove = key;
     });
 
+    changeProject(objectToMove, "trash"); // Not done yet
     return objectToMove;
   };
 
