@@ -67,6 +67,17 @@ const dataManager = (() => {
     data.tasks[internalName] = task;
     return task;
   };
+
+  // Get task
+  const getTask = (uid) => {
+    let foundKey;
+    Object.keys(data.tasks).forEach((key) => {
+      if (data.tasks[key].uid === uid) {
+        foundKey = data.tasks[key];
+      }
+    });
+    return foundKey;
+  };
   // Move task
   // Remove task
   // Create project
@@ -94,7 +105,7 @@ const dataManager = (() => {
 
   Events.on("init", init);
 
-  return { createTask, createProject, init, data, defaultProject };
+  return { createTask, createProject, getTask, init, data, defaultProject };
 })();
 
 export default dataManager;
