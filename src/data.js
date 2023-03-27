@@ -77,7 +77,11 @@ const dataManager = (() => {
     });
     return foundKey;
   };
-  // Move task
+  // Change task project
+  const changeProject = (uid, destProjectInternalName) => {
+    const task = getTask(uid);
+    task.project = destProjectInternalName;
+  };
   // Remove task
   // Create project
   const createProject = (name = "project") => {
@@ -99,12 +103,20 @@ const dataManager = (() => {
   const init = () => {
     createProject("Trash");
     createProject("General");
-    defaultProject = "__Project_1"; // General is the default, and has the key name __project_1
+    defaultProject = "__project_1"; // General is the default, and has the key name __project_1
   };
 
   Events.on("init", init);
 
-  return { createTask, createProject, getTask, init, data, defaultProject };
+  return {
+    createTask,
+    createProject,
+    getTask,
+    changeProject,
+    init,
+    data,
+    defaultProject,
+  };
 })();
 
 export default dataManager;
