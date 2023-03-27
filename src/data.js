@@ -46,8 +46,8 @@ const dataManager = (() => {
     uid: newUID(),
   });
 
-  const Task = (projectName) => ({
-    project: projectName,
+  const Task = (internalProjectName) => ({
+    project: internalProjectName,
     userSetName: "",
     description: "",
     priority: TaskPriority.low,
@@ -57,8 +57,8 @@ const dataManager = (() => {
     uid: newUID(),
   });
 
-  const createTask = (projectName) => {
-    let project = projectName;
+  const createTask = (internalProjectName) => {
+    let project = internalProjectName;
     if (!data.projects[project]) {
       project = defaultProject;
     }
@@ -89,7 +89,7 @@ const dataManager = (() => {
   const init = () => {
     createProject("Trash");
     createProject("General");
-    defaultProject = "__Project_1";
+    defaultProject = "__Project_1"; // General is the default, and has the key name __project_1
   };
 
   Events.on("init", init);
