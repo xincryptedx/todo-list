@@ -29,6 +29,7 @@ const dataManager = (() => {
   const Project = (projectName) => ({
     name: projectName.toString(),
     tasks: {},
+    uid: newUID(),
   });
 
   const Task = () => ({
