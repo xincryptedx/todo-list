@@ -1,7 +1,5 @@
 import Events from "./events";
 
-let defaultProject;
-
 const dataManager = (() => {
   const data = {
     projects: {},
@@ -60,6 +58,8 @@ const dataManager = (() => {
   const validateProject = (internalName) => {
     let validatedName = internalName;
 
+    const defaultProject = "__project_1"; // General is the default, and has the key name __project_1
+
     if (!data.projects[internalName]) {
       validatedName = defaultProject;
     }
@@ -68,10 +68,7 @@ const dataManager = (() => {
   };
 
   const createTask = (internalProjectName) => {
-    let project = internalProjectName;
-    if (!data.projects[project]) {
-      project = defaultProject;
-    }
+    const project = validateProject(internalProjectName);
     const internalName = `__task_${Object.keys(data.tasks).length}`;
     const task = Task(project);
     data.tasks[internalName] = task;
@@ -113,7 +110,6 @@ const dataManager = (() => {
   const init = () => {
     createProject("Trash");
     createProject("General");
-    defaultProject = "__project_1"; // General is the default, and has the key name __project_1
   };
 
   Events.on("init", init);
@@ -126,7 +122,6 @@ const dataManager = (() => {
     validateProject,
     init,
     data,
-    defaultProject,
   };
 })();
 
