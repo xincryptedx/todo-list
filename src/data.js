@@ -46,8 +46,8 @@ const dataManager = (() => {
     uid: newUID(),
   });
 
-  const Task = (projectObject) => ({
-    project: projectObject,
+  const Task = (projectName) => ({
+    project: projectName,
     userSetName: "",
     description: "",
     priority: TaskPriority.low,
@@ -58,9 +58,12 @@ const dataManager = (() => {
   });
 
   const createTask = (projectName) => {
-    const projectObject = data.projects[projectName] || defaultProject;
+    let project = projectName;
+    if (!data.projects[project]) {
+      project = defaultProject;
+    }
     const internalName = `__task_${Object.keys(data.tasks).length}`;
-    const task = Task(projectObject);
+    const task = Task(project);
     data.tasks[internalName] = task;
     return task;
   };
@@ -84,8 +87,9 @@ const dataManager = (() => {
   // Sub to appropriate events for getting or setting data
 
   const init = () => {
-    createProject("trash");
-    defaultProject = createProject("general");
+    createProject("Trash");
+    createProject("General");
+    defaultProject = "__Project_1";
   };
 
   Events.on("init", init);
