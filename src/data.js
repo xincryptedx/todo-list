@@ -52,12 +52,11 @@ const dataManager = (() => {
   });
 
   const createTask = (project) => {
-    let projectObject = project;
-    if (!data.projects[project]) projectObject = defaultProject;
-
+    const projectObject = data.projects[project] || defaultProject;
     const internalName = `__task_${Object.keys(data.tasks).length}`;
-
-    data.tasks[internalName] = Task(projectObject);
+    const task = Task(projectObject);
+    data.tasks[internalName] = task;
+    return task;
   };
   // Move task
   // Remove task
