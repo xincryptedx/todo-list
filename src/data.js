@@ -51,8 +51,8 @@ const dataManager = (() => {
     uid: newUID(),
   });
 
-  const createTask = (project) => {
-    const projectObject = data.projects[project] || defaultProject;
+  const createTask = (projectName) => {
+    const projectObject = data.projects[projectName] || defaultProject;
     const internalName = `__task_${Object.keys(data.tasks).length}`;
     const task = Task(projectObject);
     data.tasks[internalName] = task;
