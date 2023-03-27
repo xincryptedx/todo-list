@@ -71,10 +71,9 @@ const dataManager = (() => {
   };
 
   const getTask = (uid) => {
-    // Change
     let foundKey;
     Object.keys(data.tasks).forEach((key) => {
-      if (data.tasks[key].uid === uid) {
+      if (key === uid) {
         foundKey = data.tasks[key];
       }
     });
