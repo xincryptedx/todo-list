@@ -83,8 +83,9 @@ const dataManager = (() => {
   };
   // Change task project
   const changeProject = (uid, destProjectInternalName) => {
+    const validatedProject = validateProject(destProjectInternalName);
     const task = getTask(uid);
-    task.project = destProjectInternalName;
+    task.project = validatedProject;
   };
   // Remove task
   // Create project
