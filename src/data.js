@@ -98,7 +98,20 @@ const dataManager = (() => {
     if (validatedProject) task.project = validatedProject;
     return task;
   };
-  // Remove task
+
+  const moveToTrash = (uid) => {
+    let objectToMove;
+
+    Object.keys(data.projects).forEach((key) => {
+      if (uid === key) objectToMove = data.projects[key];
+    });
+    Object.keys(data.tasks).forEach((key) => {
+      if (uid === key) objectToMove = data.tasks[key];
+    });
+
+    return objectToMove;
+  };
+
   // Create project
   const createProject = (name = "project", type = "userMade") => {
     const projectName = name.toString();
@@ -126,9 +139,10 @@ const dataManager = (() => {
   return {
     createTask,
     createProject,
-    getTask,
-    changeProject,
     validateProject,
+    getTask,
+    moveToTrash,
+    changeProject,
     init,
     data,
   };
