@@ -3,12 +3,27 @@ import Events from "./events";
 const dataManager = (() => {
   const data = {
     projects: {},
+    UIDs: [],
   };
 
   const TaskPriority = {
     high: 3,
     medium: 2,
     low: 1,
+  };
+
+  const newUID = () => {
+    let uid = Math.random().toString(36).substring(2, 32);
+    let isDuplicate = true;
+    while (isDuplicate) {
+      isDuplicate = false;
+      if (data.UIDs.includes(uid)) {
+        uid = Math.random().toString(36).substring(2, 32);
+        isDuplicate = true;
+      }
+    }
+    data.UIDs.push(uid);
+    return uid;
   };
 
   const Project = (projectName) => ({
@@ -23,6 +38,7 @@ const dataManager = (() => {
     dueDate: null,
     hasSubtasks: false,
     subtasks: {},
+    uid: newUID(),
   });
 
   // Create task
