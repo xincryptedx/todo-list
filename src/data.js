@@ -111,6 +111,17 @@ const dataManager = (() => {
     return task;
   };
 
+  const createProject = (name = "project", type = "userMade") => {
+    const projectName = name.toString();
+
+    const internalName = newUID();
+    const project = Project(projectName, type);
+
+    data.projects[internalName] = project;
+
+    return project;
+  };
+
   const moveToTrash = (uid) => {
     let objectToMove;
 
@@ -125,19 +136,12 @@ const dataManager = (() => {
     return objectToMove;
   };
 
-  // Create project
-  const createProject = (name = "project", type = "userMade") => {
-    const projectName = name.toString();
-
-    const internalName = newUID();
-    const project = Project(projectName, type);
-
-    data.projects[internalName] = project;
-
-    return project;
+  const emptyTrash = () => {
+    if (data.projects[defaultProjects.trash]) {
+      data.projects[defaultProjects.trash] = {};
+    }
   };
-  // Move project
-  // Remove project
+
   // Get data (also emit event with the data)
   // Set data (also emit event with the data)
   // Sub to appropriate events for getting or setting data
@@ -157,6 +161,7 @@ const dataManager = (() => {
     validateProject,
     getTask,
     moveToTrash,
+    emptyTrash,
     changeProject,
     init,
     data,
