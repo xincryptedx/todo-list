@@ -104,10 +104,10 @@ const dataManager = (() => {
     return foundKey;
   };
 
-  const changeProject = (uid, destProjectInternalName) => {
-    const validatedProject = validateProject(destProjectInternalName, false);
+  const changeProject = (uid, destProjectUID) => {
+    const validatedProject = validateProject(destProjectUID, false);
     const task = getTask(uid);
-    if (validatedProject) task.project = validatedProject;
+    if (validatedProject && task) task.project = validatedProject;
     return task;
   };
 
