@@ -70,6 +70,11 @@ const dataManager = (() => {
     return foundProjectUID;
   };
 
+  const defaultProjects = {
+    general: getDefaultProject(),
+    trash: getTrashProject(),
+  };
+
   const validateProject = (projectUID, setDefault = true) => {
     let validatedName = projectUID;
     const defaultProject = getDefaultProject();
