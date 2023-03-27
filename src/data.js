@@ -62,11 +62,14 @@ const dataManager = (() => {
     return foundProjectUID;
   };
 
-  const validateProject = (projectUID) => {
+  const validateProject = (projectUID, setDefault = true) => {
     let validatedName = projectUID;
     const defaultProject = getDefaultProject();
-    if (!data.projects[projectUID]) {
+    if (!data.projects[projectUID] && setDefault) {
       validatedName = defaultProject;
+    }
+    if (!data.projects[projectUID] && !setDefault) {
+      validatedName = undefined;
     }
     return validatedName;
   };
