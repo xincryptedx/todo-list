@@ -17,6 +17,7 @@ const dataManager = (() => {
 
     let isDuplicate = true;
     const checkDuplicates = () => {
+      // Change
       Object.values(data.tasks).forEach((task) => {
         if (task.uid === uid) {
           uid = Math.random().toString(36).substring(2, 32);
@@ -41,38 +42,37 @@ const dataManager = (() => {
 
   const Project = (projectName) => ({
     name: projectName.toString(),
-    uid: newUID(),
   });
 
-  const Task = (internalProjectName) => ({
-    project: internalProjectName,
+  const Task = (projectUID) => ({
+    project: projectUID,
     userSetName: "",
     description: "",
     priority: TaskPriority.low,
     dueDate: null,
     hasSubtasks: false,
     subtasks: {},
-    uid: newUID(),
   });
 
-  const validateProject = (internalName) => {
-    let validatedName = internalName;
-    const defaultProject = "__project_1"; // General is the default, and has the key name __project_1
-    if (!data.projects[internalName]) {
+  const validateProject = (projectUID) => {
+    let validatedName = projectUID;
+    const defaultProject = "__project_1"; // General is the default, and has the key name __project_1   // Change
+    if (!data.projects[projectUID]) {
       validatedName = defaultProject;
     }
     return validatedName;
   };
 
-  const createTask = (internalProjectName) => {
-    const validatedProject = validateProject(internalProjectName);
-    const internalName = `__task_${Object.keys(data.tasks).length}`;
+  const createTask = (projectUID) => {
+    const validatedProject = validateProject(projectUID);
+    const internalName = newUID();
     const task = Task(validatedProject);
     data.tasks[internalName] = task;
     return task;
   };
 
   const getTask = (uid) => {
+    // Change
     let foundKey;
     Object.keys(data.tasks).forEach((key) => {
       if (data.tasks[key].uid === uid) {
@@ -92,7 +92,7 @@ const dataManager = (() => {
   const createProject = (name = "project") => {
     const projectName = name.toString();
 
-    const internalName = `__project_${Object.keys(data.projects).length}`;
+    const internalName = `__project_${Object.keys(data.projects).length}`; // Change
     const project = Project(projectName);
 
     data.projects[internalName] = project;
