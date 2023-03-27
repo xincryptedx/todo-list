@@ -39,8 +39,9 @@ const dataManager = (() => {
     return uid;
   };
 
-  const Project = (projectName) => ({
+  const Project = (projectName, type = "") => ({
     name: projectName.toString(),
+    type,
   });
 
   const Task = (projectUID) => ({
@@ -87,11 +88,11 @@ const dataManager = (() => {
   };
   // Remove task
   // Create project
-  const createProject = (name = "project") => {
+  const createProject = (name = "project", type = "userMade") => {
     const projectName = name.toString();
 
     const internalName = newUID();
-    const project = Project(projectName);
+    const project = Project(projectName, type);
 
     data.projects[internalName] = project;
 
@@ -104,8 +105,8 @@ const dataManager = (() => {
   // Sub to appropriate events for getting or setting data
 
   const init = () => {
-    createProject("Trash");
-    createProject("General");
+    createProject("Trash", "trash");
+    createProject("General", "general");
   };
 
   Events.on("init", init);
