@@ -121,7 +121,7 @@ const dataManager = (() => {
       if (uid === key) objectToMove = key;
     });
 
-    changeProject(objectToMove, "trash"); // Not done yet
+    changeProject(objectToMove, defaultProjects.trash);
     return objectToMove;
   };
 
