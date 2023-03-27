@@ -57,20 +57,17 @@ const dataManager = (() => {
 
   const validateProject = (internalName) => {
     let validatedName = internalName;
-
     const defaultProject = "__project_1"; // General is the default, and has the key name __project_1
-
     if (!data.projects[internalName]) {
       validatedName = defaultProject;
     }
-
     return validatedName;
   };
 
   const createTask = (internalProjectName) => {
-    const project = validateProject(internalProjectName);
+    const validatedProject = validateProject(internalProjectName);
     const internalName = `__task_${Object.keys(data.tasks).length}`;
-    const task = Task(project);
+    const task = Task(validatedProject);
     data.tasks[internalName] = task;
     return task;
   };
