@@ -88,7 +88,7 @@ const dataManager = (() => {
     });
     return foundKey;
   };
-  // Change task project
+
   const changeProject = (uid, destProjectInternalName) => {
     const validatedProject = validateProject(destProjectInternalName);
     const task = getTask(uid);
