@@ -68,7 +68,6 @@ const dataManager = (() => {
     return task;
   };
 
-  // Get task
   const getTask = (uid) => {
     let foundKey;
     Object.keys(data.tasks).forEach((key) => {
