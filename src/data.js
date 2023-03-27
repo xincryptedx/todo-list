@@ -17,15 +17,14 @@ const dataManager = (() => {
 
     let isDuplicate = true;
     const checkDuplicates = () => {
-      // Change
       Object.values(data.tasks).forEach((task) => {
-        if (task.uid === uid) {
+        if (task === uid) {
           uid = Math.random().toString(36).substring(2, 32);
           isDuplicate = true;
         }
       });
       Object.values(data.projects).forEach((project) => {
-        if (project.uid === uid) {
+        if (project === uid) {
           uid = Math.random().toString(36).substring(2, 32);
           isDuplicate = true;
         }
