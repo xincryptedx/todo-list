@@ -54,9 +54,17 @@ const dataManager = (() => {
     subtasks: {},
   });
 
+  const getDefaultProject = () => {
+    let foundProjectUID;
+    Object.keys(data.projects).forEach((key) => {
+      if (data.projects[key].type === "general") foundProjectUID = key;
+    });
+    return foundProjectUID;
+  };
+
   const validateProject = (projectUID) => {
     let validatedName = projectUID;
-    const defaultProject = "__project_1"; // General is the default, and has the key name __project_1   // Change
+    const defaultProject = getDefaultProject();
     if (!data.projects[projectUID]) {
       validatedName = defaultProject;
     }
