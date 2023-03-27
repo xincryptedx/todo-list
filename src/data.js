@@ -71,14 +71,14 @@ const dataManager = (() => {
   };
 
   const defaultProjects = {
-    general: "",
-    trash: "",
+    generalUID: "",
+    trashUID: "",
   };
 
   const validateProject = (projectUID, setDefault = true) => {
     let validatedUID = projectUID;
     if (!data.projects[projectUID] && setDefault) {
-      validatedUID = defaultProjects.general;
+      validatedUID = defaultProjects.generalUID;
     }
     if (!data.projects[projectUID] && !setDefault) {
       validatedUID = undefined;
@@ -132,13 +132,13 @@ const dataManager = (() => {
       if (uid === key) objectToMove = key;
     });
 
-    changeProject(objectToMove, defaultProjects.trash);
+    changeProject(objectToMove, defaultProjects.trashUID);
     return objectToMove;
   };
 
   const emptyTrash = () => {
-    if (data.projects[defaultProjects.trash]) {
-      data.projects[defaultProjects.trash] = {};
+    if (data.projects[defaultProjects.trashUID]) {
+      data.projects[defaultProjects.trashUID] = {};
     }
   };
 
@@ -149,8 +149,8 @@ const dataManager = (() => {
   const init = () => {
     createProject("Trash", "trash");
     createProject("General", "general");
-    defaultProjects.general = getGeneralProject();
-    defaultProjects.trash = getTrashProject();
+    defaultProjects.generalUID = getGeneralProject();
+    defaultProjects.trashUID = getTrashProject();
   };
 
   Events.on("init", init);
