@@ -17,6 +17,23 @@ const dataManager = (() => {
     trashUID: "",
   };
 
+  const Project = (projectName, type = "") => ({
+    name: projectName.toString(),
+    type,
+    uid: "",
+  });
+
+  const Task = (projectUID) => ({
+    uid: "",
+    project: projectUID,
+    userSetName: "",
+    description: "",
+    priority: TaskPriority.low,
+    dueDate: new Date().toISOString(),
+    hasSubtasks: false,
+    subtasks: {},
+  });
+
   const newUID = () => {
     let uid = Math.random().toString(36).substring(2, 32);
 
@@ -43,23 +60,6 @@ const dataManager = (() => {
 
     return uid;
   };
-
-  const Project = (projectName, type = "") => ({
-    name: projectName.toString(),
-    type,
-    uid: "",
-  });
-
-  const Task = (projectUID) => ({
-    uid: "",
-    project: projectUID,
-    userSetName: "",
-    description: "",
-    priority: TaskPriority.low,
-    dueDate: new Date().toISOString(),
-    hasSubtasks: false,
-    subtasks: {},
-  });
 
   const getGeneralProject = () => {
     let foundProjectUID;
