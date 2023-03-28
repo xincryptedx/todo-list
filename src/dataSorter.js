@@ -22,9 +22,19 @@ const dataSorter = (() => {
     });
     return dataToSort;
   };
-  const sortDateDescending = () => {
-    // Sort logic
+
+  const sortDateDescending = (data) => {
+    // Put data in an array
+    const dataToSort = addDataToArray(data);
+    // Sort array
+    dataToSort.sort((a, b) => {
+      if (a.dueDate > b.dueDate) return -1;
+      if (a.dueDate < b.dueDate) return 1;
+      return 0;
+    });
+    return dataToSort;
   };
+
   // Sort by priority
   const sortPriority = () => {
     // Sort logic
@@ -34,6 +44,7 @@ const dataSorter = (() => {
   const filterWeek = () => {
     // Filter logic
   };
+
   // Filter only within this month
   const filterMonth = () => {
     // Filter logic
