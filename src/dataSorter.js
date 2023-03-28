@@ -1,19 +1,22 @@
 import Events from "./events";
 
 const dataSorter = (() => {
-  let sortedData = [];
+  let dataToSort = [];
 
   const addDataToArray = (data) => {
-    sortedData = [];
+    dataToSort = [];
     Object.keys(data).forEach((key) => {
-      sortedData.push(data[key]);
+      dataToSort.push(data[key]);
     });
 
-    return sortedData;
+    return dataToSort;
   };
 
-  // Sort by due date
-  // Sort by priority
+  const sort = (sortedData) => {
+    // Sort by due date
+    // Sort by priority
+  };
+
   // Filter only within this week
   // Filter only within this month
 
