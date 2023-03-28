@@ -1,9 +1,10 @@
 import Events from "./events";
 
 const dataSorter = (() => {
-  const sortedData = [];
+  let sortedData = [];
 
   const addDataToArray = (data) => {
+    sortedData = [];
     Object.keys(data).forEach((key) => {
       sortedData.push(data[key]);
     });
