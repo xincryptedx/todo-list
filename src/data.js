@@ -90,9 +90,10 @@ const dataManager = (() => {
 
   const createTask = (projectUID) => {
     const validatedProject = validateProject(projectUID);
-    const internalName = newUID();
+    const uid = newUID();
     const task = Task(validatedProject);
-    data.tasks[internalName] = task;
+    task.uid = uid;
+    data.tasks[uid] = task;
     return task;
   };
 
