@@ -12,13 +12,26 @@ const dataSorter = (() => {
     return dataToSort;
   };
 
-  const sort = (sortedData) => {
-    // Sort by due date
-    // Sort by priority
+  // Sort by due date ascending/descending
+  const sortDateAscending = () => {
+    // Sort logic
+  };
+  const sortDateDescending = () => {
+    // Sort logic
+  };
+  // Sort by priority
+  const sortPriority = () => {
+    // Sort logic
   };
 
   // Filter only within this week
+  const filterWeek = () => {
+    // Filter logic
+  };
   // Filter only within this month
+  const filterMonth = () => {
+    // Filter logic
+  };
 
   return { addDataToArray };
 })();
