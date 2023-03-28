@@ -51,7 +51,7 @@ const dataManager = (() => {
     userSetName: "",
     description: "",
     priority: TaskPriority.low,
-    dueDate: null,
+    dueDate: new Date(),
     hasSubtasks: false,
     subtasks: {},
   });
