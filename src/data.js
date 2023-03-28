@@ -1,5 +1,6 @@
 import Events from "./events";
 
+// #region data model objects
 const dataManager = (() => {
   const data = {
     projects: {},
@@ -16,7 +17,9 @@ const dataManager = (() => {
     generalUID: "",
     trashUID: "",
   };
+  // #endregion
 
+  // #region Basic Factories
   const Project = (projectName, type = "") => ({
     name: projectName.toString(),
     type,
@@ -60,7 +63,9 @@ const dataManager = (() => {
 
     return uid;
   };
+  // #endregion
 
+  // #region Project Creation and Basic Functionality
   const createProject = (name = "project", type = "userMade") => {
     const projectName = name.toString();
 
@@ -98,7 +103,9 @@ const dataManager = (() => {
     }
     return validatedUID;
   };
+  // #endregion
 
+  // #region Task Creation and Basic Functionality
   const createTask = (projectUID) => {
     const validatedProject = validateProject(projectUID);
     const uid = newUID();
@@ -118,6 +125,9 @@ const dataManager = (() => {
     return foundKey;
   };
 
+  // #endregion
+
+  // #region Composed Functionality
   const changeTaskProject = (uid, destProjectUID) => {
     const validatedProject = validateProject(destProjectUID, false);
     const task = validateTask(uid);
@@ -154,6 +164,7 @@ const dataManager = (() => {
     // set the date
     // convert and return as new ISO string
   };
+
   // Get data (also emit event with the data)
   // Set data (also emit event with the data)
   // Sub to appropriate events for getting or setting data
@@ -165,7 +176,11 @@ const dataManager = (() => {
     defaultProjects.trashUID = getTrashProject();
   };
 
+  // #endregion
+
+  // #region Events
   Events.on("init", init);
+  // #endregion
 
   return {
     createTask,
