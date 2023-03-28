@@ -127,7 +127,10 @@ const dataManager = (() => {
 
   const moveToTrash = (uid) => {
     let objectToMove;
-
+    // Change this later to just do this for each key in data
+    // This assumes, though, that the dirct children of data will always have UIDs to check
+    // Changing the data structure might introduce unneeded checks here
+    // This is similar to the checkDuplicates sub function
     Object.keys(data.projects).forEach((key) => {
       if (uid === key) objectToMove = key;
     });
