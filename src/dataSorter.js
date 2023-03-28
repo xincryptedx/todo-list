@@ -33,7 +33,14 @@ const dataSorter = (() => {
     // Filter logic
   };
 
-  return { addDataToArray };
+  return {
+    addDataToArray,
+    sortDateAscending,
+    sortDateDescending,
+    sortPriority,
+    filterWeek,
+    filterMonth,
+  };
 })();
 
 export default dataSorter;
