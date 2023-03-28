@@ -1,3 +1,4 @@
+import isValidDate from "date-fns/isValid";
 import Events from "./events";
 
 // #region data model objects
@@ -159,10 +160,18 @@ const dataManager = (() => {
   };
 
   // Set date
-  const setDueDate = (uid, newDateISO) => {
-    // convert tasks date ISO to date object
-    // set the date
-    // convert and return as new ISO string
+  const setDueDate = (uid, newDate) => {
+    // validate task
+    const task = validateTask(uid);
+    // validate date
+    let dateToSet;
+    if (isValidDate(newDate)) {
+      dateToSet = newDate;
+    }
+
+    if (task && dateToSet) {
+      task.dueDate = dateToSet.toISOString();
+    }
   };
 
   // Get data (also emit event with the data)
@@ -189,7 +198,8 @@ const dataManager = (() => {
     getTask: validateTask,
     moveToTrash,
     emptyTrash,
-    changeProject: changeTaskProject,
+    changeTaskProject,
+    setDueDate,
     init,
     data,
   };
