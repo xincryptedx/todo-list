@@ -11,6 +11,11 @@ const dataSorter = (() => {
     return sortedData;
   };
 
+  // Sort by due date
+  // Sort by priority
+  // Filter only within this week
+  // Filter only within this month
+
   return { addDataToArray };
 })();
 
