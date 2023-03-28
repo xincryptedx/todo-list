@@ -1,12 +1,17 @@
 import Events from "./events";
 
-const dataSorter = (data) => {
+const dataSorter = (() => {
   const sortedData = [];
-  Object.keys(data).forEach((key) => {
-    sortedData.push(data[key]);
-  });
 
-  return sortedData;
-};
+  const addDataToArray = (data) => {
+    Object.keys(data).forEach((key) => {
+      sortedData.push(data[key]);
+    });
+
+    return sortedData;
+  };
+
+  return { addDataToArray };
+})();
 
 export default dataSorter;
