@@ -12,6 +12,11 @@ const dataManager = (() => {
     low: 1,
   };
 
+  const defaultProjects = {
+    generalUID: "",
+    trashUID: "",
+  };
+
   const newUID = () => {
     let uid = Math.random().toString(36).substring(2, 32);
 
@@ -70,11 +75,6 @@ const dataManager = (() => {
       if (data.projects[key].type === "trash") foundProjectUID = key;
     });
     return foundProjectUID;
-  };
-
-  const defaultProjects = {
-    generalUID: "",
-    trashUID: "",
   };
 
   const validateProject = (projectUID, setDefault = true) => {
