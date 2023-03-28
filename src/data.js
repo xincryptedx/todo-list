@@ -160,11 +160,9 @@ const dataManager = (() => {
     }
   };
 
-  // Set date
   const setDueDate = (uid, newDate) => {
-    // validate task
     const task = validateTask(uid);
-    // validate date
+
     let dateToSet;
     if (isValidDate(newDate) && isFuture(newDate)) {
       dateToSet = newDate;
@@ -173,6 +171,7 @@ const dataManager = (() => {
     if (task && dateToSet) {
       task.dueDate = dateToSet.toISOString();
     }
+
     return task;
   };
 
