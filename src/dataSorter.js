@@ -2,16 +2,19 @@ import Events from "./events";
 
 const dataSorter = (() => {
   const addDataToArray = (data) => {
+    if (!data) return undefined;
     const dataToSort = [];
-    Object.keys(data).forEach((key) => {
-      dataToSort.push(data[key]);
-    });
-
+    if (Object.keys(data)) {
+      Object.keys(data).forEach((key) => {
+        dataToSort.push(data[key]);
+      });
+    }
     return dataToSort;
   };
 
   // Sort by due date ascending/descending
   const sortDateAscending = (data) => {
+    if (!data) return undefined;
     // Put data in an array
     const dataToSort = addDataToArray(data);
     // Sort array
