@@ -117,10 +117,10 @@ const dataManager = (() => {
   const createProject = (name = "project", type = "userMade") => {
     const projectName = name.toString();
 
-    const internalName = newUID();
+    const uid = newUID();
     const project = Project(projectName, type);
-
-    data.projects[internalName] = project;
+    project.uid = uid;
+    data.projects[uid] = project;
 
     return project;
   };
