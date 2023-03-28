@@ -118,7 +118,7 @@ const dataManager = (() => {
     return foundKey;
   };
 
-  const changeProject = (uid, destProjectUID) => {
+  const changeTaskProject = (uid, destProjectUID) => {
     const validatedProject = validateProject(destProjectUID, false);
     const task = validateTask(uid);
     if (validatedProject && task) task.project = validatedProject;
@@ -135,7 +135,7 @@ const dataManager = (() => {
       if (uid === key) objectToMove = key;
     });
 
-    changeProject(objectToMove, defaultProjects.trashUID);
+    changeTaskProject(objectToMove, defaultProjects.trashUID);
     return objectToMove;
   };
 
@@ -171,7 +171,7 @@ const dataManager = (() => {
     getTask: validateTask,
     moveToTrash,
     emptyTrash,
-    changeProject,
+    changeProject: changeTaskProject,
     init,
     data,
   };
