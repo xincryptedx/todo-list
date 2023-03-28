@@ -42,9 +42,11 @@ const dataManager = (() => {
   const Project = (projectName, type = "") => ({
     name: projectName.toString(),
     type,
+    uid: "",
   });
 
   const Task = (projectUID) => ({
+    uid: "",
     project: projectUID,
     userSetName: "",
     description: "",
