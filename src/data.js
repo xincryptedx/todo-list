@@ -97,7 +97,7 @@ const dataManager = (() => {
     return task;
   };
 
-  const getTask = (uid) => {
+  const validateTask = (uid) => {
     let foundKey;
     Object.keys(data.tasks).forEach((key) => {
       if (key === uid) {
@@ -109,7 +109,7 @@ const dataManager = (() => {
 
   const changeProject = (uid, destProjectUID) => {
     const validatedProject = validateProject(destProjectUID, false);
-    const task = getTask(uid);
+    const task = validateTask(uid);
     if (validatedProject && task) task.project = validatedProject;
     return task;
   };
@@ -168,7 +168,7 @@ const dataManager = (() => {
     createTask,
     createProject,
     validateProject,
-    getTask,
+    getTask: validateTask,
     moveToTrash,
     emptyTrash,
     changeProject,
