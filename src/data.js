@@ -61,6 +61,17 @@ const dataManager = (() => {
     return uid;
   };
 
+  const createProject = (name = "project", type = "userMade") => {
+    const projectName = name.toString();
+
+    const uid = newUID();
+    const project = Project(projectName, type);
+    project.uid = uid;
+    data.projects[uid] = project;
+
+    return project;
+  };
+
   const getGeneralProject = () => {
     let foundProjectUID;
     Object.keys(data.projects).forEach((key) => {
@@ -112,17 +123,6 @@ const dataManager = (() => {
     const task = validateTask(uid);
     if (validatedProject && task) task.project = validatedProject;
     return task;
-  };
-
-  const createProject = (name = "project", type = "userMade") => {
-    const projectName = name.toString();
-
-    const uid = newUID();
-    const project = Project(projectName, type);
-    project.uid = uid;
-    data.projects[uid] = project;
-
-    return project;
   };
 
   const moveToTrash = (uid) => {
