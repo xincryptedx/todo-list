@@ -1,4 +1,5 @@
 import isValidDate from "date-fns/isValid";
+import isFuture from "date-fns/isFuture";
 import Events from "./events";
 
 // #region data model objects
@@ -165,13 +166,14 @@ const dataManager = (() => {
     const task = validateTask(uid);
     // validate date
     let dateToSet;
-    if (isValidDate(newDate)) {
+    if (isValidDate(newDate) && isFuture(newDate)) {
       dateToSet = newDate;
     }
 
     if (task && dateToSet) {
       task.dueDate = dateToSet.toISOString();
     }
+    return task;
   };
 
   // Get data (also emit event with the data)
