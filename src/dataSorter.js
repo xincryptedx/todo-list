@@ -11,8 +11,16 @@ const dataSorter = (() => {
   };
 
   // Sort by due date ascending/descending
-  const sortDateAscending = () => {
-    // Sort logic
+  const sortDateAscending = (data) => {
+    // Put data in an array
+    const dataToSort = addDataToArray(data);
+    // Sort array
+    dataToSort.sort((a, b) => {
+      if (a.dueDate > b.dueDate) return 1;
+      if (a.dueDate < b.dueDate) return -1;
+      return 0;
+    });
+    return dataToSort;
   };
   const sortDateDescending = () => {
     // Sort logic
