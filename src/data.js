@@ -51,7 +51,7 @@ const dataManager = (() => {
     userSetName: "",
     description: "",
     priority: TaskPriority.low,
-    dueDate: new Date(),
+    dueDate: new Date().toISOString(),
     hasSubtasks: false,
     subtasks: {},
   });
@@ -145,6 +145,12 @@ const dataManager = (() => {
     }
   };
 
+  // Set date
+  const setDueDate = (uid, newDateISO) => {
+    // convert tasks date ISO to date object
+    // set the date
+    // convert and return as new ISO string
+  };
   // Get data (also emit event with the data)
   // Set data (also emit event with the data)
   // Sub to appropriate events for getting or setting data
