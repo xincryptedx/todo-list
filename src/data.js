@@ -203,8 +203,17 @@ const dataManager = (() => {
     return task;
   };
 
-  const setTaskName = (uid, newTitle) => {
+  const setTaskName = (uid, name) => {
     const task = validateTask(uid);
+    if (!task) return undefined;
+
+    let newName;
+    if (name) newName = name.toString();
+    else return undefined;
+
+    task.userSetName = newName;
+
+    return task;
   };
 
   const init = () => {
