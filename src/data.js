@@ -114,7 +114,7 @@ const dataManager = (() => {
     const project = validateProject(projectUID, true);
     const uid = newUID();
     let userSetName = "";
-    const description = "";
+    let description = "";
     const priority = TaskPriority.low;
     const dueDate = new Date().toISOString();
     const hasSubtasks = false;
@@ -133,7 +133,7 @@ const dataManager = (() => {
         return description;
       },
       set description(newDesc) {
-        // Stuff
+        if (newDesc) description = newDesc.toString();
       },
       get priority() {
         return priority;
