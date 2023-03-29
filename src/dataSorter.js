@@ -39,8 +39,28 @@ const dataSorter = (() => {
   };
 
   // Sort by priority
-  const sortPriority = () => {
-    // Sort logic
+  const sortPriorityAscending = (data) => {
+    // Put data in an array
+    const dataToSort = addDataToArray(data);
+    // Sort array
+    dataToSort.sort((a, b) => {
+      if (a.priority > b.priority) return -1;
+      if (a.priority < b.priority) return 1;
+      return 0;
+    });
+    return dataToSort;
+  };
+
+  const sortPriorityDescending = (data) => {
+    // Put data in an array
+    const dataToSort = addDataToArray(data);
+    // Sort array
+    dataToSort.sort((a, b) => {
+      if (a.priority > b.priority) return -1;
+      if (a.priority < b.priority) return 1;
+      return 0;
+    });
+    return dataToSort;
   };
 
   // Filter only within this week
@@ -57,7 +77,8 @@ const dataSorter = (() => {
     addDataToArray,
     sortDateAscending,
     sortDateDescending,
-    sortPriority,
+    sortPriorityAscending,
+    sortPriorityDescending,
     filterWeek,
     filterMonth,
   };
