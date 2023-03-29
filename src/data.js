@@ -23,7 +23,7 @@ const dataManager = (() => {
 
   // #region Basic Factories
   const Project = (projectName, type = "") => ({
-    name: projectName,
+    userSetName: projectName,
     type,
     uid: "",
   });
@@ -202,9 +202,10 @@ const dataManager = (() => {
 
     return task;
   };
-  // Get data
-  // Set data
-  // Sub to appropriate events for getting or setting data
+
+  const setName = (uid, newTitle) => {
+    // Set userSetName to newTitle after validation
+  };
 
   const init = () => {
     createProject("Trash", "trash");
