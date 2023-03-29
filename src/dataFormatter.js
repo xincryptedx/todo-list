@@ -1,4 +1,5 @@
 import isThisWeek from "date-fns/isThisWeek";
+import isThisMonth from "date-fns/isThisMonth";
 import Events from "./events";
 
 const dataSorter = (() => {
@@ -72,13 +73,31 @@ const dataSorter = (() => {
   };
 
   // Filter only within this week
-  const filterWeek = () => {
-    // Filter logic
+  const filterWeek = (data) => {
+    // Put data in an array
+    const dataToFilter = addDataToArray(data);
+
+    const filteredData = dataToFilter.filter((task) => {
+      const date = new Date(task.dueDate);
+      if (isThisWeek(date)) return true;
+      return false;
+    });
+
+    return filteredData;
   };
 
   // Filter only within this month
-  const filterMonth = () => {
-    // Filter logic
+  const filterMonth = (data) => {
+    // Put data in an array
+    const dataToFilter = addDataToArray(data);
+
+    const filteredData = dataToFilter.filter((task) => {
+      const date = new Date(task.dueDate);
+      if (isThisMonth(date)) return true;
+      return false;
+    });
+
+    return filteredData;
   };
 
   return {
