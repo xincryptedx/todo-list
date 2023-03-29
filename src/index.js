@@ -1,8 +1,8 @@
 import "./style.css";
 import Events from "./events";
 import DataManager from "./data";
-import DataSorter from "./dataSorter";
+import DataFormatter from "./dataFormatter";
 
 window.dataManager = DataManager;
-window.dataSorter = DataSorter;
+window.dataFormatter = DataFormatter;
 Events.emit("init");
