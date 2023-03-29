@@ -115,7 +115,7 @@ const dataManager = (() => {
     const uid = newUID();
     let userSetName = "";
     let description = "";
-    const priority = TaskPriority.low;
+    let priority = TaskPriority.low;
     let dueDate = new Date().toISOString();
     const hasSubtasks = false;
     const checked = false;
@@ -145,7 +145,9 @@ const dataManager = (() => {
         return priority;
       },
       set priority(newPriority) {
-        // Stuff
+        if (Object.values(TaskPriority).includes(newPriority)) {
+          priority = newPriority;
+        }
       },
       get dueDate() {
         return dueDate;
@@ -279,7 +281,7 @@ const dataManager = (() => {
     return task;
   }; */
 
-  const setPriority = (uid, priority) => {
+  /*   const setPriority = (uid, priority) => {
     const task = validateTask(uid);
     if (!task) return undefined;
     if (Object.values(TaskPriority).includes(priority)) {
@@ -287,7 +289,7 @@ const dataManager = (() => {
     } else return undefined;
 
     return task;
-  };
+  }; */
 
   const toggleTaskChecked = (uid) => {
     const task = validateTask(uid);
@@ -328,7 +330,6 @@ const dataManager = (() => {
     validateTask,
     moveToTrash,
     emptyTrash,
-    setPriority,
     toggleTaskChecked,
     toggleHasSubtasks,
     init,
