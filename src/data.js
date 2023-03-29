@@ -207,28 +207,23 @@ const dataManager = (() => {
   // #endregion
 
   // #region Composed Functionality
-  const changeTaskProject = (uid, destProjectUID) => {
+  /*   const changeTaskProject = (uid, destProjectUID) => {
     const validatedProject = validateProject(destProjectUID, false);
     const task = validateTask(uid);
     if (validatedProject && task) task.project = validatedProject;
     return task;
-  };
+  }; */
 
   const moveToTrash = (uid) => {
-    let objectToMove;
-    // Change this later to just do this for each key in data
-    // This assumes, though, that the dirct children of data will always have UIDs to check
-    // Changing the data structure might introduce unneeded checks here
-    // This is similar to the checkDuplicates sub function
-    Object.keys(data.projects).forEach((key) => {
-      if (uid === key) objectToMove = key;
-    });
+    let taskToMove;
+
     Object.keys(data.tasks).forEach((key) => {
-      if (uid === key) objectToMove = key;
+      if (uid === key) taskToMove = data.tasks[key];
     });
 
-    changeTaskProject(objectToMove, defaultProjects.trashUID);
-    return objectToMove;
+    if (taskToMove) taskToMove.project = defaultProjects.trashUID;
+
+    return taskToMove;
   };
 
   const emptyTrash = () => {
@@ -329,7 +324,6 @@ const dataManager = (() => {
     validateTask,
     moveToTrash,
     emptyTrash,
-    changeTaskProject,
     setDueDate,
     setPriority,
     toggleTaskChecked,
