@@ -40,6 +40,14 @@ const dataManager = (() => {
     checked: false,
   });
 
+  const SubTask = (taskUID) => ({
+    uid: "",
+    task: taskUID,
+    description: "",
+    index: 0,
+    checked: false,
+  });
+
   const newUID = () => {
     let uid = Math.random().toString(36).substring(2, 32);
 
