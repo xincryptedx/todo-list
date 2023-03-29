@@ -186,6 +186,14 @@ const dataManager = (() => {
     return task;
   };
 
+  const toggleChecked = (uid) => {
+    const task = validateTask(uid);
+    if (!task) return undefined;
+
+    task.checked = !task.checked;
+
+    return task;
+  };
   // Get data
   // Set data
   // Sub to appropriate events for getting or setting data
@@ -213,6 +221,7 @@ const dataManager = (() => {
     changeTaskProject,
     setDueDate,
     setPriority,
+    toggleChecked,
     init,
     data,
   };
