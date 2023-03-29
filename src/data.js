@@ -169,6 +169,32 @@ const dataManager = (() => {
     });
   };
 
+  const setTaskName = (uid, name) => {
+    const task = validateTask(uid);
+    if (!task) return undefined;
+
+    let newName;
+    if (name) newName = name.toString();
+    else return undefined;
+
+    task.userSetName = newName;
+
+    return task;
+  };
+
+  const setTaskDescription = (uid, desc) => {
+    const task = validateTask(uid);
+    if (!task) return undefined;
+
+    let newDesc;
+    if (desc) newDesc = desc.toString();
+    else return undefined;
+
+    task.description = newDesc;
+
+    return task;
+  };
+
   const setDueDate = (uid, newDate) => {
     const task = validateTask(uid);
 
@@ -199,32 +225,6 @@ const dataManager = (() => {
     if (!task) return undefined;
 
     task.checked = !task.checked;
-
-    return task;
-  };
-
-  const setTaskName = (uid, name) => {
-    const task = validateTask(uid);
-    if (!task) return undefined;
-
-    let newName;
-    if (name) newName = name.toString();
-    else return undefined;
-
-    task.userSetName = newName;
-
-    return task;
-  };
-
-  const setTaskDescription = (uid, desc) => {
-    const task = validateTask(uid);
-    if (!task) return undefined;
-
-    let newDesc;
-    if (desc) newDesc = desc.toString();
-    else return undefined;
-
-    task.description = newDesc;
 
     return task;
   };
