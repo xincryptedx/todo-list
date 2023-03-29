@@ -175,6 +175,16 @@ const dataManager = (() => {
     return task;
   };
 
+  const setPriority = (uid, priority) => {
+    const task = validateTask(uid);
+    if (!task) return undefined;
+    if (Object.values(TaskPriority).includes(priority)) {
+      task.priority = priority;
+    } else return undefined;
+
+    return task;
+  };
+
   // Get data (also emit event with the data)
   // Set data (also emit event with the data)
   // Sub to appropriate events for getting or setting data
@@ -196,11 +206,12 @@ const dataManager = (() => {
     createTask,
     createProject,
     validateProject,
-    getTask: validateTask,
+    validateTask,
     moveToTrash,
     emptyTrash,
     changeTaskProject,
     setDueDate,
+    setPriority,
     init,
     data,
   };
