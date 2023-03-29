@@ -69,11 +69,17 @@ const dataManager = (() => {
   // #endregion
 
   // #region Project Creation and Basic Functionality
-  const createProject = (name = "project", type = "userMade") => {
-    const projectName = name.toString();
+  const createProject = (name, type) => {
+    let projectName;
+    if (projectName) projectName = name.toString();
+    else projectName = "project";
+
+    let projectType;
+    if (projectType) projectType = type;
+    else projectType = "userMade";
 
     const uid = newUID();
-    const project = Project(projectName, type);
+    const project = Project(projectName, projectType);
     project.uid = uid;
     data.projects[uid] = project;
 
