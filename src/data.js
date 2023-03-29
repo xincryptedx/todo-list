@@ -23,7 +23,7 @@ const dataManager = (() => {
 
   // #region Basic Factories
   const Project = (projectName, type = "") => ({
-    name: projectName.toString(),
+    name: projectName,
     type,
     uid: "",
   });
