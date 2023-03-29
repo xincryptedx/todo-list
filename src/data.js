@@ -37,6 +37,7 @@ const dataManager = (() => {
     dueDate: new Date().toISOString(),
     hasSubtasks: false,
     subtasks: {},
+    checked: false,
   });
 
   const newUID = () => {
@@ -185,8 +186,8 @@ const dataManager = (() => {
     return task;
   };
 
-  // Get data (also emit event with the data)
-  // Set data (also emit event with the data)
+  // Get data
+  // Set data
   // Sub to appropriate events for getting or setting data
 
   const init = () => {
