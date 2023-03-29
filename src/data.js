@@ -264,7 +264,7 @@ const dataManager = (() => {
     return task;
   }; */
 
-  const setDueDate = (uid, newDate) => {
+  /*   const setDueDate = (uid, newDate) => {
     const task = validateTask(uid);
 
     let dateToSet;
@@ -277,7 +277,7 @@ const dataManager = (() => {
     }
 
     return task;
-  };
+  }; */
 
   const setPriority = (uid, priority) => {
     const task = validateTask(uid);
@@ -328,7 +328,6 @@ const dataManager = (() => {
     validateTask,
     moveToTrash,
     emptyTrash,
-    setDueDate,
     setPriority,
     toggleTaskChecked,
     toggleHasSubtasks,
