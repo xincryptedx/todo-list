@@ -173,13 +173,13 @@ const dataManager = (() => {
   };
 
   const validateTask = (uid) => {
-    let foundKey;
+    let validatedUID;
     Object.keys(data.tasks).forEach((key) => {
       if (key === uid) {
-        foundKey = data.tasks[key];
+        validatedUID = data.tasks[key];
       }
     });
-    return foundKey;
+    return validatedUID;
   };
 
   // #endregion
