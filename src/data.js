@@ -216,6 +216,19 @@ const dataManager = (() => {
     return task;
   };
 
+  const setTaskDescription = (uid, desc) => {
+    const task = validateTask(uid);
+    if (!task) return undefined;
+
+    let newDesc;
+    if (desc) newDesc = desc.toString();
+    else return undefined;
+
+    task.description = newDesc;
+
+    return task;
+  };
+
   const init = () => {
     createProject("Trash", "trash");
     createProject("General", "general");
@@ -241,6 +254,7 @@ const dataManager = (() => {
     setPriority,
     toggleChecked,
     setTaskName,
+    setTaskDescription,
     init,
     data,
   };
