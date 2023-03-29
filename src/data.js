@@ -2,8 +2,8 @@ import isValidDate from "date-fns/isValid";
 import isFuture from "date-fns/isFuture";
 import Events from "./events";
 
-// #region data model objects
 const dataManager = (() => {
+  // #region data model objects
   const data = {
     projects: {},
     tasks: {},
@@ -22,7 +22,7 @@ const dataManager = (() => {
   };
   // #endregion
 
-  // #region Factories
+  // #region General Use Factories
   const newUID = () => {
     let uid = Math.random().toString(36).substring(2, 32);
 
@@ -49,13 +49,45 @@ const dataManager = (() => {
 
     return uid;
   };
+  // #endregion
 
+  // #region Project Factory, Initialization Helpers, and Validation
   const Project = (projectName, type = "") => ({
     userSetName: projectName,
     type,
     uid: "",
   });
 
+  const getGeneralProject = () => {
+    let foundProjectUID;
+    Object.keys(data.projects).forEach((key) => {
+      if (data.projects[key].type === "general") foundProjectUID = key;
+    });
+    return foundProjectUID;
+  };
+
+  const getTrashProject = () => {
+    let foundProjectUID;
+    Object.keys(data.projects).forEach((key) => {
+      if (data.projects[key].type === "trash") foundProjectUID = key;
+    });
+    return foundProjectUID;
+  };
+
+  const validateProject = (projectUID, setDefault = true) => {
+    let validatedUID = projectUID;
+    if (!data.projects[projectUID] && setDefault) {
+      validatedUID = defaultProjects.generalUID;
+    }
+    if (!data.projects[projectUID] && !setDefault) {
+      validatedUID = undefined;
+    }
+    return validatedUID;
+  };
+
+  // #endregion
+
+  // #region Task Factory and Validation
   const Task = (projectUID) => ({
     uid: "",
     project: projectUID,
@@ -77,6 +109,9 @@ const dataManager = (() => {
     return foundKey;
   };
 
+  // #endregion
+
+  // #region Subtask Factory
   const createSubtask = (taskUID) => {
     const validatedTask = validateTask(taskUID);
     if (!validatedTask) return undefined;
@@ -116,32 +151,6 @@ const dataManager = (() => {
     return project;
   };
 
-  const getGeneralProject = () => {
-    let foundProjectUID;
-    Object.keys(data.projects).forEach((key) => {
-      if (data.projects[key].type === "general") foundProjectUID = key;
-    });
-    return foundProjectUID;
-  };
-
-  const getTrashProject = () => {
-    let foundProjectUID;
-    Object.keys(data.projects).forEach((key) => {
-      if (data.projects[key].type === "trash") foundProjectUID = key;
-    });
-    return foundProjectUID;
-  };
-
-  const validateProject = (projectUID, setDefault = true) => {
-    let validatedUID = projectUID;
-    if (!data.projects[projectUID] && setDefault) {
-      validatedUID = defaultProjects.generalUID;
-    }
-    if (!data.projects[projectUID] && !setDefault) {
-      validatedUID = undefined;
-    }
-    return validatedUID;
-  };
   // #endregion
 
   // #region Task Creation and Basic Functionality
@@ -153,10 +162,6 @@ const dataManager = (() => {
     data.tasks[uid] = task;
     return task;
   };
-
-  // #endregion
-
-  // #region Subtask Creation and Basic Functionality
 
   // #endregion
 
