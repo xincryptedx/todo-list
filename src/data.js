@@ -52,11 +52,23 @@ const dataManager = (() => {
   // #endregion
 
   // #region Project Factory, Initialization Helpers, and Validation
-  const Project = (projectName, type = "") => ({
-    userSetName: projectName,
-    type,
-    uid: "",
-  });
+  const createProject = (name, type) => {
+    let userSetName;
+    if (name) userSetName = name.toString();
+    else userSetName = "project";
+
+    let projectType;
+    if (type) projectType = type.toString();
+    else projectType = "userMade";
+
+    const uid = newUID();
+
+    const project = { uid, userSetName, projectType };
+
+    data.projects[uid] = project;
+
+    return project;
+  };
 
   const getGeneralProject = () => {
     let foundProjectUID;
@@ -129,26 +141,6 @@ const dataManager = (() => {
       getIndex: () => index,
       getChecked: () => checked,
     };
-  };
-
-  // #endregion
-
-  // #region Project Creation and Basic Functionality
-  const createProject = (name, type) => {
-    let projectName;
-    if (name) projectName = name.toString();
-    else projectName = "project";
-
-    let projectType;
-    if (type) projectType = type.toString();
-    else projectType = "userMade";
-
-    const uid = newUID();
-    const project = Project(projectName, projectType);
-    project.uid = uid;
-    data.projects[uid] = project;
-
-    return project;
   };
 
   // #endregion
