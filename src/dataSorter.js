@@ -1,3 +1,4 @@
+import isThisWeek from "date-fns/isThisWeek";
 import Events from "./events";
 
 const dataSorter = (() => {
@@ -14,13 +15,16 @@ const dataSorter = (() => {
 
   // Sort by due date ascending/descending
   const sortDateAscending = (data) => {
-    if (!data) return undefined;
     // Put data in an array
     const dataToSort = addDataToArray(data);
     // Sort array
     dataToSort.sort((a, b) => {
-      if (a.dueDate > b.dueDate) return 1;
-      if (a.dueDate < b.dueDate) return -1;
+      let aDate;
+      let bDate;
+      if (a.dueDate) aDate = new Date(a.dueDate);
+      if (b.dueDate) bDate = new Date(b.dueDate);
+      if (aDate.getTime() > bDate.getTime()) return 1;
+      if (aDate.getTime() < bDate.getTime()) return -1;
       return 0;
     });
     return dataToSort;
@@ -31,8 +35,12 @@ const dataSorter = (() => {
     const dataToSort = addDataToArray(data);
     // Sort array
     dataToSort.sort((a, b) => {
-      if (a.dueDate > b.dueDate) return -1;
-      if (a.dueDate < b.dueDate) return 1;
+      let aDate;
+      let bDate;
+      if (a.dueDate) aDate = new Date(a.dueDate);
+      if (b.dueDate) bDate = new Date(b.dueDate);
+      if (aDate.getTime() > bDate.getTime()) return -1;
+      if (aDate.getTime() < bDate.getTime()) return 1;
       return 0;
     });
     return dataToSort;
