@@ -116,7 +116,7 @@ const dataManager = (() => {
     let userSetName = "";
     let description = "";
     const priority = TaskPriority.low;
-    const dueDate = new Date().toISOString();
+    let dueDate = new Date().toISOString();
     const hasSubtasks = false;
     const checked = false;
 
@@ -150,8 +150,12 @@ const dataManager = (() => {
       get dueDate() {
         return dueDate;
       },
-      set dueDate(newDate) {
-        // Stuff
+      set dueDate(newDateISO) {
+        if (!newDateISO) return;
+        const newDate = new Date(newDateISO.toString());
+        if (isValidDate(newDate) && isFuture(newDate)) {
+          dueDate = newDate.toISOString();
+        }
       },
       get hasSubtasks() {
         return hasSubtasks;
