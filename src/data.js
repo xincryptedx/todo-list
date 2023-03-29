@@ -203,8 +203,8 @@ const dataManager = (() => {
     return task;
   };
 
-  const setName = (uid, newTitle) => {
-    // Set userSetName to newTitle after validation
+  const setTaskName = (uid, newTitle) => {
+    const task = validateTask(uid);
   };
 
   const init = () => {
@@ -231,6 +231,7 @@ const dataManager = (() => {
     setDueDate,
     setPriority,
     toggleChecked,
+    setTaskName,
     init,
     data,
   };
