@@ -63,7 +63,17 @@ const dataManager = (() => {
 
     const uid = newUID();
 
-    const project = { uid, userSetName, projectType };
+    const project = {
+      get uid() {
+        return uid;
+      },
+      get userSetName() {
+        return userSetName;
+      },
+      get projectType() {
+        return projectType;
+      },
+    };
 
     data.projects[uid] = project;
 
