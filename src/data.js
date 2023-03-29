@@ -52,14 +52,14 @@ const dataManager = (() => {
   // #endregion
 
   // #region Project Factory, Initialization Helpers, and Validation
-  const createProject = (name, type) => {
+  const createProject = (projectName, projectType) => {
     let userSetName;
-    if (name) userSetName = name.toString();
+    if (projectName) userSetName = projectName.toString();
     else userSetName = "project";
 
-    let projectType;
-    if (type) projectType = type.toString();
-    else projectType = "userMade";
+    let type;
+    if (projectType) type = projectType.toString();
+    else type = "userMade";
 
     const uid = newUID();
 
@@ -70,8 +70,8 @@ const dataManager = (() => {
       get userSetName() {
         return userSetName;
       },
-      get projectType() {
-        return projectType;
+      get type() {
+        return type;
       },
     };
 
