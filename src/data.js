@@ -111,7 +111,7 @@ const dataManager = (() => {
 
   // #region Task Factory and Validation
   const createTask = (projectUID) => {
-    const project = validateProject(projectUID, true);
+    let project = validateProject(projectUID, true);
     const uid = newUID();
     let userSetName = "";
     let description = "";
@@ -121,7 +121,13 @@ const dataManager = (() => {
     const checked = false;
 
     const task = {
-      project,
+      get project() {
+        return project;
+      },
+      set project(newProjectUID) {
+        const validatedUID = validateProject(newProjectUID, false);
+        if (validatedUID) project = validatedUID;
+      },
       uid,
       get userSetName() {
         return userSetName;
@@ -246,7 +252,7 @@ const dataManager = (() => {
     return task;
   }; */
 
-  const setTaskDescription = (uid, desc) => {
+  /*   const setTaskDescription = (uid, desc) => {
     const task = validateTask(uid);
     if (!task) return undefined;
 
@@ -257,7 +263,7 @@ const dataManager = (() => {
     task.description = newDesc;
 
     return task;
-  };
+  }; */
 
   const setDueDate = (uid, newDate) => {
     const task = validateTask(uid);
@@ -328,7 +334,6 @@ const dataManager = (() => {
     setPriority,
     toggleTaskChecked,
     toggleHasSubtasks,
-    setTaskDescription,
     init,
     data,
   };
