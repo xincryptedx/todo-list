@@ -220,7 +220,7 @@ const dataManager = (() => {
     return task;
   };
 
-  const toggleChecked = (uid) => {
+  const toggleTaskChecked = (uid) => {
     const task = validateTask(uid);
     if (!task) return undefined;
 
@@ -252,7 +252,7 @@ const dataManager = (() => {
     changeTaskProject,
     setDueDate,
     setPriority,
-    toggleChecked,
+    toggleTaskChecked,
     setTaskName,
     setTaskDescription,
     init,
