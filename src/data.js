@@ -110,17 +110,6 @@ const dataManager = (() => {
   // #endregion
 
   // #region Task Factory and Validation
-  const Task = (projectUID) => ({
-    uid: "",
-    project: projectUID,
-    userSetName: "",
-    description: "",
-    priority: TaskPriority.low,
-    dueDate: new Date().toISOString(),
-    hasSubtasks: false,
-    checked: false,
-  });
-
   const createTask = (projectUID) => {
     const project = validateProject(projectUID, true);
     const uid = newUID();
