@@ -44,8 +44,8 @@ const dataSorter = (() => {
     const dataToSort = addDataToArray(data);
     // Sort array
     dataToSort.sort((a, b) => {
-      if (a.priority > b.priority) return -1;
-      if (a.priority < b.priority) return 1;
+      if (a.priority > b.priority) return 1;
+      if (a.priority < b.priority) return -1;
       return 0;
     });
     return dataToSort;
