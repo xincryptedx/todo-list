@@ -229,6 +229,15 @@ const dataManager = (() => {
     return task;
   };
 
+  const toggleHasSubtasks = (uid) => {
+    const task = validateTask(uid);
+    if (!task) return undefined;
+
+    task.hasSubtasks = !task.hasSubtasks;
+
+    return task;
+  };
+
   const init = () => {
     createProject("Trash", "trash");
     createProject("General", "general");
@@ -253,6 +262,7 @@ const dataManager = (() => {
     setDueDate,
     setPriority,
     toggleTaskChecked,
+    toggleHasSubtasks,
     setTaskName,
     setTaskDescription,
     init,
