@@ -7,6 +7,7 @@ const dataManager = (() => {
   const data = {
     projects: {},
     tasks: {},
+    subtasks: {},
   };
 
   const TaskPriority = {
@@ -36,17 +37,27 @@ const dataManager = (() => {
     priority: TaskPriority.low,
     dueDate: new Date().toISOString(),
     hasSubtasks: false,
-    subtasks: {},
     checked: false,
   });
 
-  const SubTask = (taskUID) => ({
-    uid: "",
-    task: taskUID,
-    description: "",
-    index: 0,
-    checked: false,
-  });
+  const createSubtask = (taskUID) => {
+    const validatedTask = validateTask(taskUID);
+    if (!validatedTask) return undefined;
+
+    const uid = newUID();
+    const task = taskUID;
+    const description = "";
+    const index = Object.keys(data.subtasks).length;
+    const checked = false;
+
+    return {
+      getUID: () => uid,
+      getTask: () => task,
+      getDescription: () => description,
+      getIndex: () => index,
+      getChecked: () => checked,
+    };
+  };
 
   const newUID = () => {
     let uid = Math.random().toString(36).substring(2, 32);
@@ -141,6 +152,10 @@ const dataManager = (() => {
     });
     return foundKey;
   };
+
+  // #endregion
+
+  // #region Subtask Creation and Basic Functionality
 
   // #endregion
 
@@ -261,6 +276,7 @@ const dataManager = (() => {
 
   return {
     createTask,
+    createSubtask,
     createProject,
     validateProject,
     validateTask,
