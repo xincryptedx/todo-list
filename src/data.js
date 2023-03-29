@@ -71,11 +71,11 @@ const dataManager = (() => {
   // #region Project Creation and Basic Functionality
   const createProject = (name, type) => {
     let projectName;
-    if (projectName) projectName = name.toString();
+    if (name) projectName = name.toString();
     else projectName = "project";
 
     let projectType;
-    if (projectType) projectType = type;
+    if (type) projectType = type.toString();
     else projectType = "userMade";
 
     const uid = newUID();
@@ -162,9 +162,11 @@ const dataManager = (() => {
   };
 
   const emptyTrash = () => {
-    if (data.projects[defaultProjects.trashUID]) {
-      data.projects[defaultProjects.trashUID] = {};
-    }
+    Object.keys(data.tasks).forEach((key) => {
+      if (data.tasks[key].project === defaultProjects.trashUID) {
+        delete data.tasks[key];
+      }
+    });
   };
 
   const setDueDate = (uid, newDate) => {
