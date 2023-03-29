@@ -22,43 +22,7 @@ const dataManager = (() => {
   };
   // #endregion
 
-  // #region Basic Factories
-  const Project = (projectName, type = "") => ({
-    userSetName: projectName,
-    type,
-    uid: "",
-  });
-
-  const Task = (projectUID) => ({
-    uid: "",
-    project: projectUID,
-    userSetName: "",
-    description: "",
-    priority: TaskPriority.low,
-    dueDate: new Date().toISOString(),
-    hasSubtasks: false,
-    checked: false,
-  });
-
-  const createSubtask = (taskUID) => {
-    const validatedTask = validateTask(taskUID);
-    if (!validatedTask) return undefined;
-
-    const uid = newUID();
-    const task = taskUID;
-    const description = "";
-    const index = Object.keys(data.subtasks).length;
-    const checked = false;
-
-    return {
-      getUID: () => uid,
-      getTask: () => task,
-      getDescription: () => description,
-      getIndex: () => index,
-      getChecked: () => checked,
-    };
-  };
-
+  // #region Factories
   const newUID = () => {
     let uid = Math.random().toString(36).substring(2, 32);
 
@@ -85,6 +49,53 @@ const dataManager = (() => {
 
     return uid;
   };
+
+  const Project = (projectName, type = "") => ({
+    userSetName: projectName,
+    type,
+    uid: "",
+  });
+
+  const Task = (projectUID) => ({
+    uid: "",
+    project: projectUID,
+    userSetName: "",
+    description: "",
+    priority: TaskPriority.low,
+    dueDate: new Date().toISOString(),
+    hasSubtasks: false,
+    checked: false,
+  });
+
+  const validateTask = (uid) => {
+    let foundKey;
+    Object.keys(data.tasks).forEach((key) => {
+      if (key === uid) {
+        foundKey = data.tasks[key];
+      }
+    });
+    return foundKey;
+  };
+
+  const createSubtask = (taskUID) => {
+    const validatedTask = validateTask(taskUID);
+    if (!validatedTask) return undefined;
+
+    const uid = newUID();
+    const task = taskUID;
+    const description = "";
+    const index = Object.keys(data.subtasks).length;
+    const checked = false;
+
+    return {
+      getUID: () => uid,
+      getTask: () => task,
+      getDescription: () => description,
+      getIndex: () => index,
+      getChecked: () => checked,
+    };
+  };
+
   // #endregion
 
   // #region Project Creation and Basic Functionality
@@ -141,16 +152,6 @@ const dataManager = (() => {
     task.uid = uid;
     data.tasks[uid] = task;
     return task;
-  };
-
-  const validateTask = (uid) => {
-    let foundKey;
-    Object.keys(data.tasks).forEach((key) => {
-      if (key === uid) {
-        foundKey = data.tasks[key];
-      }
-    });
-    return foundKey;
   };
 
   // #endregion
