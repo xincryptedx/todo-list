@@ -113,7 +113,7 @@ const dataManager = (() => {
   const createTask = (projectUID) => {
     const project = validateProject(projectUID, true);
     const uid = newUID();
-    const userSetName = "";
+    let userSetName = "";
     const description = "";
     const priority = TaskPriority.low;
     const dueDate = new Date().toISOString();
@@ -127,7 +127,7 @@ const dataManager = (() => {
         return userSetName;
       },
       set userSetName(newName) {
-        // Stuff
+        if (newName) userSetName = newName.toString();
       },
       get description() {
         return description;
@@ -233,7 +233,7 @@ const dataManager = (() => {
     });
   };
 
-  const setTaskName = (uid, name) => {
+  /*   const setTaskName = (uid, name) => {
     const task = validateTask(uid);
     if (!task) return undefined;
 
@@ -244,7 +244,7 @@ const dataManager = (() => {
     task.userSetName = newName;
 
     return task;
-  };
+  }; */
 
   const setTaskDescription = (uid, desc) => {
     const task = validateTask(uid);
@@ -328,7 +328,6 @@ const dataManager = (() => {
     setPriority,
     toggleTaskChecked,
     toggleHasSubtasks,
-    setTaskName,
     setTaskDescription,
     init,
     data,
