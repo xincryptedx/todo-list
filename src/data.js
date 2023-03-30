@@ -124,6 +124,7 @@ const dataManager = (() => {
     let checked = false;
 
     const task = {
+      uid,
       get project() {
         return project;
       },
@@ -131,7 +132,6 @@ const dataManager = (() => {
         const validatedUID = validateProject(newProjectUID, false);
         if (validatedUID) project = validatedUID;
       },
-      uid,
       get userSetName() {
         return userSetName;
       },
