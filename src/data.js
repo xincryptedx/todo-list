@@ -64,17 +64,13 @@ const dataManager = (() => {
     const uid = newUID();
 
     const project = {
-      get uid() {
-        return uid;
-      },
+      uid,
+      type,
       get userSetName() {
         return userSetName;
       },
       set userSetName(newName) {
         if (newName) userSetName = newName.toString();
-      },
-      get type() {
-        return type;
       },
     };
 
