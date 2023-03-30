@@ -1,9 +1,9 @@
-export default function createElement(
+export default function createElement({
   elementType,
   classes,
   parent,
-  textContent
-) {
+  textContent,
+}) {
   const element = document.createElement(elementType);
 
   if (classes) {

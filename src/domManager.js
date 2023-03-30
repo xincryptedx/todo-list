@@ -83,6 +83,8 @@
              -imgIcon
           */
 
+import newElement from "./domElementBuilder";
+
 const domManager = (() => {
   // Create main grid
   // Create header
