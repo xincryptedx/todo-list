@@ -52,6 +52,10 @@ const dataManager = (() => {
   // #endregion
 
   // #region Project Factory, Initialization Helpers, and Validation
+  const addProjectToData = (project) => {
+    data.projects[project.uid] = project;
+  };
+
   const createProject = (projectName, projectType) => {
     let userSetName;
     if (projectName) userSetName = projectName.toString();
@@ -74,7 +78,7 @@ const dataManager = (() => {
       },
     };
 
-    data.projects[uid] = project;
+    addProjectToData(project);
 
     return project;
   };
@@ -109,6 +113,10 @@ const dataManager = (() => {
   // #endregion
 
   // #region Task Factory and Validation
+  const addTaskToData = (task) => {
+    data.tasks[task.uid] = task;
+  };
+
   const createTask = (projectUID) => {
     let project = validateProject(projectUID, true);
     const uid = newUID();
@@ -172,7 +180,7 @@ const dataManager = (() => {
       },
     };
 
-    data.tasks[uid] = task;
+    addTaskToData(task);
 
     return task;
   };
@@ -190,6 +198,10 @@ const dataManager = (() => {
   // #endregion
 
   // #region Subtask Factory
+  const addSubtaskToData = (subtask) => {
+    data.subtasks[subtask.uid] = subtask;
+  };
+
   const createSubtask = (taskUID) => {
     const validatedTask = validateTask(taskUID);
     if (!validatedTask) return undefined;
@@ -218,7 +230,7 @@ const dataManager = (() => {
       },
     };
 
-    data.subtasks[uid] = subtask;
+    addSubtaskToData(subtask);
 
     return subtask;
   };
