@@ -1,10 +1,10 @@
 export default function createElement({
-  elementType,
+  elementType: type,
   classes,
   parent,
   textContent,
 }) {
-  const element = document.createElement(elementType);
+  const element = document.createElement(type);
 
   if (classes) {
     classes.forEach((className) => {

@@ -8,5 +8,8 @@ import newElement from "./domElementBuilder";
 window.dataManager = DataManager;
 window.dataFormatter = DataFormatter;
 window.domManager = DomManager;
+
+window.thisBody = document.body;
 window.newElement = newElement;
+
 Events.emit("init");
