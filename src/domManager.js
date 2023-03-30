@@ -84,7 +84,6 @@
           */
 
 const domManager = (() => {
-  // Base method for creating elements
   // Create main grid
   // Create header
   // Method for creating task div
