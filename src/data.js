@@ -196,17 +196,31 @@ const dataManager = (() => {
 
     const uid = newUID();
     const task = taskUID;
-    const description = "";
     const index = Object.keys(data.subtasks).length;
-    const checked = false;
+    let description = "";
+    let checked = false;
 
-    return {
-      getUID: () => uid,
-      getTask: () => task,
-      getDescription: () => description,
-      getIndex: () => index,
-      getChecked: () => checked,
+    const subtask = {
+      uid,
+      task,
+      index,
+      get description() {
+        return description;
+      },
+      set description(newDesc) {
+        if (newDesc) description = newDesc.toString();
+      },
+      get checked() {
+        return checked;
+      },
+      set checked(bool) {
+        if (typeof bool === "boolean") checked = bool;
+      },
     };
+
+    data.subtasks[uid] = subtask;
+
+    return subtask;
   };
 
   // #endregion
