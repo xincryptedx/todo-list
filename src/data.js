@@ -117,8 +117,8 @@ const dataManager = (() => {
     let description = "";
     let priority = TaskPriority.low;
     let dueDate = new Date().toISOString();
-    const hasSubtasks = false;
-    const checked = false;
+    let hasSubtasks = false;
+    let checked = false;
 
     const task = {
       get project() {
@@ -163,13 +163,13 @@ const dataManager = (() => {
         return hasSubtasks;
       },
       set hasSubtasks(bool) {
-        // Stuff
+        if (typeof bool === "boolean") hasSubtasks = bool;
       },
       get checked() {
         return checked;
       },
       set checked(bool) {
-        // Stuff
+        if (typeof bool === "boolean") checked = bool;
       },
     };
 
@@ -291,7 +291,7 @@ const dataManager = (() => {
     return task;
   }; */
 
-  const toggleTaskChecked = (uid) => {
+  /*   const toggleTaskChecked = (uid) => {
     const task = validateTask(uid);
     if (!task) return undefined;
 
@@ -307,7 +307,7 @@ const dataManager = (() => {
     task.hasSubtasks = !task.hasSubtasks;
 
     return task;
-  };
+  }; */
 
   const init = () => {
     createProject("Trash", "trash");
