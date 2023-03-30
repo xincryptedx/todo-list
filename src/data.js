@@ -70,6 +70,9 @@ const dataManager = (() => {
       get userSetName() {
         return userSetName;
       },
+      set userSetName(newName) {
+        if (newName) userSetName = newName.toString();
+      },
       get type() {
         return type;
       },
