@@ -212,13 +212,7 @@ const dataManager = (() => {
 
   // #endregion
 
-  // #region Composed Functionality
-  /*   const changeTaskProject = (uid, destProjectUID) => {
-    const validatedProject = validateProject(destProjectUID, false);
-    const task = validateTask(uid);
-    if (validatedProject && task) task.project = validatedProject;
-    return task;
-  }; */
+  // #region General Methods
 
   const moveToTrash = (uid) => {
     let taskToMove;
@@ -239,75 +233,6 @@ const dataManager = (() => {
       }
     });
   };
-
-  /*   const setTaskName = (uid, name) => {
-    const task = validateTask(uid);
-    if (!task) return undefined;
-
-    let newName;
-    if (name) newName = name.toString();
-    else return undefined;
-
-    task.userSetName = newName;
-
-    return task;
-  }; */
-
-  /*   const setTaskDescription = (uid, desc) => {
-    const task = validateTask(uid);
-    if (!task) return undefined;
-
-    let newDesc;
-    if (desc) newDesc = desc.toString();
-    else return undefined;
-
-    task.description = newDesc;
-
-    return task;
-  }; */
-
-  /*   const setDueDate = (uid, newDate) => {
-    const task = validateTask(uid);
-
-    let dateToSet;
-    if (isValidDate(newDate) && isFuture(newDate)) {
-      dateToSet = newDate;
-    }
-
-    if (task && dateToSet) {
-      task.dueDate = dateToSet.toISOString();
-    }
-
-    return task;
-  }; */
-
-  /*   const setPriority = (uid, priority) => {
-    const task = validateTask(uid);
-    if (!task) return undefined;
-    if (Object.values(TaskPriority).includes(priority)) {
-      task.priority = priority;
-    } else return undefined;
-
-    return task;
-  }; */
-
-  /*   const toggleTaskChecked = (uid) => {
-    const task = validateTask(uid);
-    if (!task) return undefined;
-
-    task.checked = !task.checked;
-
-    return task;
-  };
-
-  const toggleHasSubtasks = (uid) => {
-    const task = validateTask(uid);
-    if (!task) return undefined;
-
-    task.hasSubtasks = !task.hasSubtasks;
-
-    return task;
-  }; */
 
   const init = () => {
     createProject("Trash", "trash");
