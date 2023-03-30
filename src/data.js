@@ -326,13 +326,8 @@ const dataManager = (() => {
     createTask,
     createSubtask,
     createProject,
-    validateProject,
-    validateTask,
     moveToTrash,
     emptyTrash,
-    toggleTaskChecked,
-    toggleHasSubtasks,
-    init,
     data,
   };
 })();
