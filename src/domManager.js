@@ -169,8 +169,38 @@ const domManager = (() => {
   };
 
   // Create menu
+  const menuGrid = (parent) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "menu"],
+      parent,
+    });
+
+    return element;
+  };
+
   // Create taskDetails
-  // Create subtaskDetails
+  const taskDetailsGrid = (parent) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "task-details"],
+      parent,
+    });
+
+    return element;
+  };
+
+  // Create subtasks display
+  const subtasksGrid = (parent) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "subtasks"],
+      parent,
+    });
+
+    return element;
+  };
+
   // Pool of task divs
   // Open menus (main, taskDetails, subtasks)
   // Close menus (same)
@@ -187,6 +217,9 @@ const domManager = (() => {
     headerGrid(mainGridDiv);
     contentGrid(mainGridDiv);
     footerGrid(mainGridDiv);
+    menuGrid(mainGridDiv);
+    taskDetailsGrid(mainGridDiv);
+    subtasksGrid(mainGridDiv);
   };
   // Listen for init event and call init method
 
