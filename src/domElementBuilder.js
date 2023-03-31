@@ -36,7 +36,7 @@ const createElement = ({ type, classList, parent, textContent }) => {
   }
 
   if (textContent) {
-    element.textContent = textContent;
+    element.textContent = textContent.toString();
   }
 
   return element;
