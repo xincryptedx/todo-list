@@ -2,18 +2,19 @@ function isValidHTMLElement(element) {
   return element.toString() !== "[object HTMLUnknownElement]";
 }
 
-export function areValidClasses(classes) {
-  if (!classes) return false;
-  if (classes.constructor === String) return true;
-  if (classes.constructor === Array) {
-    let entriesValid = true;
-    classes.forEach((entry) => {
-      if (!entry || entry.constructor !== String || entry === "") {
-        entriesValid = false;
-      }
-    });
+export function areValidClasses(classList) {
+  if (!classList) return false;
+
+  if (typeof classList === "string") return true;
+
+  if (Array.isArray(classList)) {
+    const entriesValid = classList.every(
+      (entry) => typeof entry === "string" && entry.trim().length > 0
+    );
+
     return entriesValid;
   }
+
   return false;
 }
 
