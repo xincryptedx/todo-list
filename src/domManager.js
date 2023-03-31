@@ -99,7 +99,7 @@ const domManager = (() => {
   const headerGrid = (parent) => {
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "header-grid"],
+      classList: ["grid-container", "header"],
       parent,
     });
     newElement({
@@ -125,8 +125,19 @@ const domManager = (() => {
     });
     newElement({
       tag: "img",
-      classList: ["icon", "new-task-icon"],
+      classList: ["icon", "menu-icon"],
       parent: menuBtn,
+    });
+
+    return element;
+  };
+
+  // Create content
+  const contentGrid = (parent) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "content"],
+      parent,
     });
 
     return element;
@@ -146,7 +157,6 @@ const domManager = (() => {
     return element;
   };
 
-  // Create content
   // Create footer
   // Create menu
   // Create taskDetails
@@ -165,6 +175,7 @@ const domManager = (() => {
   const init = () => {
     const mainGridDiv = mainGrid();
     headerGrid(mainGridDiv);
+    contentGrid(mainGridDiv);
   };
   // Listen for init event and call init method
 
