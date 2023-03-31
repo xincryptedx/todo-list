@@ -36,7 +36,7 @@ const createElement = ({ type, classList, parent, textContent }) => {
 
   if (isValidHTMLElement(parent)) {
     parent.appendChild(element);
-  }
+  } else if (parent) element.setAttribute("data-parent-error", "ERROR");
 
   if (textContent) {
     element.textContent = textContent.toString();
