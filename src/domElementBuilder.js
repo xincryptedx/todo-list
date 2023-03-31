@@ -59,6 +59,15 @@ function isValidInput(element, inputType) {
 
   return true;
 }
+
+function isValidLabelFor(element, value) {
+  if (!element || !value) return false;
+
+  if (element.tagName !== "LABEL") return false;
+
+  return true;
+}
+
 /**
  *
  * @param {Object} args - Contains properties used to create element. Requires a valid HTML tag value.
