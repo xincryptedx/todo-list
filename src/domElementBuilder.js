@@ -32,7 +32,7 @@ const createElement = ({ type, classList, parent, textContent }) => {
         element.classList.add(className);
       });
     } else element.classList.add(classList); // Must be a string if validated and not an array
-  }
+  } else if (classList) element.setAttribute("data-classList-error", "ERROR");
 
   if (isValidHTMLElement(parent)) {
     parent.appendChild(element);
