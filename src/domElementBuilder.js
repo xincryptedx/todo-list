@@ -1,3 +1,9 @@
+function isTypeValid(type) {
+  if (!type) return undefined;
+
+  const htmlTagRegex = /^(?!xml)[a-z][\w.-]*$/i;
+}
+
 function isValidHTMLElement(element) {
   if (!(element instanceof HTMLElement)) return false;
   return element.toString() !== "[object HTMLUnknownElement]";
@@ -19,8 +25,14 @@ export function areValidClasses(classList) {
   return false;
 }
 
-const createElement = ({ type, classList, parent, textContent }) => {
-  const element = document.createElement(type);
+const createElement = ({ tag, classList, parent, textContent }) => {
+  if (!tag) return undefined;
+
+  const htmlTagRegex = /^(?!xml)[a-z][\w.-]*$/i;
+  const element = htmlTagRegex.test(tag)
+    ? document.createElement(tag.toString())
+    : undefined;
+  if (!element) return undefined;
 
   if (!isValidHTMLElement(element)) {
     return undefined;
