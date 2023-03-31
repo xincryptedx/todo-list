@@ -158,6 +158,16 @@ const domManager = (() => {
   };
 
   // Create footer
+  const footerGrid = (parent) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "footer"],
+      parent,
+    });
+
+    return element;
+  };
+
   // Create menu
   // Create taskDetails
   // Create subtaskDetails
@@ -176,6 +186,7 @@ const domManager = (() => {
     const mainGridDiv = mainGrid();
     headerGrid(mainGridDiv);
     contentGrid(mainGridDiv);
+    footerGrid(mainGridDiv);
   };
   // Listen for init event and call init method
 
