@@ -143,20 +143,6 @@ const domManager = (() => {
     return element;
   };
 
-  // Method for creating task divs
-  const taskGrid = (parent, uid) => {
-    const element = newElement({
-      tag: "div",
-      classList: ["grid-container", "task"],
-      parent,
-    });
-
-    if (uid) element.setAttribute("data-uid", uid.toString());
-    else element.setAttribute("data-uid", "ERROR");
-
-    return element;
-  };
-
   // Create footer
   const footerGrid = (parent) => {
     const element = newElement({
@@ -191,12 +177,26 @@ const domManager = (() => {
   };
 
   // Create subtasks display
-  const subtasksGrid = (parent) => {
+  const subtasksDisplayGrid = (parent) => {
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "subtasks"],
       parent,
     });
+
+    return element;
+  };
+
+  // Method for creating task divs
+  const taskGrid = (parent, uid) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "task"],
+      parent,
+    });
+
+    if (uid) element.setAttribute("data-uid", uid.toString());
+    else element.setAttribute("data-uid", "ERROR");
 
     return element;
   };
@@ -219,7 +219,7 @@ const domManager = (() => {
     footerGrid(mainGridDiv);
     menuGrid(mainGridDiv);
     taskDetailsGrid(mainGridDiv);
-    subtasksGrid(mainGridDiv);
+    subtasksDisplayGrid(mainGridDiv);
   };
   // Listen for init event and call init method
 
