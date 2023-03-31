@@ -9,7 +9,7 @@ function isValidHTMLElement(element) {
   return element.toString() !== "[object HTMLUnknownElement]";
 }
 
-export function isValidClassList(classList) {
+function isValidClassList(classList) {
   if (!classList) return false;
 
   if (typeof classList === "string") return true;
