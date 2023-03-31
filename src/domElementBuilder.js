@@ -1,7 +1,7 @@
 function isTagValid(type) {
-  if (!type) return undefined;
-
+  if (!type) return false;
   const htmlTagRegex = /^(?!xml)[a-z][\w.-]*$/i;
+  return htmlTagRegex.test(type);
 }
 
 function isValidHTMLElement(element) {
