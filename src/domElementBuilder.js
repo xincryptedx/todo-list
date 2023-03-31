@@ -2,6 +2,18 @@ function isValidHTMLElement(element) {
   return element.toString() !== "[object HTMLUnknownElement]";
 }
 
+export function areValidClasses(classes) {
+  if (!classes) return false;
+  if (classes.constructor === String) return true;
+  if (classes.constructor === Array) {
+    classes.forEach((key) => {
+      if (key.constructor !== String) return false;
+      return true;
+    });
+  }
+  return false;
+}
+
 const createElement = ({ type, classes, parent, textContent }) => {
   const element = document.createElement(type);
 
