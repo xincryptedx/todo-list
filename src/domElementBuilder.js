@@ -72,7 +72,7 @@ function isValidLabelFor(element, value) {
  *
  * @param {Object} args - Contains properties used to create element. Requires a valid HTML tag value.
  * @param {String} args.tag - HTML tag of the created element. If invalid, fn will return undefined.
- * @param {String} args.id - If truthy this will be set as element's id attr value.
+ * @param {String} args.id - If truthy this will be set as element's id attr value. DOES NOT check for duplicate id attrs.
  * @param {String | String[]} args.classList - Accepts a string or array of strings and adds as classes to element.
  * @param {String} args.textContent - If truthy it will be converted to a string and set as elements text content.
  * @param {String} args.type - Sets element's type attr if it is an input element and the type is a valid input type.
@@ -94,6 +94,9 @@ const createElement = (args) => {
   }
 
   // Set id
+  if (args.id) {
+    element.setAttribute("id", args.id.toString());
+  }
 
   // Add classes
   if (isStringOrStringArray(args.classList)) {
@@ -123,8 +126,6 @@ const createElement = (args) => {
   } else if (args.for) {
     element.setAttribute("data-label-for-error", "Invalid value.");
   }
-
-  // Set data attr
 
   // Append to parent element
   if (isValidHTMLElement(args.parent)) {
