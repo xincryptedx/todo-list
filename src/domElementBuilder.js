@@ -9,7 +9,7 @@ function isValidHTMLElement(element) {
   return element.toString() !== "[object HTMLUnknownElement]";
 }
 
-function isValidClassList(classList) {
+function isStringOrStringArray(classList) {
   if (!classList) return false;
 
   if (typeof classList === "string") return true;
@@ -96,7 +96,7 @@ const createElement = (args) => {
   // Set id
 
   // Add classes
-  if (isValidClassList(args.classList)) {
+  if (isStringOrStringArray(args.classList)) {
     if (Array.isArray(args.classList)) {
       args.classList.forEach((className) => {
         element.classList.add(className);
