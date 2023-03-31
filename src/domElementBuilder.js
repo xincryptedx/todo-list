@@ -1,4 +1,4 @@
-function isTypeValid(type) {
+function isTagValid(type) {
   if (!type) return undefined;
 
   const htmlTagRegex = /^(?!xml)[a-z][\w.-]*$/i;
