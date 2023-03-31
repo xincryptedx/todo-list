@@ -1,10 +1,13 @@
-export default function createElement({
-  elementType: type,
-  classes,
-  parent,
-  textContent,
-}) {
+function isValidHTMLElement(element) {
+  return element.toString() !== "[object HTMLUnknownElement]";
+}
+
+const createElement = ({ type, classes, parent, textContent }) => {
   const element = document.createElement(type);
+
+  if (!isValidHTMLElement(element)) {
+    return undefined;
+  }
 
   if (classes) {
     classes.forEach((className) => {
@@ -21,4 +24,6 @@ export default function createElement({
   }
 
   return element;
-}
+};
+
+export default createElement;
