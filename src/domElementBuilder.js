@@ -25,9 +25,11 @@ export function isValidClassList(classList) {
   return false;
 }
 
-const createElement = ({ tag, classList, parent, textContent }) => {
-  const element = isValidTag(tag)
-    ? document.createElement(tag.toString())
+const createElement = (args) => {
+  if (!args) return undefined;
+
+  const element = isValidTag(args.tag)
+    ? document.createElement(args.tag.toString())
     : undefined;
   if (!element) return undefined;
 
@@ -35,20 +37,21 @@ const createElement = ({ tag, classList, parent, textContent }) => {
     return undefined;
   }
 
-  if (isValidClassList(classList)) {
-    if (Array.isArray(classList)) {
-      classList.forEach((className) => {
+  if (isValidClassList(args.classList)) {
+    if (Array.isArray(args.classList)) {
+      args.classList.forEach((className) => {
         element.classList.add(className);
       });
-    } else element.classList.add(classList); // Must be a string if validated and not an array
-  } else if (classList) element.setAttribute("data-classList-error", "ERROR");
+    } else element.classList.add(args.classList); // Must be a string if validated and not an array
+  } else if (args.classList)
+    element.setAttribute("data-classList-error", "ERROR");
 
-  if (isValidHTMLElement(parent)) {
-    parent.appendChild(element);
-  } else if (parent) element.setAttribute("data-parent-error", "ERROR");
+  if (isValidHTMLElement(args.parent)) {
+    args.parent.appendChild(element);
+  } else if (args.parent) element.setAttribute("data-parent-error", "ERROR");
 
-  if (textContent) {
-    element.textContent = textContent.toString();
+  if (args.textContent) {
+    element.textContent = args.textContent.toString();
   }
 
   return element;
