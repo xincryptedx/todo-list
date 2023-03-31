@@ -1,4 +1,5 @@
 function isValidHTMLElement(element) {
+  if (!(element instanceof HTMLElement)) return false;
   return element.toString() !== "[object HTMLUnknownElement]";
 }
 
@@ -26,9 +27,11 @@ const createElement = ({ type, classList, parent, textContent }) => {
   }
 
   if (areValidClasses(classList)) {
-    classList.forEach((className) => {
-      element.classList.add(className);
-    });
+    if (Array.isArray(classList)) {
+      classList.forEach((className) => {
+        element.classList.add(className);
+      });
+    } else element.classList.add(classList); // Must be a string if validated and not an array
   }
 
   if (isValidHTMLElement(parent)) {
