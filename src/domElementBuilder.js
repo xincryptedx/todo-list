@@ -25,6 +25,41 @@ function isValidClassList(classList) {
   return false;
 }
 
+function isValidInput(element, inputType) {
+  const validInputs = [
+    "button",
+    "checkbox",
+    "color",
+    "date",
+    "datetime-local",
+    "email",
+    "file",
+    "hidden",
+    "image",
+    "month",
+    "number",
+    "password",
+    "radio",
+    "range",
+    "reset",
+    "search",
+    "submit",
+    "tel",
+    "text",
+    "time",
+    "url",
+    "week",
+  ];
+
+  if (!element || !inputType) return false;
+
+  if (!validInputs.includes(inputType)) return false;
+
+  if (!element.tagName === "INPUT") return false;
+
+  return true;
+}
+
 const createElement = (args) => {
   if (!args) return undefined;
 
@@ -45,18 +80,31 @@ const createElement = (args) => {
         element.classList.add(className);
       });
     } else element.classList.add(args.classList); // Must be a string if validated and not an array
-  } else if (args.classList)
+  } else if (args.classList) {
     element.setAttribute("data-classList-error", "ERROR");
+  }
 
   // Set text content
   if (args.textContent) {
     element.textContent = args.textContent.toString();
   }
 
+  // Set input type
+  if (isValidInput(element, args.type)) {
+    element.setAttribute("type", args.type);
+  } else if (args.type) {
+    element.setAttribute("data-input-type-error", "ERROR");
+  }
+  // Set label for
+
+  // Set data attr
+
   // Append to parent element
   if (isValidHTMLElement(args.parent)) {
     args.parent.appendChild(element);
-  } else if (args.parent) element.setAttribute("data-parent-error", "ERROR");
+  } else if (args.parent) {
+    element.setAttribute("data-parent-error", "ERROR");
+  }
 
   return element;
 };
