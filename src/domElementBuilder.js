@@ -28,6 +28,7 @@ function isValidClassList(classList) {
 const createElement = (args) => {
   if (!args) return undefined;
 
+  // Element Creation
   const element = isValidTag(args.tag)
     ? document.createElement(args.tag.toString())
     : undefined;
@@ -37,6 +38,7 @@ const createElement = (args) => {
     return undefined;
   }
 
+  // Add classes
   if (isValidClassList(args.classList)) {
     if (Array.isArray(args.classList)) {
       args.classList.forEach((className) => {
@@ -46,13 +48,15 @@ const createElement = (args) => {
   } else if (args.classList)
     element.setAttribute("data-classList-error", "ERROR");
 
-  if (isValidHTMLElement(args.parent)) {
-    args.parent.appendChild(element);
-  } else if (args.parent) element.setAttribute("data-parent-error", "ERROR");
-
+  // Set text content
   if (args.textContent) {
     element.textContent = args.textContent.toString();
   }
+
+  // Append to parent element
+  if (isValidHTMLElement(args.parent)) {
+    args.parent.appendChild(element);
+  } else if (args.parent) element.setAttribute("data-parent-error", "ERROR");
 
   return element;
 };
