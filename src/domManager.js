@@ -101,6 +101,33 @@ const domManager = (() => {
       classList: ["grid-container", "header-grid"],
       parent,
     });
+    newElement({
+      tag: "p",
+      classList: ["header-title"],
+      parent: element,
+      textContent: "To Do...",
+    });
+    const newTaskBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "header-btn", "new-task-btn"],
+      parent: element,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "new-task-icon"],
+      parent: newTaskBtn,
+    });
+    const menuBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "header-btn", "menu-btn"],
+      parent: element,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "new-task-icon"],
+      parent: menuBtn,
+    });
+
     return element;
   };
   // Method for creating task div
@@ -125,7 +152,7 @@ const domManager = (() => {
     headerGrid(mainGridDiv);
   };
   // Listen for init event and call init method
-  return { mainGrid, headerGrid, init };
+  return { init };
 })();
 
 export default domManager;
