@@ -82,12 +82,27 @@
            -addSubtaskBtn
              -imgIcon
           */
-
 import newElement from "./domElementBuilder";
 
 const domManager = (() => {
   // Create main grid
+  const mainGrid = () => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "main-grid"],
+      parent: document.body,
+    });
+    return element;
+  };
   // Create header
+  const headerGrid = (parent) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "header-grid"],
+      parent,
+    });
+    return element;
+  };
   // Method for creating task div
   // Create content
   // Create footer
@@ -105,7 +120,12 @@ const domManager = (() => {
   // Method that does the reverse of the above
   // Method for toggling appearance of filterBtn icons
   // Init method
+  const init = () => {
+    const mainGridDiv = mainGrid();
+    headerGrid(mainGridDiv);
+  };
   // Listen for init event and call init method
+  return { mainGrid, headerGrid, init };
 })();
 
 export default domManager;
