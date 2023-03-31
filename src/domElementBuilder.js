@@ -6,11 +6,13 @@ export function areValidClasses(classes) {
   if (!classes) return false;
   if (classes.constructor === String) return true;
   if (classes.constructor === Array) {
-    let areStrings = true;
+    let entriesValid = true;
     classes.forEach((entry) => {
-      if (entry.constructor !== String || entry === "") areStrings = false;
+      if (!entry || entry.constructor !== String || entry === "") {
+        entriesValid = false;
+      }
     });
-    return areStrings;
+    return entriesValid;
   }
   return false;
 }
