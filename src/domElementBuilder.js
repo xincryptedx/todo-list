@@ -31,7 +31,7 @@ const createElement = ({ type, classList, parent, textContent }) => {
     });
   }
 
-  if (parent) {
+  if (isValidHTMLElement(parent)) {
     parent.appendChild(element);
   }
 
