@@ -55,11 +55,22 @@ function isValidInput(element, inputType) {
 
   if (!validInputs.includes(inputType)) return false;
 
-  if (!element.tagName === "INPUT") return false;
+  if (element.tagName !== "INPUT") return false;
 
   return true;
 }
-
+/**
+ *
+ * @param {Object} args - Contains properties used to create element. Requires a valid HTML tag value.
+ * @param {String} args.tag - HTML tag of the created element. If invalid, fn will return undefined.
+ * @param {String} args.id - If truthy this will be set as element's id attr value.
+ * @param {String | String[]} args.classList - Accepts a string or array of strings and adds as classes to element.
+ * @param {String} args.textContent - If truthy it will be converted to a string and set as elements text content.
+ * @param {String} args.type - Sets element's type attr if it is an input element and the type is a valid input type.
+ * @param {String} args.for - Sets element's for attr if it is a label element.
+ * @param {String | String[]} args.customAttrList - Accepts a string or array of strings and adds as data- attrs to element.
+ * @returns {HTMLElement} - Created element. Will have data-x-error:'ERROR' attr if invalid param values passed. If tag invalid, returns undefined.
+ */
 const createElement = (args) => {
   if (!args) return undefined;
 
@@ -72,6 +83,8 @@ const createElement = (args) => {
   if (!isValidHTMLElement(element)) {
     return undefined;
   }
+
+  // Set id
 
   // Add classes
   if (isValidClassList(args.classList)) {
