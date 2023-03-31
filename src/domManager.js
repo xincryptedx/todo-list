@@ -94,6 +94,7 @@ const domManager = (() => {
     });
     return element;
   };
+
   // Create header
   const headerGrid = (parent) => {
     const element = newElement({
@@ -130,7 +131,21 @@ const domManager = (() => {
 
     return element;
   };
-  // Method for creating task div
+
+  // Method for creating task divs
+  const taskGrid = (parent, uid) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "task"],
+      parent,
+    });
+
+    if (uid) element.setAttribute("data-uid", uid.toString());
+    else element.setAttribute("data-uid", "ERROR");
+
+    return element;
+  };
+
   // Create content
   // Create footer
   // Create menu
@@ -152,6 +167,7 @@ const domManager = (() => {
     headerGrid(mainGridDiv);
   };
   // Listen for init event and call init method
+
   return { init };
 })();
 
