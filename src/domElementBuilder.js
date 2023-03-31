@@ -18,15 +18,15 @@ export function areValidClasses(classList) {
   return false;
 }
 
-const createElement = ({ type, classes, parent, textContent }) => {
+const createElement = ({ type, classList, parent, textContent }) => {
   const element = document.createElement(type);
 
   if (!isValidHTMLElement(element)) {
     return undefined;
   }
 
-  if (classes) {
-    classes.forEach((className) => {
+  if (areValidClasses(classList)) {
+    classList.forEach((className) => {
       element.classList.add(className);
     });
   }
