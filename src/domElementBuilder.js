@@ -78,7 +78,7 @@ function isValidLabelFor(element, value) {
  * @param {String} args.type - Sets element's type attr if it is an input element and the type is a valid input type.
  * @param {String} args.for - Sets element's for attr if it is a label element.
  * @param {String | String[]} args.customAttrList - Accepts a string or array of strings and adds as data- attrs to element.
- * @returns {HTMLElement} - Created element. Will have data-x-error:'ERROR' attr if invalid param values passed. If tag invalid, returns undefined.
+ * @returns {HTMLElement} - Created element. Will have data-x-error:'Invalid value' attr if invalid param values passed. If tag invalid, returns undefined.
  */
 const createElement = (args) => {
   if (!args) return undefined;
@@ -103,7 +103,7 @@ const createElement = (args) => {
       });
     } else element.classList.add(args.classList); // Must be a string if validated and not an array
   } else if (args.classList) {
-    element.setAttribute("data-classList-error", "ERROR");
+    element.setAttribute("data-classList-error", "Invalid value.");
   }
 
   // Set text content
@@ -115,9 +115,14 @@ const createElement = (args) => {
   if (isValidInput(element, args.type)) {
     element.setAttribute("type", args.type);
   } else if (args.type) {
-    element.setAttribute("data-input-type-error", "ERROR");
+    element.setAttribute("data-input-type-error", "Invalid value.");
   }
   // Set label for
+  if (isValidLabelFor(element, args.for)) {
+    element.setAttribute("for", args.for.toString());
+  } else if (args.for) {
+    element.setAttribute("data-label-for-error", "Invalid value.");
+  }
 
   // Set data attr
 
@@ -125,7 +130,7 @@ const createElement = (args) => {
   if (isValidHTMLElement(args.parent)) {
     args.parent.appendChild(element);
   } else if (args.parent) {
-    element.setAttribute("data-parent-error", "ERROR");
+    element.setAttribute("data-parent-error", "Invalid value.");
   }
 
   return element;
