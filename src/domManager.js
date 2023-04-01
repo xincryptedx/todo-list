@@ -524,7 +524,7 @@ const domManager = (() => {
     // Task contents grid
     const taskContentsGrid = newElement({
       tag: "div",
-      classList: ["grid-container, task-contents"],
+      classList: ["grid-container", "task-contents"],
       parent: element,
     });
     // Name and project
@@ -566,7 +566,27 @@ const domManager = (() => {
 
   // #endregion
 
-  // Pool of task divs
+  const taskPool = (() => {
+    const tasks = [];
+
+    const init = () => {
+      for (let i = 0; i < 100; i += 1) {
+        const task = newTask();
+        tasks.push(task);
+      }
+    };
+
+    const get = () => {
+      if (tasks.length <= 0) init();
+      return tasks.pop();
+    };
+
+    const give = (taskElement) => {
+      if (tasks.length < 100) tasks.push(taskElement);
+    };
+
+    return { init, get, give, tasks };
+  })();
 
   // Open menus (main, taskDetails, subtasks)
   // Close menus (same)
@@ -589,7 +609,7 @@ const domManager = (() => {
   };
   // Listen for init event and call init method
 
-  return { init };
+  return { init, taskPool };
 })();
 
 export default domManager;
