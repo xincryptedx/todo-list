@@ -423,8 +423,64 @@ const domManager = (() => {
   const subtasksDisplayGrid = (parent) => {
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "subtasks"],
+      classList: ["grid-container", "subtasks-display"],
       parent,
+    });
+
+    const taskInfoGrid = newElement({
+      tag: "div",
+      classList: ["grid-container", "task-details"],
+      parent: element,
+    });
+    newElement({
+      tag: "p",
+      classList: "task-name",
+      parent: taskInfoGrid,
+    });
+    newElement({
+      tag: "p",
+      classList: "task-project",
+      parent: taskInfoGrid,
+    });
+
+    const addSubtaskBtnTop = newElement({
+      tag: "div",
+      classList: ["div-btn", "subtasks-div-btn", "add-subtask-btn", "top"],
+      parent: element,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "add-subtask-icon"],
+      parent: addSubtaskBtnTop,
+    });
+
+    const closeBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "subtasks-div-btn", "close-btn"],
+      parent: element,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "close-icon"],
+      parent: closeBtn,
+    });
+
+    newElement({
+      tag: "div",
+      classList: ["grid-container", "subtasks"],
+      parent: element,
+    });
+    // Generated subtasks go here
+
+    const addSubtaskBtnBottom = newElement({
+      tag: "div",
+      classList: ["div-btn", "subtasks-div-btn", "add-subtask-btn", "bottom"],
+      parent: element,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "add-subtask-icon"],
+      parent: addSubtaskBtnBottom,
     });
 
     return element;
