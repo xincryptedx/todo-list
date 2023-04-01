@@ -220,8 +220,9 @@ const domManager = (() => {
     });
     newElement({
       tag: "span",
-      classList: ["span-btn", "new-projects-span-btn"],
+      classList: ["span-btn", "new-project-span-btn"],
       parent: newProjectDiv,
+      textContent: "New Project +",
     });
 
     const formatBtnsGrid = newElement({
