@@ -321,6 +321,101 @@ const domManager = (() => {
       parent,
     });
 
+    newElement({
+      tag: "label",
+      classList: ["task-details-label", "task-name-label"],
+      parent: element,
+      textContent: "Name:",
+      for: "task-name-input",
+    });
+    const dateBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "task-details-div-btn", "date-btn"],
+      parent: element,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "date-icon"],
+      parent: dateBtn,
+    });
+    const hasSubtasksBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "task-details-div-btn", "has-subtasks-btn"],
+      parent: element,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "has-subtasks-icon"],
+      parent: hasSubtasksBtn,
+    });
+    const closeBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "task-details-div-btn", "close-btn"],
+      parent: element,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "close-icon"],
+      parent: closeBtn,
+    });
+    newElement({
+      tag: "input",
+      classList: ["text-input", "task-details-text-input", "task-name-input"],
+      id: "task-name-input",
+      parent: element,
+    });
+    const priorityBtnsGridContainer = newElement({
+      tag: "div",
+      classList: ["grid-container", "priority-btns"],
+      parent: element,
+    });
+    const lowBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "task-details-div-btn", "low-btn"],
+      parent: priorityBtnsGridContainer,
+    });
+    newElement({
+      tag: "p",
+      classList: "low-btn-text",
+      parent: lowBtn,
+      textContent: "Low",
+    });
+    const mediumBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "task-details-div-btn", "medium-btn"],
+      parent: priorityBtnsGridContainer,
+    });
+    newElement({
+      tag: "p",
+      classList: "medium-btn-text",
+      parent: mediumBtn,
+      textContent: "Medium",
+    });
+    const highBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "task-details-div-btn", "high-btn"],
+      parent: priorityBtnsGridContainer,
+    });
+    newElement({
+      tag: "p",
+      classList: "high-btn-text",
+      parent: highBtn,
+      textContent: "High",
+    });
+    newElement({
+      tag: "label",
+      classList: ["task-details-label", "task-notes-label"],
+      parent: element,
+      textContent: "Notes:",
+      for: "task-notes-textarea",
+    });
+    newElement({
+      tag: "textarea",
+      classList: ["task-details-textarea", "task-notes-textarea"],
+      parent: element,
+      id: "task-notes-textarea",
+    });
+
     return element;
   };
 
