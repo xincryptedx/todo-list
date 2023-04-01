@@ -510,15 +510,56 @@ const domManager = (() => {
   // #endregion
 
   // Method for creating task divs
-  const taskGrid = (parent, uid) => {
+  const taskGrid = () => {
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "task"],
-      parent,
     });
-
-    if (uid) element.setAttribute("data-uid", uid.toString());
-    else element.setAttribute("data-uid", "ERROR");
+    // Priority Outline Div
+    newElement({
+      tag: "div",
+      classList: "task-outline",
+      parent: element,
+    });
+    // Task contents grid
+    const taskContentsGrid = newElement({
+      tag: "div",
+      classList: ["grid-container, task-contents"],
+      parent: element,
+    });
+    // Name and project
+    newElement({
+      tag: "p",
+      classList: "task-name",
+      parent: taskContentsGrid,
+    });
+    newElement({
+      tag: "p",
+      classList: "task-project",
+      parent: taskContentsGrid,
+    });
+    // Details btn
+    const detailsBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "task-btn", "details-btn"],
+      parent: taskContentsGrid,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "details-icon"],
+      parent: detailsBtn,
+    });
+    // Subtasks btn
+    const subtasksBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "tasks-btn", "subtasks-btn"],
+      parent: taskContentsGrid,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "subtasks-icon"],
+      parent: subtasksBtn,
+    });
 
     return element;
   };
