@@ -566,28 +566,6 @@ const domManager = (() => {
 
   // #endregion
 
-  const taskPool = (() => {
-    const tasks = [];
-
-    const init = () => {
-      for (let i = 0; i < 100; i += 1) {
-        const task = newTask();
-        tasks.push(task);
-      }
-    };
-
-    const get = () => {
-      if (tasks.length <= 0) init();
-      return tasks.pop();
-    };
-
-    const give = (taskElement) => {
-      if (tasks.length < 100) tasks.push(taskElement);
-    };
-
-    return { init, get, give, tasks };
-  })();
-
   // Open menus (main, taskDetails, subtasks)
   // Close menus (same)
   // Activate a date input
