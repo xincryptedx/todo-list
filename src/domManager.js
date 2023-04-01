@@ -29,8 +29,10 @@
                -allTasksBtn span
              -generalTasks div
                -generalTasksBtn -span
+
              ~projects divs
                -projectBtn -span
+
              -newProject div
                -newProjectBtn span
            -formatBtnsGridContainer div
@@ -38,19 +40,17 @@
                -name p
              -monthFilterBtn
                -name p
-             -prioritySortBtn
-               -prioritySortIconGridContainer div
-                 -colorOne div
-                 -colorTwo div
-                 -colorThree div
-             -dateSortBtn
-                -dateSortIconGridContainer div
-                  -dateOne div
-                    -date p
-                  -dateTwo div
-                    -date p
-                  -dateThree div
-                    -date p
+             -prioritySortIconGridContainer div
+               -colorOne div
+               -colorTwo div
+               -colorThree div
+             -dateSortIconGridContainer div
+               -dateOne div
+                 -date p
+               -dateTwo div
+                 -date p
+               -dateThree div
+                 -date p
          -taskDetailsGridContainer div 
            -taskNameLabel label
            -dateBtn div
@@ -144,7 +144,7 @@ const domManager = (() => {
       classList: ["grid-container", "content"],
       parent,
     });
-
+    // Generated tasks go here
     const newTaskBtn = newElement({
       tag: "div",
       classList: ["div-btn", "content-btn", "new-task-btn"],
@@ -185,6 +185,126 @@ const domManager = (() => {
       tag: "div",
       classList: ["grid-container", "menu"],
       parent,
+    });
+
+    const projectsGrid = newElement({
+      tag: "div",
+      classList: ["grid-container", "projects"],
+      parent: element,
+    });
+    const allTasksDiv = newElement({
+      tag: "div",
+      classList: ["span-btn-container", "all-tasks-div"],
+      parent: projectsGrid,
+    });
+    newElement({
+      tag: "span",
+      classList: ["span-btn", "all-tasks-span-btn"],
+      parent: allTasksDiv,
+    });
+    const generalTasksDiv = newElement({
+      tag: "div",
+      classList: ["span-btn-container", "general-tasks-div"],
+      parent: projectsGrid,
+    });
+    newElement({
+      tag: "span",
+      classList: ["span-btn", "general-tasks-span-btn"],
+      parent: generalTasksDiv,
+    });
+    // Generated projects go here
+    const newProjectDiv = newElement({
+      tag: "div",
+      classList: ["span-btn-container", "new-project-div"],
+      parent: projectsGrid,
+    });
+    newElement({
+      tag: "span",
+      classList: ["span-btn", "new-projects-span-btn"],
+      parent: newProjectDiv,
+    });
+
+    const formatBtnsGrid = newElement({
+      tag: "div",
+      classList: ["grid-container", "format-btns"],
+      parent: element,
+    });
+    const weekFilterBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "week-filter-btn"],
+      parent: formatBtnsGrid,
+    });
+    newElement({
+      tag: "p",
+      classList: "week-filter-btn-text",
+      parent: weekFilterBtn,
+      textContent: "Week",
+    });
+    const monthFilterBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "month-filter-btn"],
+      parent: formatBtnsGrid,
+    });
+    newElement({
+      tag: "p",
+      classList: "month-filter-btn-text",
+      parent: monthFilterBtn,
+      textContent: "Month",
+    });
+    const prioritySortBtnGrid = newElement({
+      tag: "div",
+      classList: ["grid-container", "div-btn", "priority-sort-btn"],
+      parent: formatBtnsGrid,
+    });
+    newElement({
+      tag: "div",
+      classList: ["priority-sort-btn-color-div", "color-1"],
+      parent: prioritySortBtnGrid,
+    });
+    newElement({
+      tag: "div",
+      classList: ["priority-sort-btn-color-div", "color-2"],
+      parent: prioritySortBtnGrid,
+    });
+    newElement({
+      tag: "div",
+      classList: ["priority-sort-btn-color-div", "color-3"],
+      parent: prioritySortBtnGrid,
+    });
+    const dateSortBtnGrid = newElement({
+      tag: "div",
+      classList: ["grid-container", "div-btn", "date-sort-btn"],
+      parent: formatBtnsGrid,
+    });
+    const dateOneDiv = newElement({
+      tag: "div",
+      classList: ["date-sort-btn-div", "date-1"],
+      parent: dateSortBtnGrid,
+    });
+    newElement({
+      tag: "p",
+      classList: "date-1-text",
+      parent: dateOneDiv,
+    });
+    const dateTwoDiv = newElement({
+      tag: "div",
+      classList: ["date-sort-btn-div", "date-2"],
+      parent: dateSortBtnGrid,
+    });
+    newElement({
+      tag: "p",
+      classList: "date-2-text",
+      parent: dateTwoDiv,
+    });
+    const dateThreeDiv = newElement({
+      tag: "div",
+      classList: ["date-sort-btn-div", "date-3"],
+      parent: dateSortBtnGrid,
+    });
+    newElement({
+      tag: "p",
+      classList: "date-3-text",
+      parent: dateThreeDiv,
     });
 
     return element;
