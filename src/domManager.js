@@ -509,7 +509,7 @@ const domManager = (() => {
 
   // #endregion
 
-  // Method for creating task divs
+  // #region Methods for creating task, subtask, and project html elements
   const newTask = () => {
     const element = newElement({
       tag: "div",
@@ -564,7 +564,10 @@ const domManager = (() => {
     return element;
   };
 
+  // #endregion
+
   // Pool of task divs
+
   // Open menus (main, taskDetails, subtasks)
   // Close menus (same)
   // Activate a date input
