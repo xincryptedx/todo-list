@@ -510,7 +510,7 @@ const domManager = (() => {
   // #endregion
 
   // Method for creating task divs
-  const taskGrid = () => {
+  const newTask = () => {
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "task"],
