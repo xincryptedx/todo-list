@@ -7,7 +7,8 @@
            -mainMenuBtn div
              -icon img
          -contentGridContainer div
-            ~task divs
+            
+         ~task divs
               -priorityOutline div
               -taskGridContainer div
                   -name p
@@ -16,6 +17,7 @@
                     -icon img
                   -subtasksBtn div
                     -icon img
+
             -newTaskBtn div
               -icon img
          -footerGridContainer
@@ -76,9 +78,11 @@
            -closeMenuBtn div
              -icon img
            -subtasksGridContainer
+
              ~subtaskDivs divs
                -name p
                -checkbox input
+
            -addSubtaskBtn
              -imgIcon
           */
@@ -162,6 +166,15 @@ const domManager = (() => {
       classList: ["grid-container", "footer"],
       parent,
     });
+
+    const authorP = newElement({
+      tag: "p",
+      classList: "footer-author",
+      parent: element,
+    });
+
+    authorP.innerHTML =
+      "© 2023 Created by <a href='https://github.com/xincryptedx'>xIncryptedx</a>";
 
     return element;
   };
