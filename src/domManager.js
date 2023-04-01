@@ -89,6 +89,7 @@
 
 import newElement from "./domElementBuilder";
 
+// #region Init helper methods
 const domManager = (() => {
   // Create main grid
   const mainGrid = () => {
@@ -102,6 +103,7 @@ const domManager = (() => {
 
   // Create header
   const headerGrid = (parent) => {
+    // Title
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "header"],
@@ -113,6 +115,7 @@ const domManager = (() => {
       parent: element,
       textContent: "To Do...",
     });
+    // NewTask btn
     const newTaskBtn = newElement({
       tag: "div",
       classList: ["div-btn", "header-btn", "new-task-btn"],
@@ -123,6 +126,7 @@ const domManager = (() => {
       classList: ["icon", "new-task-icon"],
       parent: newTaskBtn,
     });
+    // Menu btn
     const menuBtn = newElement({
       tag: "div",
       classList: ["div-btn", "header-btn", "menu-btn"],
@@ -139,12 +143,14 @@ const domManager = (() => {
 
   // Create content
   const contentGrid = (parent) => {
+    // Task container
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "content"],
       parent,
     });
     // Generated tasks go here
+    // New task bottom button
     const newTaskBtn = newElement({
       tag: "div",
       classList: ["div-btn", "content-btn", "new-task-btn"],
@@ -166,13 +172,12 @@ const domManager = (() => {
       classList: ["grid-container", "footer"],
       parent,
     });
-
+    // Author info
     const authorP = newElement({
       tag: "p",
       classList: "footer-author",
       parent: element,
     });
-
     authorP.innerHTML =
       "© 2023 Created by <a href='https://github.com/xincryptedx'>xIncryptedx</a>";
 
@@ -186,12 +191,13 @@ const domManager = (() => {
       classList: ["grid-container", "menu"],
       parent,
     });
-
+    // Projects selection
     const projectsGrid = newElement({
       tag: "div",
       classList: ["grid-container", "projects"],
       parent: element,
     });
+    // All tasks btn
     const allTasksDiv = newElement({
       tag: "div",
       classList: ["span-btn-container", "all-tasks-div"],
@@ -203,6 +209,7 @@ const domManager = (() => {
       parent: allTasksDiv,
       textContent: "All Tasks",
     });
+    // General tasks btn
     const generalTasksDiv = newElement({
       tag: "div",
       classList: ["span-btn-container", "general-tasks-div"],
@@ -215,6 +222,7 @@ const domManager = (() => {
       textContent: "General Tasks",
     });
     // Generated projects go here
+    // New project btn
     const newProjectDiv = newElement({
       tag: "div",
       classList: ["span-btn-container", "new-project-div"],
@@ -226,12 +234,13 @@ const domManager = (() => {
       parent: newProjectDiv,
       textContent: "New Project +",
     });
-
+    // Format btns
     const formatBtnsGrid = newElement({
       tag: "div",
       classList: ["grid-container", "format-btns"],
       parent: element,
     });
+    // Week btn
     const weekFilterBtn = newElement({
       tag: "div",
       classList: ["div-btn", "week-filter-btn"],
@@ -243,6 +252,7 @@ const domManager = (() => {
       parent: weekFilterBtn,
       textContent: "Week",
     });
+    // Month btn
     const monthFilterBtn = newElement({
       tag: "div",
       classList: ["div-btn", "month-filter-btn"],
@@ -254,6 +264,7 @@ const domManager = (() => {
       parent: monthFilterBtn,
       textContent: "Month",
     });
+    // Priority btn
     const prioritySortBtnGrid = newElement({
       tag: "div",
       classList: ["grid-container", "div-btn", "priority-sort-btn"],
@@ -274,6 +285,7 @@ const domManager = (() => {
       classList: ["priority-sort-btn-color-div", "color-3"],
       parent: prioritySortBtnGrid,
     });
+    // Date btn
     const dateSortBtnGrid = newElement({
       tag: "div",
       classList: ["grid-container", "div-btn", "date-sort-btn"],
@@ -320,7 +332,7 @@ const domManager = (() => {
       classList: ["grid-container", "task-details"],
       parent,
     });
-
+    // Name input label
     newElement({
       tag: "label",
       classList: ["task-details-label", "task-name-label"],
@@ -328,6 +340,7 @@ const domManager = (() => {
       textContent: "Name:",
       for: "task-name-input",
     });
+    // Date btn
     const dateBtn = newElement({
       tag: "div",
       classList: ["div-btn", "task-details-div-btn", "date-btn"],
@@ -338,6 +351,7 @@ const domManager = (() => {
       classList: ["icon", "date-icon"],
       parent: dateBtn,
     });
+    // HasSubtasks btn
     const hasSubtasksBtn = newElement({
       tag: "div",
       classList: ["div-btn", "task-details-div-btn", "has-subtasks-btn"],
@@ -348,6 +362,7 @@ const domManager = (() => {
       classList: ["icon", "has-subtasks-icon"],
       parent: hasSubtasksBtn,
     });
+    // Close btn
     const closeBtn = newElement({
       tag: "div",
       classList: ["div-btn", "task-details-div-btn", "close-btn"],
@@ -358,17 +373,20 @@ const domManager = (() => {
       classList: ["icon", "close-icon"],
       parent: closeBtn,
     });
+    // Name input
     newElement({
       tag: "input",
       classList: ["text-input", "task-details-text-input", "task-name-input"],
       id: "task-name-input",
       parent: element,
     });
+    // Priority btns
     const priorityBtnsGridContainer = newElement({
       tag: "div",
       classList: ["grid-container", "priority-btns"],
       parent: element,
     });
+    // Low btn
     const lowBtn = newElement({
       tag: "div",
       classList: ["div-btn", "task-details-div-btn", "low-btn"],
@@ -380,6 +398,7 @@ const domManager = (() => {
       parent: lowBtn,
       textContent: "Low",
     });
+    // Medium btn
     const mediumBtn = newElement({
       tag: "div",
       classList: ["div-btn", "task-details-div-btn", "medium-btn"],
@@ -391,6 +410,7 @@ const domManager = (() => {
       parent: mediumBtn,
       textContent: "Medium",
     });
+    // High btn
     const highBtn = newElement({
       tag: "div",
       classList: ["div-btn", "task-details-div-btn", "high-btn"],
@@ -402,6 +422,7 @@ const domManager = (() => {
       parent: highBtn,
       textContent: "High",
     });
+    // Task details label and textarea
     newElement({
       tag: "label",
       classList: ["task-details-label", "task-notes-label"],
@@ -426,7 +447,7 @@ const domManager = (() => {
       classList: ["grid-container", "subtasks-display"],
       parent,
     });
-
+    // Task name and project
     const taskInfoGrid = newElement({
       tag: "div",
       classList: ["grid-container", "task-details"],
@@ -442,7 +463,7 @@ const domManager = (() => {
       classList: "task-project",
       parent: taskInfoGrid,
     });
-
+    // Top addSubtask btn
     const addSubtaskBtnTop = newElement({
       tag: "div",
       classList: ["div-btn", "subtasks-div-btn", "add-subtask-btn", "top"],
@@ -453,7 +474,7 @@ const domManager = (() => {
       classList: ["icon", "add-subtask-icon"],
       parent: addSubtaskBtnTop,
     });
-
+    // Close btn
     const closeBtn = newElement({
       tag: "div",
       classList: ["div-btn", "subtasks-div-btn", "close-btn"],
@@ -464,14 +485,14 @@ const domManager = (() => {
       classList: ["icon", "close-icon"],
       parent: closeBtn,
     });
-
+    // Subtasks container
     newElement({
       tag: "div",
       classList: ["grid-container", "subtasks"],
       parent: element,
     });
     // Generated subtasks go here
-
+    // Bottom addSubtask btn
     const addSubtaskBtnBottom = newElement({
       tag: "div",
       classList: ["div-btn", "subtasks-div-btn", "add-subtask-btn", "bottom"],
@@ -485,6 +506,8 @@ const domManager = (() => {
 
     return element;
   };
+
+  // #endregion
 
   // Method for creating task divs
   const taskGrid = (parent, uid) => {
