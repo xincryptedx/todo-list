@@ -82,6 +82,7 @@
            -addSubtaskBtn
              -imgIcon
           */
+
 import newElement from "./domElementBuilder";
 
 const domManager = (() => {
@@ -138,6 +139,17 @@ const domManager = (() => {
       tag: "div",
       classList: ["grid-container", "content"],
       parent,
+    });
+
+    const newTaskBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "content-btn", "new-task-btn"],
+      parent: element,
+    });
+    newElement({
+      tag: "img",
+      classList: ["icon", "new-task-icon"],
+      parent: newTaskBtn,
     });
 
     return element;
