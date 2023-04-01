@@ -201,6 +201,7 @@ const domManager = (() => {
       tag: "span",
       classList: ["span-btn", "all-tasks-span-btn"],
       parent: allTasksDiv,
+      textContent: "All Tasks",
     });
     const generalTasksDiv = newElement({
       tag: "div",
@@ -211,6 +212,7 @@ const domManager = (() => {
       tag: "span",
       classList: ["span-btn", "general-tasks-span-btn"],
       parent: generalTasksDiv,
+      textContent: "General Tasks",
     });
     // Generated projects go here
     const newProjectDiv = newElement({
