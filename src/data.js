@@ -276,6 +276,7 @@ const dataManager = (() => {
   const get = (query) => {
     if (!query) return undefined;
     let returnData;
+    let needsFormatting = true;
 
     if (query === "ALLTASKS") returnData = data.tasks;
     else if (query === "GENERAL") {
@@ -312,10 +313,14 @@ const dataManager = (() => {
     // Unwrap returnData from array if it is only one entry long
     if (Array.isArray(returnData) && returnData.length === 1) {
       [returnData] = returnData;
+      needsFormatting = false;
     }
 
     console.log(`Returning data...${returnData} with query: ${query}`);
-    Events.emit("returnData", { returnData, query });
+
+    if (needsFormatting) {
+      Events.emit("returnDataForFormat", { returnData, query });
+    } else Events.emit("returnData", { returnData, query });
 
     return returnData;
   };
