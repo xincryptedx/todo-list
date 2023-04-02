@@ -277,23 +277,19 @@ const dataManager = (() => {
     if (!query) return undefined;
     let returnData;
 
-    switch (query) {
-      case "ALLTASKS":
-        returnData = data.tasks;
-        break;
-      case "GENERAL":
-        returnData = Object.values(data.tasks).filter(
-          (task) => task.project === defaultProjects.generalUID
-        );
-        break;
-      case "TRASH":
-        returnData = Object.values(data.tasks).filter(
-          (task) => task.project === defaultProjects.trashUID
-        );
-        break;
-      default:
-      // Return individual task, subtask, or project based on uid
+    if (query === "ALLTASKS") returnData = data.tasks;
+    if (query === "GENERAL") {
+      returnData = Object.values(data.tasks).filter(
+        (task) => task.project === defaultProjects.generalUID
+      );
     }
+    if (query === "TRASH") {
+      returnData = Object.values(data.tasks).filter(
+        (task) => task.project === defaultProjects.trashUID
+      );
+    }
+
+    // Return individual task, subtask, or project based on uid
 
     console.log(`Returning data...${returnData}`);
     Events.emit("returnData", { returnData, query });
