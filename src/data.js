@@ -288,10 +288,16 @@ const dataManager = (() => {
         (task) => task.project === defaultProjects.trashUID
       );
     }
+    if (query.startsWith("ALL-IN")) {
+      const projectUID = query.substring(6);
+      returnData = Object.values(data.tasks).filter(
+        (task) => task.project === projectUID
+      );
+    }
+    // Return all tasks for a project
+    // Return individual task, project, or subtask
 
-    // Return individual task, subtask, or project based on uid
-
-    console.log(`Returning data...${returnData}`);
+    console.log(`Returning data...${returnData} with query: ${query}`);
     Events.emit("returnData", { returnData, query });
 
     return returnData;
