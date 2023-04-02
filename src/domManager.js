@@ -8,7 +8,7 @@
              -icon img
          -contentGridContainer div
             
-         ~task divs
+           ~task divs
               -priorityOutline div
               -taskGridContainer div
                   -name p
@@ -89,8 +89,10 @@
 
 import newElement from "./domElementBuilder";
 
-// #region Init helper methods
 const domManager = (() => {
+  let taskContainer;
+
+  // #region Init helper methods
   // Create main grid
   const mainGrid = () => {
     const element = newElement({
@@ -510,10 +512,11 @@ const domManager = (() => {
   // #endregion
 
   // #region Methods for creating task, subtask, and project html elements
-  const newTask = () => {
+  const newTask = (parent) => {
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "task"],
+      parent,
     });
     // Priority Outline Div
     newElement({
@@ -566,6 +569,19 @@ const domManager = (() => {
 
   // #endregion
 
+  // Load projects from data object
+
+  // Load tasks from data
+  const loadTasks = (dataArray) => {
+    if (!Array.isArray(dataArray)) return undefined;
+
+    dataArray.forEach((entry) => {
+      const task = newTask(taskContainer);
+    });
+  };
+
+  // Load subtasks from array of objects
+
   // Open menus (main, taskDetails, subtasks)
   // Close menus (same)
   // Activate a date input
@@ -579,7 +595,7 @@ const domManager = (() => {
   const init = () => {
     const mainGridDiv = mainGrid();
     headerGrid(mainGridDiv);
-    contentGrid(mainGridDiv);
+    taskContainer = contentGrid(mainGridDiv);
     footerGrid(mainGridDiv);
     menuGrid(mainGridDiv);
     taskDetailsGrid(mainGridDiv);
@@ -587,7 +603,7 @@ const domManager = (() => {
   };
   // Listen for init event and call init method
 
-  return { init, taskPool };
+  return { init };
 })();
 
 export default domManager;
