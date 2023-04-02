@@ -609,10 +609,15 @@ const domManager = (() => {
   : 
   "" */
 
+  const loadTasks = (payload) => {
+    // Generate tasks based on payload data
+    console.log(`Got payload for tasks loading: ${payload}`);
+  };
+
   const loadTasksRequest = (requestedData) => {
     // Request data
     Events.emit("requestData", requestedData);
-    // Respond if returned with creation
+    Events.once("returnFormattedData", loadTasks);
   };
 
   // Load subtasks from array of objects
