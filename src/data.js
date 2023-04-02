@@ -268,6 +268,13 @@ const dataManager = (() => {
 
   // #endregion
 
+  // Get data
+  const get = (query) => {
+    let data;
+
+    return data;
+  };
+
   // #region Events
   Events.on("init", init);
   // #endregion
@@ -278,6 +285,7 @@ const dataManager = (() => {
     createProject,
     moveToTrash,
     emptyTrash,
+    get,
     data,
   };
 })();
