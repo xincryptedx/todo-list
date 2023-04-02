@@ -611,7 +611,7 @@ const domManager = (() => {
 
   const loadTasks = (payload) => {
     // Generate tasks based on payload data
-    console.log(`Got payload for tasks loading: ${payload}`);
+    console.log(`Got payload for tasks loading: ${JSON.stringify(payload)}`);
   };
 
   const loadTasksRequest = (request) => {

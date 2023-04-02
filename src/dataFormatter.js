@@ -112,38 +112,36 @@ const dataSorter = (() => {
   // Expects a data object and query.format string
   const formatData = (payload) => {
     // Format the returned data based on query.format
-    let format;
-    if (!payload.returnedData) return undefined;
-    if (!Object.values(Formats).includes(payload.format)) {
-      format = Formats.dateAscending;
+    let format = Formats.dateAscending;
+    if (Object.values(Formats).includes(payload.format)) {
+      format = payload.format;
     }
 
     let formattedData;
     switch (format) {
       case Formats.dateAscending:
-        formattedData = sortDateAscending(payload.returnedData);
+        formattedData = sortDateAscending(payload.returnData);
         break;
       case Formats.dateDescending:
-        formattedData = sortDateDescending(payload.returnedData);
+        formattedData = sortDateDescending(payload.returnData);
         break;
       case Formats.priorityAscending:
-        formattedData = sortPriorityAscending(payload.returnedData);
+        formattedData = sortPriorityAscending(payload.returnData);
         break;
       case Formats.priorityDescending:
-        formattedData = sortPriorityDescending(payload.returnedData);
+        formattedData = sortPriorityDescending(payload.returnData);
         break;
       case Formats.filterWeek:
-        formattedData = filterWeek(payload.returnedData);
+        formattedData = filterWeek(payload.returnData);
         break;
       case Formats.filterMonth:
-        formattedData = filterMonth(payload.returnedData);
+        formattedData = filterMonth(payload.returnData);
         break;
       default:
       // code block
     }
     // Emit results
     Events.emit("returnData", formattedData);
-
     return formattedData;
   };
 
