@@ -609,7 +609,7 @@ const domManager = (() => {
   : 
   "" */
 
-  const loadTasks = (requestedData) => {
+  const loadTasksRequest = (requestedData) => {
     // Request data
     Events.emit("requestData", requestedData);
     // Respond if returned with creation
@@ -638,7 +638,7 @@ const domManager = (() => {
   };
   // Listen for init event and call init method
 
-  return { init, loadTasks };
+  return { init, loadTasksRequest };
 })();
 
 export default domManager;
