@@ -1,4 +1,5 @@
-/* Default Dom Structure 
+// #region Default Dom Structure
+/* 
        -mainGridContainer div
          -headerGridContainer div
            -title p
@@ -87,7 +88,10 @@
              -imgIcon
           */
 
+// #endregion
+
 import newElement from "./domElementBuilder";
+import Events from "./events";
 
 const domManager = (() => {
   let taskContainer;
@@ -605,14 +609,10 @@ const domManager = (() => {
   : 
   "" */
 
-  const loadTasks = (dataArray) => {
-    if (!Array.isArray(dataArray)) return undefined;
-
-    dataArray.forEach((entry) => {
-      newTask(taskContainer, entry);
-    });
-
-    return taskContainer;
+  const loadTasks = (requestedData) => {
+    // Request data
+    Events.emit("requestData", requestedData);
+    // Respond if returned with creation
   };
 
   // Load subtasks from array of objects
