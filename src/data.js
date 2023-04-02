@@ -268,11 +268,15 @@ const dataManager = (() => {
 
   // #endregion
 
-  // Get data
+  /**
+   *
+   * @param {String} query - 'ALLTASKS' or UID string denoting a project, task, or subtask. Sent by event.
+   * @returns {Object} - The requested data object based on the query. Also emits returnData with results and original query.
+   */
   const get = (query) => {
+    if (!query) return undefined;
     let returnData;
-    if (query) returnData = query;
-    else return undefined;
+
     // Get all tasks
     // Get all tasks by project
     // Get project by uid
