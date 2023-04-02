@@ -318,7 +318,11 @@ const dataManager = (() => {
       needsFormatting = false;
     }
 
-    console.log(`Returning data...${returnData} with query: ${payload}`);
+    console.log(
+      `Returning data...${JSON.stringify(returnData)} with format: ${
+        payload.format
+      }`
+    );
 
     if (needsFormatting) {
       Events.emit("returnDataForFormat", {
