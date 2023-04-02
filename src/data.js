@@ -270,18 +270,31 @@ const dataManager = (() => {
 
   /**
    *
-   * @param {String} query - 'ALLTASKS' or UID string denoting a project, task, or subtask. Sent by event.
+   * @param {String} query - 'ALLTASKS','GENERAL', 'TRASH', or UID string denoting a project, task, or subtask. Sent by event.
    * @returns {Object} - The requested data object based on the query. Also emits returnData with results and original query.
    */
   const get = (query) => {
     if (!query) return undefined;
     let returnData;
 
-    // Get all tasks
-    // Get all tasks by project
-    // Get project by uid
-    // Get task by uid
-    // Get subtask by uid
+    switch (query) {
+      case "ALLTASKS":
+        returnData = data.tasks;
+        break;
+      case "GENERAL":
+        returnData = Object.values(data.tasks).filter(
+          (task) => task.project === defaultProjects.generalUID
+        );
+        break;
+      case "TRASH":
+        returnData = Object.values(data.tasks).filter(
+          (task) => task.project === defaultProjects.trashUID
+        );
+        break;
+      default:
+      // Return individual task, subtask, or project based on uid
+    }
+
     console.log(`Returning data...${returnData}`);
     Events.emit("returnData", { returnData, query });
 
