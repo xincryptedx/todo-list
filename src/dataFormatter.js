@@ -3,12 +3,12 @@ import isThisMonth from "date-fns/isThisMonth";
 import Events from "./events";
 
 const Formats = {
-  dateAscending: "dateA",
-  dateDescending: "dateD",
-  priorityAscending: "priorityA",
-  priorityDescending: "priorityD",
-  filterWeek: "filterW",
-  filterDate: "filterD",
+  dateAscending: "DATE-A",
+  dateDescending: "DATE-D",
+  priorityAscending: "PRIORITY-A",
+  priorityDescending: "PRIORITY-D",
+  filterWeek: "FILTER-W",
+  filterMonth: "FILTER-M",
 };
 
 const dataSorter = (() => {
@@ -142,7 +142,7 @@ const dataSorter = (() => {
       // code block
     }
     // Emit results
-    Events.emit("returnFormattedData", formattedData);
+    Events.emit("returnData", formattedData);
 
     return formattedData;
   };
