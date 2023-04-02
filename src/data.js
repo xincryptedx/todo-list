@@ -270,13 +270,24 @@ const dataManager = (() => {
 
   // Get data
   const get = (query) => {
-    let data;
+    let returnData;
 
-    return data;
+    if (query) returnData = query;
+    else return undefined;
+    // Get all tasks
+    // Get all tasks by project
+    // Get project by uid
+    // Get task by uid
+    // Get subtask by uid
+    console.log(`Returning data...${returnData}`);
+    Events.emit("returnData", returnData);
+
+    return returnData;
   };
 
   // #region Events
   Events.on("init", init);
+  Events.on("requestData", get);
   // #endregion
 
   return {
