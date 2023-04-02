@@ -278,24 +278,36 @@ const dataManager = (() => {
     let returnData;
 
     if (query === "ALLTASKS") returnData = data.tasks;
-    if (query === "GENERAL") {
+    else if (query === "GENERAL") {
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === defaultProjects.generalUID
       );
-    }
-    if (query === "TRASH") {
+    } else if (query === "TRASH") {
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === defaultProjects.trashUID
       );
-    }
-    if (query.startsWith("ALL-IN")) {
+    } else if (query.startsWith("ALL-IN")) {
       const projectUID = query.substring(6);
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === projectUID
       );
     }
-    // Return all tasks for a project
     // Return individual task, project, or subtask
+    else {
+      returnData = Object.values(data.tasks).filter(
+        (dataObject) => dataObject.uid === query
+      );
+      if (returnData.length === 0) {
+        returnData = Object.values(data.subtasks).filter(
+          (dataObject) => dataObject.uid === query
+        );
+      }
+      if (returnData.length === 0) {
+        returnData = Object.values(data.projects).filter(
+          (dataObject) => dataObject.uid === query
+        );
+      }
+    }
 
     console.log(`Returning data...${returnData} with query: ${query}`);
     Events.emit("returnData", { returnData, query });
