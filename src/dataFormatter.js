@@ -2,6 +2,15 @@ import isThisWeek from "date-fns/isThisWeek";
 import isThisMonth from "date-fns/isThisMonth";
 import Events from "./events";
 
+const Formats = {
+  dateAscending: "dateA",
+  dateDescending: "dateD",
+  priorityAscending: "priorityA",
+  priorityDescending: "priorityD",
+  filterWeek: "filterW",
+  filterDate: "filterD",
+};
+
 const dataSorter = (() => {
   const addDataToArray = (data) => {
     if (!data) return undefined;
@@ -99,6 +108,46 @@ const dataSorter = (() => {
 
     return filteredData;
   };
+
+  // Expects a data object and query.format string
+  const formatData = (payload) => {
+    // Format the returned data based on query.format
+    let format;
+    if (!payload.returnedData) return undefined;
+    if (!Object.values(Formats).includes(payload.format)) {
+      format = Formats.dateAscending;
+    }
+
+    let formattedData;
+    switch (format) {
+      case Formats.dateAscending:
+        formattedData = sortDateAscending(payload.returnedData);
+        break;
+      case Formats.dateDescending:
+        formattedData = sortDateDescending(payload.returnedData);
+        break;
+      case Formats.priorityAscending:
+        formattedData = sortPriorityAscending(payload.returnedData);
+        break;
+      case Formats.priorityDescending:
+        formattedData = sortPriorityDescending(payload.returnedData);
+        break;
+      case Formats.filterWeek:
+        formattedData = filterWeek(payload.returnedData);
+        break;
+      case Formats.filterMonth:
+        formattedData = filterMonth(payload.returnedData);
+        break;
+      default:
+      // code block
+    }
+    // Emit results
+    Events.emit("returnFormattedData", formattedData);
+
+    return formattedData;
+  };
+
+  Events.on("returnData", formatData);
 
   return {
     addDataToArray,
