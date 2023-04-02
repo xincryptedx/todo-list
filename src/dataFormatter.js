@@ -114,7 +114,7 @@ const dataSorter = (() => {
     // Format the returned data based on query.format
     let format;
     if (!payload.returnedData) return undefined;
-    if (!Object.values(Formats).includes(payload.query.format)) {
+    if (!Object.values(Formats).includes(payload.format)) {
       format = Formats.dateAscending;
     }
 
