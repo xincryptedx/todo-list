@@ -289,8 +289,8 @@ const dataManager = (() => {
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === defaultProjects.trashUID
       );
-    } else if (payload.startsWith("ALL-IN")) {
-      const projectUID = payload.substring(6);
+    } else if (payload.query.startsWith("ALL-IN")) {
+      const projectUID = payload.query.substring(6);
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === projectUID
       );
@@ -322,7 +322,7 @@ const dataManager = (() => {
 
     if (needsFormatting) {
       Events.emit("returnDataForFormat", { returnData, query: payload.query });
-    } else Events.emit("returnData", { returnData, query: payload.query });
+    } else Events.emit("returnData", returnData);
 
     return returnData;
   };
