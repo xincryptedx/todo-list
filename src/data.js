@@ -309,6 +309,11 @@ const dataManager = (() => {
       }
     }
 
+    // Unwrap returnData from array if it is only one entry long
+    if (Array.isArray(returnData) && returnData.length === 1) {
+      [returnData] = returnData;
+    }
+
     console.log(`Returning data...${returnData} with query: ${query}`);
     Events.emit("returnData", { returnData, query });
 
