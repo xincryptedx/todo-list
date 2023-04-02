@@ -617,7 +617,7 @@ const domManager = (() => {
   const loadTasksRequest = (requestedData) => {
     // Request data
     Events.emit("requestData", requestedData);
-    Events.once("returnFormattedData", loadTasks);
+    Events.once("returnData", loadTasks);
   };
 
   // Load subtasks from array of objects
