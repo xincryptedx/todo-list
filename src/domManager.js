@@ -614,9 +614,9 @@ const domManager = (() => {
     console.log(`Got payload for tasks loading: ${payload}`);
   };
 
-  const loadTasksRequest = (requestedData) => {
+  const loadTasksRequest = (request) => {
     // Request data
-    Events.emit("requestData", requestedData);
+    Events.emit("requestData", request);
     Events.once("returnData", loadTasks);
   };
 
