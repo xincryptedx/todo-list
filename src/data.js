@@ -280,12 +280,12 @@ const dataManager = (() => {
     let returnData;
     let needsFormatting = true;
 
-    if (payload === "ALLTASKS") returnData = data.tasks;
-    else if (payload === "GENERAL") {
+    if (payload.query === "ALLTASKS") returnData = data.tasks;
+    else if (payload.query === "GENERAL") {
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === defaultProjects.generalUID
       );
-    } else if (payload === "TRASH") {
+    } else if (payload.query === "TRASH") {
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === defaultProjects.trashUID
       );
@@ -298,16 +298,16 @@ const dataManager = (() => {
     // Return individual task, project, or subtask
     else {
       returnData = Object.values(data.tasks).filter(
-        (dataObject) => dataObject.uid === payload
+        (dataObject) => dataObject.uid === payload.query
       );
       if (returnData.length === 0) {
         returnData = Object.values(data.subtasks).filter(
-          (dataObject) => dataObject.uid === payload
+          (dataObject) => dataObject.uid === payload.query
         );
       }
       if (returnData.length === 0) {
         returnData = Object.values(data.projects).filter(
-          (dataObject) => dataObject.uid === payload
+          (dataObject) => dataObject.uid === payload.query
         );
       }
     }
