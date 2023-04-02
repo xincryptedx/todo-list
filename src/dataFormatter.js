@@ -147,7 +147,7 @@ const dataSorter = (() => {
     return formattedData;
   };
 
-  Events.on("returnData", formatData);
+  Events.on("returnDataForFormat", formatData);
 
   return {
     addDataToArray,
