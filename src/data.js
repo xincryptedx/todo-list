@@ -321,7 +321,10 @@ const dataManager = (() => {
     console.log(`Returning data...${returnData} with query: ${payload}`);
 
     if (needsFormatting) {
-      Events.emit("returnDataForFormat", { returnData, query: payload.query });
+      Events.emit("returnDataForFormat", {
+        returnData,
+        format: payload.format,
+      });
     } else Events.emit("returnData", returnData);
 
     return returnData;
