@@ -271,7 +271,6 @@ const dataManager = (() => {
   // Get data
   const get = (query) => {
     let returnData;
-
     if (query) returnData = query;
     else return undefined;
     // Get all tasks
@@ -280,7 +279,7 @@ const dataManager = (() => {
     // Get task by uid
     // Get subtask by uid
     console.log(`Returning data...${returnData}`);
-    Events.emit("returnData", returnData);
+    Events.emit("returnData", { returnData, query });
 
     return returnData;
   };
