@@ -270,25 +270,25 @@ const dataManager = (() => {
 
   /**
    *
-   * @param {String} query - 'ALLTASKS','GENERAL', 'TRASH', or UID string denoting a project, task, or subtask. Sent by event.
+   * @param {Object} payload - 'ALLTASKS','GENERAL', 'TRASH', or UID. Sent by event.
    * @returns {Object} - The requested data object based on the query. Also emits returnData with results and original query.
    */
-  const get = (query) => {
-    if (!query) return undefined;
+  const get = (payload) => {
+    if (!payload) return undefined;
     let returnData;
     let needsFormatting = true;
 
-    if (query === "ALLTASKS") returnData = data.tasks;
-    else if (query === "GENERAL") {
+    if (payload === "ALLTASKS") returnData = data.tasks;
+    else if (payload === "GENERAL") {
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === defaultProjects.generalUID
       );
-    } else if (query === "TRASH") {
+    } else if (payload === "TRASH") {
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === defaultProjects.trashUID
       );
-    } else if (query.startsWith("ALL-IN")) {
-      const projectUID = query.substring(6);
+    } else if (payload.startsWith("ALL-IN")) {
+      const projectUID = payload.substring(6);
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === projectUID
       );
@@ -296,16 +296,16 @@ const dataManager = (() => {
     // Return individual task, project, or subtask
     else {
       returnData = Object.values(data.tasks).filter(
-        (dataObject) => dataObject.uid === query
+        (dataObject) => dataObject.uid === payload
       );
       if (returnData.length === 0) {
         returnData = Object.values(data.subtasks).filter(
-          (dataObject) => dataObject.uid === query
+          (dataObject) => dataObject.uid === payload
         );
       }
       if (returnData.length === 0) {
         returnData = Object.values(data.projects).filter(
-          (dataObject) => dataObject.uid === query
+          (dataObject) => dataObject.uid === payload
         );
       }
     }
@@ -316,11 +316,11 @@ const dataManager = (() => {
       needsFormatting = false;
     }
 
-    console.log(`Returning data...${returnData} with query: ${query}`);
+    console.log(`Returning data...${returnData} with query: ${payload}`);
 
     if (needsFormatting) {
-      Events.emit("returnDataForFormat", { returnData, query });
-    } else Events.emit("returnData", { returnData, query });
+      Events.emit("returnDataForFormat", { returnData, query: payload });
+    } else Events.emit("returnData", { returnData, query: payload });
 
     return returnData;
   };
