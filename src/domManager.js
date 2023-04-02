@@ -512,16 +512,21 @@ const domManager = (() => {
   // #endregion
 
   // #region Methods for creating task, subtask, and project html elements
-  const newTask = (parent) => {
+  const newTask = (parent, taskData) => {
+    if (!(parent instanceof HTMLElement)) return undefined;
+
+    const checkedClass = taskData.checked ? "checked" : "unchecked";
+    const priorityClass = `priority-${taskData.priority}`;
+
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "task"],
+      classList: ["grid-container", "task", checkedClass],
       parent,
     });
     // Priority Outline Div
     newElement({
       tag: "div",
-      classList: "task-outline",
+      classList: ["task-outline", priorityClass],
       parent: element,
     });
     // Task contents grid
@@ -535,11 +540,13 @@ const domManager = (() => {
       tag: "p",
       classList: "task-name",
       parent: taskContentsGrid,
+      textContent: taskData.userSetName.toString(),
     });
     newElement({
       tag: "p",
       classList: "task-project",
       parent: taskContentsGrid,
+      textContent: taskData.project.toString(),
     });
     // Details btn
     const detailsBtn = newElement({
@@ -572,12 +579,40 @@ const domManager = (() => {
   // Load projects from data object
 
   // Load tasks from data
+  /* 
+  checked
+  : 
+  (...)
+  description
+  : 
+  (...)
+  dueDate
+  : 
+  (...)
+  hasSubtasks
+  : 
+  (...)
+  priority
+  : 
+  (...)
+  project
+  : 
+  (...)
+  uid
+  : 
+  "iojij4b6mgi"
+  userSetName
+  : 
+  "" */
+
   const loadTasks = (dataArray) => {
     if (!Array.isArray(dataArray)) return undefined;
 
     dataArray.forEach((entry) => {
-      const task = newTask(taskContainer);
+      newTask(taskContainer, entry);
     });
+
+    return taskContainer;
   };
 
   // Load subtasks from array of objects
@@ -603,7 +638,7 @@ const domManager = (() => {
   };
   // Listen for init event and call init method
 
-  return { init };
+  return { init, loadTasks };
 })();
 
 export default domManager;
