@@ -119,7 +119,7 @@ const dataManager = (() => {
 
   const createTask = (taskData) => {
     if (!taskData) return undefined;
-    let project = validateProject(taskData.projectUID, true);
+    let projectUID = validateProject(taskData.projectUID, true);
     const uid = newUID();
     let userSetName = taskData.userSetName
       ? taskData.userSetName.toString()
@@ -137,11 +137,11 @@ const dataManager = (() => {
     const task = {
       uid,
       get project() {
-        return project;
+        return projectUID;
       },
       set project(newProjectUID) {
         const validatedUID = validateProject(newProjectUID, false);
-        if (validatedUID) project = validatedUID;
+        if (validatedUID) projectUID = validatedUID;
       },
       get userSetName() {
         return userSetName;
