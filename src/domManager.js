@@ -575,6 +575,9 @@ const domManager = (() => {
       parent: subtasksBtn,
     });
 
+    if (taskData.uid) element.setAttribute("data-UID", taskData.uid);
+    else element.setAttribute("data-UID-Error", "ERROR");
+
     return element;
   };
 
