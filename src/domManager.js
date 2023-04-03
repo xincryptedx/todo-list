@@ -587,7 +587,7 @@ const domManager = (() => {
   // Load projects from data object
 
   // Remove html child objects from taskContainer
-  const emptyTaskContainer = (() => {
+  const emptyContainer = (() => {
     const tasks = () => {
       if (taskContainer && taskContainer instanceof HTMLElement) {
         while (taskContainer.firstChild) {
@@ -596,7 +596,15 @@ const domManager = (() => {
       }
     };
 
-    return { tasks };
+    const subtasks = () => {
+      if (subtaskContainer && subtaskContainer instanceof HTMLElement) {
+        while (subtaskContainer.firstChild) {
+          subtaskContainer.removeChild(subtaskContainer.lastChild);
+        }
+      }
+    };
+
+    return { tasks, subtasks };
   })();
 
   // Load tasks from data
@@ -609,7 +617,7 @@ const domManager = (() => {
       return undefined;
     }
 
-    emptyTaskContainer.tasks();
+    emptyContainer.tasks();
 
     if (Array.isArray(payload)) {
       payload.forEach((entry) => {
