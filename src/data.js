@@ -297,6 +297,14 @@ const dataManager = (() => {
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === projectUID
       );
+    } else if (
+      typeof payload.query === "string" &&
+      payload.query.startsWith("SUBTASKS")
+    ) {
+      const taskUID = payload.query.substring(8); // UID starts in this position
+      returnData = Object.values(data.subtasks).filter(
+        (subtask) => subtask.task === taskUID
+      );
     }
     // Return individual task, project, or subtask
     else {
