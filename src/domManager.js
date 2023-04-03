@@ -583,38 +583,12 @@ const domManager = (() => {
   // Load projects from data object
 
   // Load tasks from data
-  /* 
-  checked
-  : 
-  (...)
-  description
-  : 
-  (...)
-  dueDate
-  : 
-  (...)
-  hasSubtasks
-  : 
-  (...)
-  priority
-  : 
-  (...)
-  project
-  : 
-  (...)
-  uid
-  : 
-  "iojij4b6mgi"
-  userSetName
-  : 
-  "" */
-
   const loadTasks = (payload) => {
     // Generate tasks based on payload data
     console.log(`Got payload for tasks loading: ${JSON.stringify(payload)}`);
   };
 
-  const loadTasksRequest = (request) => {
+  const requestTaskData = (request) => {
     // Request data
     Events.once("returnData", loadTasks);
     Events.emit("requestData", request);
@@ -643,7 +617,7 @@ const domManager = (() => {
   };
   // Listen for init event and call init method
 
-  return { init, loadTasksRequest };
+  return { init, requestTaskData };
 })();
 
 export default domManager;
