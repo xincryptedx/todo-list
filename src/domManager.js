@@ -626,6 +626,7 @@ const domManager = (() => {
           taskContainer.removeChild(taskContainer.lastChild);
         }
       }
+      return taskContainer;
     };
 
     const subtasks = () => {
@@ -634,6 +635,7 @@ const domManager = (() => {
           subtaskContainer.removeChild(subtaskContainer.lastChild);
         }
       }
+      return subtaskContainer;
     };
 
     return { tasks, subtasks };
