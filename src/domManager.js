@@ -645,8 +645,9 @@ const domManager = (() => {
     subtasksDisplayGrid(mainGridDiv);
   };
   // Listen for init event and call init method
+  Events.on("init", init);
 
-  return { init, requestTaskForLoading };
+  return { requestTaskForLoading };
 })();
 
 export default domManager;
