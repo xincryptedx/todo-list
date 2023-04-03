@@ -583,6 +583,8 @@ const domManager = (() => {
   };
 
   const newSubtask = (parent, subtaskData) => {
+    if (!(parent instanceof HTMLElement)) return undefined;
+
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "subtask"],
