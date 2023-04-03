@@ -602,7 +602,7 @@ const domManager = (() => {
     return taskContainer;
   };
 
-  const requestTaskData = (request) => {
+  const requestTaskForLoading = (request) => {
     // Request data
     Events.once("returnData", loadTasks);
     Events.emit("requestData", request);
@@ -631,7 +631,7 @@ const domManager = (() => {
   };
   // Listen for init event and call init method
 
-  return { init, requestTaskData };
+  return { init, requestTaskForLoading };
 })();
 
 export default domManager;
