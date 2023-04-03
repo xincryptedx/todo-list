@@ -289,7 +289,10 @@ const dataManager = (() => {
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === defaultProjects.trashUID
       );
-    } else if (payload.query.startsWith("ALL-IN")) {
+    } else if (
+      typeof payload.query === "string" &&
+      payload.query.startsWith("ALL-IN")
+    ) {
       const projectUID = payload.query.substring(6);
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === projectUID
