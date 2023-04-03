@@ -644,9 +644,6 @@ const domManager = (() => {
   // Load tasks from data
   const loadTasks = (payload) => {
     // Generate tasks based on payload data
-    console.log(`Got payload for tasks loading: `);
-    console.dir(payload);
-
     if (!payload || (Array.isArray(payload) && payload.length === 0)) {
       return undefined;
     }
@@ -672,9 +669,6 @@ const domManager = (() => {
 
   // Load subtasks from array of objects
   const loadSubtasks = (payload) => {
-    console.log(`Got payload for subtasks loading: `);
-    console.dir(payload);
-
     if (!payload || (Array.isArray(payload) && payload.length === 0)) {
       return undefined;
     }
