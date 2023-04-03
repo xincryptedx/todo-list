@@ -305,6 +305,8 @@ const dataManager = (() => {
       returnData = Object.values(data.subtasks).filter(
         (subtask) => subtask.task === taskUID
       );
+
+      needsFormatting = false;
     }
     // Return individual task, project, or subtask
     else {
