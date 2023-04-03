@@ -585,6 +585,12 @@ const domManager = (() => {
   const newSubtask = (parent, subtaskData) => {
     if (!(parent instanceof HTMLElement)) return undefined;
 
+    const description = subtaskData.description ? subtaskData.description : "";
+    const initialCheckedState =
+      subtaskData.checked === true || subtaskData.checked === false
+        ? subtaskData.checked
+        : false;
+
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "subtask"],
@@ -595,6 +601,7 @@ const domManager = (() => {
       tag: "p",
       classList: ["subtask-description"],
       parent: element,
+      textContent: description,
     });
 
     const checkbox = newElement({
@@ -603,7 +610,7 @@ const domManager = (() => {
       parent: element,
     });
 
-    checkbox.checked = subtaskData.checked;
+    checkbox.checked = initialCheckedState;
 
     return element;
   };
