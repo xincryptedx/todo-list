@@ -585,14 +585,26 @@ const domManager = (() => {
 
   // Load projects from data object
 
+  // Remove html child objects from taskContainer
+  const emptyTaskContainer = () => {
+    if (taskContainer && taskContainer instanceof HTMLElement) {
+      while (taskContainer.firstChild) {
+        taskContainer.removeChild(taskContainer.lastChild);
+      }
+    }
+  };
+
   // Load tasks from data
   const loadTasks = (payload) => {
     // Generate tasks based on payload data
     console.log(`Got payload for tasks loading: `);
     console.dir(payload);
 
-    if (!payload || (Array.isArray(payload) && payload.length === 0))
+    if (!payload || (Array.isArray(payload) && payload.length === 0)) {
       return undefined;
+    }
+
+    emptyTaskContainer();
 
     if (Array.isArray(payload)) {
       payload.forEach((entry) => {
