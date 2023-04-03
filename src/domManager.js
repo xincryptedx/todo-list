@@ -95,6 +95,7 @@ import Events from "./events";
 
 const domManager = (() => {
   let taskContainer;
+  let subtaskContainer;
 
   // #region Init helper methods
   // Create main grid
@@ -491,8 +492,8 @@ const domManager = (() => {
       classList: ["icon", "close-icon"],
       parent: closeBtn,
     });
-    // Subtasks container
-    newElement({
+    // Set global variable for subtask container
+    subtaskContainer = newElement({
       tag: "div",
       classList: ["grid-container", "subtasks"],
       parent: element,
