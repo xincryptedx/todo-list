@@ -291,9 +291,9 @@ const dataManager = (() => {
       );
     } else if (
       typeof payload.query === "string" &&
-      payload.query.startsWith("ALL-IN")
+      payload.query.startsWith("PROJECT")
     ) {
-      const projectUID = payload.query.substring(6);
+      const projectUID = payload.query.substring(7); // UID starts in this position
       returnData = Object.values(data.tasks).filter(
         (task) => task.project === projectUID
       );
