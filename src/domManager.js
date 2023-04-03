@@ -637,7 +637,15 @@ const domManager = (() => {
   };
 
   // Load subtasks from array of objects
+  const loadSubtasks = (payload) => {
+    console.log(`Got payload for subtasks loading: `);
+    console.dir(payload);
+  };
 
+  const requestSubtasksForLoading = (request) => {
+    Events.once("returnData", loadSubtasks);
+    Events.emit("requestData", request);
+  };
   // Open menus (main, taskDetails, subtasks)
   // Close menus (same)
   // Activate a date input
@@ -660,7 +668,7 @@ const domManager = (() => {
   // Listen for init event and call init method
   Events.on("init", init);
 
-  return { requestTaskForLoading };
+  return { requestTaskForLoading, requestSubtasksForLoading };
 })();
 
 export default domManager;
