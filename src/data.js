@@ -117,13 +117,20 @@ const dataManager = (() => {
     data.tasks[task.uid] = task;
   };
 
-  const createTask = (projectUID) => {
-    let project = validateProject(projectUID, true);
+  const createTask = (taskData) => {
+    if (!taskData) return undefined;
+    let project = validateProject(taskData.projectUID, true);
     const uid = newUID();
-    let userSetName = "";
-    let description = "";
-    let priority = TaskPriority.low;
-    let dueDate = new Date().toISOString();
+    let userSetName = taskData.userSetName
+      ? taskData.userSetName.toString()
+      : "";
+    let notes = taskData.notes ? taskData.notes : "";
+    let priority = Object.values(TaskPriority).includes(taskData.priority)
+      ? taskData.priority
+      : TaskPriority.low;
+    let dueDate = isValidDate(new Date(taskData.dueDate))
+      ? taskData.dueDate
+      : new Date().toISOString();
     let hasSubtasks = false;
     let checked = false;
 
@@ -143,10 +150,10 @@ const dataManager = (() => {
         if (newName) userSetName = newName.toString();
       },
       get description() {
-        return description;
+        return notes;
       },
       set description(newDesc) {
-        if (newDesc) description = newDesc.toString();
+        if (newDesc) notes = newDesc.toString();
       },
       get priority() {
         return priority;
