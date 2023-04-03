@@ -550,7 +550,7 @@ const domManager = (() => {
       tag: "p",
       classList: "task-project",
       parent: taskContentsGrid,
-      textContent: taskData.project.toString(),
+      textContent: taskData.projectSetName.toString(),
     });
     // Details btn
     const detailsBtn = newElement({
