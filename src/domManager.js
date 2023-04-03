@@ -585,7 +585,21 @@ const domManager = (() => {
   // Load tasks from data
   const loadTasks = (payload) => {
     // Generate tasks based on payload data
-    console.log(`Got payload for tasks loading: ${JSON.stringify(payload)}`);
+    console.log(`Got payload for tasks loading: `);
+    console.dir(payload);
+
+    if (!payload || (Array.isArray(payload) && payload.length === 0))
+      return undefined;
+
+    if (Array.isArray(payload)) {
+      payload.forEach((entry) => {
+        newTask(taskContainer, entry);
+      });
+    } else {
+      newTask(taskContainer, payload);
+    }
+
+    return taskContainer;
   };
 
   const requestTaskData = (request) => {
