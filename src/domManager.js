@@ -582,11 +582,34 @@ const domManager = (() => {
     return element;
   };
 
+  const newSubtask = (parent, subtaskData) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "subtask"],
+      parent,
+    });
+
+    newElement({
+      tag: "p",
+      classList: ["subtask-description"],
+      parent: element,
+    });
+
+    const checkbox = newElement({
+      tag: "input",
+      type: "checkbox",
+      parent: element,
+    });
+
+    checkbox.checked = subtaskData.checked;
+
+    return element;
+  };
+
   // #endregion
 
   // #region Methods for loading tasks and subtasks from data object and into containers
 
-  // Remove html child objects from taskContainer
   const emptyContainer = (() => {
     const tasks = () => {
       if (taskContainer && taskContainer instanceof HTMLElement) {
@@ -640,6 +663,22 @@ const domManager = (() => {
   const loadSubtasks = (payload) => {
     console.log(`Got payload for subtasks loading: `);
     console.dir(payload);
+
+    if (!payload || (Array.isArray(payload) && payload.length === 0)) {
+      return undefined;
+    }
+
+    emptyContainer.subtasks();
+
+    if (Array.isArray(payload)) {
+      payload.forEach((entry) => {
+        newSubtask(subtaskContainer, entry);
+      });
+    } else {
+      newSubtask(subtaskContainer, payload);
+    }
+
+    return subtaskContainer;
   };
 
   const requestSubtasksForLoading = (request) => {
