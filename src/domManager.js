@@ -584,7 +584,7 @@ const domManager = (() => {
 
   // #endregion
 
-  // Load projects from data object
+  // #region Methods for loading tasks and subtasks from data object and into containers
 
   // Remove html child objects from taskContainer
   const emptyContainer = (() => {
@@ -646,6 +646,9 @@ const domManager = (() => {
     Events.once("returnData", loadSubtasks);
     Events.emit("requestData", request);
   };
+
+  // #endregion
+
   // Open menus (main, taskDetails, subtasks)
   // Close menus (same)
   // Activate a date input
