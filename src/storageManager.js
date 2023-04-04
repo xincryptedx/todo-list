@@ -7,9 +7,17 @@ const storageManager = (() => {
     // Save json to local storage
     // Load json from local storage
     const init = () => {
-      // loadJson()
-      // convert to object
-      // emit object
+      if (localStorage.length > 0) {
+        // loadJson() with localStorage.get()
+        // convert to object
+        // emit object
+      } else {
+        // Initialize local storage
+        /* -projects
+           -tasks
+           -subtasks
+        */
+      }
     };
 
     return { init };
