@@ -21,7 +21,7 @@ const storageManager = (() => {
     };
 
     const nuke = () => {
-      Storage.clear();
+      localStorage.clear();
     };
 
     return { init, nuke };
