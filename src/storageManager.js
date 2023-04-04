@@ -61,9 +61,9 @@ const storageManager = (() => {
 
       storedSubtasks[subtaskObject.uid] = subtaskObject;
 
-      const taskString = JSON.stringify(storedSubtasks);
+      const subtaskString = JSON.stringify(storedSubtasks);
 
-      localStorage.setItem("subtasks", taskString);
+      localStorage.setItem("subtasks", subtaskString);
 
       return localStorage.subtasks;
     };
