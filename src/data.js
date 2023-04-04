@@ -1,5 +1,6 @@
 import isValidDate from "date-fns/isValid";
 import isFuture from "date-fns/isFuture";
+import deepCopy from "./deepCopy";
 import Events from "./events";
 
 const dataManager = (() => {
@@ -285,9 +286,9 @@ const dataManager = (() => {
   const loadDataFromStorage = (payload) => {
     console.log("Event loadAllData recieved!");
     if (payload.allData) {
-      data.projects = { ...payload.allData.projects };
-      data.tasks = { ...payload.allData.tasks };
-      data.subtasks = { ...payload.allData.subtasks };
+      data.projects = deepCopy(payload.allData.projects);
+      data.tasks = deepCopy(payload.allData.tasks);
+      data.subtasks = deepCopy(payload.allData.subtasks);
       console.log("Payload reicieved!");
       console.dir(payload.allData);
     }
