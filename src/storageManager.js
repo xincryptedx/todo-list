@@ -9,8 +9,6 @@ const storageManager = (() => {
       subtasks: {},
     };
 
-    // get all data and turn into an object
-
     // take an object and update project data
     // get project data and return object
 
@@ -22,6 +20,7 @@ const storageManager = (() => {
 
     const init = () => {
       const allData = {};
+      let needsDefaultProjects = false;
 
       if (localStorage.length === 0) {
         Object.keys(DefaultStorageStructure).forEach((key) => {
@@ -30,13 +29,14 @@ const storageManager = (() => {
             JSON.stringify(DefaultStorageStructure[key])
           );
         });
+        needsDefaultProjects = true;
       }
 
       Object.keys(localStorage).forEach((key) => {
         allData[key] = JSON.parse(localStorage[key]);
       });
 
-      Events.emit("loadAllData", allData);
+      Events.emit("loadAllData", { allData, needsDefaultProjects });
       return allData;
     };
 

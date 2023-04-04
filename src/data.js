@@ -4,7 +4,7 @@ import Events from "./events";
 
 const dataManager = (() => {
   // #region data model objects
-  const data = {
+  let data = {
     projects: {},
     tasks: {},
     subtasks: {},
@@ -276,14 +276,25 @@ const dataManager = (() => {
   };
 
   const init = () => {
-    createProject("Trash", "trash");
+    /*     createProject("Trash", "trash");
     createProject("General", "general");
     defaultProjects.generalUID = getGeneralProject();
-    defaultProjects.trashUID = getTrashProject();
+    defaultProjects.trashUID = getTrashProject(); */
+  };
+
+  const loadDataFromStorage = (payload) => {
+    if (payload.allData) data = payload.allData;
+    if (payload.needsDefaultProjects) {
+      createProject("Trash", "trash");
+      createProject("General", "general");
+      defaultProjects.generalUID = getGeneralProject();
+      defaultProjects.trashUID = getTrashProject();
+    }
   };
 
   // #endregion
 
+  // #region Get method for getting different kinds of data objects
   /**
    *
    * @param {Object} payload - Query is the data requested. Format is the requested format.
@@ -356,6 +367,8 @@ const dataManager = (() => {
 
     return returnData;
   };
+
+  // #endregion
 
   // #region Events
   Events.on("init", init);
