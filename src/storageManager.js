@@ -16,12 +16,18 @@ const storageManager = (() => {
       if (!localStorage.projects) return undefined;
 
       // Get localStorage.projects and convert to object
+      const storedProjects = JSON.parse(localStorage.getItem("projects"));
+      console.log("Stored Projects: ");
+      console.dir(storedProjects);
 
       // Edit project entry
+      storedProjects[projectObject.uid] = projectObject;
 
       // Stringify the object
+      const projectsString = JSON.stringify(storedProjects);
 
       // Put it back in local storage
+      localStorage.setItem("projects", projectsString);
     };
 
     Events.on("setProject", setProject);
