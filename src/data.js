@@ -296,8 +296,12 @@ const dataManager = (() => {
       console.log("Generating default projects...");
       createProject("Trash", "trash");
       createProject("General", "general");
+
       defaultProjects.generalUID = getGeneralProject();
       defaultProjects.trashUID = getTrashProject();
+
+      Events.emit("setProject", data.projects[defaultProjects.generalUID]);
+      Events.emit("setProject", data.projects[defaultProjects.trashUID]);
     }
   };
 
