@@ -4,7 +4,7 @@ import Events from "./events";
 
 const dataManager = (() => {
   // #region data model objects
-  let data = {
+  const data = {
     projects: {},
     tasks: {},
     subtasks: {},
@@ -283,8 +283,16 @@ const dataManager = (() => {
   };
 
   const loadDataFromStorage = (payload) => {
-    if (payload.allData) data = payload.allData;
+    console.log("Event loadAllData recieved!");
+    if (payload.allData) {
+      data.projects = payload.allData.projects;
+      data.tasks = payload.allData.tasks;
+      data.subtasks = payload.allData.subtasks;
+      console.log("Payload reicieved!");
+      console.dir(payload.allData);
+    }
     if (payload.needsDefaultProjects) {
+      console.log("Generating default projects...");
       createProject("Trash", "trash");
       createProject("General", "general");
       defaultProjects.generalUID = getGeneralProject();
@@ -373,6 +381,7 @@ const dataManager = (() => {
   // #region Events
   Events.on("init", init);
   Events.on("requestData", get);
+  Events.on("loadAllData", loadDataFromStorage);
   // #endregion
 
   return {
