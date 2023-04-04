@@ -12,7 +12,7 @@ const storageManager = (() => {
         // convert to object
         // emit object
       } else {
-        // Initialize local storage
+        // Initialize local storage with storage.set()
         /* -projects
            -tasks
            -subtasks
