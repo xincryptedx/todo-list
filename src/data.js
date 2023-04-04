@@ -201,6 +201,8 @@ const dataManager = (() => {
 
     addTaskToData(task);
 
+    Events.emit("setTask", task);
+
     return task;
   };
 
