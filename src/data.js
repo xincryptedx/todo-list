@@ -81,6 +81,8 @@ const dataManager = (() => {
 
     addProjectToData(project);
 
+    Events.emit("setProject", project);
+
     return project;
   };
 
@@ -299,9 +301,6 @@ const dataManager = (() => {
 
       defaultProjects.generalUID = getGeneralProject();
       defaultProjects.trashUID = getTrashProject();
-
-      Events.emit("setProject", data.projects[defaultProjects.generalUID]);
-      Events.emit("setProject", data.projects[defaultProjects.trashUID]);
     }
   };
 
