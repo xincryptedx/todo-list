@@ -2,10 +2,23 @@ import storageAvailable from "./storageAvailable";
 
 const storageManager = (() => {
   if (storageAvailable("localStorage")) {
-    // Take json and turn it into data object
-    // Take data object and turn it into json
-    // Save json to local storage
-    // Load json from local storage
+    const DefaultStorageStructure = {
+      projects: {},
+      tasks: {},
+      subtasks: {},
+    };
+
+    // get all data and turn into an object
+
+    // take an object and update project data
+    // get project data and return object
+
+    // take an object and update task data
+    // get task data and return object
+
+    // take an object and udate subtask data
+    // get subtask data and return object
+
     const init = () => {
       if (localStorage.length > 0) {
         // loadJson() with localStorage.get()
@@ -17,7 +30,14 @@ const storageManager = (() => {
            -tasks
            -subtasks
         */
+        Object.keys(DefaultStorageStructure).forEach((key) => {
+          localStorage.setItem(
+            key,
+            JSON.stringify(DefaultStorageStructure[key])
+          );
+        });
       }
+      return localStorage;
     };
 
     const nuke = () => {
