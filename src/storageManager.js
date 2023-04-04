@@ -1,4 +1,5 @@
 import storageAvailable from "./storageAvailable";
+import Events from "./events";
 
 const storageManager = (() => {
   if (storageAvailable("localStorage")) {
@@ -20,21 +21,23 @@ const storageManager = (() => {
     // get subtask data and return object
 
     const init = () => {
-      if (localStorage.length > 0) {
-        const allData = {};
-        // loadJson() with localStorage.get()
-        // convert to object
-        Object.keys(localStorage).forEach((key) => {
-          allData[key] = JSON.parse(localStorage[key]);
+      const allData = {};
+
+      if (localStorage.length === 0) {
+        Object.keys(DefaultStorageStructure).forEach((key) => {
+          localStorage.setItem(
+            key,
+            JSON.stringify(DefaultStorageStructure[key])
+          );
         });
-        return allData;
-        // emit object
       }
 
-      Object.keys(DefaultStorageStructure).forEach((key) => {
-        localStorage.setItem(key, JSON.stringify(DefaultStorageStructure[key]));
+      Object.keys(localStorage).forEach((key) => {
+        allData[key] = JSON.parse(localStorage[key]);
       });
-      return localStorage;
+
+      Events.emit("loadAllData", allData);
+      return allData;
     };
 
     const nuke = () => {
