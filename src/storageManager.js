@@ -20,7 +20,11 @@ const storageManager = (() => {
       }
     };
 
-    return { init };
+    const nuke = () => {
+      Storage.clear();
+    };
+
+    return { init, nuke };
   }
   return "Storage not available";
 })();
