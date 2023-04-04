@@ -285,9 +285,9 @@ const dataManager = (() => {
   const loadDataFromStorage = (payload) => {
     console.log("Event loadAllData recieved!");
     if (payload.allData) {
-      data.projects = payload.allData.projects;
-      data.tasks = payload.allData.tasks;
-      data.subtasks = payload.allData.subtasks;
+      data.projects = { ...payload.allData.projects };
+      data.tasks = { ...payload.allData.tasks };
+      data.subtasks = { ...payload.allData.subtasks };
       console.log("Payload reicieved!");
       console.dir(payload.allData);
     }
