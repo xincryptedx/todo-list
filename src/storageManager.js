@@ -15,16 +15,12 @@ const storageManager = (() => {
       if (!projectObject.uid) return undefined;
       if (!localStorage.projects) return undefined;
 
-      // Get localStorage.projects and convert to object
       const storedProjects = JSON.parse(localStorage.getItem("projects"));
 
-      // Edit project entry
       storedProjects[projectObject.uid] = projectObject;
 
-      // Stringify the object
       const projectsString = JSON.stringify(storedProjects);
 
-      // Put it back in local storage
       localStorage.setItem("projects", projectsString);
 
       return localStorage.projects;
@@ -35,6 +31,23 @@ const storageManager = (() => {
     // get project data and return object
 
     // take an object and update task data
+    const setTask = (taskObject) => {
+      if (typeof taskObject !== "object") return undefined;
+      if (!taskObject.uid) return undefined;
+      if (!localStorage.tasks) return undefined;
+
+      const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+
+      storedTasks[taskObject.uid] = taskObject;
+
+      const taskString = JSON.stringify(storedTasks);
+
+      localStorage.setItem("tasks", taskString);
+
+      return localStorage.projects;
+    };
+
+    Events.on("setTask", setTask);
     // get task data and return object
 
     // take an object and udate subtask data
