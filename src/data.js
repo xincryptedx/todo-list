@@ -279,16 +279,12 @@ const dataManager = (() => {
   };
 
   const loadDataFromStorage = (payload) => {
-    console.log("Event loadAllData recieved!");
     if (payload.allData) {
       data.projects = deepCopy(payload.allData.projects);
       data.tasks = deepCopy(payload.allData.tasks);
       data.subtasks = deepCopy(payload.allData.subtasks);
-      console.log("Payload reicieved!");
-      console.dir(payload.allData);
     }
     if (payload.needsDefaultProjects) {
-      console.log("Generating default projects...");
       createProject("Trash", "trash");
       createProject("General", "general");
 
