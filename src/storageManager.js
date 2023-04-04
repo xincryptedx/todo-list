@@ -36,8 +36,12 @@ const storageManager = (() => {
         allData[key] = JSON.parse(localStorage[key]);
       });
 
+      console.log(
+        `Emitting loadAllData Event with payload:${needsDefaultProjects}`
+      );
+      console.dir(allData);
       Events.emit("loadAllData", { allData, needsDefaultProjects });
-      return allData;
+      return { allData, needsDefaultProjects };
     };
 
     const nuke = () => {
