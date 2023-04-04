@@ -21,17 +21,19 @@ const storageManager = (() => {
 
     const init = () => {
       if (localStorage.length > 0) {
+        const allData = {};
         // loadJson() with localStorage.get()
         // convert to object
-        // emit object
-      } else {
-        Object.keys(DefaultStorageStructure).forEach((key) => {
-          localStorage.setItem(
-            key,
-            JSON.stringify(DefaultStorageStructure[key])
-          );
+        Object.keys(localStorage).forEach((key) => {
+          allData[key] = JSON.parse(localStorage[key]);
         });
+        return allData;
+        // emit object
       }
+
+      Object.keys(DefaultStorageStructure).forEach((key) => {
+        localStorage.setItem(key, JSON.stringify(DefaultStorageStructure[key]));
+      });
       return localStorage;
     };
 
