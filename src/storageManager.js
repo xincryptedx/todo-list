@@ -48,9 +48,28 @@ const storageManager = (() => {
     };
 
     Events.on("setTask", setTask);
+
     // get task data and return object
 
     // take an object and udate subtask data
+    const setSubtask = (subtaskObject) => {
+      if (typeof subtaskObject !== "object") return undefined;
+      if (!subtaskObject.uid) return undefined;
+      if (!localStorage.subtasks) return undefined;
+
+      const storedSubtasks = JSON.parse(localStorage.getItem("tasks"));
+
+      storedSubtasks[subtaskObject.uid] = subtaskObject;
+
+      const taskString = JSON.stringify(storedSubtasks);
+
+      localStorage.setItem("subtasks", taskString);
+
+      return localStorage.subtasks;
+    };
+
+    Events.on("setSubtask", setSubtask);
+
     // get subtask data and return object
 
     const init = () => {
