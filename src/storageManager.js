@@ -44,7 +44,7 @@ const storageManager = (() => {
 
       localStorage.setItem("tasks", taskString);
 
-      return localStorage.projects;
+      return localStorage.tasks;
     };
 
     Events.on("setTask", setTask);
