@@ -10,6 +10,22 @@ const storageManager = (() => {
     };
 
     // take an object and update project data
+    const setProject = (projectObject) => {
+      if (typeof projectObject !== "object") return undefined;
+      if (!projectObject.uid) return undefined;
+      if (!localStorage.projects) return undefined;
+
+      // Get localStorage.projects and convert to object
+
+      // Edit project entry
+
+      // Stringify the object
+
+      // Put it back in local storage
+    };
+
+    Events.on("setProject", setProject);
+
     // get project data and return object
 
     // take an object and update task data
