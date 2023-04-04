@@ -17,8 +17,6 @@ const storageManager = (() => {
 
       // Get localStorage.projects and convert to object
       const storedProjects = JSON.parse(localStorage.getItem("projects"));
-      console.log("Stored Projects: ");
-      console.dir(storedProjects);
 
       // Edit project entry
       storedProjects[projectObject.uid] = projectObject;
@@ -28,6 +26,8 @@ const storageManager = (() => {
 
       // Put it back in local storage
       localStorage.setItem("projects", projectsString);
+
+      return localStorage.projects;
     };
 
     Events.on("setProject", setProject);
@@ -59,10 +59,6 @@ const storageManager = (() => {
         allData[key] = JSON.parse(localStorage.getItem(key));
       }
 
-      console.log(
-        `Emitting loadAllData Event with payload:${needsDefaultProjects}`
-      );
-      console.dir(allData);
       Events.emit("loadAllData", { allData, needsDefaultProjects });
       return { allData, needsDefaultProjects };
     };
