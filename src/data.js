@@ -253,6 +253,8 @@ const dataManager = (() => {
 
     addSubtaskToData(subtask);
 
+    Events.emit("setSubtask", subtask);
+
     return subtask;
   };
 
