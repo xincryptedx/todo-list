@@ -291,10 +291,9 @@ const dataManager = (() => {
     if (payload.needsDefaultProjects) {
       createProject("Trash", "trash");
       createProject("General", "general");
-
-      defaultProjects.generalUID = getGeneralProject();
-      defaultProjects.trashUID = getTrashProject();
     }
+    defaultProjects.generalUID = getGeneralProject();
+    defaultProjects.trashUID = getTrashProject();
   };
 
   // #endregion
