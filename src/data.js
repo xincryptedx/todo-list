@@ -278,13 +278,6 @@ const dataManager = (() => {
     });
   };
 
-  const init = () => {
-    /*     createProject("Trash", "trash");
-    createProject("General", "general");
-    defaultProjects.generalUID = getGeneralProject();
-    defaultProjects.trashUID = getTrashProject(); */
-  };
-
   const loadDataFromStorage = (payload) => {
     console.log("Event loadAllData recieved!");
     if (payload.allData) {
@@ -383,7 +376,6 @@ const dataManager = (() => {
   // #endregion
 
   // #region Events
-  Events.on("init", init);
   Events.on("requestData", get);
   Events.on("loadAllData", loadDataFromStorage);
   // #endregion
