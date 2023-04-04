@@ -32,9 +32,14 @@ const storageManager = (() => {
         needsDefaultProjects = true;
       }
 
-      Object.keys(localStorage).forEach((key) => {
+      /*       Object.keys(localStorage).forEach((key) => {
         allData[key] = JSON.parse(localStorage[key]);
-      });
+      }); */
+
+      for (let i = 0; i < localStorage.length; i += 1) {
+        const key = localStorage.key(i);
+        allData[key] = JSON.parse(localStorage.getItem(key));
+      }
 
       console.log(
         `Emitting loadAllData Event with payload:${needsDefaultProjects}`
