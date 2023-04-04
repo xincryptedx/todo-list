@@ -25,11 +25,6 @@ const storageManager = (() => {
         // convert to object
         // emit object
       } else {
-        // Initialize local storage with storage.set()
-        /* -projects
-           -tasks
-           -subtasks
-        */
         Object.keys(DefaultStorageStructure).forEach((key) => {
           localStorage.setItem(
             key,
