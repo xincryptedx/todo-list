@@ -15,13 +15,14 @@
 /* #endregion */
 
 /* #region Global Rules */
-
+* {
+  color: var(--text-color);
+}
 /* #endregion */
 
 /* #region Body */
 body {
   background-color: var(--bg-color);
-  color: var(--text-color);
 }
 /* #endregion */
 
