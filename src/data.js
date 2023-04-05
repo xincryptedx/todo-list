@@ -330,6 +330,8 @@ const dataManager = (() => {
     }
     defaultProjects.generalUID = getGeneralProject();
     defaultProjects.trashUID = getTrashProject();
+
+    Events.emit("dataLoaded", true);
   };
 
   Events.on("loadAllData", loadDataFromStorage);
