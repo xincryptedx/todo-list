@@ -674,6 +674,13 @@ const domManager = (() => {
     Events.emit("requestData", request);
   };
 
+  const requestDefaultTasks = () => {
+    Events.once("returnData", loadTasks);
+    Events.emit("requestData", { query: "ALLTASKS" });
+  };
+
+  Events.on("dataLoaded", requestDefaultTasks);
+
   // Load subtasks from array of objects
   const loadSubtasks = (payload) => {
     if (!payload || (Array.isArray(payload) && payload.length === 0)) {
@@ -733,6 +740,7 @@ const domManager = (() => {
 
   // Init method
   const init = () => {
+    // Create default html elements
     mainGridDiv = mainGrid();
     headerGrid(mainGridDiv);
     taskContainer = contentGrid(mainGridDiv);
