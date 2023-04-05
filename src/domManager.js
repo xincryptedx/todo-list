@@ -697,19 +697,19 @@ const domManager = (() => {
   // #endregion
 
   // Open menus (main, taskDetails, subtasks)
-  const toggleMenu = () => {
+  const toggleShowHide = (element) => {
     // Toggle menu element class hide/show
-    if (menuDiv.classList.contains("hide")) {
-      menuDiv.classList.remove("hide");
-      menuDiv.classList.add("show");
+    if (element.classList.contains("hide")) {
+      element.classList.remove("hide");
+      element.classList.add("show");
     }
-    if (menuDiv.classList.contains("show")) {
-      menuDiv.classList.remove("show");
-      menuDiv.classList.add("hide");
+    if (element.classList.contains("show")) {
+      element.classList.remove("show");
+      element.classList.add("hide");
     }
   };
 
-  Events.on("menuBtn", toggleMenu);
+  Events.on("menuBtn", toggleShowHide);
 
   // Close menus (same)
   // Activate a date input
