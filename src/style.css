@@ -44,7 +44,24 @@ body {
 .header {
   grid-row: 1;
   grid-column: -1/1;
+
+  display: grid;
+  grid-template: 1fr / 1fr repeat(6, 16%) 1fr;
+  grid-template-areas: ". title title . . new-task-btn menu-btn .";
 }
+
+.header-title {
+  grid-area: title;
+}
+
+.header .new-task-btn {
+  grid-area: new-task-btn;
+}
+
+.header .menu-btn {
+  grid-area: menu-btn;
+}
+
 /* #endregion */
 
 /* #region Content */
