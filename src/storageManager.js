@@ -57,7 +57,7 @@ const storageManager = (() => {
       if (!subtaskObject.uid) return undefined;
       if (!localStorage.subtasks) return undefined;
 
-      const storedSubtasks = JSON.parse(localStorage.getItem("tasks"));
+      const storedSubtasks = JSON.parse(localStorage.getItem("subtasks"));
 
       storedSubtasks[subtaskObject.uid] = subtaskObject;
 
