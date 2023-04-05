@@ -696,10 +696,6 @@ const domManager = (() => {
 
   // #endregion
 
-  /**
-   *
-   * @param {HTMLElement} payload - Must be an HTML element with either "show" or "hide" as a class.
-   */
   const toggleShowHide = (payload) => {
     if (!(payload instanceof HTMLElement)) return undefined;
 
