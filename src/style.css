@@ -23,6 +23,9 @@
 /* #region Body */
 body {
   background-color: var(--bg-color);
+
+  height: 100vh;
+  width: 100vw;
 }
 /* #endregion */
 
@@ -30,6 +33,9 @@ body {
 .main-grid {
   display: grid;
   grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+
+  height: 100%;
+  width: 100%;
 }
 
 /* #endregion */
