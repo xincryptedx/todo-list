@@ -1,0 +1,50 @@
+/* #region Color Themes */
+/* Default Colors */
+:root {
+  --bg-color: hsl(230, 15%, 95%);
+  --elem-bg-color: hsl(230, 15%, 85%);
+  --text-color: hsl(0, 0%, 20%);
+  --highlight-color: hsl(30, 100%, 50%);
+  --alt-elem-bg-color: hsl(230, 15%, 90%);
+}
+
+/* #endregion  */
+
+/* #region Global Variables */
+
+/* #endregion */
+
+/* #region Global Rules */
+
+/* #endregion */
+
+/* #region Body */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+/* #endregion */
+
+/* #region Header */
+
+/* #endregion */
+
+/* #region Content */
+
+/* #endregion  */
+
+/* #region Footer */
+
+/* #endregion  */
+
+/* #region Menu */
+
+/* #endregion  */
+
+/* #region Task Details */
+
+/* #endregion  */
+
+/* #region Content */
+
+/* #endregion Subtask Details */
