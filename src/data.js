@@ -296,6 +296,8 @@ const dataManager = (() => {
     defaultProjects.trashUID = getTrashProject();
   };
 
+  Events.on("loadAllData", loadDataFromStorage);
+
   // #endregion
 
   // #region Get method for getting different kinds of data objects
@@ -372,11 +374,8 @@ const dataManager = (() => {
     return returnData;
   };
 
-  // #endregion
-
-  // #region Events
   Events.on("requestData", get);
-  Events.on("loadAllData", loadDataFromStorage);
+
   // #endregion
 
   return {
