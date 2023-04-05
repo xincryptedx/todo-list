@@ -97,6 +97,9 @@ const domManager = (() => {
   // Element container references
   let mainGridDiv;
   let menuDiv;
+  let taskDetailsDiv;
+  let subtaskDetailsDiv;
+
   let taskContainer;
   let subtaskContainer;
 
@@ -697,16 +700,22 @@ const domManager = (() => {
   // #endregion
 
   const toggleShowHide = (payload) => {
-    if (!(payload instanceof HTMLElement)) return undefined;
+    if (typeof payload !== "string") return undefined;
+
+    let element;
+
+    if (payload === "MENU") element = menuDiv;
+    else if (payload === "TASK") element = taskDetailsDiv;
+    else if (payload === "SUBTASK") element = subtaskDetailsDiv;
 
     // Toggle menu element class hide/show
-    if (payload.classList.contains("hide")) {
-      payload.classList.remove("hide");
-      payload.classList.add("show");
+    if (element.classList.contains("hide")) {
+      element.classList.remove("hide");
+      element.classList.add("show");
     }
-    if (payload.classList.contains("show")) {
-      payload.classList.remove("show");
-      payload.classList.add("hide");
+    if (element.classList.contains("show")) {
+      element.classList.remove("show");
+      element.classList.add("hide");
     }
 
     return payload;
@@ -714,7 +723,6 @@ const domManager = (() => {
 
   Events.on("toggleBtn", toggleShowHide);
 
-  // Close menus (same)
   // Activate a date input
   // Focus an input
   // Get value of input
