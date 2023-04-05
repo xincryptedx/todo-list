@@ -94,7 +94,7 @@ import newElement from "./domElementBuilder";
 import Events from "./events";
 
 const domManager = (() => {
-  // Element references
+  // Element container references
   let mainGridDiv;
   let menuDiv;
   let taskContainer;
@@ -699,6 +699,14 @@ const domManager = (() => {
   // Open menus (main, taskDetails, subtasks)
   const toggleMenu = () => {
     // Toggle menu element class hide/show
+    if (menuDiv.classList.contains("hide")) {
+      menuDiv.classList.remove("hide");
+      menuDiv.classList.add("show");
+    }
+    if (menuDiv.classList.contains("show")) {
+      menuDiv.classList.remove("show");
+      menuDiv.classList.add("hide");
+    }
   };
 
   Events.on("menuBtn", toggleMenu);
