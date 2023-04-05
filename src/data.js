@@ -309,7 +309,7 @@ const dataManager = (() => {
       });
 
       Object.keys(tasksToLoad).forEach((task) => {
-        // Create the task
+        createTask(tasksToLoad[task]);
       });
 
       Object.keys(subtasksToLoad).forEach((subtask) => {
