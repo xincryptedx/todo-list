@@ -1,4 +1,5 @@
 import "./style.css";
+import "./normalize.css";
 import Events from "./events";
 import DataManager from "./data";
 import DataFormatter from "./dataFormatter";
