@@ -32,7 +32,7 @@ body {
 /* #region Main Grid */
 .main-grid {
   display: grid;
-  grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+  grid-template: repeat(10, 10%) / repeat(10, 10%);
 
   height: 100%;
   width: 100%;
@@ -55,20 +55,35 @@ body {
 /* #endregion  */
 
 /* #region Footer */
+.footer {
+  grid-row: 10;
+  grid-column: -1 / 1;
+}
 
 /* #endregion  */
 
 /* #region Menu */
+.menu {
+  grid-row: 2 / -1;
+  grid-column: 4 / -1;
+}
 
 /* #endregion  */
 
 /* #region Task Details */
-
+.task-details {
+  grid-row: -1 / 1;
+  grid-column: -1 / 1;
+}
 /* #endregion  */
 
-/* #region Content */
+/* #region Subtask Display */
+.subtasks-display {
+  grid-row: -1 / 1;
+  grid-column: -1 / 1;
+}
 
-/* #endregion Subtask Details */
+/* #endregion  */
 
 /* #region Rules for Showing/Hiding Content */
 .hide {
