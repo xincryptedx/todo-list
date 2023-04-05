@@ -153,6 +153,7 @@ const dataManager = (() => {
         if (validatedUID) {
           projectUID = validatedUID;
           projectSetName = data.projects[validatedUID].userSetName;
+          Events.emit("setTask", task);
         }
       },
       get projectSetName() {
@@ -162,13 +163,19 @@ const dataManager = (() => {
         return userSetName;
       },
       set userSetName(newName) {
-        if (newName) userSetName = newName.toString();
+        if (newName) {
+          userSetName = newName.toString();
+          Events.emit("setTask", task);
+        }
       },
       get description() {
         return notes;
       },
       set description(newDesc) {
-        if (newDesc) notes = newDesc.toString();
+        if (newDesc) {
+          notes = newDesc.toString();
+          Events.emit("setTask", task);
+        }
       },
       get priority() {
         return priority;
@@ -176,6 +183,7 @@ const dataManager = (() => {
       set priority(newPriority) {
         if (Object.values(TaskPriority).includes(newPriority)) {
           priority = newPriority;
+          Events.emit("setTask", task);
         }
       },
       get dueDate() {
@@ -186,19 +194,26 @@ const dataManager = (() => {
         const newDate = new Date(newDateISO.toString());
         if (isValidDate(newDate) && isFuture(newDate)) {
           dueDate = newDate.toISOString();
+          Events.emit("setTask", task);
         }
       },
       get hasSubtasks() {
         return hasSubtasks;
       },
       set hasSubtasks(bool) {
-        if (typeof bool === "boolean") hasSubtasks = bool;
+        if (typeof bool === "boolean") {
+          hasSubtasks = bool;
+          Events.emit("setTask", task);
+        }
       },
       get checked() {
         return checked;
       },
       set checked(bool) {
-        if (typeof bool === "boolean") checked = bool;
+        if (typeof bool === "boolean") {
+          checked = bool;
+          Events.emit("setTask", task);
+        }
       },
     };
 
