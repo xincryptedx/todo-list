@@ -145,6 +145,7 @@ const domManager = (() => {
       classList: ["div-btn", "header-btn", "menu-btn"],
       parent: element,
     });
+    menuBtn.addEventListener("click", () => Events.emit("toggleBtn", "MENU"));
     newElement({
       tag: "img",
       classList: ["icon", "menu-icon"],
@@ -712,8 +713,7 @@ const domManager = (() => {
     if (element.classList.contains("hide")) {
       element.classList.remove("hide");
       element.classList.add("show");
-    }
-    if (element.classList.contains("show")) {
+    } else if (element.classList.contains("show")) {
       element.classList.remove("show");
       element.classList.add("hide");
     }
