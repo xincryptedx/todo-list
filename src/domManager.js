@@ -94,6 +94,9 @@ import newElement from "./domElementBuilder";
 import Events from "./events";
 
 const domManager = (() => {
+  // Element references
+  let mainGridDiv;
+  let menuDiv;
   let taskContainer;
   let subtaskContainer;
 
@@ -694,6 +697,12 @@ const domManager = (() => {
   // #endregion
 
   // Open menus (main, taskDetails, subtasks)
+  const toggleMenu = () => {
+    // Toggle menu element class hide/show
+  };
+
+  Events.on("menuBtn", toggleMenu);
+
   // Close menus (same)
   // Activate a date input
   // Focus an input
@@ -705,11 +714,11 @@ const domManager = (() => {
 
   // Init method
   const init = () => {
-    const mainGridDiv = mainGrid();
+    mainGridDiv = mainGrid();
     headerGrid(mainGridDiv);
     taskContainer = contentGrid(mainGridDiv);
     footerGrid(mainGridDiv);
-    menuGrid(mainGridDiv);
+    menuDiv = menuGrid(mainGridDiv);
     taskDetailsGrid(mainGridDiv);
     subtasksDisplayGrid(mainGridDiv);
   };
