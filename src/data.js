@@ -302,9 +302,21 @@ const dataManager = (() => {
 
   const loadDataFromStorage = (payload) => {
     if (payload.allData) {
-      data.projects = deepCopy(payload.allData.projects);
-      data.tasks = deepCopy(payload.allData.tasks);
-      data.subtasks = deepCopy(payload.allData.subtasks);
+      const projectsToLoad = deepCopy(payload.allData.projects);
+      const tasksToLoad = deepCopy(payload.allData.tasks);
+      const subtasksToLoad = deepCopy(payload.allData.subtasks);
+
+      Object.keys(projectsToLoad).forEach((project) => {
+        // Create the project
+      });
+
+      Object.keys(tasksToLoad).forEach((task) => {
+        // Create the task
+      });
+
+      Object.key(subtasksToLoad).forEach((subtask) => {
+        // Create the subtask
+      });
     }
     if (payload.needsDefaultProjects) {
       createProject("Trash", "trash");
