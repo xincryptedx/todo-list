@@ -321,7 +321,7 @@ const dataManager = (() => {
       });
 
       Object.keys(subtasksToLoad).forEach((subtask) => {
-        // Create the subtask
+        createSubtask(subtasksToLoad[subtask]);
       });
     }
     if (payload.needsDefaultProjects) {
