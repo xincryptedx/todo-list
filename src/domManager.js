@@ -712,7 +712,7 @@ const domManager = (() => {
     return payload;
   };
 
-  Events.on("menuBtn", toggleShowHide);
+  Events.on("toggleBtn", toggleShowHide);
 
   // Close menus (same)
   // Activate a date input
