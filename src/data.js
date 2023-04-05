@@ -75,8 +75,10 @@ const dataManager = (() => {
         return userSetName;
       },
       set userSetName(newName) {
-        if (newName) userSetName = newName.toString();
-        Events.emit("setProject", project);
+        if (newName) {
+          userSetName = newName.toString();
+          Events.emit("setProject", project);
+        }
       },
     };
 
