@@ -239,19 +239,21 @@ const dataManager = (() => {
     data.subtasks[subtask.uid] = subtask;
   };
 
-  const createSubtask = (taskUID) => {
-    const validatedTask = validateTask(taskUID);
+  const createSubtask = (subtaskData) => {
+    const validatedTask = validateTask(subtaskData.taskUID);
     if (!validatedTask) return undefined;
 
-    const uid = newUID();
-    const task = taskUID;
-    const index = Object.keys(data.subtasks).length;
-    let description = "";
-    let checked = false;
+    const uid = subtaskData.uid ? subtaskData.uid : newUID();
+    const { taskUID } = subtaskData;
+    const index = subtaskData.index
+      ? subtaskData.index
+      : Object.keys(data.subtasks).length;
+    let description = subtaskData.description ? subtaskData.description : "";
+    let checked = subtaskData.checked ? subtaskData.checked : false;
 
     const subtask = {
       uid,
-      task,
+      taskUID,
       index,
       get description() {
         return description;
