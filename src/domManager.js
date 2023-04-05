@@ -195,7 +195,7 @@ const domManager = (() => {
   const menuGrid = (parent) => {
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "menu"],
+      classList: ["grid-container", "menu", "hide"],
       parent,
     });
     // Projects selection
@@ -336,7 +336,7 @@ const domManager = (() => {
   const taskDetailsGrid = (parent) => {
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "task-details"],
+      classList: ["grid-container", "task-details", "hide"],
       parent,
     });
     // Name input label
@@ -451,7 +451,7 @@ const domManager = (() => {
   const subtasksDisplayGrid = (parent) => {
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "subtasks-display"],
+      classList: ["grid-container", "subtasks-display", "hide"],
       parent,
     });
     // Task name and project
@@ -702,6 +702,7 @@ const domManager = (() => {
      a text input that has the current subtask name as its value */
   // Method that does the reverse of the above
   // Method for toggling appearance of filterBtn icons
+
   // Init method
   const init = () => {
     const mainGridDiv = mainGrid();
