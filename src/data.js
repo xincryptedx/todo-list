@@ -259,13 +259,19 @@ const dataManager = (() => {
         return description;
       },
       set description(newDesc) {
-        if (newDesc) description = newDesc.toString();
+        if (newDesc) {
+          description = newDesc.toString();
+          Events.emit("setSubtask", subtask);
+        }
       },
       get checked() {
         return checked;
       },
       set checked(bool) {
-        if (typeof bool === "boolean") checked = bool;
+        if (typeof bool === "boolean") {
+          checked = bool;
+          Events.emit("setSubtask", subtask);
+        }
       },
     };
 
