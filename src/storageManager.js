@@ -99,6 +99,8 @@ const storageManager = (() => {
       localStorage.clear();
     };
 
+    Events.on("init", init);
+
     return { init, nuke };
   }
   return "Storage not available";
