@@ -57,16 +57,14 @@ const dataManager = (() => {
     data.projects[project.uid] = project;
   };
 
-  const createProject = (projectName, projectType) => {
-    let userSetName;
-    if (projectName) userSetName = projectName.toString();
-    else userSetName = "project";
+  const createProject = (projectData) => {
+    let userSetName = projectData.userSetName
+      ? projectData.userSetName.toString()
+      : "Project";
 
-    let type;
-    if (projectType) type = projectType.toString();
-    else type = "userMade";
+    const type = projectData.projectType ? projectData.projectType : "usermade";
 
-    const uid = newUID();
+    const uid = projectData.uid ? projectData.uid : newUID();
 
     const project = {
       uid,
