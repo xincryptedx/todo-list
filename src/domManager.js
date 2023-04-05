@@ -696,17 +696,24 @@ const domManager = (() => {
 
   // #endregion
 
-  // Open menus (main, taskDetails, subtasks)
-  const toggleShowHide = (element) => {
+  /**
+   *
+   * @param {HTMLElement} payload - Must be an HTML element with either "show" or "hide" as a class.
+   */
+  const toggleShowHide = (payload) => {
+    if (!(payload instanceof HTMLElement)) return undefined;
+
     // Toggle menu element class hide/show
-    if (element.classList.contains("hide")) {
-      element.classList.remove("hide");
-      element.classList.add("show");
+    if (payload.classList.contains("hide")) {
+      payload.classList.remove("hide");
+      payload.classList.add("show");
     }
-    if (element.classList.contains("show")) {
-      element.classList.remove("show");
-      element.classList.add("hide");
+    if (payload.classList.contains("show")) {
+      payload.classList.remove("show");
+      payload.classList.add("hide");
     }
+
+    return payload;
   };
 
   Events.on("menuBtn", toggleShowHide);
