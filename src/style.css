@@ -26,12 +26,26 @@ body {
 }
 /* #endregion */
 
-/* #region Header */
+/* #region Main Grid */
+.main-grid {
+  display: grid;
+  grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+}
 
 /* #endregion */
 
-/* #region Content */
+/* #region Header */
+.header {
+  grid-row: 1;
+  grid-column: -1/1;
+}
+/* #endregion */
 
+/* #region Content */
+.content {
+  grid-row: 2 / 9;
+  grid-column: -1 / 1;
+}
 /* #endregion  */
 
 /* #region Footer */
@@ -47,5 +61,12 @@ body {
 /* #endregion  */
 
 /* #region Content */
+
+/* #endregion Subtask Details */
+
+/* #region Rules for Showing/Hiding Content */
+.hide {
+  display: none;
+}
 
 /* #endregion Subtask Details */
