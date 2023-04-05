@@ -62,7 +62,7 @@ const dataManager = (() => {
       ? projectData.userSetName.toString()
       : "Project";
 
-    const type = projectData.projectType ? projectData.projectType : "usermade";
+    const type = projectData.type ? projectData.type : "usermade";
 
     const uid = projectData.uid ? projectData.uid : newUID();
 
@@ -317,8 +317,8 @@ const dataManager = (() => {
       });
     }
     if (payload.needsDefaultProjects) {
-      createProject("Trash", "trash");
-      createProject("General", "general");
+      createProject({ userSetName: "Trash", type: "trash" });
+      createProject({ userSetName: "General", type: "general" });
     }
     defaultProjects.generalUID = getGeneralProject();
     defaultProjects.trashUID = getTrashProject();
