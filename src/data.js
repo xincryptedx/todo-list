@@ -127,7 +127,7 @@ const dataManager = (() => {
     let projectSetName = projectUID
       ? data.projects[projectUID].userSetName
       : "Project";
-    const uid = newUID();
+    const uid = taskData.uid ? taskData.uid : newUID();
     let userSetName = taskData.userSetName
       ? taskData.userSetName.toString()
       : "";
@@ -138,8 +138,8 @@ const dataManager = (() => {
     let dueDate = isValidDate(new Date(taskData.dueDate))
       ? taskData.dueDate
       : new Date().toISOString();
-    let hasSubtasks = false;
-    let checked = false;
+    let hasSubtasks = taskData.hasSubtasks ? taskData.hasSubtasks : false;
+    let checked = taskData.checked ? taskData.checked : false;
 
     const task = {
       uid,
@@ -305,14 +305,14 @@ const dataManager = (() => {
       const subtasksToLoad = deepCopy(payload.allData.subtasks);
 
       Object.keys(projectsToLoad).forEach((project) => {
-        // Create the project
+        createProject(project);
       });
 
       Object.keys(tasksToLoad).forEach((task) => {
         // Create the task
       });
 
-      Object.key(subtasksToLoad).forEach((subtask) => {
+      Object.keys(subtasksToLoad).forEach((subtask) => {
         // Create the subtask
       });
     }
