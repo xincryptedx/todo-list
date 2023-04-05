@@ -305,7 +305,7 @@ const dataManager = (() => {
       const subtasksToLoad = deepCopy(payload.allData.subtasks);
 
       Object.keys(projectsToLoad).forEach((project) => {
-        createProject(project);
+        createProject(projectsToLoad[project]);
       });
 
       Object.keys(tasksToLoad).forEach((task) => {
