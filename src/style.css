@@ -175,6 +175,11 @@ body {
   text-overflow: ellipsis;
 }
 
+.content .task-contents .div-btn {
+  height: 80%;
+  width: 90%;
+}
+
 .content .task-contents .details-btn {
   grid-area: details;
 }
