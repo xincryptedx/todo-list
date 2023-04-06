@@ -144,9 +144,31 @@ body {
 }
 
 .content .task-contents {
+  display: grid;
+  grid-template: 66% 34% / repeat(6, 1fr);
+  grid-template-areas:
+    "name name name . details subtasks"
+    "project project project . details subtasks";
+
   width: 95%;
 
   background-color: var(--bg-color-3);
+}
+
+.content .task-name {
+  grid-area: name;
+}
+
+.content .task-project {
+  grid-area: project;
+}
+
+.content .task-contents .details-btn {
+  grid-area: details;
+}
+
+.content .task-contents .subtasks-btn {
+  grid-area: subtasks;
 }
 /* #endregion  */
 
