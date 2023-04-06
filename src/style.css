@@ -128,7 +128,7 @@ body {
 
 .content .task-outline {
   display: grid;
-  justify-items: start;
+  justify-items: end;
   height: 100%;
 }
 
