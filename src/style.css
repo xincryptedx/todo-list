@@ -275,18 +275,33 @@ body {
   display: grid;
   grid-template: 1fr / 0.5% 33% 33% 33% 0.5%;
   grid-template-areas: ". low med high .";
+  align-items: center;
+}
+
+.task-details .priority-btn {
+  height: 80%;
+  width: 93%;
 }
 
 .task-details .priority-btns .low-btn {
   grid-area: low;
+  justify-self: start;
+
+  background-color: var(--pri-1-color);
 }
 
 .task-details .priority-btns .medium-btn {
   grid-area: med;
+  justify-self: center;
+
+  background-color: var(--pri-2-color);
 }
 
 .task-details .priority-btns .high-btn {
   grid-area: high;
+  justify-self: end;
+
+  background-color: var(--pri-3-color);
 }
 
 .task-details .task-notes-label {
