@@ -536,7 +536,7 @@ const domManager = (() => {
       parent,
     });
     // Priority Outline Div
-    newElement({
+    const outlineDiv = newElement({
       tag: "div",
       classList: ["task-outline", priorityClass],
       parent: element,
@@ -545,7 +545,7 @@ const domManager = (() => {
     const taskContentsGrid = newElement({
       tag: "div",
       classList: ["grid-container", "task-contents"],
-      parent: element,
+      parent: outlineDiv,
     });
     // Name and project
     newElement({
