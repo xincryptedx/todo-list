@@ -708,18 +708,25 @@ const domManager = (() => {
   // #endregion
 
   // #region Methods for updating html elements when their corresponding data is changed
-  const setProject = (payload) => {
-    // Validation
+  /*  
+  This needs to be implemented after projects elmentes are created dynamically.
+ const setProject = (payload) => {
     if (!payload || typeof payload !== "object" || !payload.uid) {
       return undefined;
     }
 
     // Find html element that has data-uid that matches the payload uid
+    const projectElement = document.querySelector(
+      "data-uid",
+      payload.uid.toString()
+    );
 
     // Set text content to userSetName
+    if (projectElement) {
+    }
   };
 
-  Events.on("setProject", setProject);
+  Events.on("setProject", setProject); */
 
   const setTask = (payload) => {};
 
