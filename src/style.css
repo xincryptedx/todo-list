@@ -51,6 +51,8 @@ body {
   display: grid;
   grid-template: 1fr / 1fr repeat(6, 16%) 1fr;
   grid-template-areas: ". title title . . new-task-btn menu-btn .";
+
+  background-color: var(--bg-color-3);
 }
 
 .header-title {
@@ -78,6 +80,8 @@ body {
 .footer {
   grid-row: 10;
   grid-column: -1 / 1;
+
+  background-color: var(--bg-color-3);
 }
 
 /* #endregion  */
@@ -86,6 +90,8 @@ body {
 .menu {
   grid-row: 2 / -1;
   grid-column: 4 / -1;
+
+  background-color: var(--bg-color-2);
 }
 
 /* #endregion  */
@@ -94,6 +100,8 @@ body {
 .task-details {
   grid-row: -1 / 1;
   grid-column: -1 / 1;
+
+  background-color: var(--bg-color-2);
 }
 /* #endregion  */
 
@@ -101,6 +109,8 @@ body {
 .subtasks-display {
   grid-row: -1 / 1;
   grid-column: -1 / 1;
+
+  background-color: var(--bg-color-2);
 }
 
 /* #endregion  */
