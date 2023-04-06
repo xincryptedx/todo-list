@@ -158,6 +158,9 @@ body {
 
 .content .task-name {
   grid-area: name;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content .task-project {
