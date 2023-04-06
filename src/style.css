@@ -230,7 +230,48 @@ body {
   grid-row: -1 / 1;
   grid-column: -1 / 1;
 
+  display: grid;
+  grid-template: 10% 8% 10% 8% 30% 1fr / 10px repeat(6, 1fr) 10px;
+  grid-template-areas:
+    ". name-label name-label name-label date subtasks close ."
+    ". name-input name-input name-input name-input name-input name-input ."
+    ". priority priority priority priority priority priority ."
+    ". notes-label notes-label notes-label notes-label notes-label notes-label ."
+    ". notes-textarea notes-textarea notes-textarea notes-textarea notes-textarea notes-textarea .";
+
   background-color: var(--bg-color-2);
+}
+
+.task-details .task-name-label {
+  grid-area: name-label;
+}
+
+.task-details .date-btn {
+  grid-area: date;
+}
+
+.task-details .has-subtasks-btn {
+  grid-area: subtasks;
+}
+
+.task-details .close-btn {
+  grid-area: close;
+}
+
+.task-details .task-name-input {
+  grid-area: name-input;
+}
+
+.task-details .priority-btns {
+  grid-area: priority;
+}
+
+.task-details .task-notes-label {
+  grid-area: notes-label;
+}
+
+.task-details .task-notes-textarea {
+  grid-area: notes-textarea;
 }
 /* #endregion  */
 
