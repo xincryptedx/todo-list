@@ -1,11 +1,14 @@
 /* #region Color Themes */
 /* Default Colors */
 :root {
-  --bg-color: hsl(230, 15%, 95%);
-  --elem-bg-color: hsl(230, 15%, 85%);
-  --text-color: hsl(0, 0%, 20%);
-  --highlight-color: hsl(30, 100%, 50%);
-  --alt-elem-bg-color: hsl(230, 15%, 90%);
+  --bg-color: hsl(0, 0%, 18%);
+  --bg-color-2: hsl(0, 0%, 25%);
+  --bg-color-3: hsl(0, 0%, 43%);
+  --text-color: hsl(72, 48%, 94%);
+  --highlight-color: hsl(39, 100%, 50%);
+  --pri-1-color: hsl(96, 100%, 50%);
+  --pri-2-color: hsl(54, 100%, 50%);
+  --pri-3-color: hsl(0, 100%, 50%);
 }
 
 /* #endregion  */
