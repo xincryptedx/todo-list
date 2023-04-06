@@ -56,8 +56,8 @@ const domManager = (() => {
     });
     newTaskBtn.addEventListener("click", () => {
       Events.emit("toggleBtn", "TASK");
-      Events.emit("newTask", true);
-      Events.once("newTaskCreated", setOpenTask);
+      Events.emit("createTask", {});
+      Events.once("taskCreated", setOpenTask);
     });
     newElement({
       tag: "img",
