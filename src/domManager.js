@@ -16,11 +16,11 @@ const domManager = (() => {
     dataLoaded = true;
   });
 
-  let openedTask;
+  let openedTaskObject;
   const setOpenTask = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
-    openedTask = payload;
-    return openedTask;
+    openedTaskObject = payload;
+    return openedTaskObject;
   };
 
   // #region Init helper methods
