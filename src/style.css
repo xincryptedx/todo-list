@@ -242,6 +242,13 @@ body {
   background-color: var(--bg-color-2);
 }
 
+.task-details label {
+  align-self: end;
+
+  font-size: 1.15rem;
+  color: var(--highlight-color);
+}
+
 .task-details .task-name-label {
   grid-area: name-label;
 }
