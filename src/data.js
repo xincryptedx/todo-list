@@ -219,8 +219,12 @@ const dataManager = (() => {
 
     Events.emit("setTask", task);
 
+    Events.emit("taskCreated", task);
+
     return task;
   };
+
+  Events.on("createTask", createTask);
 
   const validateTask = (uid) => {
     let validatedUID;
