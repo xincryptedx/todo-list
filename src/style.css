@@ -148,8 +148,8 @@ body {
   display: grid;
   grid-template: 66% 34% / repeat(6, 1fr);
   grid-template-areas:
-    "name name name . details subtasks"
-    "project project project . details subtasks";
+    "name name name name details subtasks"
+    "project project project project details subtasks";
 
   width: 95%;
 
@@ -159,8 +159,11 @@ body {
 .content .task-name {
   grid-area: name;
 
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  font-size: 1.3rem;
 }
 
 .content .task-project {
