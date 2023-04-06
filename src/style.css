@@ -65,11 +65,13 @@ body {
 
 .header-title {
   grid-area: title;
-  color: var(--highlight-color);
 
   font-size: 2rem;
-
   align-self: center;
+
+  color: var(--highlight-color);
+
+  text-shadow: 1px 1px 5px black;
 }
 
 .header .new-task-btn {
