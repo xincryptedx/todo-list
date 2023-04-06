@@ -20,6 +20,8 @@
 /* #region Global Rules */
 * {
   color: var(--text-color);
+
+  z-index: 100;
 }
 /* #endregion */
 
@@ -75,7 +77,18 @@ body {
   grid-column: -1 / 1;
 }
 
+.content .task {
+  height: 100px;
+}
+
+.content .task-outline {
+  background-color: var(--pri-1-color);
+}
+
 .content .task-contents {
+  height: 90%;
+  width: 95%;
+
   background-color: var(--bg-color-3);
 }
 /* #endregion  */
