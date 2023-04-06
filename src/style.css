@@ -271,6 +271,22 @@ body {
 
 .task-details .priority-btns {
   grid-area: priority;
+
+  display: grid;
+  grid-template: 1fr / 0.5% 33% 33% 33% 0.5%;
+  grid-template-areas: ". low med high .";
+}
+
+.task-details .priority-btns .low-btn {
+  grid-area: low;
+}
+
+.task-details .priority-btns .medium-btn {
+  grid-area: med;
+}
+
+.task-details .priority-btns .high-btn {
+  grid-area: high;
 }
 
 .task-details .task-notes-label {
