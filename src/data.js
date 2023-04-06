@@ -130,7 +130,7 @@ const dataManager = (() => {
     const uid = taskData.uid ? taskData.uid : newUID();
     let userSetName = taskData.userSetName
       ? taskData.userSetName.toString()
-      : "";
+      : "Task";
     let notes = taskData.notes ? taskData.notes : "";
     let priority = Object.values(TaskPriority).includes(taskData.priority)
       ? taskData.priority
