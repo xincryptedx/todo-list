@@ -170,7 +170,7 @@ const domManager = (() => {
     });
     // Generated tasks go here
     // New task bottom button
-    const newTaskBtn = newElement({
+    /*     const newTaskBtn = newElement({
       tag: "div",
       classList: ["div-btn", "content-btn", "new-task-btn"],
       parent: element,
@@ -179,7 +179,7 @@ const domManager = (() => {
       tag: "img",
       classList: ["icon", "new-task-icon"],
       parent: newTaskBtn,
-    });
+    }); */
 
     return element;
   };
@@ -512,7 +512,7 @@ const domManager = (() => {
     });
     // Generated subtasks go here
     // Bottom addSubtask btn
-    const addSubtaskBtnBottom = newElement({
+    /*     const addSubtaskBtnBottom = newElement({
       tag: "div",
       classList: ["div-btn", "subtasks-div-btn", "add-subtask-btn", "bottom"],
       parent: element,
@@ -522,7 +522,7 @@ const domManager = (() => {
       classList: ["icon", "add-subtask-icon"],
       parent: addSubtaskBtnBottom,
     });
-
+ */
     return element;
   };
 
