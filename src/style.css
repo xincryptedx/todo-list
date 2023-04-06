@@ -20,8 +20,10 @@
 /* #region Global Rules */
 * {
   color: var(--text-color);
+}
 
-  z-index: 100;
+.div-btn {
+  border: 1px dashed black;
 }
 /* #endregion */
 
