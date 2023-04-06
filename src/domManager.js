@@ -325,7 +325,7 @@ const domManager = (() => {
     // Low btn
     const lowBtn = newElement({
       tag: "div",
-      classList: ["div-btn", "task-details-div-btn", "low-btn"],
+      classList: ["div-btn", "task-details-div-btn", "priority-btn", "low-btn"],
       parent: priorityBtnsGridContainer,
     });
     newElement({
@@ -337,7 +337,12 @@ const domManager = (() => {
     // Medium btn
     const mediumBtn = newElement({
       tag: "div",
-      classList: ["div-btn", "task-details-div-btn", "medium-btn"],
+      classList: [
+        "div-btn",
+        "task-details-div-btn",
+        "priority-btn",
+        "medium-btn",
+      ],
       parent: priorityBtnsGridContainer,
     });
     newElement({
@@ -349,7 +354,12 @@ const domManager = (() => {
     // High btn
     const highBtn = newElement({
       tag: "div",
-      classList: ["div-btn", "task-details-div-btn", "high-btn"],
+      classList: [
+        "div-btn",
+        "task-details-div-btn",
+        "priority-btn",
+        "high-btn",
+      ],
       parent: priorityBtnsGridContainer,
     });
     newElement({
