@@ -76,7 +76,7 @@ body {
 
   color: var(--highlight-color);
 
-  text-shadow: 1px 1px 5px black;
+  text-shadow: 1px 1px 5px rgb(46, 46, 46);
 }
 
 .header .new-task-btn {
