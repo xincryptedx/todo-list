@@ -150,6 +150,7 @@ body {
   grid-template-areas:
     "name name name name details subtasks"
     "project project project project details subtasks";
+  align-items: center;
 
   width: 95%;
 
