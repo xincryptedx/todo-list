@@ -728,13 +728,22 @@ const domManager = (() => {
 
   Events.on("setProject", setProject); */
 
-  const setTask = (payload) => {};
+  const setTask = (payload) => {
+    if (!payload || typeof payload !== "object" || !payload.uid) {
+      return undefined;
+    }
+
+    const taskElement = document.querySelector(
+      "data-uid",
+      payload.uid.toString()
+    );
+  };
 
   Events.on("setTask", setTask);
 
-  const setSubtask = (payload) => {};
+  /*   const setSubtask = (payload) => {};
 
-  Events.on("setSubtask", setSubtask);
+  Events.on("setSubtask", setSubtask); */
   // #endregion
 
   const toggleShowHide = (payload) => {
