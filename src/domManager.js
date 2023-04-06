@@ -742,16 +742,14 @@ const domManager = (() => {
     ) {
       return undefined;
     }
-    console.log(`Searching for old element: ${payload.uid}`);
-    const oldTaskElement = document.querySelector(`[data-uid=${payload.uid}]`);
+
+    const oldTaskElement = document.querySelector(
+      `[data-uid="${payload.uid}"]`
+    );
     if (!oldTaskElement) return undefined;
-    console.log("Replacing: ");
-    console.dir(oldTaskElement);
 
     const newTaskElement = newTask(oldTaskElement.parentNode, payload);
 
-    console.log("With...");
-    console.dir(newTaskElement);
     oldTaskElement.replaceWith(newTaskElement);
 
     return newTaskElement;
