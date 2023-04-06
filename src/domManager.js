@@ -16,6 +16,13 @@ const domManager = (() => {
     dataLoaded = true;
   });
 
+  let openedTask;
+  const setOpenTask = (payload) => {
+    if (!payload || typeof payload !== "object") return undefined;
+    openedTask = payload;
+    return openedTask;
+  };
+
   // #region Init helper methods
   // Create main grid
   const mainGrid = () => {
@@ -47,9 +54,11 @@ const domManager = (() => {
       classList: ["div-btn", "header-btn", "new-task-btn"],
       parent: element,
     });
-    newTaskBtn.addEventListener("click", () =>
-      Events.emit("toggleBtn", "TASK")
-    );
+    newTaskBtn.addEventListener("click", () => {
+      Events.emit("toggleBtn", "TASK");
+      Events.emit("newTask", true);
+      Events.once("newTaskCreated", setOpenTask);
+    });
     newElement({
       tag: "img",
       classList: ["icon", "new-task-icon"],
