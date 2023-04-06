@@ -165,6 +165,7 @@ body {
   text-overflow: ellipsis;
 
   font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .content .task-project {
@@ -173,6 +174,8 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  font-style: italic;
 }
 
 .content .task-contents .div-btn {
