@@ -81,12 +81,19 @@ body {
   height: 100px;
 }
 
-.content .task-outline {
+.content .task-outline.priority-1 {
   background-color: var(--pri-1-color);
 }
 
+.content .task-outline.priority-2 {
+  background-color: var(--pri-2-color);
+}
+
+.content .task-outline.priority-3 {
+  background-color: var(--pri-3-color);
+}
+
 .content .task-contents {
-  height: 90%;
   width: 95%;
 
   background-color: var(--bg-color-3);
