@@ -14,7 +14,9 @@
 /* #endregion  */
 
 /* #region Global Variables */
-
+:root {
+  --task-grid-gap: 10px;
+}
 /* #endregion */
 
 /* #region Global Rules */
@@ -95,7 +97,7 @@ body {
   grid-column: -1 / 1;
 
   display: grid;
-  grid-template: 10px auto 10px / 1fr;
+  grid-template: var(--task-grid-gap) auto var(--task-grid-gap) / 1fr;
   grid-template-areas:
     "."
     "tasks"
@@ -109,7 +111,7 @@ body {
   grid-template-columns: 3vw 1fr 3vw;
   grid-auto-flow: row;
   grid-auto-rows: 100px;
-  row-gap: 10px;
+  row-gap: var(--task-grid-gap);
 }
 
 .content .task {
