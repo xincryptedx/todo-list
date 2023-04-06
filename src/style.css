@@ -146,7 +146,7 @@ body {
 
 .content .task-contents {
   display: grid;
-  grid-template: 66% 34% / 5px repeat(6, 1fr) 5px;
+  grid-template: 50% 50% / 5px repeat(6, 1fr) 5px;
   grid-template-areas:
     ". name name name name details subtasks ."
     ". project project project project details subtasks .";
@@ -174,6 +174,8 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  align-self: start;
 
   font-style: italic;
 }
