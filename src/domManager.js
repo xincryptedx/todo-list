@@ -77,6 +77,12 @@ const domManager = (() => {
       parent,
     });
     // Generated tasks go here
+    taskContainer = newElement({
+      tag: "div",
+      classList: ["grid-container", "tasks"],
+      parent: element,
+    });
+
     // New task bottom button
     /*     const newTaskBtn = newElement({
       tag: "div",
@@ -706,7 +712,7 @@ const domManager = (() => {
     // Create default html elements
     mainGridDiv = mainGrid();
     headerGrid(mainGridDiv);
-    taskContainer = contentGrid(mainGridDiv);
+    contentGrid(mainGridDiv);
     footerGrid(mainGridDiv);
     menuDiv = menuGrid(mainGridDiv);
     taskDetailsGrid(mainGridDiv);
