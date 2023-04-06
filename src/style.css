@@ -231,7 +231,7 @@ body {
   grid-column: -1 / 1;
 
   display: grid;
-  grid-template: 10% 8% 10% 5% 30% 1fr / 10px repeat(6, 1fr) 10px;
+  grid-template: 8% 8% 10% 5% 25% 1fr / 10px repeat(6, 1fr) 10px;
   grid-template-areas:
     ". name-label name-label name-label date subtasks close ."
     ". name-input name-input name-input name-input name-input name-input ."
