@@ -17,9 +17,10 @@ const domManager = (() => {
   });
 
   let openedTaskObject;
-  const setOpenTask = (payload) => {
+  const setOpenedTask = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
     openedTaskObject = payload;
+
     return openedTaskObject;
   };
 
@@ -56,8 +57,8 @@ const domManager = (() => {
     });
     newTaskBtn.addEventListener("click", () => {
       Events.emit("toggleBtn", "TASK");
+      Events.once("taskCreated", setOpenedTask);
       Events.emit("createTask", {});
-      Events.once("taskCreated", setOpenTask);
     });
     newElement({
       tag: "img",
