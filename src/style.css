@@ -162,6 +162,10 @@ body {
 
 .content .task-project {
   grid-area: project;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content .task-contents .details-btn {
