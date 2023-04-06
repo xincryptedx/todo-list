@@ -22,6 +22,10 @@
   color: var(--text-color);
 }
 
+p {
+  margin: 0;
+}
+
 .div-btn {
   border: 1px dashed black;
 }
@@ -54,13 +58,15 @@ body {
 
   display: grid;
   grid-template: 1fr / 1fr repeat(6, 16%) 1fr;
-  grid-template-areas: ". title title . . new-task-btn menu-btn .";
+  grid-template-areas: ". title title title . new-task-btn menu-btn .";
 
   background-color: var(--bg-color-3);
 }
 
 .header-title {
   grid-area: title;
+  color: var(--highlight-color);
+  font-size: 2rem;
 }
 
 .header .new-task-btn {
