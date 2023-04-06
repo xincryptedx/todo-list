@@ -95,10 +95,12 @@ body {
   grid-column: -1 / 1;
 
   display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: 100px;
 }
 
 .content .task {
-  height: 100px;
+  height: 100%;
 }
 
 .content .task-outline.priority-1 {
