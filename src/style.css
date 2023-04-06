@@ -74,6 +74,10 @@ body {
   grid-row: 2 / 9;
   grid-column: -1 / 1;
 }
+
+.content .task-contents {
+  background-color: var(--bg-color-3);
+}
 /* #endregion  */
 
 /* #region Footer */
