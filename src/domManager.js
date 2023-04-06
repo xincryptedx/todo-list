@@ -47,6 +47,9 @@ const domManager = (() => {
       classList: ["div-btn", "header-btn", "new-task-btn"],
       parent: element,
     });
+    newTaskBtn.addEventListener("click", () =>
+      Events.emit("toggleBtn", "TASK")
+    );
     newElement({
       tag: "img",
       classList: ["icon", "new-task-icon"],
@@ -715,7 +718,7 @@ const domManager = (() => {
     contentGrid(mainGridDiv);
     footerGrid(mainGridDiv);
     menuDiv = menuGrid(mainGridDiv);
-    taskDetailsGrid(mainGridDiv);
+    taskDetailsDiv = taskDetailsGrid(mainGridDiv);
     subtasksDisplayGrid(mainGridDiv);
   };
   // Listen for init event and call init method
