@@ -103,6 +103,11 @@ const domManager = (() => {
   let taskContainer;
   let subtaskContainer;
 
+  let dataLoaded = false;
+  Events.on("dataLoaded", () => {
+    dataLoaded = true;
+  });
+
   // #region Init helper methods
   // Create main grid
   const mainGrid = () => {
@@ -729,14 +734,27 @@ const domManager = (() => {
   Events.on("setProject", setProject); */
 
   const setTask = (payload) => {
-    if (!payload || typeof payload !== "object" || !payload.uid) {
+    if (
+      !dataLoaded ||
+      !payload ||
+      typeof payload !== "object" ||
+      !payload.uid
+    ) {
       return undefined;
     }
+    console.log(`Searching for old element: ${payload.uid}`);
+    const oldTaskElement = document.querySelector(`[data-uid=${payload.uid}]`);
+    if (!oldTaskElement) return undefined;
+    console.log("Replacing: ");
+    console.dir(oldTaskElement);
 
-    const taskElement = document.querySelector(
-      "data-uid",
-      payload.uid.toString()
-    );
+    const newTaskElement = newTask(oldTaskElement.parentNode, payload);
+
+    console.log("With...");
+    console.dir(newTaskElement);
+    oldTaskElement.replaceWith(newTaskElement);
+
+    return newTaskElement;
   };
 
   Events.on("setTask", setTask);
