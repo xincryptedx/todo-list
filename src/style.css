@@ -287,6 +287,10 @@ body {
   width: 93%;
 }
 
+.task-details .priority-btn p {
+  color: black;
+}
+
 .task-details .priority-btns .low-btn {
   grid-area: low;
   justify-self: start;
