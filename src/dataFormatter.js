@@ -142,9 +142,6 @@ const dataSorter = (() => {
       default:
     }
 
-    console.log("Formatted Data: ");
-    console.dir(formattedData);
-
     switch (filter) {
       case Filters.filterWeek:
         formattedData = filterWeek(formattedData);
@@ -156,9 +153,6 @@ const dataSorter = (() => {
         break;
       default:
     }
-
-    console.log("Filtered data: ");
-    console.dir(formattedData);
 
     // Emit results
     Events.emit("returnData", formattedData);
