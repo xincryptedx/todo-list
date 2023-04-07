@@ -37,8 +37,12 @@ a {
 input[type="text"] {
   border: none;
   background-color: transparent;
+  outline: none;
 }
 
+input[type="text"]:focus {
+  font-style: italic;
+}
 .div-btn {
   border: 1px dashed black;
 }
