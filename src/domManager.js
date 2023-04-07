@@ -531,6 +531,10 @@ const domManager = (() => {
     if (taskData.uid) element.setAttribute("data-UID", taskData.uid);
     else element.setAttribute("data-UID-Error", "ERROR");
 
+    element.addEventListener("click", () => {
+      Events.emit("taskClicked", taskData.uid);
+    });
+
     return element;
   };
 
