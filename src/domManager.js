@@ -717,6 +717,7 @@ const domManager = (() => {
   Events.on("setSubtask", setSubtask); */
   // #endregion
 
+  // #region Event Methods
   const toggleShowHide = (payload) => {
     if (typeof payload !== "string") return undefined;
 
@@ -739,6 +740,8 @@ const domManager = (() => {
   };
 
   Events.on("toggleBtn", toggleShowHide);
+
+  // #region Task-clicked event methods
 
   const populateTaskDetails = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
@@ -770,13 +773,7 @@ const domManager = (() => {
 
   Events.on("blurTaskName", blurTaskName);
 
-  // Activate a date input
-  // Focus an input
-  // Get value of input
-  /* Method that will hide the p element on a subtask and unhide
-     a text input that has the current subtask name as its value */
-  // Method that does the reverse of the above
-  // Method for toggling appearance of filterBtn icons
+  // #endregion
 
   // Init method
   const init = () => {
@@ -791,6 +788,8 @@ const domManager = (() => {
   };
   // Listen for init event and call init method
   Events.on("init", init);
+
+  // #endregion
 
   return { requestTaskForLoading, requestSubtasksForLoading };
 })();
