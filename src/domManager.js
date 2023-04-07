@@ -314,6 +314,9 @@ const domManager = (() => {
       classList: ["div-btn", "task-details-div-btn", "close-btn"],
       parent: element,
     });
+    closeBtn.addEventListener("click", () => {
+      Events.emit("toggleBtn", "TASK");
+    });
     newElement({
       tag: "img",
       classList: ["icon", "close-icon"],
