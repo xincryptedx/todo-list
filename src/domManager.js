@@ -740,6 +740,14 @@ const domManager = (() => {
 
   Events.on("toggleBtn", toggleShowHide);
 
+  const populateTaskDetails = (payload) => {
+    if (!payload || typeof payload !== "object") return undefined;
+
+    taskNameInput.value = payload.userSetName;
+  };
+
+  Events.on("taskClicked", populateTaskDetails);
+
   const taskClicked = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
 
