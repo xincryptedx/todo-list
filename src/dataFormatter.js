@@ -7,8 +7,8 @@ const Formats = {
   dateDescending: "DATE-D",
   priorityAscending: "PRIORITY-A",
   priorityDescending: "PRIORITY-D",
-  filterWeek: "FILTER-W",
-  filterMonth: "FILTER-M",
+  filterWeek: "WEEK",
+  filterMonth: "MONTH",
 };
 
 const dataSorter = (() => {
