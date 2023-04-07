@@ -1,5 +1,6 @@
 import newElement from "./domElementBuilder";
 import Events from "./events";
+import Icons from "./icons";
 
 const domManager = (() => {
   // Element container references
@@ -46,7 +47,7 @@ const domManager = (() => {
 
   // Defines default project view and can be updated for reference later
   const taskView = {
-    format: taskViewOpts.format.DateAscending,
+    format: taskViewOpts.format.PriorityDescending,
     filter: taskViewOpts.filter.All,
     project: taskViewOpts.project.All,
   };
