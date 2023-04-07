@@ -336,7 +336,7 @@ const domManager = (() => {
       id: "task-name-input",
       parent: element,
     });
-    nameInput.addEventListener("blur", () => Events.emit("updateTaskName"));
+    nameInput.addEventListener("blur", () => Events.emit("blurTaskName"));
     // Priority btns
     const priorityBtnsGridContainer = newElement({
       tag: "div",
