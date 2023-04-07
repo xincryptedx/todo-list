@@ -56,6 +56,8 @@ const domManager = (() => {
     if (!payload || typeof payload !== "object") return undefined;
     openedTaskObject = payload;
 
+    Events.emit("openedTaskSet");
+
     return openedTaskObject;
   };
 
