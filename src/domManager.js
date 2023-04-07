@@ -532,7 +532,7 @@ const domManager = (() => {
     else element.setAttribute("data-UID-Error", "ERROR");
 
     element.addEventListener("click", () => {
-      Events.emit("taskClicked", taskData.uid);
+      Events.emit("taskClicked", taskData);
     });
 
     return element;
@@ -728,6 +728,18 @@ const domManager = (() => {
   };
 
   Events.on("toggleBtn", toggleShowHide);
+
+  const taskClicked = (payload) => {
+    if (!payload || typeof payload !== "object") return undefined;
+
+    openedTaskObject = payload;
+
+    Events.emit("toggleBtn", "TASK");
+
+    return openedTaskObject;
+  };
+
+  Events.on("taskClicked", taskClicked);
 
   // Activate a date input
   // Focus an input
