@@ -96,11 +96,12 @@ const domManager = (() => {
     newTaskBtn.addEventListener("click", () => {
       Events.emit("newTaskClicked");
     });
-    newElement({
-      tag: "img",
+    const newTaskIcon = newElement({
+      tag: "div",
       classList: ["icon", "new-task-icon"],
       parent: newTaskBtn,
     });
+    newTaskIcon.innerHTML = Icons.newTask;
     // Menu btn
     const menuBtn = newElement({
       tag: "div",
@@ -108,11 +109,12 @@ const domManager = (() => {
       parent: element,
     });
     menuBtn.addEventListener("click", () => Events.emit("toggleBtn", "MENU"));
-    newElement({
-      tag: "img",
+    const menuIcon = newElement({
+      tag: "div",
       classList: ["icon", "menu-icon"],
       parent: menuBtn,
     });
+    menuIcon.innerHTML = Icons.menu;
 
     return element;
   };
@@ -334,22 +336,24 @@ const domManager = (() => {
       classList: ["div-btn", "task-details-div-btn", "date-btn"],
       parent: element,
     });
-    newElement({
-      tag: "img",
+    const dateIcon = newElement({
+      tag: "div",
       classList: ["icon", "date-icon"],
       parent: dateBtn,
     });
+    dateIcon.innerHTML = Icons.date;
     // HasSubtasks btn
     const hasSubtasksBtn = newElement({
       tag: "div",
       classList: ["div-btn", "task-details-div-btn", "has-subtasks-btn"],
       parent: element,
     });
-    newElement({
-      tag: "img",
+    const subtasksIcon = newElement({
+      tag: "div",
       classList: ["icon", "has-subtasks-icon"],
       parent: hasSubtasksBtn,
     });
+    subtasksIcon.innerHTML = Icons.subtasks;
     // Close btn
     const closeBtn = newElement({
       tag: "div",
@@ -359,11 +363,12 @@ const domManager = (() => {
     closeBtn.addEventListener("click", () => {
       Events.emit("toggleBtn", "TASK");
     });
-    newElement({
-      tag: "img",
+    const closeIcon = newElement({
+      tag: "div",
       classList: ["icon", "close-icon"],
       parent: closeBtn,
     });
+    closeIcon.innerHTML = Icons.close;
     // Name input
     taskNameInput = newElement({
       tag: "input",
@@ -481,22 +486,24 @@ const domManager = (() => {
       classList: ["div-btn", "subtasks-div-btn", "add-subtask-btn", "top"],
       parent: element,
     });
-    newElement({
-      tag: "img",
+    const addSubtaskIcon = newElement({
+      tag: "div",
       classList: ["icon", "add-subtask-icon"],
       parent: addSubtaskBtnTop,
     });
+    addSubtaskIcon.innerHTML = Icons.add;
     // Close btn
     const closeBtn = newElement({
       tag: "div",
       classList: ["div-btn", "subtasks-div-btn", "close-btn"],
       parent: element,
     });
-    newElement({
-      tag: "img",
+    const closeIcon = newElement({
+      tag: "div",
       classList: ["icon", "close-icon"],
       parent: closeBtn,
     });
+    closeIcon.innerHTML = Icons.close;
     // Set global variable for subtask container
     subtaskContainer = newElement({
       tag: "div",
@@ -564,22 +571,24 @@ const domManager = (() => {
       classList: ["div-btn", "task-btn", "details-btn"],
       parent: taskContentsGrid,
     });
-    newElement({
-      tag: "img",
+    const detailsIcon = newElement({
+      tag: "div",
       classList: ["icon", "details-icon"],
       parent: detailsBtn,
     });
+    detailsIcon.innerHTML = Icons.taskDetails;
     // Subtasks btn
     const subtasksBtn = newElement({
       tag: "div",
       classList: ["div-btn", "tasks-btn", "subtasks-btn"],
       parent: taskContentsGrid,
     });
-    newElement({
-      tag: "img",
+    const subtaskIcon = newElement({
+      tag: "div",
       classList: ["icon", "subtasks-icon"],
       parent: subtasksBtn,
     });
+    subtaskIcon.innerHTML = Icons.subtasks;
 
     if (taskData.uid) element.setAttribute("data-UID", taskData.uid);
     else element.setAttribute("data-UID-Error", "ERROR");

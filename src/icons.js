@@ -1,6 +1,6 @@
 const newTask =
   '<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg>';
-const menuBtn =
+const menu =
   '<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg>';
 const menuOpened =
   '<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M120 816v-60h520v60H120Zm678-52L609 575l188-188 43 43-145 145 146 146-43 43ZM120 604v-60h400v60H120Zm0-208v-60h520v60H120Z"/></svg>';
@@ -16,12 +16,12 @@ const check =
   '<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M378 810 154 586l43-43 181 181 384-384 43 43-427 427Z"/></svg>';
 
 export default {
-  newTaskBtn: newTask,
-  menuBtn,
+  newTask,
+  menu,
   menuOpened,
-  subtasksBtn: subtasks,
-  taskDetailsBtn: taskDetails,
-  dateBtn: date,
-  closeBtn: close,
+  subtasks,
+  taskDetails,
+  date,
+  close,
   check,
 };
