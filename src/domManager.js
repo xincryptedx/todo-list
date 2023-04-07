@@ -752,7 +752,11 @@ const domManager = (() => {
 
   Events.on("taskClicked", taskClicked);
 
-  const blurTaskName = () => {};
+  const blurTaskName = () => {
+    openedTaskObject.userSetName = taskNameInput.value;
+
+    Events.emit(setTask, openedTaskObject);
+  };
 
   Events.on("blurTaskName", blurTaskName);
 
