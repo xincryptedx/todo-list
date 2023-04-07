@@ -22,6 +22,34 @@ const domManager = (() => {
     dataLoaded = true;
   });
 
+  // State references
+  const taskViewOpts = {
+    sort: {
+      DateDescending: "DATE-D",
+      DateAscending: "DATE-A",
+      PriorityDescending: "PRIORITY-D",
+      PriorityAscending: "PRIORITY-A",
+    },
+    filter: {
+      ALL: "ALL",
+      Week: "WEEK",
+      Month: "MONTH",
+    },
+    project: {
+      All: "ALLTASKS",
+      General: "GENERAL",
+      Trash: "TRASH",
+      UserMade: "PROJECT",
+    },
+  };
+
+  // Defines default project view and can be updated for reference later
+  const taskView = {
+    sort: taskViewOpts.sort.DateDescending,
+    filter: taskViewOpts.filter.ALL,
+    project: taskViewOpts.project.All,
+  };
+
   let openedTaskObject;
   const setOpenedTask = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
