@@ -41,6 +41,7 @@ const domManager = (() => {
       Trash: "TRASH",
       UserMade: "PROJECT",
     },
+    selectedUserProject: "",
   };
 
   // Defines default project view and can be updated for reference later
@@ -707,7 +708,7 @@ const domManager = (() => {
 
   // #endregion
 
-  // #region Event Methods
+  // #region Event Response Methods
 
   // #region Methods for updating html elements when their corresponding data is changed
   /*  
@@ -760,8 +761,17 @@ const domManager = (() => {
 
   // #endregion
 
-  const reloadTaskContainer = (payload) => {
-    // stuff
+  const reloadTaskContainer = () => {
+    if (!dataLoaded) return;
+
+    const request = { query: "", format: "" };
+
+    // Use taskView to create task load request
+    if (taskView.project === taskViewOpts.project.UserMade) {
+      request.query = `${taskView.project}${taskView.selectedUserProject}`;
+    } else request.query = taskView.project;
+
+    requestTaskForLoading(request);
   };
 
   Events.on("taskCreated", reloadTaskContainer);
