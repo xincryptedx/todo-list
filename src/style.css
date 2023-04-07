@@ -302,6 +302,10 @@ body {
   width: 93%;
 }
 
+.task-details .priority-btn.inactive {
+  filter: brightness(50%);
+}
+
 .task-details .priority-btn p {
   color: black;
 }
