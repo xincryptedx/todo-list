@@ -675,13 +675,6 @@ const domManager = (() => {
     Events.emit("requestData", request);
   };
 
-  const requestDefaultTasks = () => {
-    Events.once("returnData", loadTasks);
-    Events.emit("requestData", { query: "ALLTASKS" });
-  };
-
-  Events.on("dataLoaded", requestDefaultTasks);
-
   // Load subtasks from array of objects
   const loadSubtasks = (payload) => {
     if (!payload || (Array.isArray(payload) && payload.length === 0)) {
@@ -778,6 +771,7 @@ const domManager = (() => {
   };
 
   Events.on("taskCreated", reloadTaskContainer);
+  Events.on("dataLoaded", reloadTaskContainer);
 
   const toggleShowHide = (payload) => {
     if (typeof payload !== "string") return undefined;
