@@ -91,9 +91,7 @@ const domManager = (() => {
       parent: element,
     });
     newTaskBtn.addEventListener("click", () => {
-      Events.emit("toggleBtn", "TASK");
-      Events.once("taskCreated", setOpenedTask);
-      Events.emit("createTask", {});
+      Events.emit("newTaskClicked");
     });
     newElement({
       tag: "img",
@@ -708,8 +706,6 @@ const domManager = (() => {
 
   // #endregion
 
-  // #region Event Response Methods
-
   // #region Methods for updating html elements when their corresponding data is changed
   /*  
   This needs to be implemented after projects elmentes are created dynamically.
@@ -761,6 +757,7 @@ const domManager = (() => {
 
   // #endregion
 
+  // #region Button Event Response Methods
   const reloadTaskContainer = () => {
     if (!dataLoaded) return;
 
@@ -798,6 +795,14 @@ const domManager = (() => {
   };
 
   Events.on("toggleBtn", toggleShowHide);
+
+  const newTaskClicked = () => {
+    Events.emit("toggleBtn", "TASK");
+    Events.once("taskCreated", setOpenedTask);
+    Events.emit("createTask", {});
+  };
+
+  Events.on("newTaskClicked", newTaskClicked);
 
   // #region Task-clicked event methods
 
@@ -861,6 +866,8 @@ const domManager = (() => {
 
   // #endregion
 
+  // #endregion
+
   // Init method
   const init = () => {
     // Create default html elements
@@ -874,8 +881,6 @@ const domManager = (() => {
   };
   // Listen for init event and call init method
   Events.on("init", init);
-
-  // #endregion
 
   return { requestTaskForLoading, requestSubtasksForLoading };
 })();
