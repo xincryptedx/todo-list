@@ -11,6 +11,9 @@ const domManager = (() => {
   let taskContainer;
   let subtaskContainer;
 
+  // Element input references
+  let taskNameInput;
+
   let dataLoaded = false;
   Events.on("dataLoaded", () => {
     dataLoaded = true;
@@ -329,14 +332,14 @@ const domManager = (() => {
       parent: closeBtn,
     });
     // Name input
-    const nameInput = newElement({
+    taskNameInput = newElement({
       tag: "input",
       type: "text",
       classList: ["text-input", "task-details-text-input", "task-name-input"],
       id: "task-name-input",
       parent: element,
     });
-    nameInput.addEventListener("blur", () => Events.emit("blurTaskName"));
+    taskNameInput.addEventListener("blur", () => Events.emit("blurTaskName"));
     // Priority btns
     const priorityBtnsGridContainer = newElement({
       tag: "div",
@@ -748,6 +751,10 @@ const domManager = (() => {
   };
 
   Events.on("taskClicked", taskClicked);
+
+  const blurTaskName = () => {};
+
+  Events.on("blurTaskName", blurTaskName);
 
   // Activate a date input
   // Focus an input
