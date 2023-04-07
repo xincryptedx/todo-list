@@ -348,6 +348,7 @@ const dataManager = (() => {
    * @param {Object} payload - Query is the data requested. Format is the requested format.
    * @param {String} payload.query - 'ALLTASKS', 'GENERAL', 'TRASH', 'ALL-IN{uid}', or a single UID.
    * @param {String} payload.format - Requested formatting if returning object array.
+   * @param {String} payload.filter - Requested filtering if returning object array.
    * @returns {Object} - The requested data object based on the query. Also emits returnData with results and original query.
    */
   const get = (payload) => {
@@ -410,6 +411,7 @@ const dataManager = (() => {
       Events.emit("returnDataForFormat", {
         returnData,
         format: payload.format,
+        filter: payload.filter,
       });
     } else Events.emit("returnData", returnData);
 
