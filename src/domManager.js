@@ -799,6 +799,20 @@ const domManager = (() => {
 
   Events.on("blurTaskName", blurTaskName);
 
+  const priorityClicked = (payload) => {
+    if (payload === "LOW") {
+      openedTaskObject.priority = 1;
+    } else if (payload === "MEDIUM") {
+      openedTaskObject.priority = 2;
+    } else if (payload === "HIGH") {
+      openedTaskObject.priority = 3;
+    }
+    setTask(openedTaskObject);
+    populateTaskDetails(openedTaskObject);
+  };
+
+  Events.on("priorityClicked", priorityClicked);
+
   // #endregion
 
   // Init method
