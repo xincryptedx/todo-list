@@ -329,13 +329,14 @@ const domManager = (() => {
       parent: closeBtn,
     });
     // Name input
-    newElement({
+    const nameInput = newElement({
       tag: "input",
       type: "text",
       classList: ["text-input", "task-details-text-input", "task-name-input"],
       id: "task-name-input",
       parent: element,
     });
+    nameInput.addEventListener("blur", () => Events.emit("updateTaskName"));
     // Priority btns
     const priorityBtnsGridContainer = newElement({
       tag: "div",
