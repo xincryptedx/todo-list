@@ -355,6 +355,9 @@ const domManager = (() => {
       classList: ["div-btn", "task-details-div-btn", "priority-btn", "low-btn"],
       parent: priorityBtnsGridContainer,
     });
+    priLowBtn.addEventListener("click", () =>
+      Events.emit("priorityClicked", "LOW")
+    );
     newElement({
       tag: "p",
       classList: "low-btn-text",
@@ -372,6 +375,9 @@ const domManager = (() => {
       ],
       parent: priorityBtnsGridContainer,
     });
+    priMediumBtn.addEventListener("click", () =>
+      Events.emit("priorityClicked", "MEDIUM")
+    );
     newElement({
       tag: "p",
       classList: "medium-btn-text",
@@ -389,6 +395,9 @@ const domManager = (() => {
       ],
       parent: priorityBtnsGridContainer,
     });
+    priHighBtn.addEventListener("click", () =>
+      Events.emit("priorityClicked", "HIGH")
+    );
     newElement({
       tag: "p",
       classList: "high-btn-text",
