@@ -139,19 +139,15 @@ const dataSorter = (() => {
       case Formats.priorityDescending:
         formattedData = sortPriorityDescending(payload.returnData);
         break;
-      case Formats.filterWeek:
-        formattedData = filterWeek(payload.returnData);
-        break;
-      case Formats.filterMonth:
-        formattedData = filterMonth(payload.returnData);
-        break;
       default:
     }
 
     switch (filter) {
       case Filters.filterWeek:
+        formattedData = filterWeek(formattedData);
         break;
       case Filters.filterMonth:
+        formattedData = filterMonth(formattedData);
         break;
       case Filters.filterAll:
         break;
