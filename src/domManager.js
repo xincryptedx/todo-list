@@ -751,9 +751,19 @@ const domManager = (() => {
 
     taskNameInput.value = payload.userSetName;
 
-    if (payload.priority === 1) priLowBtn.classList.add("active");
-    else if (payload.priority === 2) priMediumBtn.classList.add("active");
-    else if (payload.priority === 3) priHighBtn.classList.add("active");
+    if (payload.priority === 1) {
+      priLowBtn.classList.remove("inactive");
+      priMediumBtn.classList.add("inactive");
+      priHighBtn.classList.add("inactive");
+    } else if (payload.priority === 2) {
+      priLowBtn.classList.add("inactive");
+      priMediumBtn.classList.remove("inactive");
+      priHighBtn.classList.add("inactive");
+    } else if (payload.priority === 3) {
+      priLowBtn.classList.add("inactive");
+      priMediumBtn.classList.add("inactive");
+      priHighBtn.classList.remove("inactive");
+    }
 
     return payload.userSetName;
   };
