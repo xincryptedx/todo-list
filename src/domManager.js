@@ -763,7 +763,7 @@ const domManager = (() => {
   const reloadTaskContainer = () => {
     if (!dataLoaded) return;
 
-    const request = { query: "", format: "" };
+    const request = { query: "", format: "", filter: "" };
 
     // Use taskView to create task load request
     if (taskView.project === taskViewOpts.project.UserMade) {
@@ -771,6 +771,8 @@ const domManager = (() => {
     } else request.query = taskView.project;
 
     request.format = taskView.format;
+
+    request.filter = taskView.filter;
 
     requestTaskForLoading(request);
   };
