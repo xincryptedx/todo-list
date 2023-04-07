@@ -297,14 +297,14 @@ const dataManager = (() => {
       if (uid === key) taskToMove = data.tasks[key];
     });
 
-    if (taskToMove) taskToMove.project = defaultProjects.trashUID;
+    if (taskToMove) taskToMove.projectUID = defaultProjects.trashUID;
 
     return taskToMove;
   };
 
   const emptyTrash = () => {
     Object.keys(data.tasks).forEach((key) => {
-      if (data.tasks[key].project === defaultProjects.trashUID) {
+      if (data.tasks[key].projectUID === defaultProjects.trashUID) {
         delete data.tasks[key];
       }
     });
@@ -359,11 +359,11 @@ const dataManager = (() => {
     if (payload.query === "ALLTASKS") returnData = data.tasks;
     else if (payload.query === "GENERAL") {
       returnData = Object.values(data.tasks).filter(
-        (task) => task.project === defaultProjects.generalUID
+        (task) => task.projectUID === defaultProjects.generalUID
       );
     } else if (payload.query === "TRASH") {
       returnData = Object.values(data.tasks).filter(
-        (task) => task.project === defaultProjects.trashUID
+        (task) => task.projectUID === defaultProjects.trashUID
       );
     } else if (
       typeof payload.query === "string" &&
@@ -371,7 +371,7 @@ const dataManager = (() => {
     ) {
       const projectUID = payload.query.substring(7); // UID starts in this position
       returnData = Object.values(data.tasks).filter(
-        (task) => task.project === projectUID
+        (task) => task.projectUID === projectUID
       );
     } else if (
       typeof payload.query === "string" &&

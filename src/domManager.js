@@ -47,7 +47,7 @@ const domManager = (() => {
   // Defines default project view and can be updated for reference later
   const taskView = {
     format: taskViewOpts.format.DateAscending,
-    filter: taskViewOpts.filter.ALL,
+    filter: taskViewOpts.filter.All,
     project: taskViewOpts.project.All,
   };
 
