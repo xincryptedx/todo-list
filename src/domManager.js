@@ -222,17 +222,17 @@ const domManager = (() => {
       classList: ["grid-container", "div-btn", "priority-sort-btn"],
       parent: formatBtnsGrid,
     });
-    priLowBtn = newElement({
+    newElement({
       tag: "div",
       classList: ["priority-sort-btn-color-div", "color-1"],
       parent: prioritySortBtnGrid,
     });
-    priMediumBtn = newElement({
+    newElement({
       tag: "div",
       classList: ["priority-sort-btn-color-div", "color-2"],
       parent: prioritySortBtnGrid,
     });
-    priHighBtn = newElement({
+    newElement({
       tag: "div",
       classList: ["priority-sort-btn-color-div", "color-3"],
       parent: prioritySortBtnGrid,
@@ -350,7 +350,7 @@ const domManager = (() => {
       parent: element,
     });
     // Low btn
-    const lowBtn = newElement({
+    priLowBtn = newElement({
       tag: "div",
       classList: ["div-btn", "task-details-div-btn", "priority-btn", "low-btn"],
       parent: priorityBtnsGridContainer,
@@ -358,11 +358,11 @@ const domManager = (() => {
     newElement({
       tag: "p",
       classList: "low-btn-text",
-      parent: lowBtn,
+      parent: priLowBtn,
       textContent: "Low",
     });
     // Medium btn
-    const mediumBtn = newElement({
+    priMediumBtn = newElement({
       tag: "div",
       classList: [
         "div-btn",
@@ -375,11 +375,11 @@ const domManager = (() => {
     newElement({
       tag: "p",
       classList: "medium-btn-text",
-      parent: mediumBtn,
+      parent: priMediumBtn,
       textContent: "Medium",
     });
     // High btn
-    const highBtn = newElement({
+    priHighBtn = newElement({
       tag: "div",
       classList: [
         "div-btn",
@@ -392,7 +392,7 @@ const domManager = (() => {
     newElement({
       tag: "p",
       classList: "high-btn-text",
-      parent: highBtn,
+      parent: priHighBtn,
       textContent: "High",
     });
     // Task details label and textarea
@@ -750,6 +750,10 @@ const domManager = (() => {
     if (!payload || typeof payload !== "object") return undefined;
 
     taskNameInput.value = payload.userSetName;
+
+    if (payload.priority === 1) priLowBtn.classList.add("active");
+    else if (payload.priority === 2) priMediumBtn.classList.add("active");
+    else if (payload.priority === 3) priHighBtn.classList.add("active");
 
     return payload.userSetName;
   };
