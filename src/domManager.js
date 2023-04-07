@@ -13,6 +13,9 @@ const domManager = (() => {
 
   // Element input references
   let taskNameInput;
+  let priLowBtn;
+  let priMediumBtn;
+  let priHighBtn;
 
   let dataLoaded = false;
   Events.on("dataLoaded", () => {
@@ -219,17 +222,17 @@ const domManager = (() => {
       classList: ["grid-container", "div-btn", "priority-sort-btn"],
       parent: formatBtnsGrid,
     });
-    newElement({
+    priLowBtn = newElement({
       tag: "div",
       classList: ["priority-sort-btn-color-div", "color-1"],
       parent: prioritySortBtnGrid,
     });
-    newElement({
+    priMediumBtn = newElement({
       tag: "div",
       classList: ["priority-sort-btn-color-div", "color-2"],
       parent: prioritySortBtnGrid,
     });
-    newElement({
+    priHighBtn = newElement({
       tag: "div",
       classList: ["priority-sort-btn-color-div", "color-3"],
       parent: prioritySortBtnGrid,
