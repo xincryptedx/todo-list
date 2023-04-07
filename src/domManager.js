@@ -679,6 +679,8 @@ const domManager = (() => {
 
   // #endregion
 
+  // #region Event Methods
+
   // #region Methods for updating html elements when their corresponding data is changed
   /*  
   This needs to be implemented after projects elmentes are created dynamically.
@@ -727,9 +729,15 @@ const domManager = (() => {
   /*   const setSubtask = (payload) => {};
 
   Events.on("setSubtask", setSubtask); */
+
   // #endregion
 
-  // #region Event Methods
+  const reloadTaskContainer = (payload) => {
+    // stuff
+  };
+
+  Events.on("taskCreated", reloadTaskContainer);
+
   const toggleShowHide = (payload) => {
     if (typeof payload !== "string") return undefined;
 
