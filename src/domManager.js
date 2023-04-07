@@ -744,6 +744,8 @@ const domManager = (() => {
     if (!payload || typeof payload !== "object") return undefined;
 
     taskNameInput.value = payload.userSetName;
+
+    return payload.userSetName;
   };
 
   Events.on("taskClicked", populateTaskDetails);
