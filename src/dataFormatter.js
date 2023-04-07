@@ -7,8 +7,12 @@ const Formats = {
   dateDescending: "DATE-D",
   priorityAscending: "PRIORITY-A",
   priorityDescending: "PRIORITY-D",
+};
+
+const Filters = {
   filterWeek: "WEEK",
   filterMonth: "MONTH",
+  filterAll: "ALL",
 };
 
 const dataSorter = (() => {
@@ -113,8 +117,12 @@ const dataSorter = (() => {
   const formatData = (payload) => {
     // Format the returned data based on query.format
     let format = Formats.dateAscending;
+    let filter = Filters.filterAll;
     if (Object.values(Formats).includes(payload.format)) {
       format = payload.format;
+    }
+    if (Object.values(Filters).includes(payload.filter)) {
+      filter = payload.filter;
     }
 
     let formattedData;
@@ -138,8 +146,18 @@ const dataSorter = (() => {
         formattedData = filterMonth(payload.returnData);
         break;
       default:
-      // code block
     }
+
+    switch (filter) {
+      case Filters.filterWeek:
+        break;
+      case Filters.filterMonth:
+        break;
+      case Filters.filterAll:
+        break;
+      default:
+    }
+
     // Emit results
     Events.emit("returnData", formattedData);
     return formattedData;
