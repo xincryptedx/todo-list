@@ -24,7 +24,7 @@ const domManager = (() => {
 
   // State references
   const taskViewOpts = {
-    sort: {
+    format: {
       DateDescending: "DATE-D",
       DateAscending: "DATE-A",
       PriorityDescending: "PRIORITY-D",
@@ -46,7 +46,7 @@ const domManager = (() => {
 
   // Defines default project view and can be updated for reference later
   const taskView = {
-    sort: taskViewOpts.sort.DateDescending,
+    format: taskViewOpts.format.DateDescending,
     filter: taskViewOpts.filter.ALL,
     project: taskViewOpts.project.All,
   };
@@ -769,6 +769,8 @@ const domManager = (() => {
     if (taskView.project === taskViewOpts.project.UserMade) {
       request.query = `${taskView.project}${taskView.selectedUserProject}`;
     } else request.query = taskView.project;
+
+    request.format = taskView.filter;
 
     requestTaskForLoading(request);
   };
