@@ -325,6 +325,7 @@ const domManager = (() => {
     // Name input
     newElement({
       tag: "input",
+      type: "text",
       classList: ["text-input", "task-details-text-input", "task-name-input"],
       id: "task-name-input",
       parent: element,
