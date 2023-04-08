@@ -313,10 +313,6 @@ body {
   grid-area: date;
 }
 
-.task-details .has-subtasks-btn {
-  grid-area: subtasks;
-}
-
 .task-details .close-btn {
   grid-area: close;
 }
