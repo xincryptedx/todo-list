@@ -63,6 +63,16 @@ const domManager = (() => {
   };
 
   // #region Init helper methods
+
+  // Gets svg and converts it to data UIR
+  const getSvgDataUri = (svgCode) => {
+    const base64SVG = Buffer.from(svgCode).toString("base64");
+
+    const dataURI = `data:image/svg+xml;base64,${base64SVG}`;
+
+    return dataURI;
+  };
+
   // Create main grid
   const mainGrid = () => {
     const element = newElement({
