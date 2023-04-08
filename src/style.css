@@ -289,8 +289,8 @@ body {
   display: grid;
   grid-template: 8% 8% 10% 5% 25% 1fr / 10px repeat(6, 1fr) 10px;
   grid-template-areas:
-    ". name-label name-label name-label date subtasks close ."
-    ". name-input name-input name-input name-input name-input edit-icon ."
+    ". name-input name-input name-input name-input . close ."
+    ". date . . . . . ."
     ". priority priority priority priority priority priority ."
     ". notes-label notes-label notes-label notes-label notes-label notes-label ."
     ". notes-textarea notes-textarea notes-textarea notes-textarea notes-textarea notes-textarea .";
@@ -299,14 +299,14 @@ body {
 }
 
 .task-details label {
-  align-self: end;
+  align-self: center;
 
   font-size: 1.15rem;
   color: var(--highlight-color);
 }
 
 .task-details .task-name-label {
-  grid-area: name-label;
+  display: none;
 }
 
 .task-details .date-btn {
@@ -319,6 +319,7 @@ body {
 
 .task-details .task-name-input {
   grid-area: name-input;
+  font-size: 1.4rem;
 }
 
 .task-details .edit-icon {
