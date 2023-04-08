@@ -343,7 +343,7 @@ const domManager = (() => {
       parent: dateBtn,
     });
     dateIcon.innerHTML = Icons.date;
-    // HasSubtasks btn
+    /* // HasSubtasks btn
     const hasSubtasksBtn = newElement({
       tag: "div",
       classList: ["div-btn", "task-details-div-btn", "has-subtasks-btn"],
@@ -354,7 +354,7 @@ const domManager = (() => {
       classList: ["icon", "has-subtasks-icon"],
       parent: hasSubtasksBtn,
     });
-    subtasksIcon.innerHTML = Icons.subtasks;
+    subtasksIcon.innerHTML = Icons.subtasks; */
     // Close btn
     const closeBtn = newElement({
       tag: "div",
