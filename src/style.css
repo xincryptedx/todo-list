@@ -287,7 +287,7 @@ body {
   grid-column: -1 / 1;
 
   display: grid;
-  grid-template: 8% 10% 10% 5% 23% 1fr / 10px repeat(6, 1fr) 10px;
+  grid-template: 10% 10% 9% 5% 23% 1fr / 10px repeat(6, 1fr) 10px;
   grid-template-areas:
     ". name-input name-input name-input name-input . close ."
     ". date . . . . . ."
@@ -307,6 +307,25 @@ body {
 
 .task-details .task-name-label {
   display: none;
+}
+
+.task-details .date-btn,
+.task-details .close-btn {
+  background-color: var(--bg-color-3);
+  box-shadow: 1px 1px 1px 1px var(--bg-color);
+  border-radius: 10px;
+  height: 90%;
+  align-self: center;
+}
+
+.task-details .date-btn .icon,
+.task-details .close-btn .icon {
+  fill: var(--text-color);
+}
+
+.task-details .date-btn:active .icon,
+.task-details .close-btn:active .icon {
+  fill: var(--highlight-color);
 }
 
 .task-details .date-btn {
@@ -342,6 +361,8 @@ body {
   display: grid;
   justify-items: center;
   align-items: center;
+
+  box-shadow: 1px 1px 1px 1px var(--bg-color);
 
   height: 80%;
   width: 93%;
