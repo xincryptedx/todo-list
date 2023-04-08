@@ -74,6 +74,8 @@ body {
   display: grid;
   grid-template: 1fr / 1fr repeat(6, 16%) 1fr;
   grid-template-areas: ". title title title . new-task-btn menu-btn .";
+  align-items: center;
+  justify-items: center;
 
   background-color: var(--bg-color-3);
 }
@@ -82,7 +84,7 @@ body {
   grid-area: title;
 
   font-size: 2rem;
-  align-self: center;
+  justify-self: start;
 
   color: var(--highlight-color);
 
