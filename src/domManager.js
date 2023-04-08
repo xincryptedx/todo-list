@@ -2,6 +2,8 @@ import newElement from "./domElementBuilder";
 import Events from "./events";
 import Icons from "./icons";
 
+const { Buffer } = require("buffer");
+
 const domManager = (() => {
   // Element container references
   let mainGridDiv;
@@ -66,10 +68,13 @@ const domManager = (() => {
 
   // Gets svg and converts it to data UIR
   const getSvgDataUri = (svgCode) => {
+    if (!svgCode) return undefined;
+    console.log("1");
     const base64SVG = Buffer.from(svgCode).toString("base64");
+    console.log("2");
 
     const dataURI = `data:image/svg+xml;base64,${base64SVG}`;
-
+    console.log(dataURI);
     return dataURI;
   };
 
@@ -107,11 +112,11 @@ const domManager = (() => {
       Events.emit("newTaskClicked");
     });
     const newTaskIcon = newElement({
-      tag: "div",
+      tag: "img",
       classList: ["icon", "new-task-icon"],
       parent: newTaskBtn,
     });
-    newTaskIcon.innerHTML = Icons.newTask;
+    newTaskIcon.src = getSvgDataUri(Icons.newTask);
     // Menu btn
     const menuBtn = newElement({
       tag: "div",
