@@ -287,7 +287,7 @@ body {
   grid-column: -1 / 1;
 
   display: grid;
-  grid-template: 8% 8% 10% 5% 25% 1fr / 10px repeat(6, 1fr) 10px;
+  grid-template: 8% 10% 10% 5% 23% 1fr / 10px repeat(6, 1fr) 10px;
   grid-template-areas:
     ". name-input name-input name-input name-input . close ."
     ". date . . . . . ."
@@ -320,6 +320,7 @@ body {
 .task-details .task-name-input {
   grid-area: name-input;
   font-size: 1.4rem;
+  color: var(--highlight-color);
 }
 
 .task-details .edit-icon {
@@ -344,6 +345,8 @@ body {
 
   height: 80%;
   width: 93%;
+
+  border-radius: 10px;
 }
 
 .task-details .priority-btn.inactive {
@@ -381,6 +384,7 @@ body {
 
 .task-details .task-notes-textarea {
   grid-area: notes-textarea;
+  border-radius: 5px;
 }
 /* #endregion  */
 
