@@ -781,7 +781,6 @@ const domManager = (() => {
   };
 
   Events.on("toggleBtn", reloadTaskContainer);
-  Events.on("taskCreated", reloadTaskContainer);
   Events.on("dataLoaded", reloadTaskContainer);
 
   const toggleShowHide = (payload) => {
