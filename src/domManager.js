@@ -325,12 +325,6 @@ const domManager = (() => {
       textContent: "Name:",
       for: "task-name-input",
     });
-    newElement({
-      tag: "span",
-      classList: "edit-icon",
-      parent: element,
-      textContent: "✏",
-    });
     // Date btn
     const dateBtn = newElement({
       tag: "div",
