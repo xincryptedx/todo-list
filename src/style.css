@@ -97,6 +97,22 @@ body {
   text-shadow: 1px 1px 5px rgb(46, 46, 46);
 }
 
+.header .div-btn {
+  background-color: var(--bg-color-2);
+  border-radius: 2rem;
+  box-shadow: 1px 1px 1px 1px var(--bg-color);
+  height: 70%;
+  width: 85%;
+}
+
+.header .icon {
+  fill: var(--highlight-color);
+}
+
+.header .div-btn:active .icon {
+  fill: var(--bg-color);
+}
+
 .header .new-task-btn {
   grid-area: new-task-btn;
 }
