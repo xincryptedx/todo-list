@@ -571,6 +571,9 @@ const domManager = (() => {
       classList: ["div-btn", "task-btn", "details-btn"],
       parent: taskContentsGrid,
     });
+    detailsBtn.addEventListener("click", () => {
+      Events.emit("taskClicked", taskData);
+    });
     const detailsIcon = newElement({
       tag: "div",
       classList: ["icon", "details-icon"],
@@ -592,10 +595,6 @@ const domManager = (() => {
 
     if (taskData.uid) element.setAttribute("data-UID", taskData.uid);
     else element.setAttribute("data-UID-Error", "ERROR");
-
-    element.addEventListener("click", () => {
-      Events.emit("taskClicked", taskData);
-    });
 
     return element;
   };
