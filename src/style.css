@@ -44,6 +44,12 @@ input[type="text"]:focus {
   font-style: italic;
 }
 
+.div-btn {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
 /* #endregion */
 
 /* #region Body */
