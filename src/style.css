@@ -99,10 +99,10 @@ body {
 
 .header .div-btn {
   background-color: var(--bg-color-2);
-  border-radius: 2rem;
+  border-radius: 10px;
   box-shadow: 1px 1px 1px 1px var(--bg-color);
-  height: 70%;
-  width: 85%;
+  height: minmax(min-content, 80%);
+  width: 90%;
 }
 
 .header .icon {
