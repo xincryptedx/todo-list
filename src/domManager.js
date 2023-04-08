@@ -780,6 +780,7 @@ const domManager = (() => {
     requestTaskForLoading(request);
   };
 
+  Events.on("toggleBtn", reloadTaskContainer);
   Events.on("taskCreated", reloadTaskContainer);
   Events.on("dataLoaded", reloadTaskContainer);
 
