@@ -17,6 +17,7 @@
 :root {
   --task-element-height: 80px;
   --task-grid-gap: 10px;
+  --task-border-radius: 7px;
 }
 /* #endregion */
 
@@ -162,6 +163,8 @@ body {
   display: grid;
   justify-items: end;
   height: 100%;
+
+  border-radius: var(--task-border-radius);
 }
 
 .content .task-outline.priority-1 {
@@ -187,6 +190,9 @@ body {
   width: 95%;
 
   background-color: var(--bg-color-3);
+
+  border-top-right-radius: var(--task-border-radius);
+  border-bottom-right-radius: var(--task-border-radius);
 }
 
 .content .task-name {
