@@ -187,12 +187,14 @@ body {
     ". project project project project subtasks details .";
   align-items: center;
 
-  width: 95%;
+  width: calc(100% - 5px);
+  height: calc(100% - 2px);
 
   background-color: var(--bg-color-3);
 
   border-top-right-radius: var(--task-border-radius);
   border-bottom-right-radius: var(--task-border-radius);
+  border-bottom-left-radius: var(--task-border-radius);
 }
 
 .content .task-name {
