@@ -101,7 +101,7 @@ body {
   background-color: var(--bg-color-2);
   border-radius: 10px;
   box-shadow: 1px 1px 1px 1px var(--bg-color);
-  height: minmax(min-content, 80%);
+  height: 75%;
   width: 90%;
 }
 
