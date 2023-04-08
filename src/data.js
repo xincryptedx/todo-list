@@ -138,7 +138,7 @@ const dataManager = (() => {
     let dueDate = isValidDate(new Date(taskData.dueDate))
       ? taskData.dueDate
       : new Date().toISOString();
-    let hasSubtasks = taskData.hasSubtasks ? taskData.hasSubtasks : false;
+    let hasSubtasks = taskData.hasSubtasks ? taskData.hasSubtasks : true;
     let checked = taskData.checked ? taskData.checked : false;
 
     const task = {
