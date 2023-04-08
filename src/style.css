@@ -155,8 +155,8 @@ body {
   display: grid;
   grid-template: 50% 50% / 5px repeat(6, 1fr) 5px;
   grid-template-areas:
-    ". name name name name details subtasks ."
-    ". project project project project details subtasks .";
+    ". name name name name subtasks details ."
+    ". project project project project subtasks details .";
   align-items: center;
 
   width: 95%;
