@@ -212,9 +212,24 @@ body {
   font-style: italic;
 }
 
-.content .task-contents .div-btn {
-  height: 80%;
+.content .div-btn {
+  background-color: var(--bg-color-2);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px var(--bg-color);
+  height: 70%;
   width: 90%;
+}
+
+.content .icon {
+  fill: var(--text-color);
+}
+
+.content .div-btn:active .icon {
+  fill: var(--highlight-color);
+}
+
+.content .icon svg {
+  height: 34px;
 }
 
 .content .task-contents .details-btn {
