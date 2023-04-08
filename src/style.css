@@ -92,6 +92,7 @@ body {
   grid-area: title;
 
   font-size: 2rem;
+  font-weight: bold;
   justify-self: start;
 
   color: var(--highlight-color);
