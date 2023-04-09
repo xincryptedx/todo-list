@@ -353,9 +353,17 @@ body {
 }
 
 .menu .date-sort-btn-div {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
   background-color: var(--bg-color-3);
-  height: 60%;
+  height: 70%;
   width: 90%;
+}
+
+.menu .date-sort-btn-div p {
+  font-size: 0.66rem;
 }
 
 /* #endregion  */
