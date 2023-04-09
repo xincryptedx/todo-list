@@ -166,12 +166,12 @@ const dataManager = (() => {
           Events.emit("setTask", task);
         }
       },
-      get description() {
+      get notes() {
         return notes;
       },
-      set description(newDesc) {
-        if (newDesc) {
-          notes = newDesc.toString();
+      set notes(newNotes) {
+        if (newNotes) {
+          notes = newNotes.toString();
           Events.emit("setTask", task);
         }
       },
