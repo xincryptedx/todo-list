@@ -884,9 +884,18 @@ const domManager = (() => {
       weekFilterBtn.classList.add("off");
       weekFilterBtn.classList.remove("on");
     }
+
+    if (taskView.filter === taskViewOpts.filter.Month) {
+      monthFilterBtn.classList.add("on");
+      monthFilterBtn.classList.remove("off");
+    } else if (taskView.filter !== taskViewOpts.filter.Month) {
+      monthFilterBtn.classList.add("off");
+      monthFilterBtn.classList.remove("on");
+    }
   };
 
   Events.on("taskViewChanged", renderFilterBtns);
+  Events.on("toggleBtn", renderFilterBtns);
 
   // #endregion
 
