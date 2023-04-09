@@ -886,6 +886,26 @@ const domManager = (() => {
 
   // #endregion
 
+  // #region Format btns event methods
+
+  const filterMonth = () => {};
+
+  Events.on("filterMonth", filterMonth);
+
+  const filterWeek = () => {};
+
+  Events.on("filterWeek", filterWeek);
+
+  const sortPriority = () => {};
+
+  Events.on("sortPriority", sortPriority);
+
+  const sortDate = () => {};
+
+  Events.on("sortDate", sortDate);
+
+  // #endregion
+
   // #endregion
 
   // Init method
