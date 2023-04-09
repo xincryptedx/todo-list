@@ -340,6 +340,23 @@ const domManager = (() => {
       textContent: "Name:",
       for: "task-name-input",
     });
+    // Date label
+    newElement({
+      tag: "label",
+      for: "due-date-input",
+      classList: ["task-details-label", "due-date-label"],
+      parent: element,
+      textContent: "Due: ",
+    });
+    // Date input
+    const dateInput = newElement({
+      tag: "input",
+      type: "date",
+      id: "due-date-input",
+      classList: ["task-details-input", "due-date-input"],
+      parent: element,
+      textContent: "Due: ",
+    });
     // Date btn
     const dateBtn = newElement({
       tag: "div",
