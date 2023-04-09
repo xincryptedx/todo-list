@@ -18,6 +18,8 @@
   --task-element-height: 80px;
   --task-grid-gap: 10px;
   --task-border-radius: 7px;
+
+  --format-btns-border-width: 2px;
 }
 /* #endregion */
 
@@ -287,27 +289,69 @@ body {
 }
 
 .menu .format-btns {
+  align-self: center;
+  justify-self: center;
   display: grid;
   grid-template: 50% 50% / 50% 50%;
   grid-template-areas:
     "week month"
     "priority date";
+
+  height: 90%;
+  width: 90%;
+}
+
+.menu .div-btn {
+  border: var(--format-btns-border-width) solid var(--bg-color-3);
 }
 
 .menu .week-filter-btn {
   grid-area: week;
+  border-top-width: calc(var(--format-btns-border-width) * 2);
+  border-left-width: calc(var(--format-btns-border-width) * 2);
 }
 
 .menu .month-filter-btn {
   grid-area: month;
+  border-top-width: calc(var(--format-btns-border-width) * 2);
+  border-right-width: calc(var(--format-btns-border-width) * 2);
 }
 
 .menu .priority-sort-btn {
   grid-area: priority;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr;
+  align-items: center;
+
+  border-bottom-width: calc(var(--format-btns-border-width) * 2);
+  border-left-width: calc(var(--format-btns-border-width) * 2);
+}
+
+.menu .priority-sort-btn-color-div {
+  height: 60%;
+  width: 90%;
+}
+
+.menu .priority-sort-btn .color-1 {
+  background-color: var(--pri-1-color);
+  align-self: end;
+}
+
+.menu .priority-sort-btn .color-2 {
+  background-color: var(--pri-2-color);
+  align-self: center;
+}
+
+.menu .priority-sort-btn .color-3 {
+  background-color: var(--pri-3-color);
+  align-self: start;
 }
 
 .menu .date-sort-btn {
   grid-area: date;
+
+  border-bottom-width: calc(var(--format-btns-border-width) * 2);
+  border-right-width: calc(var(--format-btns-border-width) * 2);
 }
 
 /* #endregion  */
