@@ -894,19 +894,23 @@ const domManager = (() => {
     }
 
     if (taskView.format === taskViewOpts.format.DateAscending) {
-      dateSortBtn.classList.add("ascending");
+      dateSortBtn.classList.add("ascending", "on");
       dateSortBtn.classList.remove("descending");
+      prioritySortBtn.classList.remove("on");
     } else if (taskView.format === taskViewOpts.format.DateDescending) {
-      dateSortBtn.classList.add("descending");
+      dateSortBtn.classList.add("descending", "on");
       dateSortBtn.classList.remove("ascending");
+      prioritySortBtn.classList.remove("on");
     }
 
     if (taskView.format === taskViewOpts.format.PriorityAscending) {
-      prioritySortBtn.classList.add("ascending");
+      prioritySortBtn.classList.add("ascending", "on");
       prioritySortBtn.classList.remove("descending");
+      dateSortBtn.classList.remove("on");
     } else if (taskView.format === taskViewOpts.format.PriorityDescending) {
-      prioritySortBtn.classList.add("descending");
+      prioritySortBtn.classList.add("descending", "on");
       prioritySortBtn.classList.remove("ascending");
+      dateSortBtn.classList.remove("on");
     }
   };
 
