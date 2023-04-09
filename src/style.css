@@ -467,6 +467,14 @@ body {
   color: var(--highlight-color);
 }
 
+.task-details .due-date-label {
+  grid-area: date-label;
+}
+
+.task-details .due-date-input {
+  grid-area: date-input;
+}
+
 .task-details .priority-btns {
   grid-area: priority;
 
