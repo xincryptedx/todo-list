@@ -317,6 +317,14 @@ body {
   border-right-width: calc(var(--format-btns-border-width) * 2);
 }
 
+.menu .div-btn.on {
+  border-color: var(--highlight-color);
+}
+
+.menu .div-btn.on p {
+  color: var(--highlight-color);
+}
+
 .menu .priority-sort-btn {
   grid-area: priority;
   display: grid;
