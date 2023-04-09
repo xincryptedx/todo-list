@@ -279,16 +279,22 @@ body {
   grid-column: 4 / -1;
 
   display: grid;
-  grid-template: 75% 25% / 1fr;
+  grid-template: 5% 70% 25% / 1fr;
+  grid-template-areas:
+    "."
+    "projects"
+    "format-btns";
 
   background-color: var(--bg-color-2);
 }
 
 .menu .projects {
+  grid-area: projects;
   display: grid;
 }
 
 .menu .format-btns {
+  grid-area: format-btns;
   align-self: center;
   justify-self: center;
   display: grid;
