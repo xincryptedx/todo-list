@@ -231,6 +231,9 @@ const domManager = (() => {
       classList: ["div-btn", "week-filter-btn"],
       parent: formatBtnsGrid,
     });
+    weekFilterBtn.addEventListener("click", () => {
+      Events.on("filterWeek");
+    });
     newElement({
       tag: "p",
       classList: "week-filter-btn-text",
@@ -243,6 +246,9 @@ const domManager = (() => {
       classList: ["div-btn", "month-filter-btn"],
       parent: formatBtnsGrid,
     });
+    monthFilterBtn.addEventListener("click", () => {
+      Events.on("filterMonth");
+    });
     newElement({
       tag: "p",
       classList: "month-filter-btn-text",
@@ -254,6 +260,9 @@ const domManager = (() => {
       tag: "div",
       classList: ["grid-container", "div-btn", "priority-sort-btn"],
       parent: formatBtnsGrid,
+    });
+    prioritySortBtnGrid.addEventListener("click", () => {
+      Events.on("sortPriority");
     });
     newElement({
       tag: "div",
@@ -275,6 +284,9 @@ const domManager = (() => {
       tag: "div",
       classList: ["grid-container", "div-btn", "date-sort-btn"],
       parent: formatBtnsGrid,
+    });
+    dateSortBtnGrid.addEventListener("click", () => {
+      Events.on("sortDate");
     });
     const dateOneDiv = newElement({
       tag: "div",
