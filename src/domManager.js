@@ -840,19 +840,6 @@ const domManager = (() => {
 
   Events.on("toggleBtn", toggleShowHide);
 
-  // #endregion
-
-  // #region Button Event Response Methods
-
-  // #region Task click event methods
-  const newTaskClicked = () => {
-    Events.emit("toggleBtn", "TASK");
-    Events.once("taskCreated", setOpenedTask);
-    Events.emit("createTask", {});
-  };
-
-  Events.on("newTaskClicked", newTaskClicked);
-
   const populateTaskDetails = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
 
@@ -883,6 +870,19 @@ const domManager = (() => {
 
   Events.on("detailsClicked", populateTaskDetails);
   Events.on("openedTaskSet", populateTaskDetails);
+
+  // #endregion
+
+  // #region Button Event Response Methods
+
+  // #region Task click event methods
+  const newTaskClicked = () => {
+    Events.emit("toggleBtn", "TASK");
+    Events.once("taskCreated", setOpenedTask);
+    Events.emit("createTask", {});
+  };
+
+  Events.on("newTaskClicked", newTaskClicked);
 
   const detailsClicked = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
