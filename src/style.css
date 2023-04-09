@@ -321,10 +321,21 @@ body {
   grid-area: priority;
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr;
+  grid-template-areas:
+    "low"
+    "med"
+    "high";
   align-items: center;
 
   border-bottom-width: calc(var(--format-btns-border-width) * 2);
   border-left-width: calc(var(--format-btns-border-width) * 2);
+}
+
+.menu .priority-sort-btn.descending {
+  grid-template-areas:
+    "high"
+    "med"
+    "low";
 }
 
 .menu .priority-sort-btn-color-div {
@@ -333,14 +344,17 @@ body {
 }
 
 .menu .priority-sort-btn .color-1 {
+  grid-area: low;
   background-color: var(--pri-1-color);
 }
 
 .menu .priority-sort-btn .color-2 {
+  grid-area: med;
   background-color: var(--pri-2-color);
 }
 
 .menu .priority-sort-btn .color-3 {
+  grid-area: high;
   background-color: var(--pri-3-color);
 }
 
