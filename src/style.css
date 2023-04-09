@@ -347,9 +347,21 @@ body {
 .menu .date-sort-btn {
   grid-area: date;
   display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr;
+  grid-template-areas:
+    "first"
+    "second"
+    "third";
 
   border-bottom-width: calc(var(--format-btns-border-width) * 2);
   border-right-width: calc(var(--format-btns-border-width) * 2);
+}
+
+.menu .date-sort-btn.descending {
+  grid-template-areas:
+    "third"
+    "second"
+    "first";
 }
 
 .menu .date-sort-btn-div {
@@ -364,6 +376,18 @@ body {
 
 .menu .date-sort-btn-div p {
   font-size: 0.66rem;
+}
+
+.menu .date-1 {
+  grid-area: first;
+}
+
+.menu .date-2 {
+  grid-area: second;
+}
+
+.menu .date-3 {
+  grid-area: third;
 }
 
 /* #endregion  */
