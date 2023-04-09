@@ -769,9 +769,6 @@ const domManager = (() => {
 
   Events.on("setSubtask", setSubtask); */
 
-  // #endregion
-
-  // #region Button Event Response Methods
   const reloadTaskContainer = () => {
     if (!dataLoaded) return;
 
@@ -815,6 +812,11 @@ const domManager = (() => {
 
   Events.on("toggleBtn", toggleShowHide);
 
+  // #endregion
+
+  // #region Button Event Response Methods
+
+  // #region Task click event methods
   const newTaskClicked = () => {
     Events.emit("toggleBtn", "TASK");
     Events.once("taskCreated", setOpenedTask);
@@ -822,8 +824,6 @@ const domManager = (() => {
   };
 
   Events.on("newTaskClicked", newTaskClicked);
-
-  // #region Task-clicked event methods
 
   const populateTaskDetails = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
