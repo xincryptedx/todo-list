@@ -415,7 +415,7 @@ body {
   grid-template: 10% 10% 9% 5% 23% 1fr / 10px repeat(6, 1fr) 10px;
   grid-template-areas:
     ". name-input name-input name-input name-input . close ."
-    ". date . . . . . ."
+    ". . . . . . date-btn ."
     ". priority priority priority priority priority priority ."
     ". notes-label notes-label notes-label notes-label notes-label notes-label ."
     ". notes-textarea notes-textarea notes-textarea notes-textarea notes-textarea notes-textarea .";
@@ -454,7 +454,7 @@ body {
 }
 
 .task-details .date-btn {
-  grid-area: date;
+  grid-area: date-btn;
 }
 
 .task-details .close-btn {
