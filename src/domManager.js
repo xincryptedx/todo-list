@@ -856,6 +856,10 @@ const domManager = (() => {
 
     taskNameInput.value = payload.userSetName;
 
+    const isoDate = new Date(payload.dueDate);
+    const inputDateString = isoDate.toISOString().substring(0, 10);
+    taskDateInput.value = inputDateString;
+
     if (payload.priority === 1) {
       priLowBtn.classList.remove("inactive");
       priMediumBtn.classList.add("inactive");
