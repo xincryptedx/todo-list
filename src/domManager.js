@@ -25,6 +25,7 @@ const domManager = (() => {
   let priHighBtn;
   let taskNotesTextarea;
 
+  let activeProjectText;
   let weekFilterBtn;
   let monthFilterBtn;
   let prioritySortBtn;
@@ -139,6 +140,12 @@ const domManager = (() => {
       tag: "div",
       classList: ["grid-container", "content", "show"],
       parent,
+    });
+    // Active Project Display
+    activeProjectText = newElement({
+      tag: "p",
+      classList: "active-project-text",
+      parent: element,
     });
     // Generated tasks go here
     taskContainer = newElement({
