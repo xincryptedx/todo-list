@@ -488,7 +488,9 @@ const domManager = (() => {
       parent: element,
       id: "task-notes-textarea",
     });
-
+    taskNotesTextarea.addEventListener("blur", () => {
+      Events.emit("blurTaskNotes");
+    });
     return element;
   };
 
@@ -874,6 +876,8 @@ const domManager = (() => {
       priHighBtn.classList.remove("inactive");
     }
 
+    taskNotesTextarea.value = payload.notes;
+
     return payload.userSetName;
   };
 
@@ -921,6 +925,14 @@ const domManager = (() => {
   };
 
   Events.on("priorityClicked", priorityClicked);
+
+  const blurTaskNotes = () => {
+    openedTaskObject.notes = taskNotesTextarea.value;
+
+    Events.emit("setTask", openedTaskObject);
+  };
+
+  Events.on("blurTaskNotes", blurTaskNotes);
 
   // #endregion
 
