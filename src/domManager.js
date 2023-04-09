@@ -20,6 +20,11 @@ const domManager = (() => {
   let priHighBtn;
   let taskNotesTextarea;
 
+  let weekFilterBtn;
+  let monthFilterBtn;
+  let prioritySortBtn;
+  let dateSortBtn;
+
   let dataLoaded = false;
   Events.on("dataLoaded", () => {
     dataLoaded = true;
@@ -228,7 +233,7 @@ const domManager = (() => {
       parent: element,
     });
     // Week btn
-    const weekFilterBtn = newElement({
+    weekFilterBtn = newElement({
       tag: "div",
       classList: ["div-btn", "week-filter-btn"],
       parent: formatBtnsGrid,
@@ -243,7 +248,7 @@ const domManager = (() => {
       textContent: "Week",
     });
     // Month btn
-    const monthFilterBtn = newElement({
+    monthFilterBtn = newElement({
       tag: "div",
       classList: ["div-btn", "month-filter-btn"],
       parent: formatBtnsGrid,
@@ -258,42 +263,42 @@ const domManager = (() => {
       textContent: "Month",
     });
     // Priority btn
-    const prioritySortBtnGrid = newElement({
+    prioritySortBtn = newElement({
       tag: "div",
       classList: ["grid-container", "div-btn", "priority-sort-btn"],
       parent: formatBtnsGrid,
     });
-    prioritySortBtnGrid.addEventListener("click", () => {
+    prioritySortBtn.addEventListener("click", () => {
       Events.emit("sortPriority");
     });
     newElement({
       tag: "div",
       classList: ["priority-sort-btn-color-div", "color-1"],
-      parent: prioritySortBtnGrid,
+      parent: prioritySortBtn,
     });
     newElement({
       tag: "div",
       classList: ["priority-sort-btn-color-div", "color-2"],
-      parent: prioritySortBtnGrid,
+      parent: prioritySortBtn,
     });
     newElement({
       tag: "div",
       classList: ["priority-sort-btn-color-div", "color-3"],
-      parent: prioritySortBtnGrid,
+      parent: prioritySortBtn,
     });
     // Date btn
-    const dateSortBtnGrid = newElement({
+    dateSortBtn = newElement({
       tag: "div",
       classList: ["grid-container", "div-btn", "date-sort-btn"],
       parent: formatBtnsGrid,
     });
-    dateSortBtnGrid.addEventListener("click", () => {
+    dateSortBtn.addEventListener("click", () => {
       Events.emit("sortDate");
     });
     const dateOneDiv = newElement({
       tag: "div",
       classList: ["date-sort-btn-div", "date-1"],
-      parent: dateSortBtnGrid,
+      parent: dateSortBtn,
     });
     newElement({
       tag: "p",
@@ -304,7 +309,7 @@ const domManager = (() => {
     const dateTwoDiv = newElement({
       tag: "div",
       classList: ["date-sort-btn-div", "date-2"],
-      parent: dateSortBtnGrid,
+      parent: dateSortBtn,
     });
     newElement({
       tag: "p",
@@ -315,7 +320,7 @@ const domManager = (() => {
     const dateThreeDiv = newElement({
       tag: "div",
       classList: ["date-sort-btn-div", "date-3"],
-      parent: dateSortBtnGrid,
+      parent: dateSortBtn,
     });
     newElement({
       tag: "p",
@@ -870,6 +875,18 @@ const domManager = (() => {
 
   Events.on("detailsClicked", populateTaskDetails);
   Events.on("openedTaskSet", populateTaskDetails);
+
+  const renderFilterBtns = () => {
+    if (taskView.filter === taskViewOpts.filter.Week) {
+      weekFilterBtn.classList.add("on");
+      weekFilterBtn.classList.remove("off");
+    } else if (taskView.filter !== taskViewOpts.filter.Week) {
+      weekFilterBtn.classList.add("off");
+      weekFilterBtn.classList.remove("on");
+    }
+  };
+
+  Events.on("taskViewChanged", renderFilterBtns);
 
   // #endregion
 
