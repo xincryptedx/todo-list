@@ -363,6 +363,9 @@ const domManager = (() => {
       classList: ["div-btn", "task-details-div-btn", "date-btn"],
       parent: element,
     });
+    dateBtn.addEventListener("click", () => {
+      dateInput.click();
+    });
     const dateIcon = newElement({
       tag: "div",
       classList: ["icon", "date-icon"],
