@@ -5,6 +5,11 @@ import Icons from "./icons";
 const domManager = (() => {
   // Element container references
   let mainGridDiv;
+
+  let headerGridDiv;
+  let contentGridDiv;
+  let footerGridDiv;
+
   let menuDiv;
   let taskDetailsDiv;
   let subtaskDetailsDiv;
@@ -823,43 +828,48 @@ const domManager = (() => {
   Events.on("taskViewChanged", reloadTaskContainer);
 
   const hideDefault = () => {
-    headerGrid.classList.add("hide");
-    headerGrid.classList.remove("show");
+    headerGridDiv.classList.add("hide");
+    headerGridDiv.classList.remove("show");
 
-    contentGrid.classList.add("hide");
-    contentGrid.classList.remove("show");
+    contentGridDiv.classList.add("hide");
+    contentGridDiv.classList.remove("show");
 
-    footerGrid.classList.add("hide");
-    footerGrid.classList.remove("show");
+    footerGridDiv.classList.add("hide");
+    footerGridDiv.classList.remove("show");
   };
 
   const showDefault = () => {
-    headerGrid.classList.add("show");
-    headerGrid.classList.remove("hide");
+    headerGridDiv.classList.add("show");
+    headerGridDiv.classList.remove("hide");
 
-    contentGrid.classList.add("show");
-    contentGrid.classList.remove("hide");
+    contentGridDiv.classList.add("show");
+    contentGridDiv.classList.remove("hide");
 
-    footerGrid.classList.add("show");
-    footerGrid.classList.remove("hide");
+    footerGridDiv.classList.add("show");
+    footerGridDiv.classList.remove("hide");
   };
 
   const toggleShowHide = (payload) => {
     if (typeof payload !== "string") return undefined;
 
     let element;
+    let hideDefaultElements = true;
 
-    if (payload === "MENU") element = menuDiv;
-    else if (payload === "TASK") element = taskDetailsDiv;
+    if (payload === "MENU") {
+      element = menuDiv;
+      hideDefaultElements = false;
+    } else if (payload === "TASK") element = taskDetailsDiv;
     else if (payload === "SUBTASK") element = subtaskDetailsDiv;
 
     // Toggle menu element class hide/show
     if (element.classList.contains("hide")) {
       element.classList.remove("hide");
       element.classList.add("show");
+      if (hideDefaultElements) hideDefault();
     } else if (element.classList.contains("show")) {
       element.classList.remove("show");
       element.classList.add("hide");
+      showDefault();
     }
 
     return payload;
@@ -1058,9 +1068,9 @@ const domManager = (() => {
   const init = () => {
     // Create default html elements
     mainGridDiv = mainGrid();
-    headerGrid(mainGridDiv);
-    contentGrid(mainGridDiv);
-    footerGrid(mainGridDiv);
+    headerGridDiv = headerGrid(mainGridDiv);
+    contentGridDiv = contentGrid(mainGridDiv);
+    footerGridDiv = footerGrid(mainGridDiv);
     menuDiv = menuGrid(mainGridDiv);
     taskDetailsDiv = taskDetailsGrid(mainGridDiv);
     subtasksDisplayGrid(mainGridDiv);
