@@ -147,18 +147,6 @@ const domManager = (() => {
       parent: element,
     });
 
-    // New task bottom button
-    /*     const newTaskBtn = newElement({
-      tag: "div",
-      classList: ["div-btn", "content-btn", "new-task-btn"],
-      parent: element,
-    });
-    newElement({
-      tag: "img",
-      classList: ["icon", "new-task-icon"],
-      parent: newTaskBtn,
-    }); */
-
     return element;
   };
 
