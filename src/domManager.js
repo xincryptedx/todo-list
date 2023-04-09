@@ -703,7 +703,7 @@ const domManager = (() => {
   // Load tasks from data
   const loadTasks = (payload) => {
     // Generate tasks based on payload data
-    if (!payload || (Array.isArray(payload) && payload.length === 0)) {
+    if (!payload) {
       return undefined;
     }
 
