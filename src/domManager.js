@@ -285,6 +285,7 @@ const domManager = (() => {
       tag: "p",
       classList: "date-1-text",
       parent: dateOneDiv,
+      textContent: "March 1st",
     });
     const dateTwoDiv = newElement({
       tag: "div",
@@ -295,6 +296,7 @@ const domManager = (() => {
       tag: "p",
       classList: "date-2-text",
       parent: dateTwoDiv,
+      textContent: "May 2nd",
     });
     const dateThreeDiv = newElement({
       tag: "div",
@@ -305,6 +307,7 @@ const domManager = (() => {
       tag: "p",
       classList: "date-3-text",
       parent: dateThreeDiv,
+      textContent: "July 3rd",
     });
 
     return element;
