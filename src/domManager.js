@@ -232,7 +232,7 @@ const domManager = (() => {
       parent: formatBtnsGrid,
     });
     weekFilterBtn.addEventListener("click", () => {
-      Events.on("filterWeek");
+      Events.emit("filterWeek");
     });
     newElement({
       tag: "p",
@@ -247,7 +247,7 @@ const domManager = (() => {
       parent: formatBtnsGrid,
     });
     monthFilterBtn.addEventListener("click", () => {
-      Events.on("filterMonth");
+      Events.emit("filterMonth");
     });
     newElement({
       tag: "p",
@@ -262,7 +262,7 @@ const domManager = (() => {
       parent: formatBtnsGrid,
     });
     prioritySortBtnGrid.addEventListener("click", () => {
-      Events.on("sortPriority");
+      Events.emit("sortPriority");
     });
     newElement({
       tag: "div",
@@ -286,7 +286,7 @@ const domManager = (() => {
       parent: formatBtnsGrid,
     });
     dateSortBtnGrid.addEventListener("click", () => {
-      Events.on("sortDate");
+      Events.emit("sortDate");
     });
     const dateOneDiv = newElement({
       tag: "div",
