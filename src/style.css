@@ -473,6 +473,14 @@ body {
 
 .task-details .due-date-input {
   grid-area: date-input;
+  align-self: center;
+
+  height: 80%;
+
+  font-size: 1.4rem;
+  color: var(--text-color);
+  background-color: transparent;
+  border: none;
 }
 
 .task-details .priority-btns {
