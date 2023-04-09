@@ -359,6 +359,9 @@ const domManager = (() => {
       parent: element,
       textContent: "Due: ",
     });
+    taskDateInput.addEventListener("blur", () => {
+      Events.emit("blurTaskDate");
+    });
     // Date btn
     const dateBtn = newElement({
       tag: "div",
@@ -604,7 +607,7 @@ const domManager = (() => {
       parent: taskContentsGrid,
     });
     detailsBtn.addEventListener("click", () => {
-      Events.emit("taskClicked", taskData);
+      Events.emit("detailsClicked", taskData);
     });
     const detailsIcon = newElement({
       tag: "div",
@@ -870,10 +873,10 @@ const domManager = (() => {
     return payload.userSetName;
   };
 
-  Events.on("taskClicked", populateTaskDetails);
+  Events.on("detailsClicked", populateTaskDetails);
   Events.on("openedTaskSet", populateTaskDetails);
 
-  const taskClicked = (payload) => {
+  const detailsClicked = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
 
     openedTaskObject = payload;
@@ -883,7 +886,7 @@ const domManager = (() => {
     return openedTaskObject;
   };
 
-  Events.on("taskClicked", taskClicked);
+  Events.on("detailsClicked", detailsClicked);
 
   const blurTaskName = () => {
     openedTaskObject.userSetName = taskNameInput.value;
@@ -892,6 +895,14 @@ const domManager = (() => {
   };
 
   Events.on("blurTaskName", blurTaskName);
+
+  const blurTaskDate = () => {
+    openedTaskObject.dueDate = taskDateInput.value;
+
+    Events.emit(setTask, openedTaskObject);
+  };
+
+  Events.on("blurTaskDate", blurTaskDate);
 
   const priorityClicked = (payload) => {
     if (payload === "LOW") {
