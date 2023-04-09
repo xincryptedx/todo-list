@@ -32,7 +32,7 @@ const domManager = (() => {
       PriorityAscending: "PRIORITY-A",
     },
     filter: {
-      ALL: "ALL",
+      All: "ALL",
       Week: "WEEK",
       Month: "MONTH",
     },
@@ -788,6 +788,7 @@ const domManager = (() => {
 
   Events.on("toggleBtn", reloadTaskContainer);
   Events.on("dataLoaded", reloadTaskContainer);
+  Events.on("taskViewChanged", reloadTaskContainer);
 
   const toggleShowHide = (payload) => {
     if (typeof payload !== "string") return undefined;
@@ -888,7 +889,12 @@ const domManager = (() => {
 
   // #region Format btns event methods
 
-  const filterMonth = () => {};
+  const filterMonth = () => {
+    taskView.filter = !taskViewOpts.filter.Month
+      ? taskViewOpts.filter.Month
+      : taskViewOpts.filter.All;
+    Events.emit("taskViewChanged");
+  };
 
   Events.on("filterMonth", filterMonth);
 
