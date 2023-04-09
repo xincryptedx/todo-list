@@ -892,6 +892,22 @@ const domManager = (() => {
       monthFilterBtn.classList.add("off");
       monthFilterBtn.classList.remove("on");
     }
+
+    if (taskView.format === taskViewOpts.format.DateAscending) {
+      dateSortBtn.classList.add("ascending");
+      dateSortBtn.classList.remove("descending");
+    } else if (taskView.format === taskViewOpts.format.DateDescending) {
+      dateSortBtn.classList.add("descending");
+      dateSortBtn.classList.remove("ascending");
+    }
+
+    if (taskView.format === taskViewOpts.format.PriorityAscending) {
+      prioritySortBtn.classList.add("ascending");
+      prioritySortBtn.classList.remove("descending");
+    } else if (taskView.format === taskViewOpts.format.PriorityDescending) {
+      prioritySortBtn.classList.add("descending");
+      prioritySortBtn.classList.remove("ascending");
+    }
   };
 
   Events.on("taskViewChanged", renderFilterBtns);
