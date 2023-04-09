@@ -890,23 +890,46 @@ const domManager = (() => {
   // #region Format btns event methods
 
   const filterMonth = () => {
-    taskView.filter = !taskViewOpts.filter.Month
-      ? taskViewOpts.filter.Month
-      : taskViewOpts.filter.All;
+    taskView.filter =
+      taskView.filter !== taskViewOpts.filter.Month
+        ? taskViewOpts.filter.Month
+        : taskViewOpts.filter.All;
+
     Events.emit("taskViewChanged");
   };
 
   Events.on("filterMonth", filterMonth);
 
-  const filterWeek = () => {};
+  const filterWeek = () => {
+    taskView.filter =
+      taskView.filter !== taskViewOpts.filter.Week
+        ? taskViewOpts.filter.Week
+        : taskViewOpts.filter.All;
+
+    Events.emit("taskViewChanged");
+  };
 
   Events.on("filterWeek", filterWeek);
 
-  const sortPriority = () => {};
+  const sortPriority = () => {
+    taskView.format =
+      taskView.format !== taskViewOpts.format.PriorityDescending
+        ? taskViewOpts.format.PriorityDescending
+        : taskViewOpts.format.PriorityAscending;
+
+    Events.emit("taskViewChanged");
+  };
 
   Events.on("sortPriority", sortPriority);
 
-  const sortDate = () => {};
+  const sortDate = () => {
+    taskView.format =
+      taskView.format !== taskViewOpts.format.DateAscending
+        ? taskViewOpts.format.DateAscending
+        : taskViewOpts.format.DateDescending;
+
+    Events.emit("taskViewChanged");
+  };
 
   Events.on("sortDate", sortDate);
 
