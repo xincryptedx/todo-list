@@ -86,7 +86,7 @@ const domManager = (() => {
     // Title
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "header"],
+      classList: ["grid-container", "header", "show"],
       parent,
     });
     newElement({
@@ -132,7 +132,7 @@ const domManager = (() => {
     // Task container
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "content"],
+      classList: ["grid-container", "content", "show"],
       parent,
     });
     // Generated tasks go here
@@ -161,7 +161,7 @@ const domManager = (() => {
   const footerGrid = (parent) => {
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "footer"],
+      classList: ["grid-container", "footer", "show"],
       parent,
     });
     // Author info
@@ -821,6 +821,28 @@ const domManager = (() => {
   Events.on("toggleBtn", reloadTaskContainer);
   Events.on("dataLoaded", reloadTaskContainer);
   Events.on("taskViewChanged", reloadTaskContainer);
+
+  const hideDefault = () => {
+    headerGrid.classList.add("hide");
+    headerGrid.classList.remove("show");
+
+    contentGrid.classList.add("hide");
+    contentGrid.classList.remove("show");
+
+    footerGrid.classList.add("hide");
+    footerGrid.classList.remove("show");
+  };
+
+  const showDefault = () => {
+    headerGrid.classList.add("show");
+    headerGrid.classList.remove("hide");
+
+    contentGrid.classList.add("show");
+    contentGrid.classList.remove("hide");
+
+    footerGrid.classList.add("show");
+    footerGrid.classList.remove("hide");
+  };
 
   const toggleShowHide = (payload) => {
     if (typeof payload !== "string") return undefined;
