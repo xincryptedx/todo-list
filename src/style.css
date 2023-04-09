@@ -415,7 +415,7 @@ body {
   grid-template: 10% 10% 9% 5% 23% 1fr / 10px repeat(6, 1fr) 10px;
   grid-template-areas:
     ". name-input name-input name-input name-input . close ."
-    ". . . . . . date-btn ."
+    ". date-label date-input date-input date-input . date-btn ."
     ". priority priority priority priority priority priority ."
     ". notes-label notes-label notes-label notes-label notes-label notes-label ."
     ". notes-textarea notes-textarea notes-textarea notes-textarea notes-textarea notes-textarea .";
@@ -465,12 +465,6 @@ body {
   grid-area: name-input;
   font-size: 1.4rem;
   color: var(--highlight-color);
-}
-
-.task-details .edit-icon {
-  grid-area: edit-icon;
-  align-self: center;
-  justify-self: center;
 }
 
 .task-details .priority-btns {
