@@ -14,9 +14,11 @@ const domManager = (() => {
 
   // Element input references
   let taskNameInput;
+  let taskDateInput;
   let priLowBtn;
   let priMediumBtn;
   let priHighBtn;
+  let taskNotesTextarea;
 
   let dataLoaded = false;
   Events.on("dataLoaded", () => {
@@ -349,7 +351,7 @@ const domManager = (() => {
       textContent: "Due: ",
     });
     // Date input
-    const dateInput = newElement({
+    taskDateInput = newElement({
       tag: "input",
       type: "date",
       id: "due-date-input",
@@ -364,7 +366,7 @@ const domManager = (() => {
       parent: element,
     });
     dateBtn.addEventListener("click", () => {
-      dateInput.click();
+      taskDateInput.focus();
     });
     const dateIcon = newElement({
       tag: "div",
@@ -477,7 +479,7 @@ const domManager = (() => {
       textContent: "Notes:",
       for: "task-notes-textarea",
     });
-    newElement({
+    taskNotesTextarea = newElement({
       tag: "textarea",
       classList: ["task-details-textarea", "task-notes-textarea"],
       parent: element,
