@@ -170,7 +170,7 @@ const dataManager = (() => {
         return notes;
       },
       set notes(newNotes) {
-        if (newNotes) {
+        if (newNotes || newNotes === "") {
           notes = newNotes.toString();
           Events.emit("setTask", task);
         }

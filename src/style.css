@@ -540,7 +540,12 @@ body {
 
 .task-details .task-notes-textarea {
   grid-area: notes-textarea;
+
+  resize: none;
+
   border-radius: 5px;
+
+  color: var(--bg-color);
 }
 /* #endregion  */
 
