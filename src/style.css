@@ -334,24 +334,28 @@ body {
 
 .menu .priority-sort-btn .color-1 {
   background-color: var(--pri-1-color);
-  align-self: end;
 }
 
 .menu .priority-sort-btn .color-2 {
   background-color: var(--pri-2-color);
-  align-self: center;
 }
 
 .menu .priority-sort-btn .color-3 {
   background-color: var(--pri-3-color);
-  align-self: start;
 }
 
 .menu .date-sort-btn {
   grid-area: date;
+  display: grid;
 
   border-bottom-width: calc(var(--format-btns-border-width) * 2);
   border-right-width: calc(var(--format-btns-border-width) * 2);
+}
+
+.menu .date-sort-btn-div {
+  background-color: var(--bg-color-3);
+  height: 60%;
+  width: 90%;
 }
 
 /* #endregion  */
