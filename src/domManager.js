@@ -985,7 +985,7 @@ const domManager = (() => {
       taskView.filter !== taskViewOpts.filter.Month
         ? taskViewOpts.filter.Month
         : taskViewOpts.filter.All;
-
+    console.dir(taskView);
     Events.emit("taskViewChanged");
   };
 
@@ -996,7 +996,7 @@ const domManager = (() => {
       taskView.filter !== taskViewOpts.filter.Week
         ? taskViewOpts.filter.Week
         : taskViewOpts.filter.All;
-
+    console.dir(taskView);
     Events.emit("taskViewChanged");
   };
 
@@ -1007,7 +1007,7 @@ const domManager = (() => {
       taskView.format !== taskViewOpts.format.PriorityDescending
         ? taskViewOpts.format.PriorityDescending
         : taskViewOpts.format.PriorityAscending;
-
+    console.dir(taskView);
     Events.emit("taskViewChanged");
   };
 
@@ -1018,7 +1018,7 @@ const domManager = (() => {
       taskView.format !== taskViewOpts.format.DateAscending
         ? taskViewOpts.format.DateAscending
         : taskViewOpts.format.DateDescending;
-
+    console.dir(taskView);
     Events.emit("taskViewChanged");
   };
 
