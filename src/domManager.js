@@ -846,6 +846,8 @@ const domManager = (() => {
 
     oldProjectElement.replaceWith(newProjectElement);
 
+    Events.emit("projectSet");
+
     return newProjectElement;
   };
 
@@ -990,7 +992,7 @@ const domManager = (() => {
     requestProjectsForLoading();
   };
 
-  Events.on("setProject", reloadProjectContainer);
+  Events.on("projectSet", reloadProjectContainer);
   Events.on("dataLoaded", reloadProjectContainer);
 
   const populateTaskDetails = (payload) => {
