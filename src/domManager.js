@@ -280,6 +280,7 @@ const domManager = (() => {
       classList: ["grid-container", "projects"],
       parent: element,
     });
+    addScrollTimeoutEvent(projectContainer);
     // Generated projects go here
     // New project btn
     const newProjectDiv = newElement({
@@ -610,6 +611,7 @@ const domManager = (() => {
       classList: ["grid-container", "subtasks"],
       parent: element,
     });
+    addScrollTimeoutEvent(subtaskContainer);
     // Generated subtasks go here
 
     return element;
