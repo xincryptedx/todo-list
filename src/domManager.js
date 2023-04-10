@@ -693,7 +693,7 @@ const domManager = (() => {
         parent: element,
       });
       projectInput.addEventListener("click", () => {
-        Events.emit("blurProjectInput", { uid: projectData.uid });
+        Events.emit("blurProjectInput", projectData);
       });
     }
     const projectText = newElement({
@@ -1167,7 +1167,9 @@ const domManager = (() => {
   // #endregion
 
   // #region Project event methods
-  // Project input blur
+  const blurProjectInput = (payload) => {
+    if (!payload.uid) return undefined;
+  };
   // Project label clicked
   // Project text clicked
 
