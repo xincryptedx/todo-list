@@ -340,6 +340,27 @@ body {
   overflow-y: scroll;
 }
 
+.menu .project {
+  display: grid;
+  grid-template: 1fr / 5% 1fr 1fr 1fr 1fr 5%;
+  grid-template-areas: ". project project project label .";
+  align-items: center;
+
+  height: 100%;
+}
+
+.menu .project-text {
+  grid-area: project;
+}
+
+.menu .project-input {
+  grid-area: project;
+}
+
+.menu .project-input-label {
+  grid-area: label;
+}
+
 .menu .new-project-div {
   grid-area: new-project;
 }
