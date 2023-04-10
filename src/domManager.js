@@ -126,7 +126,9 @@ const domManager = (() => {
       classList: ["div-btn", "header-btn", "menu-btn"],
       parent: element,
     });
-    menuBtn.addEventListener("click", () => Events.emit("toggleBtn", "MENU"));
+    menuBtn.addEventListener("click", () =>
+      Events.emit("toggleBtn", { query: "MENU" })
+    );
     const menuIcon = newElement({
       tag: "div",
       classList: ["icon", "menu-icon"],
@@ -384,7 +386,7 @@ const domManager = (() => {
       parent: element,
     });
     closeBtn.addEventListener("click", () => {
-      Events.emit("toggleBtn", "TASK");
+      Events.emit("toggleBtn", { query: "TASK" });
     });
     const closeIcon = newElement({
       tag: "div",
@@ -674,7 +676,7 @@ const domManager = (() => {
       textContent: "✎",
     });
     projectLabel.addEventListener("click", () => {
-      Events.emit("x");
+      Events.emit("toggleBtn", { query: "PROJECT", uid: projectData.uid });
     });
     newElement({
       tag: "input",
@@ -898,7 +900,7 @@ const domManager = (() => {
   };
 
   const toggleShowHide = (payload) => {
-    if (typeof payload !== "object") return undefined;
+    if (typeof payload !== "object" || !payload.query) return undefined;
 
     let element;
     let hideDefaultElements = true;
@@ -908,6 +910,7 @@ const domManager = (() => {
       hideDefaultElements = false;
     } else if (payload.query === "TASK") element = taskDetailsDiv;
     else if (payload.query === "SUBTASK") element = subtaskDetailsDiv;
+    else return undefined;
 
     // Toggle menu element class hide/show
     if (element.classList.contains("hide")) {
@@ -1022,7 +1025,7 @@ const domManager = (() => {
 
   // #region Task click event methods
   const newTaskClicked = () => {
-    Events.emit("toggleBtn", "TASK");
+    Events.emit("toggleBtn", { query: "TASK" });
     Events.once("taskCreated", setOpenedTask);
     Events.emit("createTask", {});
   };
@@ -1034,7 +1037,7 @@ const domManager = (() => {
 
     openedTaskObject = payload;
 
-    Events.emit("toggleBtn", "TASK");
+    Events.emit("toggleBtn", { query: "TASK" });
 
     return openedTaskObject;
   };
