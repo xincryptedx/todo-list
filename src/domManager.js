@@ -669,6 +669,16 @@ const domManager = (() => {
       return undefined;
     }
 
+    const projectText = newElement({
+      tag: "p",
+      classList: ["menu-text", "project-text", "show"],
+      textContent: projectData.userSetName,
+      parent: element,
+    });
+    projectText.addEventListener("click", () => {
+      Events.emit("projectTextClicked", { uid: projectData.uid });
+    });
+
     if (!isDefaultType) {
       const labelContainer = newElement({
         tag: "div",
@@ -693,18 +703,13 @@ const domManager = (() => {
         parent: element,
       });
       projectInput.addEventListener("click", () => {
-        Events.emit("blurProjectInput", projectData);
+        Events.emit("blurProjectInput", {
+          projectData,
+          projectInput,
+          projectText,
+        });
       });
     }
-    const projectText = newElement({
-      tag: "p",
-      classList: ["menu-text", "project-text", "show"],
-      textContent: projectData.userSetName,
-      parent: element,
-    });
-    projectText.addEventListener("click", () => {
-      Events.emit("projectTextClicked", { uid: projectData.uid });
-    });
 
     return element;
   };
