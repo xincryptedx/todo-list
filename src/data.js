@@ -378,6 +378,15 @@ const dataManager = (() => {
       );
     } else if (
       typeof payload.query === "string" &&
+      payload.query.startsWith("DATAPROJECT")
+    ) {
+      const projectUID = payload.query.substring(11); // UID starts in this position
+      returnData = Object.values(data.projects).find(
+        (project) => project.UID === projectUID
+      );
+      needsFormatting = false;
+    } else if (
+      typeof payload.query === "string" &&
       payload.query.startsWith("SUBTASKS")
     ) {
       const taskUID = payload.query.substring(8); // UID starts in this position
