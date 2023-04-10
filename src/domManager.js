@@ -3,6 +3,7 @@ import Events from "./events";
 import Icons from "./icons";
 
 const domManager = (() => {
+  // #region References and State variables
   // Element container references
   let mainGridDiv;
 
@@ -78,6 +79,8 @@ const domManager = (() => {
 
     return openedTaskObject;
   };
+
+  // #endregion
 
   // #region Init helper methods
 
