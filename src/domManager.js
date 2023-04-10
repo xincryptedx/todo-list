@@ -1194,12 +1194,7 @@ const domManager = (() => {
       type: payload.projectData.type,
     };
 
-    if (
-      payload.projectInput.classList.contains("hide") &&
-      payload.projectInput.value !== ""
-    ) {
-      Events.emit("setProject", newProjectParams);
-    }
+    Events.emit("setProject", newProjectParams);
 
     return newProjectParams;
   };
