@@ -771,6 +771,31 @@ const domManager = (() => {
     Events.emit("requestData", request);
   };
 
+  const loadProjects = (payload) => {
+    if (!payload) {
+      return undefined;
+    }
+
+    emptyContainer.projects();
+
+    if (Array.isArray(payload)) {
+      payload.forEach((entry) => {
+        newProject(projectContainer, entry);
+      });
+    } else {
+      newProject(projectContainer, payload);
+    }
+
+    return projectContainer;
+  };
+
+  const requestProjectsForLoading = () => {
+    const request = { query: "ALLPROJECTS" };
+
+    Events.once("returnData", loadProjects);
+    Events.emit("requestData", request);
+  };
+
   // #endregion
 
   // #region Methods for updating html elements when their corresponding data is changed
