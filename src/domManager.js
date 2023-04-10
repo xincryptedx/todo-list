@@ -559,18 +559,7 @@ const domManager = (() => {
       parent: element,
     });
     // Generated subtasks go here
-    // Bottom addSubtask btn
-    /*     const addSubtaskBtnBottom = newElement({
-      tag: "div",
-      classList: ["div-btn", "subtasks-div-btn", "add-subtask-btn", "bottom"],
-      parent: element,
-    });
-    newElement({
-      tag: "img",
-      classList: ["icon", "add-subtask-icon"],
-      parent: addSubtaskBtnBottom,
-    });
- */
+
     return element;
   };
 
