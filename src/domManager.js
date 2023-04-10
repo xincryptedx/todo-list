@@ -85,7 +85,7 @@ const domManager = (() => {
     startY: null,
   };
 
-  let isScrolling;
+  let isScrolling = false;
 
   const setScrollTimeout = (container) => {
     clearTimeout(container.scrollTimeout);
@@ -117,30 +117,34 @@ const domManager = (() => {
       "touchstart",
       (e) => {
         // Get the coordinates of the initial touch
-        touch.startX = e.touches[0].clientX;
-        touch.startY = e.touches[0].clientY;
+        if (!isScrolling) {
+          touch.startX = e.touches[0].clientX;
+          touch.startY = e.touches[0].clientY;
+        }
       },
       { passive: true }
     );
 
     element.addEventListener("touchend", (e) => {
-      // Get the coordinates of the end touch
-      const endX = e.changedTouches[0].clientX;
-      const endY = e.changedTouches[0].clientY;
+      if (!isScrolling) {
+        // Get the coordinates of the end touch
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
 
-      // Calculate the distance traveled in the X and Y directions
-      const deltaX = endX - touch.startX;
-      const deltaY = endY - touch.startY;
+        // Calculate the distance traveled in the X and Y directionss
+        const deltaX = endX - touch.startX;
+        const deltaY = endY - touch.startY;
 
-      // Check if the distance traveled in the X direction is greater than the distance traveled in the Y direction
-      if (Math.abs(deltaX) > Math.abs(deltaY)) {
-        // If the distance traveled in the X direction is greater, check the direction of the swipe
-        if (deltaX > 0) {
-          // If the swipe is to the right, execute your function here
-          console.log(`Swipe right on: ${element}`);
-        } else {
-          // If the swipe is to the left, execute your function here
-          console.log(`Swipe left on: ${element}`);
+        // Check if the distance traveled in the X direction is greater than the distance traveled in the Y direction
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          // If the distance traveled in the X direction is greater, check the direction of the swipe
+          if (deltaX > 0) {
+            // If the swipe is to the right, execute your function here
+            console.log(`Swipe right on: ${element}`);
+          } else {
+            // If the swipe is to the left, execute your function here
+            console.log(`Swipe left on: ${element}`);
+          }
         }
       }
     });
