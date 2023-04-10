@@ -778,13 +778,9 @@ const domManager = (() => {
 
     emptyContainer.projects();
 
-    if (Array.isArray(payload)) {
-      payload.forEach((entry) => {
-        newProject(projectContainer, entry);
-      });
-    } else {
-      newProject(projectContainer, payload);
-    }
+    Object.keys(payload).forEach((key) => {
+      newProject(projectContainer, payload[key]);
+    });
 
     return projectContainer;
   };
