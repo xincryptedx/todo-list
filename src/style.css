@@ -149,7 +149,20 @@ body {
   justify-self: center;
 
   display: grid;
-  grid-template: 3vw 1fr 3vw;
+  grid-template: 3vw 1fr 1fr 1fr 3vw / 1fr;
+  grid-template-areas: "project filter format";
+}
+
+.content .active-project-text {
+  grid-area: project;
+}
+
+.content .active-filter-text {
+  grid-area: filter;
+}
+
+.content .active-format-text {
+  grid-area: format;
 }
 
 .content .tasks {
