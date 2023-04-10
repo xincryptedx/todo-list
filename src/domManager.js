@@ -15,6 +15,7 @@ const domManager = (() => {
   let subtaskDetailsDiv;
 
   let taskContainer;
+  let projectContainer;
   let subtaskContainer;
 
   // Input/Dipslay Element references
@@ -202,7 +203,7 @@ const domManager = (() => {
       parent,
     });
     // Projects selection
-    const projectsGrid = newElement({
+    projectContainer = newElement({
       tag: "div",
       classList: ["grid-container", "projects"],
       parent: element,
