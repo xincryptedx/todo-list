@@ -88,6 +88,8 @@ const dataManager = (() => {
     return project;
   };
 
+  Events.on("createProject", createProject);
+
   const getGeneralProject = () => {
     let foundProjectUID;
     Object.keys(data.projects).forEach((key) => {
