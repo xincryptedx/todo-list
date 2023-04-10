@@ -661,11 +661,16 @@ const domManager = (() => {
       return undefined;
     }
 
+    const labelContainer = newElement({
+      tag: "div",
+      classList: ["grid-container", "project-label-container"],
+      parent: element,
+    });
     newElement({
       tag: "label",
       for: `project${projectData.uid}`,
       classList: ["menu-label", "project-input-label"],
-      parent: element,
+      parent: labelContainer,
       textContent: "✎",
     });
 
