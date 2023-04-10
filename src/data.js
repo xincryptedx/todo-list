@@ -305,6 +305,8 @@ const dataManager = (() => {
     return taskToMove;
   };
 
+  Events.on("moveToTrash", moveToTrash);
+
   const emptyTrash = () => {
     Object.keys(data.tasks).forEach((key) => {
       if (data.tasks[key].projectUID === defaultProjects.trashUID) {
