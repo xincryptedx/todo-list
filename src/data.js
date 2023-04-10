@@ -363,6 +363,7 @@ const dataManager = (() => {
       );
     } else if (payload.query === "ALLPROJECTS") {
       returnData = data.projects;
+      needsFormatting = false;
     } else if (payload.query === "TRASH") {
       returnData = Object.values(data.tasks).filter(
         (task) => task.projectUID === defaultProjects.trashUID
