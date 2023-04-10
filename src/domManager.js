@@ -1044,7 +1044,7 @@ const domManager = (() => {
 
   // #region Button Event Response Methods
 
-  // #region Task click event methods
+  // #region Task event methods
   const newTaskClicked = () => {
     Events.emit("toggleBtn", { query: "TASK" });
     Events.once("taskCreated", setOpenedTask);
@@ -1150,6 +1150,10 @@ const domManager = (() => {
   };
 
   Events.on("sortDate", sortDate);
+
+  // #endregion
+
+  // #region Project event methods
 
   // #endregion
 
