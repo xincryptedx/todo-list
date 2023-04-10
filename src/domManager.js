@@ -666,6 +666,7 @@ const domManager = (() => {
       for: `project${projectData.uid}`,
       classList: ["menu-label", "project-input-label"],
       parent: element,
+      textContent: "✎",
     });
 
     newElement({
