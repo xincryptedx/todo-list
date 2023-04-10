@@ -96,11 +96,15 @@ const domManager = (() => {
     touch.startY = null;
 
     // Add touch event listeners to the element
-    element.addEventListener("touchstart", (e) => {
-      // Get the coordinates of the initial touch
-      touch.startX = e.touches[0].clientX;
-      touch.startY = e.touches[0].clientY;
-    });
+    element.addEventListener(
+      "touchstart",
+      (e) => {
+        // Get the coordinates of the initial touch
+        touch.startX = e.touches[0].clientX;
+        touch.startY = e.touches[0].clientY;
+      },
+      { passive: true }
+    );
 
     element.addEventListener("touchend", (e) => {
       // Get the coordinates of the end touch
