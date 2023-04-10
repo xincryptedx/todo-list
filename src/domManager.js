@@ -654,6 +654,9 @@ const domManager = (() => {
   const newProject = (parent, projectData) => {
     if (!(parent instanceof HTMLElement)) return undefined;
 
+    const isDefaultType =
+      projectData.type === "trash" || projectData.type === "general";
+
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "project"],
@@ -666,31 +669,33 @@ const domManager = (() => {
       return undefined;
     }
 
-    const labelContainer = newElement({
-      tag: "div",
-      classList: ["grid-container", "project-label-container"],
-      parent: element,
-    });
-    const projectLabel = newElement({
-      tag: "label",
-      for: `project${projectData.uid}`,
-      classList: ["menu-label", "project-input-label"],
-      parent: labelContainer,
-      textContent: "✎",
-    });
-    projectLabel.addEventListener("click", () => {
-      Events.emit("toggleBtn", { query: "PROJECT", uid: projectData.uid });
-    });
-    const projectInput = newElement({
-      tag: "input",
-      type: "text",
-      id: `project${projectData.uid}`,
-      classList: ["menu-text-input", "project-input", "hide"],
-      parent: element,
-    });
-    projectInput.addEventListener("click", () => {
-      Events.emit("blurProjectInput", { uid: projectData.uid });
-    });
+    if (!isDefaultType) {
+      const labelContainer = newElement({
+        tag: "div",
+        classList: ["grid-container", "project-label-container"],
+        parent: element,
+      });
+      const projectLabel = newElement({
+        tag: "label",
+        for: `project${projectData.uid}`,
+        classList: ["menu-label", "project-input-label"],
+        parent: labelContainer,
+        textContent: "✎",
+      });
+      projectLabel.addEventListener("click", () => {
+        Events.emit("toggleBtn", { query: "PROJECT", uid: projectData.uid });
+      });
+      const projectInput = newElement({
+        tag: "input",
+        type: "text",
+        id: `project${projectData.uid}`,
+        classList: ["menu-text-input", "project-input", "hide"],
+        parent: element,
+      });
+      projectInput.addEventListener("click", () => {
+        Events.emit("blurProjectInput", { uid: projectData.uid });
+      });
+    }
     const projectText = newElement({
       tag: "p",
       classList: ["menu-text", "project-text", "show"],
