@@ -678,18 +678,17 @@ const domManager = (() => {
     projectLabel.addEventListener("click", () => {
       Events.emit("toggleBtn", { query: "PROJECT", uid: projectData.uid });
     });
-    const projectText = newElement({
+    const projectInput = newElement({
       tag: "input",
       type: "text",
       id: `project${projectData.uid}`,
       classList: ["menu-text-input", "project-input", "hide"],
       parent: element,
     });
-    projectText.addEventListener("click", () => {
+    projectInput.addEventListener("click", () => {
       Events.emit("projectInputClicked", { uid: projectData.uid });
     });
-
-    newElement({
+    const projectText = newElement({
       tag: "p",
       classList: ["menu-text", "project-text", "show"],
       textContent: projectData.userSetName,
