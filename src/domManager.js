@@ -929,7 +929,15 @@ const domManager = (() => {
 
   Events.on("taskViewChanged", renderTaskViewDisplay);
 
-  /* const reloadProjectContainer = () */
+  const reloadProjectContainer = () => {
+    if (!dataLoaded) return;
+
+    requestProjectsForLoading();
+  };
+
+  Events.on("setProject", reloadProjectContainer);
+  Events.on("toggleBtn", reloadProjectContainer);
+  Events.on("dataLoaded", reloadProjectContainer);
 
   const populateTaskDetails = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
