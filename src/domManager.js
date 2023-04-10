@@ -702,10 +702,7 @@ const domManager = (() => {
 
       projectLabel.addEventListener("click", (e) => {
         e.preventDefault();
-        Events.once("elementToggled", () => {
-          projectInput.focus();
-        });
-        Events.emit("toggleBtn", { query: "PROJECT", uid: projectData.uid });
+        Events.emit("projectLabelClicked", { projectData, projectInput });
       });
       projectInput.addEventListener("blur", () => {
         Events.emit("blurProjectInput", {
@@ -1214,7 +1211,17 @@ const domManager = (() => {
   Events.on("blurProjectInput", blurProjectInput);
 
   // Project label clicked
-  const projectLabelClicked = () => {};
+  const projectLabelClicked = (payload) => {
+    Events.once("elementToggled", () => {
+      payload.projectInput.focus();
+    });
+    Events.emit("toggleBtn", {
+      query: "PROJECT",
+      uid: payload.projectData.uid,
+    });
+  };
+
+  Events.on("projectLabelClicked", projectLabelClicked);
   // Project text clicked
 
   // #endregion
