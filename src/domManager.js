@@ -17,7 +17,10 @@ const domManager = (() => {
   let taskContainer;
   let subtaskContainer;
 
-  // Element input references
+  // Input/Dipslay Element references
+  let activeProjectText;
+  let activeFilterText;
+  let activeFormatText;
   let taskNameInput;
   let taskDateInput;
   let priLowBtn;
@@ -146,6 +149,21 @@ const domManager = (() => {
       tag: "div",
       classList: ["grid-container", "task-view-display"],
       parent: element,
+    });
+    activeProjectText = newElement({
+      tag: "p",
+      classList: "active-project-text",
+      parent: taskViewDisplayDiv,
+    });
+    activeFilterText = newElement({
+      tag: "p",
+      classList: "active-filter-text",
+      parent: taskViewDisplayDiv,
+    });
+    activeFormatText = newElement({
+      tag: "p",
+      classList: "active-format-text",
+      parent: taskViewDisplayDiv,
     });
     // Generated tasks go here
     taskContainer = newElement({
