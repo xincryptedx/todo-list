@@ -95,16 +95,16 @@ const domManager = (() => {
     }, 250); // set the timeout to the duration of the scroll event
   };
 
+  // #endregion
+
+  // #region Init helper methods
+
   const addScrollTimeoutEvent = (element) => {
     element.addEventListener("scroll", () => {
       isScrolling = true;
       setScrollTimeout(element);
     });
   };
-
-  // #endregion
-
-  // #region Init helper methods
 
   // Helper method for adding touch events that check for a swipe
   const addSwipeEvents = (element) => {
