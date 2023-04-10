@@ -361,6 +361,8 @@ const dataManager = (() => {
       returnData = Object.values(data.tasks).filter(
         (task) => task.projectUID === defaultProjects.generalUID
       );
+    } else if (payload.query === "ALLPROJECTS") {
+      returnData = data.projects;
     } else if (payload.query === "TRASH") {
       returnData = Object.values(data.tasks).filter(
         (task) => task.projectUID === defaultProjects.trashUID
