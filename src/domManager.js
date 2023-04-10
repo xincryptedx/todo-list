@@ -707,7 +707,7 @@ const domManager = (() => {
         });
         Events.emit("toggleBtn", { query: "PROJECT", uid: projectData.uid });
       });
-      projectInput.addEventListener("click", () => {
+      projectInput.addEventListener("blur", () => {
         Events.emit("blurProjectInput", {
           projectData,
           projectInput,
