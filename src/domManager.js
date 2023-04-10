@@ -112,6 +112,8 @@ const domManager = (() => {
     touch.startX = null;
     touch.startY = null;
 
+    const distanceThreshold = 0.5 * window.innerWidth;
+
     // Add touch event listeners to the element
     element.addEventListener(
       "touchstart",
@@ -136,7 +138,10 @@ const domManager = (() => {
         const deltaY = endY - touch.startY;
 
         // Check if the distance traveled in the X direction is greater than the distance traveled in the Y direction
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (
+          Math.abs(deltaX) >= distanceThreshold &&
+          Math.abs(deltaX) > Math.abs(deltaY)
+        ) {
           // If the distance traveled in the X direction is greater, check the direction of the swipe
           if (deltaX > 0) {
             // If the swipe is to the right, execute your function here
