@@ -149,8 +149,11 @@ body {
   justify-self: center;
 
   display: grid;
-  grid-template: 3vw 1fr 1fr 1fr 3vw / 1fr;
-  grid-template-areas: "project filter format";
+  grid-template: 1fr / 3vw 1fr 1fr 1fr 3vw;
+  grid-template-areas: ". project filter format .";
+
+  height: 100%;
+  width: 100%;
 }
 
 .content .active-project-text {
