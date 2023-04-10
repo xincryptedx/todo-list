@@ -686,7 +686,7 @@ const domManager = (() => {
       parent: element,
     });
     projectInput.addEventListener("click", () => {
-      Events.emit("projectInputClicked", { uid: projectData.uid });
+      Events.emit("blurProjectInput", { uid: projectData.uid });
     });
     const projectText = newElement({
       tag: "p",
