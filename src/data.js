@@ -381,9 +381,7 @@ const dataManager = (() => {
       payload.query.startsWith("DATAPROJECT")
     ) {
       const projectUID = payload.query.substring(11); // UID starts in this position
-      returnData = Object.values(data.projects).find(
-        (project) => project.UID === projectUID
-      );
+      returnData = data.projects[projectUID];
       needsFormatting = false;
     } else if (
       typeof payload.query === "string" &&

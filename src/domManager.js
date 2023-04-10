@@ -1197,7 +1197,9 @@ const domManager = (() => {
     }
 
     Events.once("returnData", updateReturnedProject);
-    Events.emit("requestData", { query: `PROJECT${payload.projectData.uid}` });
+    Events.emit("requestData", {
+      query: `DATAPROJECT${payload.projectData.uid}`,
+    });
 
     console.log("Requested it");
 
