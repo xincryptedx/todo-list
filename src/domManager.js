@@ -910,7 +910,11 @@ const domManager = (() => {
       hideDefaultElements = false;
     } else if (payload.query === "TASK") element = taskDetailsDiv;
     else if (payload.query === "SUBTASK") element = subtaskDetailsDiv;
-    else return undefined;
+    else if (payload.query === "PROJECT" && payload.uid) {
+      const projectDiv = projectContainer.querySelector(
+        `[data-uid="${payload.uid}"]`
+      );
+    } else return undefined;
 
     // Toggle menu element class hide/show
     if (element.classList.contains("hide")) {
