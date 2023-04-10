@@ -702,7 +702,11 @@ const domManager = (() => {
 
       projectLabel.addEventListener("click", (e) => {
         e.preventDefault();
-        Events.emit("projectLabelClicked", { projectData, projectInput });
+        Events.emit("projectLabelClicked", {
+          projectData,
+          projectInput,
+          projectText,
+        });
       });
       projectInput.addEventListener("blur", () => {
         Events.emit("blurProjectInput", {
@@ -1219,6 +1223,8 @@ const domManager = (() => {
       query: "PROJECT",
       uid: payload.projectData.uid,
     });
+    const { projectInput } = payload;
+    projectInput.value = payload.projectText.textContent;
   };
 
   Events.on("projectLabelClicked", projectLabelClicked);
