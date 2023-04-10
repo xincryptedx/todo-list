@@ -890,6 +890,14 @@ const domManager = (() => {
 
   Events.on("toggleBtn", toggleShowHide);
 
+  const renderTaskViewDisplay = () => {
+    activeProjectText.textContent = taskView.project;
+    activeFilterText.textContent = taskView.filter;
+    activeFormatText.textContent = taskView.format;
+  };
+
+  Events.on("taskViewChanged", renderTaskViewDisplay);
+
   const populateTaskDetails = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
 
