@@ -362,6 +362,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: var(--bg-color);
+  height: 75%;
+  border-radius: 10px;
+  border: 1px solid var(--bg-color-3);
 }
 
 .menu .project-input-label {
