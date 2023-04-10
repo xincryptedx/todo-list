@@ -914,6 +914,8 @@ const domManager = (() => {
       const projectDiv = projectContainer.querySelector(
         `[data-uid="${payload.uid}"]`
       );
+      element = projectDiv.querySelector(".project-text");
+      pairedElement = projectDiv.querySelector(".project-input");
     } else return undefined;
 
     // Toggle menu element class hide/show
