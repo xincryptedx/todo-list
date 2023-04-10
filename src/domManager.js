@@ -207,36 +207,12 @@ const domManager = (() => {
       classList: ["grid-container", "projects"],
       parent: element,
     });
-    // All tasks btn
-    const allTasksDiv = newElement({
-      tag: "div",
-      classList: ["span-btn-container", "all-tasks-div"],
-      parent: projectsGrid,
-    });
-    newElement({
-      tag: "span",
-      classList: ["span-btn", "all-tasks-span-btn"],
-      parent: allTasksDiv,
-      textContent: "All Tasks",
-    });
-    // General tasks btn
-    const generalTasksDiv = newElement({
-      tag: "div",
-      classList: ["span-btn-container", "general-tasks-div"],
-      parent: projectsGrid,
-    });
-    newElement({
-      tag: "span",
-      classList: ["span-btn", "general-tasks-span-btn"],
-      parent: generalTasksDiv,
-      textContent: "General Tasks",
-    });
     // Generated projects go here
     // New project btn
     const newProjectDiv = newElement({
       tag: "div",
       classList: ["span-btn-container", "new-project-div"],
-      parent: projectsGrid,
+      parent: element,
     });
     newElement({
       tag: "span",
