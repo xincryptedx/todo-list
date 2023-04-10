@@ -220,11 +220,14 @@ const domManager = (() => {
       classList: ["span-btn-container", "new-project-div"],
       parent: element,
     });
-    newElement({
+    const newProjectBtn = newElement({
       tag: "span",
       classList: ["span-btn", "new-project-span-btn"],
       parent: newProjectDiv,
       textContent: "New Project +",
+    });
+    newProjectBtn.addEventListener("click", () => {
+      Events.emit("newProjectClicked");
     });
     // Format btns
     const formatBtnsGrid = newElement({
@@ -1214,7 +1217,6 @@ const domManager = (() => {
 
   Events.on("blurProjectInput", blurProjectInput);
 
-  // Project label clicked
   const projectLabelClicked = (payload) => {
     Events.once("elementToggled", () => {
       payload.projectInput.focus();
@@ -1228,7 +1230,21 @@ const domManager = (() => {
   };
 
   Events.on("projectLabelClicked", projectLabelClicked);
+
   // Project text clicked
+
+  const focusNewProject = () => {
+    const elements = projectContainer.querySelectorAll(".project-input-label");
+    const element = elements[elements.length - 1];
+    element.click();
+  };
+
+  const newProjectClicked = () => {
+    Events.once("setProject", focusNewProject);
+    Events.emit("createProject", {});
+  };
+
+  Events.on("newProjectClicked", newProjectClicked);
 
   // #endregion
 
