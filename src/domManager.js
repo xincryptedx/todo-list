@@ -95,7 +95,7 @@ const domManager = (() => {
     }, 250); // set the timeout to the duration of the scroll event
   };
 
-  const setScrollTimeoutEvent = (element) => {
+  const addScrollTimeoutEvent = (element) => {
     element.addEventListener("scroll", () => {
       isScrolling = true;
       setScrollTimeout(element);
@@ -243,6 +243,7 @@ const domManager = (() => {
       classList: ["grid-container", "tasks"],
       parent: element,
     });
+    addScrollTimeoutEvent(taskContainer);
 
     return element;
   };
