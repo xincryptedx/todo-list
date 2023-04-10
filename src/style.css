@@ -136,11 +136,20 @@ body {
   grid-column: -1 / 1;
 
   display: grid;
-  grid-template: var(--task-grid-gap) auto var(--task-grid-gap) / 1fr;
+  grid-template: 10% auto var(--task-grid-gap) / 1fr;
   grid-template-areas:
-    "."
+    "task-view"
     "tasks"
     ".";
+}
+
+.content .task-view-display {
+  grid-area: task-view;
+  align-self: center;
+  justify-self: center;
+
+  display: grid;
+  grid-template: 3vw 1fr 3vw;
 }
 
 .content .tasks {

@@ -25,7 +25,7 @@ const domManager = (() => {
   let priHighBtn;
   let taskNotesTextarea;
 
-  let activeProjectText;
+  let taskViewDisplayDiv;
   let weekFilterBtn;
   let monthFilterBtn;
   let prioritySortBtn;
@@ -141,10 +141,10 @@ const domManager = (() => {
       classList: ["grid-container", "content", "show"],
       parent,
     });
-    // Active Project Display
-    activeProjectText = newElement({
-      tag: "p",
-      classList: "active-project-text",
+    // Task View Display
+    taskViewDisplayDiv = newElement({
+      tag: "div",
+      classList: ["grid-container", "task-view-display"],
       parent: element,
     });
     // Generated tasks go here
