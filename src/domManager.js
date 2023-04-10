@@ -107,7 +107,7 @@ const domManager = (() => {
   };
 
   // Helper method for adding touch events that check for a swipe
-  const addSwipeEvents = (element) => {
+  const addSwipeToDeleteEvents = (element) => {
     // Set the initial touch coordinates to null
     touch.startX = null;
     touch.startY = null;
@@ -692,7 +692,7 @@ const domManager = (() => {
     if (taskData.uid) element.setAttribute("data-UID", taskData.uid);
     else element.setAttribute("data-UID-Error", "ERROR");
 
-    addSwipeEvents(element);
+    addSwipeToDeleteEvents(element);
 
     return element;
   };
