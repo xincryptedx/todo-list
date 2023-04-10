@@ -85,6 +85,23 @@ const domManager = (() => {
     startY: null,
   };
 
+  let isScrolling;
+
+  const setScrollTimeout = (container) => {
+    clearTimeout(container.scrollTimeout);
+    const containerToSet = container;
+    containerToSet.scrollTimeout = setTimeout(() => {
+      isScrolling = false;
+    }, 250); // set the timeout to the duration of the scroll event
+  };
+
+  const setScrollTimeoutEvent = (element) => {
+    element.addEventListener("scroll", () => {
+      isScrolling = true;
+      setScrollTimeout(element);
+    });
+  };
+
   // #endregion
 
   // #region Init helper methods
