@@ -335,6 +335,9 @@ body {
 .menu .projects {
   grid-area: projects;
   display: grid;
+  grid-auto-rows: minmax(min-content, 8vh);
+
+  overflow-y: scroll;
 }
 
 .menu .new-project-div {
