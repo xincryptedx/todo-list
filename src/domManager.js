@@ -92,14 +92,14 @@ const domManager = (() => {
   // Helper method for adding touch events that check for a swipe
   const addSwipeEvents = (element) => {
     // Set the initial touch coordinates to null
-    let startX = null;
-    let startY = null;
+    touch.startX = null;
+    touch.startY = null;
 
     // Add touch event listeners to the element
     element.addEventListener("touchstart", (e) => {
       // Get the coordinates of the initial touch
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
+      touch.startX = e.touches[0].clientX;
+      touch.startY = e.touches[0].clientY;
     });
 
     element.addEventListener("touchend", (e) => {
@@ -108,8 +108,8 @@ const domManager = (() => {
       const endY = e.changedTouches[0].clientY;
 
       // Calculate the distance traveled in the X and Y directions
-      const deltaX = endX - startX;
-      const deltaY = endY - startY;
+      const deltaX = endX - touch.startX;
+      const deltaY = endY - touch.startY;
 
       // Check if the distance traveled in the X direction is greater than the distance traveled in the Y direction
       if (Math.abs(deltaX) > Math.abs(deltaY)) {
@@ -658,6 +658,8 @@ const domManager = (() => {
 
     if (taskData.uid) element.setAttribute("data-UID", taskData.uid);
     else element.setAttribute("data-UID-Error", "ERROR");
+
+    addSwipeEvents(element);
 
     return element;
   };
