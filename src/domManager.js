@@ -923,6 +923,7 @@ const domManager = (() => {
     activeFormatText.textContent = taskView.format;
   };
 
+  Events.on("dataLoaded", renderTaskViewDisplay);
   Events.on("taskViewChanged", renderTaskViewDisplay);
 
   const reloadProjectContainer = () => {
