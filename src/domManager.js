@@ -145,7 +145,7 @@ const domManager = (() => {
           // If the distance traveled in the X direction is greater, check the direction of the swipe
           if (deltaX > 0) {
             // If the swipe is to the right, execute your function here
-            console.log(`Swipe right on: ${element.dataset.uid}`);
+            Events.emit("moveToTrash", element.dataset.uid);
           } else {
             // If the swipe is to the left, execute your function here
             console.log(`Swipe left on: ${element.dataset.uid}`);
