@@ -655,17 +655,40 @@ const domManager = (() => {
       parent,
     });
 
-    if (projectData.uid) element.setAttribute("data-UID", taskData.uid);
-    else element.setAttribute("data-UID-Error", "ERROR");
+    if (projectData.uid) element.setAttribute("data-UID", projectData.uid);
+    else {
+      element.setAttribute("data-UID-Error", "ERROR");
+      return undefined;
+    }
 
-    // type
-    // uid
-    // userSetName
+    newElement({
+      tag: "label",
+      for: `project${projectData.uid}`,
+      classList: ["menu-label", "project-input-label"],
+      parent: element,
+    });
+
+    newElement({
+      tag: "input",
+      type: "text",
+      id: `project${projectData.uid}`,
+      classList: ["menu-text-input", "project-input", "hide"],
+      parent: element,
+    });
+
+    newElement({
+      tag: "p",
+      classList: ["menu-text", "project-text", "show"],
+      textContent: projectData.userSetName,
+      parent: element,
+    });
+
+    return element;
   };
 
   // #endregion
 
-  // #region Methods for loading tasks and subtasks from data object and into containers
+  // #region Methods for loading projects, tasks and subtasks from data object and into containers
 
   const emptyContainer = (() => {
     const tasks = () => {
@@ -686,7 +709,16 @@ const domManager = (() => {
       return subtaskContainer;
     };
 
-    return { tasks, subtasks };
+    const projects = () => {
+      if (projectContainer && projectContainer instanceof HTMLElement) {
+        while (projectContainer.firstChild) {
+          projectContainer.removeChild(projectContainer.lastChild);
+        }
+      }
+      return projectContainer;
+    };
+
+    return { tasks, subtasks, projects };
   })();
 
   // Load tasks from data
@@ -868,6 +900,8 @@ const domManager = (() => {
   };
 
   Events.on("taskViewChanged", renderTaskViewDisplay);
+
+  /* const reloadProjectContainer = () */
 
   const populateTaskDetails = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
