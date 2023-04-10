@@ -666,14 +666,16 @@ const domManager = (() => {
       classList: ["grid-container", "project-label-container"],
       parent: element,
     });
-    newElement({
+    const projectLabel = newElement({
       tag: "label",
       for: `project${projectData.uid}`,
       classList: ["menu-label", "project-input-label"],
       parent: labelContainer,
       textContent: "✎",
     });
-
+    projectLabel.addEventListener("click", () => {
+      Events.emit("x");
+    });
     newElement({
       tag: "input",
       type: "text",
@@ -896,16 +898,16 @@ const domManager = (() => {
   };
 
   const toggleShowHide = (payload) => {
-    if (typeof payload !== "string") return undefined;
+    if (typeof payload !== "object") return undefined;
 
     let element;
     let hideDefaultElements = true;
 
-    if (payload === "MENU") {
+    if (payload.query === "MENU") {
       element = menuDiv;
       hideDefaultElements = false;
-    } else if (payload === "TASK") element = taskDetailsDiv;
-    else if (payload === "SUBTASK") element = subtaskDetailsDiv;
+    } else if (payload.query === "TASK") element = taskDetailsDiv;
+    else if (payload.query === "SUBTASK") element = subtaskDetailsDiv;
 
     // Toggle menu element class hide/show
     if (element.classList.contains("hide")) {
