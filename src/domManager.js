@@ -1234,6 +1234,7 @@ const domManager = (() => {
   // Project text clicked
 
   const focusNewProject = () => {
+    reloadProjectContainer();
     const elements = projectContainer.querySelectorAll(".project-input-label");
     const element = elements[elements.length - 1];
     element.click();
