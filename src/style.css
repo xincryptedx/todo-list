@@ -357,8 +357,16 @@ body {
   grid-area: project;
 }
 
-.menu .project-input-label {
+.menu .project-label-container {
   grid-area: label;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu .project-input-label {
+  font-size: 1.4rem;
+  color: var(--highlight-color);
 }
 
 .menu .new-project-div {
