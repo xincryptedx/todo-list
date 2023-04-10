@@ -1181,6 +1181,12 @@ const domManager = (() => {
   // #endregion
 
   // #region Project event methods
+  const updateReturnedProject = (payload) => {
+    if (!payload.uid) return undefined;
+
+    console.log("It is working!");
+  };
+
   const blurProjectInput = (payload) => {
     if (
       !payload.projectData.uid ||
@@ -1190,15 +1196,12 @@ const domManager = (() => {
       return undefined;
     }
 
-    const newProjectParams = {
-      uid: payload.projectData.uid,
-      userSetName: payload.projectInput.value,
-      type: payload.projectData.type,
-    };
+    Events.once("returnData", updateReturnedProject);
+    Events.emit("requestData", { query: `PROJECT${payload.projectData.uid}` });
 
-    Events.emit("setProject", newProjectParams);
+    console.log("Requested it");
 
-    return newProjectParams;
+    return payload.projectInput;
   };
 
   Events.on("blurProjectInput", blurProjectInput);
