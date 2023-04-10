@@ -80,6 +80,11 @@ const domManager = (() => {
     return openedTaskObject;
   };
 
+  const touch = {
+    startX: null,
+    startY: null,
+  };
+
   // #endregion
 
   // #region Init helper methods
