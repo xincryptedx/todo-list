@@ -646,6 +646,23 @@ const domManager = (() => {
     return element;
   };
 
+  const newProject = (parent, projectData) => {
+    if (!(parent instanceof HTMLElement)) return undefined;
+
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "project"],
+      parent,
+    });
+
+    if (projectData.uid) element.setAttribute("data-UID", taskData.uid);
+    else element.setAttribute("data-UID-Error", "ERROR");
+
+    // type
+    // uid
+    // userSetName
+  };
+
   // #endregion
 
   // #region Methods for loading tasks and subtasks from data object and into containers
