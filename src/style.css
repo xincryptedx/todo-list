@@ -322,10 +322,11 @@ body {
   grid-column: 4 / -1;
 
   display: grid;
-  grid-template: 5% 70% 25% / 1fr;
+  grid-template: 5% 60% 10% 25% / 1fr;
   grid-template-areas:
     "."
     "projects"
+    "new-project"
     "format-btns";
 
   background-color: var(--bg-color-2);
@@ -334,6 +335,10 @@ body {
 .menu .projects {
   grid-area: projects;
   display: grid;
+}
+
+.menu .new-project-div {
+  grid-area: new-project;
 }
 
 .menu .format-btns {
