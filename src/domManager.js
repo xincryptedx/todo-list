@@ -903,6 +903,7 @@ const domManager = (() => {
     if (typeof payload !== "object" || !payload.query) return undefined;
 
     let element;
+    let pairedElement;
     let hideDefaultElements = true;
 
     if (payload.query === "MENU") {
@@ -916,7 +917,22 @@ const domManager = (() => {
       );
       element = projectDiv.querySelector(".project-text");
       pairedElement = projectDiv.querySelector(".project-input");
+
+      hideDefaultElements = false;
     } else return undefined;
+
+    if (!element) return undefined;
+
+    // Toggle the paired element if needed
+    if (pairedElement) {
+      if (element.classList.contains("show")) {
+        pairedElement.classList.remove("hide");
+        pairedElement.classList.add("show");
+      } else if (element.classList.contains("hide")) {
+        pairedElement.classList.remove("show");
+        pairedElement.classList.add("hide");
+      }
+    }
 
     // Toggle menu element class hide/show
     if (element.classList.contains("hide")) {
@@ -950,7 +966,6 @@ const domManager = (() => {
   };
 
   Events.on("setProject", reloadProjectContainer);
-  Events.on("toggleBtn", reloadProjectContainer);
   Events.on("dataLoaded", reloadProjectContainer);
 
   const populateTaskDetails = (payload) => {
