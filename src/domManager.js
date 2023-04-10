@@ -692,15 +692,20 @@ const domManager = (() => {
         parent: labelContainer,
         textContent: "✎",
       });
-      projectLabel.addEventListener("click", () => {
-        Events.emit("toggleBtn", { query: "PROJECT", uid: projectData.uid });
-      });
       const projectInput = newElement({
         tag: "input",
         type: "text",
         id: `project${projectData.uid}`,
         classList: ["menu-text-input", "project-input", "hide"],
         parent: element,
+      });
+
+      projectLabel.addEventListener("click", (e) => {
+        e.preventDefault();
+        Events.on("elementToggled", () => {
+          projectInput.focus();
+        });
+        Events.emit("toggleBtn", { query: "PROJECT", uid: projectData.uid });
       });
       projectInput.addEventListener("click", () => {
         Events.emit("blurProjectInput", {
@@ -963,6 +968,8 @@ const domManager = (() => {
       showDefault();
     }
 
+    Events.emit("elementToggled");
+
     return payload;
   };
 
@@ -1173,8 +1180,32 @@ const domManager = (() => {
 
   // #region Project event methods
   const blurProjectInput = (payload) => {
-    if (!payload.uid) return undefined;
+    if (
+      !payload.projectData.uid ||
+      !payload.projectText ||
+      !payload.projectInput
+    ) {
+      return undefined;
+    }
+
+    const newProjectParams = {
+      uid: payload.projectData.uid,
+      userSetName: payload.projectInput.value,
+      type: payload.projectData.type,
+    };
+
+    if (
+      payload.projectInput.classList.contains("hide") &&
+      payload.projectInput.value !== ""
+    ) {
+      Events.emit("setProject", newProjectParams);
+    }
+
+    return newProjectParams;
   };
+
+  Events.on("blurProjectInput", blurProjectInput);
+
   // Project label clicked
   // Project text clicked
 
