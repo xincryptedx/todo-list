@@ -156,8 +156,16 @@ body {
   width: 100%;
 }
 
+.content .task-view-display p {
+  background-color: var(--bg-color-2);
+  height: 70%;
+  align-self: center;
+}
+
 .content .active-project-text {
   grid-area: project;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .content .active-filter-text {
@@ -166,6 +174,8 @@ body {
 
 .content .active-format-text {
   grid-area: format;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .content .tasks {
