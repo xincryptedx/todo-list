@@ -981,6 +981,7 @@ const domManager = (() => {
   Events.on("toggleBtn", reloadTaskContainer);
   Events.on("dataLoaded", reloadTaskContainer);
   Events.on("taskViewChanged", reloadTaskContainer);
+  Events.on("trashMoved", reloadTaskContainer);
 
   const hideDefault = () => {
     headerGridDiv.classList.add("hide");
