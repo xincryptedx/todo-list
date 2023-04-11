@@ -310,6 +310,7 @@ const dataManager = (() => {
       if (uid === key) taskToMove = data.tasks[key];
     });
 
+    // Move to trash or move back out of trash if already in trash
     if (taskToMove && taskToMove.projectUID !== defaultProjects.trashUID) {
       taskToMove.projectUIDPrevious = taskToMove.projectUID;
       taskToMove.projectUID = defaultProjects.trashUID;
