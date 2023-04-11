@@ -310,9 +310,14 @@ const dataManager = (() => {
       if (uid === key) taskToMove = data.tasks[key];
     });
 
-    if (taskToMove) {
+    if (taskToMove && taskToMove.projectUID !== defaultProjects.trashUID) {
       taskToMove.projectUIDPrevious = taskToMove.projectUID;
       taskToMove.projectUID = defaultProjects.trashUID;
+    } else if (
+      taskToMove &&
+      taskToMove.projectUID === defaultProjects.trashUID
+    ) {
+      taskToMove.projectUID = taskToMove.projectUIDPrevious;
     }
 
     return taskToMove;
