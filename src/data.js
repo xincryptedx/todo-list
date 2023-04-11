@@ -442,11 +442,17 @@ const dataManager = (() => {
 
     // Filter trash from returnData if needed
     if (filterTrash) {
+      const filteredOutTrashData = {};
+
       Object.keys(returnData).forEach((key) => {
-        if (returnData[key].projectUID === defaultProjects.trashUID) {
-          delete returnData[key];
+        if (returnData[key].projectUID !== defaultProjects.trashUID) {
+          filteredOutTrashData[key] = returnData[key];
         }
       });
+
+      returnData = filteredOutTrashData;
+
+      console.log("FILTERED");
     }
 
     // Unwrap returnData from array if it is only one entry long
