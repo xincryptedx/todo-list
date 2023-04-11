@@ -476,6 +476,12 @@ const dataManager = (() => {
 
   // #endregion
 
+  const initTrash = () => {
+    emptyTrash();
+  };
+
+  Events.on("dataLoaded", initTrash);
+
   return {
     createTask,
     createSubtask,
