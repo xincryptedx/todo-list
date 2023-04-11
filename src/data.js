@@ -310,7 +310,10 @@ const dataManager = (() => {
       if (uid === key) taskToMove = data.tasks[key];
     });
 
-    if (taskToMove) taskToMove.projectUID = defaultProjects.trashUID;
+    if (taskToMove) {
+      taskToMove.projectUIDPrevious = taskToMove.projectUID;
+      taskToMove.projectUID = defaultProjects.trashUID;
+    }
 
     return taskToMove;
   };
