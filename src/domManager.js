@@ -1319,12 +1319,23 @@ const domManager = (() => {
     if (!payload.uid) return undefined;
 
     if (payload.type === "usermade") {
-      taskViewOpts.selectedUserProject = payload.uid;
-      taskView.project = taskViewOpts.project.UserMade;
+      if (
+        taskViewOpts.selectedUserProject === payload.uid &&
+        taskView.project === taskViewOpts.project.UserMade
+      ) {
+        taskView.project = taskViewOpts.project.All;
+      } else {
+        taskViewOpts.selectedUserProject = payload.uid;
+        taskView.project = taskViewOpts.project.UserMade;
+      }
     } else if (payload.type === "general") {
-      taskView.project = taskViewOpts.project.General;
+      if (taskView.project === taskViewOpts.project.General) {
+        taskView.project = taskViewOpts.project.All;
+      } else taskView.project = taskViewOpts.project.General;
     } else if (payload.type === "trash") {
-      taskView.project = taskViewOpts.project.Trash;
+      if (taskView.project === taskViewOpts.project.Trash) {
+        taskView.project = taskViewOpts.project.All;
+      } else taskView.project = taskViewOpts.project.Trash;
     }
 
     Events.emit("taskViewChanged");
