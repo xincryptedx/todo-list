@@ -127,7 +127,7 @@ const dataManager = (() => {
   const createTask = (taskData) => {
     if (!taskData) return undefined;
     let projectUID = validateProject(taskData.projectUID, true);
-    let projectUIDPrevious = validateProject(taskData.projectUID, true);
+    let projectUIDPrevious = "";
     let projectSetName = projectUID
       ? data.projects[projectUID].userSetName
       : "Project";
