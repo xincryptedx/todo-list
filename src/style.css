@@ -356,10 +356,15 @@ body {
 
   font-size: 1.4rem;
   font-weight: bold;
+  text-shadow: var(--menu-text-shadow);
 }
 
 .menu .project-input {
   grid-area: project;
+
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-shadow: var(--menu-text-shadow);
 }
 
 .menu .project-label-container {
