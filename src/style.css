@@ -18,6 +18,7 @@
   --task-element-height: 80px;
   --task-grid-gap: 10px;
   --task-border-radius: 7px;
+  --task-text-shadow: 1px 1px var(--bg-color);
 
   --menu-font-size: 1.4rem;
   --menu-text-shadow: 1px 1px var(--bg-color);
@@ -254,6 +255,7 @@ body {
 
   font-size: 1.15rem;
   font-weight: bold;
+  text-shadow: var(--task-text-shadow);
 }
 
 .content .task-project {
@@ -266,6 +268,7 @@ body {
   align-self: start;
 
   font-style: italic;
+  text-shadow: var(--task-text-shadow);
 }
 
 .content .div-btn {
