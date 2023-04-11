@@ -319,7 +319,9 @@ const dataManager = (() => {
       taskToMove.projectUID === defaultProjects.trashUID
     ) {
       taskToMove.projectUID = taskToMove.projectUIDPrevious;
-    }
+    } else return undefined;
+
+    Events.emit("trashMoved");
 
     return taskToMove;
   };
