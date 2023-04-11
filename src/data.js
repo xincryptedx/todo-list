@@ -474,6 +474,16 @@ const dataManager = (() => {
 
   // #endregion
 
+  // Get the default projects
+  const getDefaultProjects = () => {
+    Events.emit("setDefaultProjects", {
+      general: defaultProjects.generalUID,
+      trash: defaultProjects.trashUID,
+    });
+  };
+
+  Events.on("getDefaultProjects", getDefaultProjects);
+
   const initTrash = () => {
     emptyTrash();
   };
