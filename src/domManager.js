@@ -968,7 +968,7 @@ const domManager = (() => {
 
     // Use taskView to create task load request
     if (taskView.project === taskViewOpts.project.UserMade) {
-      request.query = `${taskView.project}${taskView.selectedUserProject}`;
+      request.query = `${taskView.project}${taskViewOpts.selectedUserProject}`;
     } else request.query = taskView.project;
 
     request.format = taskView.format;
