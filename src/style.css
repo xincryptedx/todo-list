@@ -19,6 +19,8 @@
   --task-grid-gap: 10px;
   --task-border-radius: 7px;
 
+  --menu-font-size: 1.4rem;
+  --menu-text-shadow: 1px 1px var(--bg-color);
   --format-btns-border-width: 2px;
 }
 /* #endregion */
@@ -373,12 +375,31 @@ body {
 }
 
 .menu .project-input-label {
-  font-size: 1.4rem;
+  font-size: var(--menu-font-size);
   color: var(--highlight-color);
 }
 
 .menu .new-project-div {
   grid-area: new-project;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+
+  background-color: var(--bg-color-3);
+  height: 100%;
+  width: 80%;
+  border-radius: 10px;
+  border: 1px solid var(--bg-color);
+}
+
+.menu .new-project-span-btn {
+  align-self: center;
+  justify-self: center;
+
+  font-size: var(--menu-font-size);
+  font-weight: bold;
+  color: var(--text-color);
+  text-shadow: var(--menu-text-shadow);
 }
 
 .menu .format-btns {
