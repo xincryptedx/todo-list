@@ -61,7 +61,25 @@ const domManager = (() => {
       UserMade: "PROJECT",
     },
     selectedUserProject: "",
+    generalProject: "",
+    trashProject: "",
   };
+
+  // Gets the uids for general project and trash project
+  const setDefaultProjects = (payload) => {
+    if (payload.general && payload.trash) {
+      taskViewOpts.generalProject = payload.general;
+      taskViewOpts.trashProject = payload.trash;
+    }
+  };
+
+  Events.on("setDefaultProjects", setDefaultProjects);
+
+  const getDefaultProjects = () => {
+    Events.emit("getDefaultProjects");
+  };
+
+  Events.on("dataLoaded", getDefaultProjects);
 
   // Defines default project view and can be updated for reference later
   const taskView = {
@@ -1106,6 +1124,13 @@ const domManager = (() => {
 
   Events.on("detailsClicked", populateTaskDetails);
   Events.on("openedTaskSet", populateTaskDetails);
+
+  const renderProjectColors = () => {
+    // Render it based on taskView.project
+    // If general, set class on general
+    // Same for trash
+    // If userCreated then get element wit data-uid=taskViewOptions.currentProject or whatever it is
+  };
 
   const renderFilterBtns = () => {
     if (taskView.filter === taskViewOpts.filter.Week) {
