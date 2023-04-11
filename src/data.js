@@ -451,8 +451,6 @@ const dataManager = (() => {
       });
 
       returnData = filteredOutTrashData;
-
-      console.log("FILTERED");
     }
 
     // Unwrap returnData from array if it is only one entry long
