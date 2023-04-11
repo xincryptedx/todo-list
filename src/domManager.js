@@ -1157,7 +1157,10 @@ const domManager = (() => {
     Events.emit("toggleBtn", { query: "TASK" });
     Events.once("taskCreated", setOpenedTask);
     // Create task in proper project
-    if (taskView.project === taskViewOpts.project.General) {
+    if (
+      taskView.project === taskViewOpts.project.General ||
+      taskView.project === taskViewOpts.project.All
+    ) {
       Events.emit("createTask", {});
     } else if (taskView.project === taskViewOpts.project.UserMade) {
       Events.emit("createTask", {
