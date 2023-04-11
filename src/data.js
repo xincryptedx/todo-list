@@ -360,9 +360,12 @@ const dataManager = (() => {
     if (!payload) return undefined;
     let returnData;
     let needsFormatting = true;
+    let filterTrash = false;
 
-    if (payload.query === "ALLTASKS") returnData = data.tasks;
-    else if (payload.query === "GENERAL") {
+    if (payload.query === "ALLTASKS") {
+      returnData = data.tasks;
+      filterTrash = true;
+    } else if (payload.query === "GENERAL") {
       returnData = Object.values(data.tasks).filter(
         (task) => task.projectUID === defaultProjects.generalUID
       );
@@ -414,6 +417,15 @@ const dataManager = (() => {
           (dataObject) => dataObject.uid === payload.query
         );
       }
+    }
+
+    // Filter trash from returnData if needed
+    if (filterTrash) {
+      Object.keys(returnData).forEach((key) => {
+        if (returnData[key].projectUID === defaultProjects.trashUID) {
+          delete returnData[key];
+        }
+      });
     }
 
     // Unwrap returnData from array if it is only one entry long
