@@ -755,7 +755,7 @@ const domManager = (() => {
       parent: element,
     });
     projectText.addEventListener("click", () => {
-      Events.emit("projectTextClicked", { uid: projectData.uid });
+      Events.emit("projectTextClicked", projectData);
     });
 
     if (!isDefaultType) {
@@ -1308,7 +1308,24 @@ const domManager = (() => {
 
   Events.on("projectLabelClicked", projectLabelClicked);
 
-  // Project text clicked
+  const projectTextClicked = (payload) => {
+    if (!payload.uid) return undefined;
+
+    if (payload.type === "usermade") {
+      taskViewOpts.selectedUserProject = payload.uid;
+      taskView.project = taskViewOpts.project.UserMade;
+    } else if (payload.type === "general") {
+      taskView.project = taskViewOpts.project.General;
+    } else if (payload.type === "trash") {
+      taskView.project = taskViewOpts.project.Trash;
+    }
+
+    Events.emit("taskViewChanged");
+
+    return taskView;
+  };
+
+  Events.on("projectTextClicked", projectTextClicked);
 
   const focusNewProject = () => {
     reloadProjectContainer();
