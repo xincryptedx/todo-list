@@ -496,7 +496,7 @@ const domManager = (() => {
       parent: element,
     });
     dateBtn.addEventListener("click", () => {
-      taskDateInput.focus();
+      Events.emit("dateBtnClicked");
     });
     const dateIcon = newElement({
       tag: "div",
@@ -1203,7 +1203,7 @@ const domManager = (() => {
       const textToColor = projectContainer.querySelector(
         `[data-uid="${taskViewOpts.selectedUserProject}"] p`
       );
-      console.log(``);
+
       if (textToColor) {
         textToColor.classList.add("highlight");
       }
@@ -1303,6 +1303,12 @@ const domManager = (() => {
   };
 
   Events.on("blurTaskDate", blurTaskDate);
+
+  const dateBtnClicked = () => {
+    taskDateInput.focus();
+  };
+
+  Events.on("dateBtnClicked", dateBtnClicked);
 
   const priorityClicked = (payload) => {
     if (payload === "LOW") {
