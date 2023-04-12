@@ -643,7 +643,7 @@ const domManager = (() => {
       classList: ["icon", "add-subtask-icon"],
       parent: addSubtaskBtnTop,
     });
-    addSubtaskIcon.innerHTML = Icons.add;
+    addSubtaskIcon.innerHTML = Icons.newTask;
     // Close btn
     const closeBtn = newElement({
       tag: "div",
