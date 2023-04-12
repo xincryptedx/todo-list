@@ -86,14 +86,10 @@ const domManager = (() => {
   const setProjectName = (payload) => {
     if (payload.userSetName) {
       taskViewOpts.selectedProjectSetName = payload.userSetName;
-    }
+    } else taskViewOpts.selectedProjectSetName = "";
   };
 
   Events.on("setProjectName", setProjectName);
-
-  const getProjectName = (payload) => {
-    Events.emit("getProjectName", payload);
-  };
 
   // Defines default project view and can be updated for reference later
   const taskView = {
@@ -1117,14 +1113,12 @@ const domManager = (() => {
 
   Events.on("toggleBtn", toggleShowHide);
 
-  const renderTaskViewDisplay = () => {
-    activeProjectText.textContent = taskView.project;
-    activeFilterText.textContent = taskView.filter;
-    activeFormatText.textContent = taskView.format;
+  const requestRenderTaskViewDisplay = () => {
+    Events.emit("requestProjectName", taskViewOpts.selectedUserProject);
   };
 
-  Events.on("dataLoaded", renderTaskViewDisplay);
-  Events.on("taskViewChanged", renderTaskViewDisplay);
+  Events.on("dataLoaded", requestRenderTaskViewDisplay);
+  Events.on("taskViewChanged", requestRenderTaskViewDisplay);
 
   const reloadProjectContainer = () => {
     if (!dataLoaded) return;
