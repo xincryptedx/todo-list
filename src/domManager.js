@@ -650,6 +650,9 @@ const domManager = (() => {
       classList: ["div-btn", "subtasks-div-btn", "close-btn"],
       parent: element,
     });
+    closeBtn.addEventListener("click", () => {
+      Events.emit("toggleBtn", { query: "SUBTASK" });
+    });
     const closeIcon = newElement({
       tag: "div",
       classList: ["icon", "close-icon"],
