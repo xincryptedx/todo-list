@@ -1104,7 +1104,15 @@ const domManager = (() => {
 
   Events.on("toggleBtn", toggleShowHide);
 
-  const requestRenderTaskViewDisplay = () => {};
+  const requestRenderTaskViewDisplay = () => {
+    if (taskView.project === taskViewOpts.project.All) {
+      activeProjectText.textContent = "All";
+    } else if (taskView.project === taskViewOpts.project.General) {
+      activeProjectText.textContent = "General";
+    } else if (taskView.project === taskViewOpts.project.Trash) {
+      activeProjectText.textContent = "Trash";
+    } else activeProjectText.textContent = taskViewOpts.selectedProjectSetName;
+  };
 
   Events.on("dataLoaded", requestRenderTaskViewDisplay);
   Events.on("taskViewChanged", requestRenderTaskViewDisplay);
