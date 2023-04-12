@@ -711,7 +711,7 @@ body {
   grid-column: -1 / 1;
 
   display: grid;
-  grid-template: 10% 8% 3% 1fr / 5% repeat(6, 1fr) 5%;
+  grid-template: 10% 5% 3% 1fr / 5% repeat(6, 1fr) 5%;
   grid-template-areas:
     ". task task task . new-subtask close ."
     ". task task task . . . ."
@@ -719,6 +719,22 @@ body {
     ". subtasks subtasks subtasks subtasks subtasks subtasks .";
 
   background-color: var(--bg-color-2);
+}
+
+.subtasks-display .task-details {
+  grid-area: task;
+}
+
+.subtasks-display .add-subtask-btn {
+  grid-area: new-subtask;
+}
+
+.subtasks-display .close-btn {
+  grid-area: close;
+}
+
+.subtasks-display .subtasks {
+  grid-area: subtasks;
 }
 
 /* #endregion  */
