@@ -61,6 +61,7 @@ const domManager = (() => {
       UserMade: "PROJECT",
     },
     selectedUserProject: "",
+    selectedProjectSetName: "",
     generalProject: "",
     trashProject: "",
   };
@@ -80,6 +81,19 @@ const domManager = (() => {
   };
 
   Events.on("dataLoaded", getDefaultProjects);
+
+  // Get the name of a project based on its uid
+  const setProjectName = (payload) => {
+    if (payload.userSetName) {
+      taskViewOpts.selectedProjectSetName = payload.userSetName;
+    }
+  };
+
+  Events.on("setProjectName", setProjectName);
+
+  const getProjectName = (payload) => {
+    Events.emit("getProjectName", payload);
+  };
 
   // Defines default project view and can be updated for reference later
   const taskView = {
