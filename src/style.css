@@ -370,6 +370,10 @@ body {
   text-shadow: var(--menu-text-shadow);
 }
 
+.menu .project-text.highlight {
+  color: var(--highlight-color);
+}
+
 .menu .project-input {
   grid-area: project;
 
