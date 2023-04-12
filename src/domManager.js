@@ -728,6 +728,9 @@ const domManager = (() => {
       classList: ["div-btn", "tasks-btn", "subtasks-btn"],
       parent: taskContentsGrid,
     });
+    subtasksBtn.addEventListener("click", () => {
+      Events.emit("subtasksClicked", taskData);
+    });
     const subtaskIcon = newElement({
       tag: "div",
       classList: ["icon", "subtasks-icon"],
