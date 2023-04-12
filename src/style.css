@@ -713,8 +713,8 @@ body {
   display: grid;
   grid-template: 10% 8% 3% 1fr / 5% repeat(6, 1fr) 5%;
   grid-template-areas:
-    ". title title title . new-subtask close ."
-    ". project project project . . . ."
+    ". task task task . new-subtask close ."
+    ". task task task . . . ."
     ". . . . . . . ."
     ". subtasks subtasks subtasks subtasks subtasks subtasks .";
 
