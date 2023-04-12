@@ -1378,6 +1378,7 @@ const domManager = (() => {
         taskView.project = taskViewOpts.project.All;
       } else {
         taskViewOpts.selectedUserProject = payload.uid;
+        taskViewOpts.selectedProjectSetName = payload.userSetName;
         taskView.project = taskViewOpts.project.UserMade;
       }
     } else if (payload.type === "general") {
