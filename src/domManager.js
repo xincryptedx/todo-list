@@ -1289,7 +1289,7 @@ const domManager = (() => {
 
   const reloadSubtaskContainer = () => {
     if (!dataLoaded) return;
-
+    console.dir(openedTaskObject);
     const request = { query: `SUBTASKS${openedTaskObject.uid}` };
 
     console.log("Requesting: ");
@@ -1298,7 +1298,7 @@ const domManager = (() => {
   };
 
   Events.on("subtaskSet", reloadSubtaskContainer);
-  Events.on("subtasksClicked", reloadSubtaskContainer);
+  Events.on("openedTaskSetForSubtasks", reloadSubtaskContainer);
 
   // #endregion
 
@@ -1337,6 +1337,7 @@ const domManager = (() => {
 
   const subtasksClicked = (payload) => {
     openedTaskObject = payload;
+    Events.emit("openedTaskSetForSubtasks");
     Events.emit("toggleBtn", { query: "SUBTASK" });
   };
 
