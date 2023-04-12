@@ -1523,6 +1523,17 @@ const domManager = (() => {
 
   // #endregion
 
+  // #region Subtasks Event Methods
+  const newSubtaskClicked = () => {
+    Events.emit("createSubtask", { taskUID: openedTaskObject.uid });
+    console.log("Emitted:");
+    console.dir({ taskUID: openedTaskObject.uid });
+  };
+
+  Events.on("newSubtaskClicked", newSubtaskClicked);
+
+  // #endregion
+
   // #endregion
 
   // Init method

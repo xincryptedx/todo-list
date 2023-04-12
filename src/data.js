@@ -257,6 +257,7 @@ const dataManager = (() => {
   };
 
   const createSubtask = (subtaskData) => {
+    console.log("beginning st creation");
     const validatedTask = validateTask(subtaskData.taskUID);
     if (!validatedTask) return undefined;
 
