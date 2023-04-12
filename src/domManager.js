@@ -1117,6 +1117,18 @@ const domManager = (() => {
       activeFilterText.textContent = "Anytime";
     } else if (taskView.filter === taskViewOpts.filter.Month) {
       activeFilterText.textContent = "This Month";
+    } else if (taskView.filter === taskViewOpts.filter.Week) {
+      activeFilterText.textContent = "This Week";
+    }
+
+    if (taskView.format === taskViewOpts.format.DateAscending) {
+      activeFormatText.textContent = "Date Asc.";
+    } else if (taskView.format === taskViewOpts.format.DateDescending) {
+      activeFormatText.textContent = "Date Desc.";
+    } else if (taskView.format === taskViewOpts.format.PriorityAscending) {
+      activeFormatText.textContent = "Priority Asc.";
+    } else if (taskView.format === taskViewOpts.format.PriorityDescending) {
+      activeFormatText.textContent = "Priority Desc.";
     }
   };
 
