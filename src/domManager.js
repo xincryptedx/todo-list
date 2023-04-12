@@ -1298,6 +1298,7 @@ const domManager = (() => {
   Events.on("detailsClicked", detailsClicked);
 
   const subtasksClicked = (payload) => {
+    openedTaskObject = payload;
     Events.emit("toggleBtn", { query: "SUBTASK" });
   };
 
