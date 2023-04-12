@@ -1017,11 +1017,13 @@ const domManager = (() => {
       !dataLoaded ||
       !payload ||
       typeof payload !== "object" ||
-      !payload.uid
+      !payload.uid ||
+      !openedTaskObject
     ) {
       return undefined;
     }
 
+    console.log("Setting subtask...");
     const oldSubtaskElement = subtaskContainer.querySelector(
       `[data-uid="${payload.uid}"]`
     );
@@ -1032,6 +1034,8 @@ const domManager = (() => {
 
     oldSubtaskElement.replaceWith(newSubtaskElement);
 
+    console.log("new subtask element: ");
+    console.dir(newSubtaskElement);
     return newSubtaskElement;
   };
 
@@ -1288,8 +1292,13 @@ const domManager = (() => {
 
     const request = { query: `SUBTASKS${openedTaskObject.uid}` };
 
+    console.log("Requesting: ");
+    console.dir(request);
     requestSubtasksForLoading(request);
   };
+
+  Events.on("subtaskSet", reloadSubtaskContainer);
+  Events.on("subtasksClicked", reloadSubtaskContainer);
 
   // #endregion
 
@@ -1329,8 +1338,6 @@ const domManager = (() => {
   const subtasksClicked = (payload) => {
     openedTaskObject = payload;
     Events.emit("toggleBtn", { query: "SUBTASK" });
-
-    reloadSubtaskContainer();
   };
 
   Events.on("subtasksClicked", subtasksClicked);
@@ -1526,8 +1533,6 @@ const domManager = (() => {
   // #region Subtasks Event Methods
   const newSubtaskClicked = () => {
     Events.emit("createSubtask", { taskUID: openedTaskObject.uid });
-    console.log("Emitted:");
-    console.dir({ taskUID: openedTaskObject.uid });
   };
 
   Events.on("newSubtaskClicked", newSubtaskClicked);
