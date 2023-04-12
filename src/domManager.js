@@ -1262,6 +1262,14 @@ const domManager = (() => {
   Events.on("taskViewChanged", renderFilterBtns);
   Events.on("toggleBtn", renderFilterBtns);
 
+  const reloadSubtaskContainer = () => {
+    if (!dataLoaded) return;
+
+    const request = { query: `SUBTASKS${openedTaskObject.uid}` };
+
+    requestSubtasksForLoading(request);
+  };
+
   // #endregion
 
   // #region Button Event Response Methods

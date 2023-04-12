@@ -299,6 +299,8 @@ const dataManager = (() => {
     return subtask;
   };
 
+  Events.on("createSubtask", createSubtask);
+
   // #endregion
 
   // #region General Methods
