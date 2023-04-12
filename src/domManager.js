@@ -1199,8 +1199,15 @@ const domManager = (() => {
       if (textToColor) {
         textToColor.classList.add("highlight");
       }
+    } else if (taskView.project === taskViewOpts.project.UserMade) {
+      const textToColor = projectContainer.querySelector(
+        `[data-uid="${taskViewOpts.selectedUserProject}"] p`
+      );
+      console.log(``);
+      if (textToColor) {
+        textToColor.classList.add("highlight");
+      }
     }
-    // If userCreated then get element wit data-uid=taskViewOptions.currentProject or whatever it is
   };
 
   Events.on("taskViewChanged", renderProjectColors);
