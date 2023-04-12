@@ -245,20 +245,47 @@ const domManager = (() => {
       classList: ["grid-container", "task-view-display"],
       parent: element,
     });
+    const activeProjectContainer = newElement({
+      tag: "div",
+      classList: [
+        "grid-container",
+        "task-view-container",
+        "active-project-container",
+      ],
+      parent: taskViewDisplayDiv,
+    });
     activeProjectText = newElement({
       tag: "p",
       classList: "active-project-text",
+      parent: activeProjectContainer,
+    });
+    const activeFilterContainer = newElement({
+      tag: "div",
+      classList: [
+        "grid-container",
+        "task-view-container",
+        "active-filter-container",
+      ],
       parent: taskViewDisplayDiv,
     });
     activeFilterText = newElement({
       tag: "p",
       classList: "active-filter-text",
+      parent: activeFilterContainer,
+    });
+    const activeFormatContainer = newElement({
+      tag: "div",
+      classList: [
+        "grid-container",
+        "task-view-container",
+        "active-format-container",
+      ],
       parent: taskViewDisplayDiv,
     });
     activeFormatText = newElement({
       tag: "p",
       classList: "active-format-text",
-      parent: taskViewDisplayDiv,
+      parent: activeFormatContainer,
     });
     // Generated tasks go here
     taskContainer = newElement({
