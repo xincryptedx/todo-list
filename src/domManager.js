@@ -1291,6 +1291,12 @@ const domManager = (() => {
 
   Events.on("detailsClicked", detailsClicked);
 
+  const subtasksClicked = (payload) => {
+    Events.emit("toggleBtn", { query: "SUBTASK" });
+  };
+
+  Events.on("subtasksClicked", subtasksClicked);
+
   const blurTaskName = () => {
     openedTaskObject.userSetName = taskNameInput.value;
 
@@ -1490,7 +1496,7 @@ const domManager = (() => {
     footerGridDiv = footerGrid(mainGridDiv);
     menuDiv = menuGrid(mainGridDiv);
     taskDetailsDiv = taskDetailsGrid(mainGridDiv);
-    subtasksDisplayGrid(mainGridDiv);
+    subtaskDetailsDiv = subtasksDisplayGrid(mainGridDiv);
   };
   // Listen for init event and call init method
   Events.on("init", init);
