@@ -1106,12 +1106,18 @@ const domManager = (() => {
 
   const requestRenderTaskViewDisplay = () => {
     if (taskView.project === taskViewOpts.project.All) {
-      activeProjectText.textContent = "All";
+      activeProjectText.textContent = "All Tasks";
     } else if (taskView.project === taskViewOpts.project.General) {
       activeProjectText.textContent = "General";
     } else if (taskView.project === taskViewOpts.project.Trash) {
       activeProjectText.textContent = "Trash";
     } else activeProjectText.textContent = taskViewOpts.selectedProjectSetName;
+
+    if (taskView.filter === taskViewOpts.filter.All) {
+      activeFilterText.textContent = "Anytime";
+    } else if (taskView.filter === taskViewOpts.filter.Month) {
+      activeFilterText.textContent = "This Month";
+    }
   };
 
   Events.on("dataLoaded", requestRenderTaskViewDisplay);
