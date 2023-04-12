@@ -1104,7 +1104,7 @@ const domManager = (() => {
 
   Events.on("toggleBtn", toggleShowHide);
 
-  const requestRenderTaskViewDisplay = () => {
+  const renderTaskViewDisplay = () => {
     if (taskView.project === taskViewOpts.project.All) {
       activeProjectText.textContent = "All Tasks";
     } else if (taskView.project === taskViewOpts.project.General) {
@@ -1132,8 +1132,8 @@ const domManager = (() => {
     }
   };
 
-  Events.on("dataLoaded", requestRenderTaskViewDisplay);
-  Events.on("taskViewChanged", requestRenderTaskViewDisplay);
+  Events.on("dataLoaded", renderTaskViewDisplay);
+  Events.on("taskViewChanged", renderTaskViewDisplay);
 
   const reloadProjectContainer = () => {
     if (!dataLoaded) return;
