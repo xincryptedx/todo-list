@@ -87,9 +87,10 @@ const domManager = (() => {
     if (payload.userSetName) {
       taskViewOpts.selectedProjectSetName = payload.userSetName;
     } else taskViewOpts.selectedProjectSetName = "";
-  };
 
-  Events.on("setProjectName", setProjectName);
+    Events.emit("projectNameSet");
+    console.log(taskViewOpts.selectedProjectSetName);
+  };
 
   // Defines default project view and can be updated for reference later
   const taskView = {
@@ -1113,9 +1114,7 @@ const domManager = (() => {
 
   Events.on("toggleBtn", toggleShowHide);
 
-  const requestRenderTaskViewDisplay = () => {
-    Events.emit("requestProjectName", taskViewOpts.selectedUserProject);
-  };
+  const requestRenderTaskViewDisplay = () => {};
 
   Events.on("dataLoaded", requestRenderTaskViewDisplay);
   Events.on("taskViewChanged", requestRenderTaskViewDisplay);
