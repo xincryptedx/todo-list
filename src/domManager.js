@@ -1177,7 +1177,11 @@ const domManager = (() => {
 
   const renderProjectColors = () => {
     const allTextElements = projectContainer.querySelectorAll(".menu-text");
-    if (allTextElements) allTextElements.classList.remove("highlight");
+    if (allTextElements) {
+      for (let i = 0; i < allTextElements.length; i += 1) {
+        allTextElements[i].classList.remove("highlight");
+      }
+    }
 
     if (taskView.project === taskViewOpts.project.General) {
       const textToColor = projectContainer.querySelector(
