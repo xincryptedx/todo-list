@@ -1176,11 +1176,22 @@ const domManager = (() => {
   Events.on("openedTaskSet", populateTaskDetails);
 
   const renderProjectColors = () => {
-    // Render it based on taskView.project
-    // If general, set class on general
-    // Same for trash
+    const allTextElements = projectContainer.querySelectorAll(".menu-text");
+    if (allTextElements) allTextElements.classList.remove("highlight");
+
+    if (taskView.project === taskViewOpts.project.General) {
+      const textToColor = projectContainer.querySelector(
+        `[data-uid="${taskViewOpts.generalProject}"] p`
+      );
+
+      if (textToColor) {
+        textToColor.classList.add("highlight");
+      }
+    }
     // If userCreated then get element wit data-uid=taskViewOptions.currentProject or whatever it is
   };
+
+  Events.on("taskViewChanged", renderProjectColors);
 
   const renderFilterBtns = () => {
     if (taskView.filter === taskViewOpts.filter.Week) {
