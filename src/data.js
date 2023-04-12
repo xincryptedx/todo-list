@@ -432,7 +432,7 @@ const dataManager = (() => {
     ) {
       const taskUID = payload.query.substring(8); // UID starts in this position
       returnData = Object.values(data.subtasks).filter(
-        (subtask) => subtask.task === taskUID
+        (subtask) => subtask.taskUID === taskUID
       );
 
       needsFormatting = false;
