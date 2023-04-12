@@ -1012,9 +1012,30 @@ const domManager = (() => {
 
   Events.on("setTask", setTask);
 
-  /*   const setSubtask = (payload) => {};
+  const setSubtask = (payload) => {
+    if (
+      !dataLoaded ||
+      !payload ||
+      typeof payload !== "object" ||
+      !payload.uid
+    ) {
+      return undefined;
+    }
 
-  Events.on("setSubtask", setSubtask); */
+    const oldSubtaskElement = subtaskContainer.querySelector(
+      `[data-uid="${payload.uid}"]`
+    );
+
+    if (!oldSubtaskElement) return undefined;
+
+    const newSubtaskElement = newSubtask(oldSubtaskElement.parentNode, payload);
+
+    oldSubtaskElement.replaceWith(newSubtaskElement);
+
+    return newSubtaskElement;
+  };
+
+  Events.on("setSubtask", setSubtask);
 
   const reloadTaskContainer = () => {
     if (!dataLoaded) return;
@@ -1308,6 +1329,8 @@ const domManager = (() => {
   const subtasksClicked = (payload) => {
     openedTaskObject = payload;
     Events.emit("toggleBtn", { query: "SUBTASK" });
+
+    reloadSubtaskContainer();
   };
 
   Events.on("subtasksClicked", subtasksClicked);
