@@ -154,37 +154,45 @@ body {
   display: grid;
   grid-template: 1fr / 3vw 1fr 1fr 1fr 3vw;
   grid-template-areas: ". project filter format .";
+  align-items: center;
+  align-items: center;
 
   height: 100%;
   width: 100%;
 }
 
-.content .task-view-display p {
-  align-self: center;
+.content .task-view-container {
+  height: 75%;
 
-  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background-color: var(--bg-color-2);
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.content .active-project-text {
+.content .active-project-container {
   grid-area: project;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
-.content .active-filter-text {
+.content .active-filter-container {
   grid-area: filter;
 }
 
-.content .active-format-text {
+.content .active-format-container {
   grid-area: format;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.content .task-view-display p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  text-shadow: var(--task-text-shadow);
 }
 
 .content .tasks {
