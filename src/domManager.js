@@ -82,16 +82,6 @@ const domManager = (() => {
 
   Events.on("dataLoaded", getDefaultProjects);
 
-  // Get the name of a project based on its uid
-  const setProjectName = (payload) => {
-    if (payload.userSetName) {
-      taskViewOpts.selectedProjectSetName = payload.userSetName;
-    } else taskViewOpts.selectedProjectSetName = "";
-
-    Events.emit("projectNameSet");
-    console.log(taskViewOpts.selectedProjectSetName);
-  };
-
   // Defines default project view and can be updated for reference later
   const taskView = {
     format: taskViewOpts.format.PriorityDescending,
