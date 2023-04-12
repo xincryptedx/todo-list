@@ -256,6 +256,18 @@ const dataManager = (() => {
     data.subtasks[subtask.uid] = subtask;
   };
 
+  const countSubtasksOnTask = (taskUID) => {
+    const countedSubtasks = [];
+
+    Object.keys(data.subtasks).forEach((key) => {
+      if (data.subtasks[key].taskUID === taskUID) {
+        countedSubtasks.push(data.subtasks[key]);
+      }
+    });
+
+    return countedSubtasks.length;
+  };
+
   const createSubtask = (subtaskData) => {
     console.log("beginning st creation");
     const validatedTask = validateTask(subtaskData.taskUID);
@@ -265,7 +277,7 @@ const dataManager = (() => {
     const { taskUID } = subtaskData;
     const index = subtaskData.index
       ? subtaskData.index
-      : Object.keys(data.subtasks).length;
+      : countSubtasksOnTask(subtaskData.taskUID) + 1;
     let description = subtaskData.description ? subtaskData.description : "";
     let checked = subtaskData.checked ? subtaskData.checked : false;
 
