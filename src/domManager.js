@@ -638,6 +638,9 @@ const domManager = (() => {
       classList: ["div-btn", "subtasks-div-btn", "add-subtask-btn", "top"],
       parent: element,
     });
+    addSubtaskBtnTop.addEventListener("click", () => {
+      Events.emit("newSubtaskClicked");
+    });
     const addSubtaskIcon = newElement({
       tag: "div",
       classList: ["icon", "add-subtask-icon"],
