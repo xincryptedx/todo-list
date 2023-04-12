@@ -1187,6 +1187,14 @@ const domManager = (() => {
       if (textToColor) {
         textToColor.classList.add("highlight");
       }
+    } else if (taskView.project === taskViewOpts.project.Trash) {
+      const textToColor = projectContainer.querySelector(
+        `[data-uid="${taskViewOpts.trashProject}"] p`
+      );
+
+      if (textToColor) {
+        textToColor.classList.add("highlight");
+      }
     }
     // If userCreated then get element wit data-uid=taskViewOptions.currentProject or whatever it is
   };
