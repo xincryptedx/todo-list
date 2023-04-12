@@ -335,9 +335,8 @@ body {
   grid-column: 4 / -1;
 
   display: grid;
-  grid-template: 5% 60% 10% 25% / 1fr;
+  grid-template: 60% 10% 25% / 1fr;
   grid-template-areas:
-    "."
     "projects"
     "new-project"
     "format-btns";
