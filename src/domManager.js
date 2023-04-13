@@ -773,13 +773,13 @@ const domManager = (() => {
       return undefined;
     }
 
-    newElement({
-      tag: "p",
-      classList: ["subtask-description"],
+    const subtaskDetailsInput = newElement({
+      tag: "input",
+      type: "text",
+      classList: ["text-input", "subtask-description"],
       parent: element,
-      textContent: description,
     });
-
+    subtaskDetailsInput.value = subtaskData.description;
     const checkbox = newElement({
       tag: "input",
       type: "checkbox",
