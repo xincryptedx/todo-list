@@ -745,9 +745,14 @@ body {
 }
 
 .subtasks-display .subtask {
+  justify-self: center;
+
   display: grid;
-  grid-template: 1fr / 80% 20%;
-  grid-template-areas: "description checkbox";
+  grid-template: 1fr / 3% 77% 20%;
+  grid-template-areas: ". description checkbox";
+
+  width: 90%;
+  background-color: var(--bg-color-3);
 }
 
 .subtasks-display .subtask-description {
@@ -759,6 +764,11 @@ body {
 
 .subtasks-display .subtask-checkbox {
   grid-area: checkbox;
+  justify-self: center;
+  align-self: center;
+
+  height: 80%;
+  width: 80%;
 }
 
 /* #endregion  */
