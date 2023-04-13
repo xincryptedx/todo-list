@@ -767,6 +767,12 @@ const domManager = (() => {
       parent,
     });
 
+    if (subtaskData.uid) element.setAttribute("data-UID", subtaskData.uid);
+    else {
+      element.setAttribute("data-UID-Error", "ERROR");
+      return undefined;
+    }
+
     newElement({
       tag: "p",
       classList: ["subtask-description"],
