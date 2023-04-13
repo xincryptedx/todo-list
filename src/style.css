@@ -752,6 +752,9 @@ body {
 
 .subtasks-display .subtask-description {
   grid-area: description;
+
+  display: flex;
+  align-items: center;
 }
 
 .subtasks-display .subtask-checkbox {
