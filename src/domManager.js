@@ -783,6 +783,7 @@ const domManager = (() => {
     const checkbox = newElement({
       tag: "input",
       type: "checkbox",
+      classList: "subtask-checkbox",
       parent: element,
     });
 

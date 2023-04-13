@@ -737,6 +737,20 @@ body {
   grid-area: subtasks;
 }
 
+.subtasks-display .subtask {
+  display: grid;
+  grid-template: 1fr / 80% 20%;
+  grid-template-areas: "description checkbox";
+}
+
+.subtasks-display .subtask-description {
+  grid-area: description;
+}
+
+.subtasks-display .subtask-checkbox {
+  grid-area: checkbox;
+}
+
 /* #endregion  */
 
 /* #region Rules for Showing/Hiding Content */
