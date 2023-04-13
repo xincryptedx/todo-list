@@ -1023,7 +1023,6 @@ const domManager = (() => {
       return undefined;
     }
 
-    console.log("Setting subtask...");
     const oldSubtaskElement = subtaskContainer.querySelector(
       `[data-uid="${payload.uid}"]`
     );
@@ -1034,8 +1033,8 @@ const domManager = (() => {
 
     oldSubtaskElement.replaceWith(newSubtaskElement);
 
-    console.log("new subtask element: ");
-    console.dir(newSubtaskElement);
+    Events.emit("subtaskSet");
+
     return newSubtaskElement;
   };
 
