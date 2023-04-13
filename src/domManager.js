@@ -1288,15 +1288,13 @@ const domManager = (() => {
 
   const reloadSubtaskContainer = () => {
     if (!dataLoaded) return;
-    console.dir(openedTaskObject);
+
     const request = { query: `SUBTASKS${openedTaskObject.uid}` };
 
-    console.log("Requesting: ");
-    console.dir(request);
     requestSubtasksForLoading(request);
   };
 
-  Events.on("subtaskSet", reloadSubtaskContainer);
+  Events.on("setSubtask", reloadSubtaskContainer);
   Events.on("openedTaskSetForSubtasks", reloadSubtaskContainer);
 
   // #endregion
