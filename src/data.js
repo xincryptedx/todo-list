@@ -277,7 +277,9 @@ const dataManager = (() => {
     const index = subtaskData.index
       ? subtaskData.index
       : countSubtasksOnTask(subtaskData.taskUID) + 1;
-    let description = subtaskData.description ? subtaskData.description : "";
+    let description = subtaskData.description
+      ? subtaskData.description
+      : "Subtask";
     let checked = subtaskData.checked ? subtaskData.checked : false;
 
     const subtask = {
