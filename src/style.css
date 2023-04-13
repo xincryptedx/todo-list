@@ -760,6 +760,10 @@ body {
 
   display: flex;
   align-items: center;
+
+  color: var(--text-color);
+  font-weight: bold;
+  text-shadow: var(--task-text-shadow);
 }
 
 .subtasks-display .subtask-checkbox {
