@@ -111,7 +111,7 @@ body {
   background-color: var(--bg-color-2);
   border-radius: 10px;
   box-shadow: 1px 1px 1px 1px var(--bg-color);
-  height: 75%;
+  height: 90%;
   width: 90%;
 }
 
@@ -125,6 +125,7 @@ body {
 
 .header .new-task-btn {
   grid-area: new-task-btn;
+  justify-self: start;
 }
 
 .header .menu-btn {
@@ -284,7 +285,7 @@ body {
   background-color: var(--bg-color-2);
   border-radius: 10px;
   box-shadow: 1px 1px 1px 1px var(--bg-color);
-  height: 70%;
+  height: 65%;
   width: 90%;
 }
 
@@ -753,12 +754,17 @@ body {
 }
 
 .subtasks-display .div-btn {
+  align-self: center;
+
   background-color: var(--bg-color-3);
   box-shadow: 1px 1px 1px 1px var(--bg-color);
   border-radius: 10px;
   height: 90%;
-  width: 95%;
-  align-self: center;
+  width: 100%;
+}
+
+.subtasks-display .div-btn .icon {
+  fill: var(--text-color);
 }
 
 .subtasks-display .add-subtask-btn {
