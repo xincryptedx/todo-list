@@ -490,6 +490,19 @@ const dataManager = (() => {
 
   // #endregion
 
+  // Delete a single data object by uid
+  const deleteByUid = (query) => {
+    if (typeof query !== "string") return undefined;
+
+    const dataToDelete = get(query);
+
+    console.dir(dataToDelete);
+
+    return query;
+  };
+
+  Events.on("deleteUID", deleteByUid);
+
   // Get the default projects
   const getDefaultProjects = () => {
     Events.emit("setDefaultProjects", {
