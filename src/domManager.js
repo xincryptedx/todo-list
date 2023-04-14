@@ -14,6 +14,7 @@ const domManager = (() => {
   let menuDiv;
   let taskDetailsDiv;
   let subtaskDetailsDiv;
+  let logDiv;
 
   let taskContainer;
   let projectContainer;
@@ -682,7 +683,7 @@ const domManager = (() => {
   };
 
   // Create log elements
-  const logDiv = (parent) => {
+  const logContainerDiv = (parent) => {
     const element = newElement({
       tag: "div",
       classList: ["grid-container", "log-container", "hide"],
@@ -1647,6 +1648,7 @@ const domManager = (() => {
     menuDiv = menuGrid(mainGridDiv);
     taskDetailsDiv = taskDetailsGrid(mainGridDiv);
     subtaskDetailsDiv = subtasksDisplayGrid(mainGridDiv);
+    logDiv = logContainerDiv(mainGridDiv);
   };
   // Listen for init event and call init method
   Events.on("init", init);
