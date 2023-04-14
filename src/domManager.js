@@ -1646,6 +1646,16 @@ const domManager = (() => {
 
   Events.on("newProjectClicked", newProjectClicked);
 
+  const checkProjectDelete = (payload) => {
+    if (!payload.type) return undefined;
+
+    console.dir(payload);
+
+    return payload;
+  };
+
+  Events.on("checkDelete", checkProjectDelete);
+
   // #endregion
 
   // #region Subtasks Event Methods
