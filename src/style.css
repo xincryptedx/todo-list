@@ -382,6 +382,10 @@ body {
   color: var(--highlight-color);
 }
 
+.menu .project.check-delete .project-text {
+  color: var(--pri-3-color);
+}
+
 .menu .project-input {
   grid-area: project;
 

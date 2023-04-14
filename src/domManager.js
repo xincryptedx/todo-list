@@ -138,8 +138,7 @@ const domManager = (() => {
       "touchstart",
       () => {
         touchTimer = setTimeout(() => {
-          console.log("Touched and held!");
-          console.dir(payload.data);
+          Events.emit("checkDelete", payload.data);
         }, touchTimeout);
       },
       { passive: true }
