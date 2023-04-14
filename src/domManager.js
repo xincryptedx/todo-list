@@ -681,6 +681,23 @@ const domManager = (() => {
     return element;
   };
 
+  // Create log elements
+  const logDiv = (parent) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "log-container", "hide"],
+      parent,
+    });
+
+    newElement({
+      tag: "p",
+      classList: "log-text",
+      parent: element,
+    });
+
+    return element;
+  };
+
   // #endregion
 
   // #region Methods for creating task, subtask, and project html elements
