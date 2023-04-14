@@ -922,6 +922,7 @@ const domManager = (() => {
           projectData,
           projectInput,
           projectText,
+          projectElement: element,
         });
       });
     }
