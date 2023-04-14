@@ -1647,7 +1647,8 @@ const domManager = (() => {
   Events.on("newProjectClicked", newProjectClicked);
 
   const checkProjectDelete = (payload) => {
-    if (!payload.data.type) return undefined;
+    if (!payload.data.type || !(payload.element instanceof HTMLElement))
+      return undefined;
 
     console.dir(payload);
 
