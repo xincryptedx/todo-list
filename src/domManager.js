@@ -1576,6 +1576,19 @@ const domManager = (() => {
 
   Events.on("newSubtaskClicked", newSubtaskClicked);
 
+  const focusNewSubtaskInput = () => {
+    const elements = subtaskContainer.querySelectorAll("text-input");
+    if (!elements) return undefined;
+
+    const elementToFocus = elements[elements.length - 1];
+    if (!elementToFocus) return undefined;
+
+    elementToFocus.focus();
+    return elementToFocus;
+  };
+
+  Events.on("subtaskCreated", focusNewSubtaskInput);
+
   const subtaskBlurred = (payload) => {
     if (!payload.data || typeof payload.data !== "object") return undefined;
 
