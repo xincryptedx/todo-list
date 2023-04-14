@@ -100,7 +100,7 @@ const storageManager = (() => {
       return localStorage.projects;
     };
 
-    Events.on("deleteProject", deleteProject);
+    Events.on("deleteProjectFromStorage", deleteProject);
 
     const init = () => {
       const allData = {};
