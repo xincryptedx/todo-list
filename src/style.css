@@ -56,6 +56,10 @@ input[type="text"]:focus {
   justify-items: center;
 }
 
+.div-btn .icon {
+  display: grid;
+}
+
 /* #endregion */
 
 /* #region Body */
@@ -338,6 +342,12 @@ body {
 
 .footer .help-btn {
   grid-area: help;
+
+  background-color: var(--bg-color-2);
+}
+
+.footer .help-btn .icon {
+  fill: var(--highlight-color);
 }
 
 /* #endregion  */
