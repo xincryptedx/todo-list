@@ -351,6 +351,10 @@ body {
   fill: var(--highlight-color);
 }
 
+.footer .help-btn .icon svg {
+  filter: drop-shadow(1px 0px 1px var(--bg-color));
+}
+
 /* #endregion  */
 
 /* #region Menu */
