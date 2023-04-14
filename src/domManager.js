@@ -822,6 +822,8 @@ const domManager = (() => {
       textContent:
         "Data is saved in local storage. Clearing browser history/cache will delete stored data.",
     });
+
+    return element;
   };
 
   // #endregion
@@ -1284,6 +1286,9 @@ const domManager = (() => {
       pairedElement = projectDiv.querySelector(".project-input");
 
       hideDefaultElements = false;
+    } else if (payload.query === "HELP") {
+      element = helpDiv;
+      hideDefaultElements = true;
     } else return undefined;
 
     if (!element) return undefined;
