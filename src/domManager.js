@@ -755,6 +755,21 @@ const domManager = (() => {
       textContent: "Tips:",
     });
 
+    const closeBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "help-div-btn", "close-btn"],
+      parent: element,
+    });
+    closeBtn.addEventListener("click", () => {
+      Events.emit("toggleBtn", { query: "HELP" });
+    });
+    const closeIcon = newElement({
+      tag: "div",
+      classList: ["icon", "close-icon"],
+      parent: closeBtn,
+    });
+    closeIcon.innerHTML = Icons.close;
+
     const helpTextContainer = newElement({
       tag: "div",
       classList: ["grid-container", "help-text-container"],
