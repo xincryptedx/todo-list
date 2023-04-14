@@ -1556,12 +1556,12 @@ const domManager = (() => {
   Events.on("newSubtaskClicked", newSubtaskClicked);
 
   // subtask input blur
-  const subtaskBlurred = ({ data, input }) => {
-    if (!data || typeof data !== "object") return undefined;
+  const subtaskBlurred = (payload) => {
+    if (!payload.data || typeof payload.data !== "object") return undefined;
 
-    const activeSubtask = data;
+    const activeSubtask = payload.data;
 
-    activeSubtask.description = input.value;
+    activeSubtask.description = payload.input.value;
 
     return activeSubtask;
   };
