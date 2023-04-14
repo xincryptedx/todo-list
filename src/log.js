@@ -1,11 +1,15 @@
 import Events from "./events";
 
 const log = (() => {
-  const logText = "";
+  let logText = "";
   const messageTimeout = 3000;
 
   // Set log message when task deleted
-  const taskTrashed = (payload) => {};
+  const taskTrashed = () => {
+    logText = `Moved task to trash.`;
+
+    Events.emit("log", { log: logText, timeout: messageTimeout });
+  };
 
   Events.on("taskTrashed", taskTrashed);
 
