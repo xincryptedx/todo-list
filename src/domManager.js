@@ -1656,7 +1656,21 @@ const domManager = (() => {
 
     const { element } = payload;
 
-    element.classList.add("check-delete");
+    element.classList.toggle("check-delete");
+
+    // Add a 'click' event listener to the document object
+    document.addEventListener(
+      "click",
+      () => {
+        const projects = projectContainer.querySelectorAll(".project");
+        if (!projects) return;
+        // Remove the 'check-delete' class from all elements
+        Object.values(projects).forEach((project) => {
+          project.classList.remove("check-delete");
+        });
+      },
+      { once: true, passive: true }
+    );
 
     return payload;
   };
