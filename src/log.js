@@ -28,6 +28,14 @@ const log = (() => {
   };
 
   Events.on("subtaskDeleted", subtaskDeleted);
+
+  const projectDeleted = () => {
+    logText = "Project and tasks deleted.";
+
+    Events.emit("log", { log: logText, timeout: messageTimeout });
+  };
+
+  Events.on("projectDeleted", projectDeleted);
 })();
 
 export default log;
