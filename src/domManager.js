@@ -1656,16 +1656,28 @@ const domManager = (() => {
 
     const { element } = payload;
 
+    const projectLabel = element.querySelector(".project-input-label");
+
     element.classList.toggle("check-delete");
+
+    if (projectLabel && element.classList.contains("check-delete")) {
+      projectLabel.textContent = "X";
+    } else if (projectLabel) {
+      projectLabel.textContent = "✎";
+    }
 
     document.addEventListener(
       "click",
       () => {
         const projects = projectContainer.querySelectorAll(".project");
-        if (!projects) return;
-        Object.values(projects).forEach((project) => {
-          project.classList.remove("check-delete");
-        });
+        if (projects) {
+          Object.values(projects).forEach((project) => {
+            project.classList.remove("check-delete");
+          });
+          if (projectLabel) {
+            projectLabel.textContent = "✎";
+          }
+        }
       },
       { once: true, passive: true }
     );
