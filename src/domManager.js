@@ -15,6 +15,7 @@ const domManager = (() => {
   let taskDetailsDiv;
   let subtaskDetailsDiv;
   let logDiv;
+  let helpDiv;
 
   let taskContainer;
   let projectContainer;
@@ -737,6 +738,75 @@ const domManager = (() => {
     });
 
     return element;
+  };
+
+  // Create help elements
+  const helpContainerDiv = (parent) => {
+    const element = newElement({
+      tag: "div",
+      classList: ["grid-container", "help", "hide"],
+      parent,
+    });
+
+    newElement({
+      tag: "p",
+      classList: "help-title",
+      parent: element,
+      textContent: "Tips:",
+    });
+
+    const helpTextContainer = newElement({
+      tag: "div",
+      classList: ["grid-container", "help-text-container"],
+      parent: element,
+    });
+
+    newElement({
+      tag: "p",
+      classList: "help-text",
+      parent: helpTextContainer,
+      textContent:
+        "New tasks are created in the selected project, found in the menu.",
+    });
+
+    newElement({
+      tag: "p",
+      classList: "help-text",
+      parent: helpTextContainer,
+      textContent:
+        "You can swipe right on a task to move it to the trash and back.",
+    });
+
+    newElement({
+      tag: "p",
+      classList: "help-text",
+      parent: helpTextContainer,
+      textContent: "You can swipe right on a subtask to delete it.",
+    });
+
+    newElement({
+      tag: "p",
+      classList: "help-text",
+      parent: helpTextContainer,
+      textContent:
+        "You touch and hold a project in the menu to delete it and all of its tasks.",
+    });
+
+    newElement({
+      tag: "p",
+      classList: "help-text",
+      parent: helpTextContainer,
+      textContent:
+        "Use the format buttons in the menu to change how tasks are filtered and sorted.",
+    });
+
+    newElement({
+      tag: "p",
+      classList: "help-text",
+      parent: helpTextContainer,
+      textContent:
+        "Data is saved in local storage. Clearing browser history/cache will delete stored data.",
+    });
   };
 
   // #endregion
@@ -1784,6 +1854,7 @@ const domManager = (() => {
     taskDetailsDiv = taskDetailsGrid(mainGridDiv);
     subtaskDetailsDiv = subtasksDisplayGrid(mainGridDiv);
     logDiv = logContainerDiv(mainGridDiv);
+    helpDiv = helpContainerDiv(mainGridDiv);
   };
   // Listen for init event and call init method
   Events.on("init", init);
