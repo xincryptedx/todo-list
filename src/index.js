@@ -6,6 +6,7 @@ import DataFormatter from "./dataFormatter";
 import DomManager from "./domManager";
 import newElement from "./domElementBuilder";
 import StorageManager from "./storageManager";
+import Log from "./log";
 
 window.events = Events;
 window.dataManager = DataManager;
