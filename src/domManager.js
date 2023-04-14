@@ -174,7 +174,7 @@ const domManager = (() => {
                 focusedElement.blur();
               }
               Events.emit("deleteUID", element.dataset.uid);
-            } else {
+            } else if (type === "TASK") {
               Events.emit("moveToTrash", element.dataset.uid);
             }
           } else {
@@ -777,7 +777,7 @@ const domManager = (() => {
     if (taskData.uid) element.setAttribute("data-UID", taskData.uid);
     else element.setAttribute("data-UID-Error", "ERROR");
 
-    addSwipeToDeleteEvents(element);
+    addSwipeToDeleteEvents(element, "TASK");
     element.addEventListener("click", () => {
       Events.emit("taskClicked", taskData);
     });
