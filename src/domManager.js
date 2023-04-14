@@ -1254,6 +1254,7 @@ const domManager = (() => {
 
   Events.on("projectSet", reloadProjectContainer);
   Events.on("dataLoaded", reloadProjectContainer);
+  Events.on("projectDeleted", reloadProjectContainer);
 
   const populateTaskDetails = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
