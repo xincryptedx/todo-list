@@ -900,6 +900,33 @@ body {
 
 /* #endregion */
 
+/* #region Help */
+.help {
+  grid-row: 1 / 9;
+  grid-column: -1 / 1;
+
+  display: grid;
+  grid-template: 10% 10% 1fr / 3% repeat(6, 1fr) 3%;
+  grid-template-areas:
+    ". title title title title . close ."
+    ". . . . . . . ."
+    ". tips tips tips tips tips tips .";
+}
+
+.help .help-title {
+  grid-area: title;
+}
+
+.help .close-btn {
+  grid-area: close;
+}
+
+.help .help-text-container {
+  grid-area: tips;
+}
+
+/* #endregion */
+
 /* #region Rules for Showing/Hiding Content */
 .hide {
   display: none;
