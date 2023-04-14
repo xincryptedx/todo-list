@@ -750,12 +750,23 @@ body {
   text-shadow: var(--menu-text-shadow);
 }
 
+.subtasks-display .div-btn {
+  background-color: var(--bg-color-3);
+  box-shadow: 1px 1px 1px 1px var(--bg-color);
+  border-radius: 10px;
+  height: 90%;
+  width: 95%;
+  align-self: center;
+}
+
 .subtasks-display .add-subtask-btn {
   grid-area: new-subtask;
+  justify-self: start;
 }
 
 .subtasks-display .close-btn {
   grid-area: close;
+  justify-self: end;
 }
 
 .subtasks-display .subtasks {
