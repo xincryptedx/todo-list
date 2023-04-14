@@ -218,6 +218,10 @@ body {
   height: 100%;
 }
 
+.content .task.checked {
+  filter: brightness(40%);
+}
+
 .content .task-outline {
   display: grid;
   justify-items: end;
