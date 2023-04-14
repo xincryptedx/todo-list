@@ -134,6 +134,10 @@ const domManager = (() => {
     let touchTimer;
     const touchTimeout = 1000;
 
+    payload.element.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+    });
+
     payload.element.addEventListener(
       "touchstart",
       () => {
