@@ -272,6 +272,8 @@ const dataManager = (() => {
     const validatedTask = validateTask(subtaskData.taskUID);
     if (!validatedTask) return undefined;
 
+    const isNew = !subtaskData.uid;
+
     const uid = subtaskData.uid ? subtaskData.uid : newUID();
     const { taskUID } = subtaskData;
     const index = subtaskData.index
@@ -309,6 +311,10 @@ const dataManager = (() => {
     addSubtaskToData(subtask);
 
     Events.emit("setSubtask", subtask);
+
+    if (isNew) {
+      Events.emit("subtaskCreated", subtask);
+    }
 
     return subtask;
   };
