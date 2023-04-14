@@ -1350,6 +1350,25 @@ const domManager = (() => {
   Events.on("openedTaskSetForSubtasks", reloadSubtaskContainer);
   Events.on("subtaskDeleted", reloadSubtaskContainer);
 
+  const renderLog = (payload) => {
+    if (!payload || typeof payload !== "object") return undefined;
+
+    const pElement = logDiv.firstChild;
+    pElement.textContent = payload.log;
+
+    logDiv.classList.add("show");
+    logDiv.classList.remove("hide");
+
+    setTimeout(() => {
+      logDiv.classList.remove("show");
+      logDiv.classList.add("hide");
+    }, payload.timeout);
+
+    return logDiv;
+  };
+
+  Events.on("log", renderLog);
+
   // #endregion
 
   // #region Button Event Response Methods
