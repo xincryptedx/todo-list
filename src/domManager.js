@@ -915,6 +915,7 @@ const domManager = (() => {
           projectData,
           projectInput,
           projectText,
+          projectElement: element,
         });
       });
       projectInput.addEventListener("blur", () => {
@@ -922,7 +923,6 @@ const domManager = (() => {
           projectData,
           projectInput,
           projectText,
-          projectElement: element,
         });
       });
     }
@@ -1593,15 +1593,19 @@ const domManager = (() => {
   Events.on("blurProjectInput", blurProjectInput);
 
   const projectLabelClicked = (payload) => {
-    Events.once("elementToggled", () => {
-      payload.projectInput.focus();
-    });
-    Events.emit("toggleBtn", {
-      query: "PROJECT",
-      uid: payload.projectData.uid,
-    });
-    const { projectInput } = payload;
-    projectInput.value = payload.projectText.textContent;
+    if (payload.projectElement.classList.contains("check-delete")) {
+      // Delete project emit
+    } else {
+      Events.once("elementToggled", () => {
+        payload.projectInput.focus();
+      });
+      Events.emit("toggleBtn", {
+        query: "PROJECT",
+        uid: payload.projectData.uid,
+      });
+      const { projectInput } = payload;
+      projectInput.value = payload.projectText.textContent;
+    }
   };
 
   Events.on("projectLabelClicked", projectLabelClicked);
