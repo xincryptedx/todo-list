@@ -1654,6 +1654,9 @@ const domManager = (() => {
     if (!payload.data.type || !(payload.element instanceof HTMLElement))
       return undefined;
 
+    if (payload.data.type === "general" || payload.data.type === "trash")
+      return undefined;
+
     const { element } = payload;
 
     const projectLabel = element.querySelector(".project-input-label");
