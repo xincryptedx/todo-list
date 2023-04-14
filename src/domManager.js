@@ -924,7 +924,7 @@ const domManager = (() => {
 
   // Load subtasks from array of objects
   const loadSubtasks = (payload) => {
-    if (!payload || (Array.isArray(payload) && payload.length === 0)) {
+    if (!payload) {
       return undefined;
     }
 
