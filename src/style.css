@@ -344,6 +344,7 @@ body {
   grid-area: help;
 
   background-color: var(--bg-color-2);
+  border-radius: 100%;
 }
 
 .footer .help-btn .icon {
