@@ -847,6 +847,7 @@ body {
   background-color: var(--bg-color-2);
   border-radius: 10px;
   border: 1px solid var(--bg-color-3);
+  z-index: 10;
 
   opacity: 1;
   transition: opacity 1s ease-in-out;
