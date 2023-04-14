@@ -134,7 +134,7 @@ const domManager = (() => {
     touch.startX = null;
     touch.startY = null;
 
-    const distanceThreshold = 0.5 * window.innerWidth;
+    const distanceThreshold = 0.4 * window.innerWidth;
 
     // Add touch event listeners to the element
     element.addEventListener(
