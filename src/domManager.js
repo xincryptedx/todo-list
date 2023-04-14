@@ -1150,6 +1150,9 @@ const domManager = (() => {
 
     footerGridDiv.classList.add("hide");
     footerGridDiv.classList.remove("show");
+
+    menuDiv.classList.add("hide");
+    menuDiv.classList.remove("show");
   };
 
   const showDefault = () => {
