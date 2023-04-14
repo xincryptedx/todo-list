@@ -376,6 +376,7 @@ body {
   font-size: 1.4rem;
   font-weight: bold;
   text-shadow: var(--menu-text-shadow);
+  user-select: none;
 }
 
 .menu .project-text.highlight {
