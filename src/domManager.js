@@ -129,6 +129,27 @@ const domManager = (() => {
     });
   };
 
+  // Helper method for adding touch and hold events to an element
+  const addTouchAndHoldEvents = (payload) => {
+    let touchTimer;
+    const touchTimeout = 1000;
+
+    payload.element.addEventListener(
+      "touchstart",
+      () => {
+        touchTimer = setTimeout(() => {
+          console.log("Touched and held!");
+          console.dir(payload.data);
+        }, touchTimeout);
+      },
+      { passive: true }
+    );
+
+    payload.element.addEventListener("touchend", () => {
+      clearTimeout(touchTimer);
+    });
+  };
+
   // Helper method for adding touch events that check for a swipe
   const addSwipeToDeleteEvents = (element, type) => {
     // Set the initial touch coordinates to null
@@ -901,6 +922,8 @@ const domManager = (() => {
         });
       });
     }
+
+    addTouchAndHoldEvents({ element, data: projectData });
 
     return element;
   };
