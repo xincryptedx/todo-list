@@ -1518,7 +1518,7 @@ const domManager = (() => {
   // #region Button Event Response Methods
 
   const helpBtnClicked = () => {
-    // Open the div
+    Events.emit("toggleBtn", { query: "HELP" });
   };
 
   Events.on("helpBtnClicked", helpBtnClicked);
