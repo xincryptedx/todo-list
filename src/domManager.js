@@ -1355,6 +1355,12 @@ const domManager = (() => {
 
   Events.on("newTaskClicked", newTaskClicked);
 
+  const focusNewTaskInput = () => {
+    taskNameInput.focus();
+  };
+
+  Events.on("openedTaskSet", focusNewTaskInput);
+
   const detailsClicked = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
 
