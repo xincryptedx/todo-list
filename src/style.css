@@ -849,7 +849,10 @@ body {
   border: 1px solid var(--bg-color-3);
 
   opacity: 1;
-  transition: opacity 0.5s ease-in;
+  transition: opacity 1s ease-in-out;
+
+  pointer-events: none;
+  cursor: default;
 }
 
 .log-container .log-text {
@@ -863,7 +866,7 @@ body {
   display: grid;
 
   opacity: 0;
-  height: 0;
+
   overflow: hidden;
 }
 
