@@ -711,12 +711,14 @@ body {
   grid-column: -1 / 1;
 
   display: grid;
-  grid-template: 10% 5% 3% 1fr 5% / 5% repeat(4, 1fr) 2% 1fr 1fr 5%;
+  grid-template: 10% 5% 3% 1fr 3% 10% 3% / 5% repeat(4, 1fr) 2% 1fr 1fr 5%;
   grid-template-areas:
-    ". task task task task . new-subtask close ."
-    ". task task task task . . . ."
+    ". task task task task task . close ."
+    ". task task task task task . . ."
     ". . . . . . . . ."
     ". subtasks subtasks subtasks subtasks subtasks subtasks subtasks ."
+    ". . . . . . . . ."
+    ". . . new-subtask new-subtask new-subtask . . ."
     ". . . . . . . . .";
 
   background-color: var(--bg-color-2);
