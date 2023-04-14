@@ -779,7 +779,7 @@ const domManager = (() => {
       classList: ["text-input", "subtask-description"],
       parent: element,
     });
-    subtaskDetailsInput.value = subtaskData.description;
+    subtaskDetailsInput.value = description;
     const checkbox = newElement({
       tag: "input",
       type: "checkbox",
