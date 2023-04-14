@@ -1577,7 +1577,7 @@ const domManager = (() => {
   Events.on("newSubtaskClicked", newSubtaskClicked);
 
   const focusNewSubtaskInput = () => {
-    const elements = subtaskContainer.querySelectorAll("text-input");
+    const elements = subtaskContainer.querySelectorAll(".text-input");
     if (!elements) return undefined;
 
     const elementToFocus = elements[elements.length - 1];
