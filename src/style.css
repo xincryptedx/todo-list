@@ -906,12 +906,13 @@ body {
   grid-column: -1 / 1;
 
   display: grid;
-  grid-template: 3% 10% 10% 1fr / 3% repeat(6, 1fr) 3%;
+  grid-template: 3% 10% 5% 1fr 5% / 3% repeat(6, 1fr) 3%;
   grid-template-areas:
     ". . . . . . . ."
     ". title title title title . close ."
     ". . . . . . . ."
-    ". tips tips tips tips tips tips .";
+    ". tips tips tips tips tips tips ."
+    ". . . . . . . .";
   align-items: center;
 
   background-color: var(--bg-color-2);
@@ -944,6 +945,11 @@ body {
 
 .help .help-text-container {
   grid-area: tips;
+
+  display: grid;
+  grid-auto-rows: 1fr;
+
+  height: 100%;
 }
 
 /* #endregion */
