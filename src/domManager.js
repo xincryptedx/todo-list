@@ -169,6 +169,10 @@ const domManager = (() => {
           if (deltaX > 0) {
             // If the swipe is to the right
             if (type === "SUBTASK") {
+              const focusedElement = document.activeElement;
+              if (focusedElement) {
+                focusedElement.blur();
+              }
               Events.emit("deleteUID", element.dataset.uid);
             } else {
               Events.emit("moveToTrash", element.dataset.uid);
