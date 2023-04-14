@@ -828,7 +828,13 @@ body {
   grid-column-end: 8;
 
   display: grid;
+  grid-template: 5% 1fr 5% / 5% 1fr 5%;
+  grid-template-areas:
+    ". . ."
+    ". log-text ."
+    ". . .";
   align-items: center;
+  justify-items: center;
 
   height: 90%;
   width: 100%;
@@ -840,6 +846,7 @@ body {
 }
 
 .log-container .log-text {
+  grid-area: log-text;
   display: flex;
   align-items: center;
   text-align: center;
