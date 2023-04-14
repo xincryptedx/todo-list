@@ -1403,6 +1403,19 @@ const domManager = (() => {
 
   Events.on("openedTaskSet", focusNewTaskInput);
 
+  const taskClicked = (payload) => {
+    if (!payload || typeof payload !== "object") return undefined;
+
+    const dataObject = payload;
+    if (payload.checked === true || payload.checked === false) {
+      dataObject.checked = !dataObject.checked;
+    }
+
+    return dataObject;
+  };
+
+  Events.on("taskClicked", taskClicked);
+
   const detailsClicked = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
 
