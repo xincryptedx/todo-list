@@ -626,7 +626,7 @@ const domManager = (() => {
     // Task name and project
     const taskInfoGrid = newElement({
       tag: "div",
-      classList: ["grid-container", "task-details"],
+      classList: ["grid-container", "subtask-task-details"],
       parent: element,
     });
     subtaskTaskName = newElement({
