@@ -1352,7 +1352,6 @@ const domManager = (() => {
 
   const renderLog = (payload) => {
     if (!payload || typeof payload !== "object") return undefined;
-
     const pElement = logDiv.firstChild;
     pElement.textContent = payload.log;
 
