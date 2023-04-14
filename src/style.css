@@ -321,6 +321,8 @@ body {
   align-self: end;
 
   display: grid;
+  grid-template: 1fr / 3% 3fr 5% 1fr 3%;
+  grid-template-areas: ". author . help .";
   align-items: center;
   justify-items: center;
 
@@ -330,7 +332,12 @@ body {
 }
 
 .footer .footer-author {
+  grid-area: author;
   font-size: 0.8rem;
+}
+
+.footer .help-btn {
+  grid-area: help;
 }
 
 /* #endregion  */
