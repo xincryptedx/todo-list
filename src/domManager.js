@@ -790,6 +790,12 @@ const domManager = (() => {
       classList: "subtask-checkbox",
       parent: element,
     });
+    subtaskDetailsInput.addEventListener("blur", () => {
+      Events.emit("subtaskBlurred", {
+        data: subtaskData,
+        input: subtaskDetailsInput,
+      });
+    });
 
     checkbox.checked = initialCheckedState;
 
