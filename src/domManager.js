@@ -1139,6 +1139,7 @@ const domManager = (() => {
   Events.on("dataLoaded", reloadTaskContainer);
   Events.on("taskViewChanged", reloadTaskContainer);
   Events.on("trashMoved", reloadTaskContainer);
+  Events.on("projectDeleted", reloadTaskContainer);
 
   const hideDefault = () => {
     headerGridDiv.classList.add("hide");
@@ -1403,6 +1404,13 @@ const domManager = (() => {
   };
 
   Events.on("log", renderLog);
+
+  const updateViewOnProjectDelete = () => {
+    taskView.project = taskViewOpts.project.All;
+    Events.emit("taskViewChanged");
+  };
+
+  Events.on("projectDeleted", updateViewOnProjectDelete);
 
   // #endregion
 
