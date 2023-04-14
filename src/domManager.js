@@ -1555,7 +1555,6 @@ const domManager = (() => {
 
   Events.on("newSubtaskClicked", newSubtaskClicked);
 
-  // subtask input blur
   const subtaskBlurred = (payload) => {
     if (!payload.data || typeof payload.data !== "object") return undefined;
 
@@ -1568,7 +1567,20 @@ const domManager = (() => {
 
   Events.on("subtaskBlurred", subtaskBlurred);
 
-  // subtask checkbox checked
+  const subtaskChecked = (payload) => {
+    if (!payload.data || typeof payload.data !== "object") return undefined;
+
+    const activeSubtask = payload.data;
+    const activeInput = payload.input;
+
+    if (!activeSubtask || !activeInput) return undefined;
+
+    activeSubtask.checked = !activeSubtask.checked;
+
+    activeInput.value = activeSubtask.checked;
+  };
+
+  Events.on("subtaskChecked", subtaskChecked);
 
   // #endregion
 
