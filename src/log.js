@@ -21,9 +21,13 @@ const log = (() => {
 
   Events.on("taskRestored", taskRestored);
 
-  // Same but undeleted
+  const subtaskDeleted = () => {
+    logText = "Subtask deleted.";
 
-  // same but subtask deleted
+    Events.emit("log", { log: logText, timeout: messageTimeout });
+  };
+
+  Events.on("subtaskDeleted", subtaskDeleted);
 })();
 
 export default log;
