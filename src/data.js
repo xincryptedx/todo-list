@@ -523,9 +523,12 @@ const dataManager = (() => {
 
     Object.keys(data.tasks).forEach((key) => {
       if (data.tasks[key].projectUID === payload.uid) {
+        Events.emit("deleteTask", data.tasks[key]);
         delete data.tasks[key];
       }
     });
+
+    Events.emit("deleteProjectFromStorage", payload);
 
     return data.projects;
   };
