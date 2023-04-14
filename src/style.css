@@ -738,11 +738,16 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-shadow: var(--menu-text-shadow);
 }
 
 .subtasks-display .task-project {
   display: flex;
   align-items: flex-start;
+
+  font-size: 1.2rem;
+  font-style: italic;
+  text-shadow: var(--menu-text-shadow);
 }
 
 .subtasks-display .add-subtask-btn {
