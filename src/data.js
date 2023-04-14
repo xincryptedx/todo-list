@@ -501,7 +501,7 @@ const dataManager = (() => {
       delete data.subtasks[dataToDelete.uid];
 
       Events.emit("subtaskDeleted");
-      Events.emit("deleteSubtask", { dataToDelete });
+      Events.emit("deleteSubtask", dataToDelete);
     }
 
     return query;
