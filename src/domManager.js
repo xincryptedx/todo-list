@@ -138,7 +138,7 @@ const domManager = (() => {
       "touchstart",
       () => {
         touchTimer = setTimeout(() => {
-          Events.emit("checkDelete", payload.data);
+          Events.emit("checkDelete", payload);
         }, touchTimeout);
       },
       { passive: true }
@@ -1647,7 +1647,7 @@ const domManager = (() => {
   Events.on("newProjectClicked", newProjectClicked);
 
   const checkProjectDelete = (payload) => {
-    if (!payload.type) return undefined;
+    if (!payload.data.type) return undefined;
 
     console.dir(payload);
 
