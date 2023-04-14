@@ -821,6 +821,20 @@ body {
 
 /* #endregion  */
 
+/* #region Log */
+.log-container {
+  grid-row: 8;
+  grid-column-start: 4;
+  grid-column-end: 8;
+
+  height: 90%;
+  width: 100%;
+  background-color: var(--bg-color-2);
+  border-radius: 10px;
+}
+
+/* #endregion */
+
 /* #region Rules for Showing/Hiding Content */
 .hide {
   display: none;
