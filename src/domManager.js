@@ -350,6 +350,19 @@ const domManager = (() => {
     authorP.innerHTML =
       "© 2023 Created by <a href='https://github.com/xincryptedx'>xIncryptedx</a>";
 
+    const helpBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "footer-btn", "help-btn"],
+      parent: element,
+    });
+    helpBtn.addEventListener("click", () => Events.emit("helpBtnClicked"));
+    const helpIcon = newElement({
+      tag: "div",
+      classList: ["icon", "help-icon"],
+      parent: helpBtn,
+    });
+    helpIcon.innerHTML = Icons.help;
+
     return element;
   };
 
