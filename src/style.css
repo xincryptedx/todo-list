@@ -902,15 +902,19 @@ body {
 
 /* #region Help */
 .help {
-  grid-row: 1 / 9;
+  grid-row: -1 / 1;
   grid-column: -1 / 1;
 
   display: grid;
-  grid-template: 10% 10% 1fr / 3% repeat(6, 1fr) 3%;
+  grid-template: 3% 10% 10% 1fr / 3% repeat(6, 1fr) 3%;
   grid-template-areas:
+    ". . . . . . . ."
     ". title title title title . close ."
     ". . . . . . . ."
     ". tips tips tips tips tips tips .";
+  align-items: center;
+
+  background-color: var(--bg-color-2);
 }
 
 .help .help-title {
@@ -928,6 +932,14 @@ body {
 
 .help .close-btn {
   grid-area: close;
+
+  background-color: var(--bg-color-3);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px var(--bg-color);
+}
+
+.help .close-btn .icon {
+  fill: var(--text-color);
 }
 
 .help .help-text-container {
