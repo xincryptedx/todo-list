@@ -441,6 +441,7 @@ const dataManager = (() => {
     }
     // Return individual task, project, or subtask
     else {
+      needsFormatting = false;
       returnData = Object.values(data.tasks).filter(
         (dataObject) => dataObject.uid === payload.query
       );
@@ -494,7 +495,7 @@ const dataManager = (() => {
   const deleteByUid = (query) => {
     if (typeof query !== "string") return undefined;
 
-    const dataToDelete = get(query);
+    const dataToDelete = get({ query: query.toString() });
 
     console.dir(dataToDelete);
 
