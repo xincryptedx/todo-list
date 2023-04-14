@@ -497,8 +497,8 @@ const dataManager = (() => {
 
     const dataToDelete = get({ query: query.toString() });
 
-    if (data.subtasks[dataToDelete]) {
-      delete data.subtasks[dataToDelete];
+    if (dataToDelete.taskUID) {
+      delete data.subtasks[dataToDelete.uid];
 
       Events.emit("subtaskDeleted");
     }

@@ -1309,6 +1309,7 @@ const domManager = (() => {
 
   Events.on("setSubtask", reloadSubtaskContainer);
   Events.on("openedTaskSetForSubtasks", reloadSubtaskContainer);
+  Events.on("subtaskDeleted", reloadSubtaskContainer);
 
   // #endregion
 
