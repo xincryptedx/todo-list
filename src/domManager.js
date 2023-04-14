@@ -126,7 +126,7 @@ const domManager = (() => {
   };
 
   // Helper method for adding touch events that check for a swipe
-  const addSwipeToDeleteEvents = (element) => {
+  const addSwipeToDeleteEvents = (element, type) => {
     // Set the initial touch coordinates to null
     touch.startX = null;
     touch.startY = null;
@@ -163,10 +163,14 @@ const domManager = (() => {
         ) {
           // If the distance traveled in the X direction is greater, check the direction of the swipe
           if (deltaX > 0) {
-            // If the swipe is to the right, execute your function here
-            Events.emit("moveToTrash", element.dataset.uid);
+            // If the swipe is to the right
+            if (type === "SUBTASK") {
+              Events.emit("deleteUID", element.dataset.uid);
+            } else {
+              Events.emit("moveToTrash", element.dataset.uid);
+            }
           } else {
-            // If the swipe is to the left, execute your function here
+            // If the swipe is to the left
             console.log(`Swipe left on: ${element.dataset.uid}`);
           }
         }
@@ -788,6 +792,8 @@ const domManager = (() => {
     });
 
     checkbox.checked = initialCheckedState;
+
+    addSwipeToDeleteEvents(element, "SUBTASK");
 
     return element;
   };
