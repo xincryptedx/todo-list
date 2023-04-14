@@ -528,6 +528,8 @@ const dataManager = (() => {
       }
     });
 
+    delete data.projects[payload.uid];
+
     Events.emit("deleteProjectFromStorage", payload);
 
     return data.projects;
