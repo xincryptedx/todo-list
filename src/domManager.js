@@ -179,7 +179,6 @@ const domManager = (() => {
             }
           } else {
             // If the swipe is to the left
-            console.log(`Swipe left on: ${element.dataset.uid}`);
           }
         }
       }
@@ -777,6 +776,9 @@ const domManager = (() => {
     else element.setAttribute("data-UID-Error", "ERROR");
 
     addSwipeToDeleteEvents(element);
+    element.addEventListener("click", () => {
+      Events.emit("taskClicked", taskData);
+    });
 
     return element;
   };
