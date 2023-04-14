@@ -840,6 +840,7 @@ body {
   width: 100%;
   background-color: var(--bg-color-2);
   border-radius: 10px;
+  border: 1px solid var(--bg-color-3);
 
   opacity: 1;
   transition: opacity 0.5s ease-in;
