@@ -92,7 +92,7 @@ body {
   background-color: var(--bg-color-3);
   box-shadow: -3px 3px 2px var(--bg-color-3), 3px 3px 2px var(--bg-color-3);
 
-  z-index: 1;
+  z-index: 2;
 }
 
 .header-title {
@@ -349,6 +349,8 @@ body {
     "format-btns";
 
   background-color: var(--bg-color-2);
+
+  z-index: 1;
 }
 
 .menu .projects {

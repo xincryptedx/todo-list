@@ -747,7 +747,8 @@ const domManager = (() => {
       classList: ["div-btn", "task-btn", "details-btn"],
       parent: taskContentsGrid,
     });
-    detailsBtn.addEventListener("click", () => {
+    detailsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       Events.emit("detailsClicked", taskData);
     });
     const detailsIcon = newElement({
@@ -762,7 +763,8 @@ const domManager = (() => {
       classList: ["div-btn", "tasks-btn", "subtasks-btn"],
       parent: taskContentsGrid,
     });
-    subtasksBtn.addEventListener("click", () => {
+    subtasksBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       Events.emit("subtasksClicked", taskData);
     });
     const subtaskIcon = newElement({
