@@ -722,8 +722,17 @@ body {
   background-color: var(--bg-color-2);
 }
 
-.subtasks-display .task-details {
+.subtasks-display .subtask-task-details {
   grid-area: task;
+
+  display: grid;
+  grid-template: 66% 34% / 1fr;
+}
+
+.subtasks-display .task-name {
+}
+
+.subtasks-display .task-project {
 }
 
 .subtasks-display .add-subtask-btn {
