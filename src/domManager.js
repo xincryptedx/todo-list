@@ -1650,7 +1650,9 @@ const domManager = (() => {
     if (!payload.data.type || !(payload.element instanceof HTMLElement))
       return undefined;
 
-    console.dir(payload);
+    const { element } = payload;
+
+    element.classList.add("check-delete");
 
     return payload;
   };
