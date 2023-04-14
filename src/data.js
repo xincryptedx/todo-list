@@ -517,6 +517,22 @@ const dataManager = (() => {
 
   Events.on("deleteUID", deleteByUid);
 
+  // Delete all tasks in a project and then the project itself
+  const deleteProject = (payload) => {
+    if (!payload.type || payload.type !== "usermade") return undefined;
+
+    Object.keys(data.tasks).forEach((key) => {
+      if (data.tasks[key].projectUID === payload.uid) {
+        // Delete the task
+        console.log("Deleted task!");
+      }
+    });
+
+    return data.projects;
+  };
+
+  Events.on("deleteProject", deleteProject);
+
   // Get the default projects
   const getDefaultProjects = () => {
     Events.emit("setDefaultProjects", {
