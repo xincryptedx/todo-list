@@ -831,6 +831,17 @@ body {
   width: 100%;
   background-color: var(--bg-color-2);
   border-radius: 10px;
+
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.log-container.hide {
+  display: block;
+
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 /* #endregion */
