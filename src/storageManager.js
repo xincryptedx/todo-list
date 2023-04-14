@@ -66,6 +66,24 @@ const storageManager = (() => {
 
     Events.on("setSubtask", setSubtask);
 
+    const deleteSubtask = (subtaskObject) => {
+      if (typeof subtaskObject !== "object") return undefined;
+      if (!subtaskObject.uid) return undefined;
+      if (!localStorage.subtasks) return undefined;
+
+      const storedSubtasks = JSON.parse(localStorage.getItem("subtasks"));
+
+      delete storedSubtasks[subtaskObject.uid];
+
+      const subtaskString = JSON.stringify(storedSubtasks);
+
+      localStorage.setItem("subtasks", subtaskString);
+
+      return localStorage.subtasks;
+    };
+
+    Events.on("deleteSubtask", deleteSubtask);
+
     const init = () => {
       const allData = {};
       let needsDefaultProjects = false;
