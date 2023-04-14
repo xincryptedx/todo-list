@@ -1594,7 +1594,7 @@ const domManager = (() => {
 
   const projectLabelClicked = (payload) => {
     if (payload.projectElement.classList.contains("check-delete")) {
-      // Delete project emit
+      Events.emit("deleteProject", payload.projectData);
     } else {
       Events.once("elementToggled", () => {
         payload.projectInput.focus();
