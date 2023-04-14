@@ -796,6 +796,7 @@ body {
 
   width: 100%;
   background-color: var(--bg-color-3);
+  border-radius: 10px;
 }
 
 .subtasks-display .subtask-description {
