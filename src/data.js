@@ -336,11 +336,13 @@ const dataManager = (() => {
     if (taskToMove && taskToMove.projectUID !== defaultProjects.trashUID) {
       taskToMove.projectUIDPrevious = taskToMove.projectUID;
       taskToMove.projectUID = defaultProjects.trashUID;
+      Events.emit("trashedTask", taskToMove);
     } else if (
       taskToMove &&
       taskToMove.projectUID === defaultProjects.trashUID
     ) {
       taskToMove.projectUID = taskToMove.projectUIDPrevious;
+      Events.emit("taskRestored", taskToMove);
     } else return undefined;
 
     Events.emit("trashMoved");
