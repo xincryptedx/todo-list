@@ -800,6 +800,9 @@ const domManager = (() => {
     checkbox.checked = initialCheckedState;
 
     addSwipeToDeleteEvents(element, "SUBTASK");
+    checkbox.addEventListener("click", () => {
+      Events.emit("subtaskChecked", { data: subtaskData, input: checkbox });
+    });
 
     return element;
   };
@@ -1577,7 +1580,7 @@ const domManager = (() => {
 
     activeSubtask.checked = !activeSubtask.checked;
 
-    activeInput.value = activeSubtask.checked;
+    return activeSubtask;
   };
 
   Events.on("subtaskChecked", subtaskChecked);
