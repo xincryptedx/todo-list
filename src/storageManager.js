@@ -28,8 +28,6 @@ const storageManager = (() => {
 
     Events.on("setProject", setProject);
 
-    // get project data and return object
-
     // take an object and update task data
     const setTask = (taskObject) => {
       if (typeof taskObject !== "object") return undefined;
@@ -49,8 +47,6 @@ const storageManager = (() => {
 
     Events.on("setTask", setTask);
 
-    // get task data and return object
-
     // take an object and udate subtask data
     const setSubtask = (subtaskObject) => {
       if (typeof subtaskObject !== "object") return undefined;
@@ -69,8 +65,6 @@ const storageManager = (() => {
     };
 
     Events.on("setSubtask", setSubtask);
-
-    // get subtask data and return object
 
     const init = () => {
       const allData = {};
