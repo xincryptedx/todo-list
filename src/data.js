@@ -497,7 +497,11 @@ const dataManager = (() => {
 
     const dataToDelete = get({ query: query.toString() });
 
-    console.dir(dataToDelete);
+    if (data.subtasks[dataToDelete]) {
+      delete data.subtasks[dataToDelete];
+
+      Events.emit("subtaskDeleted");
+    }
 
     return query;
   };
