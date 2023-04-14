@@ -1502,6 +1502,12 @@ const domManager = (() => {
 
   // #region Button Event Response Methods
 
+  const helpBtnClicked = () => {
+    // Open the div
+  };
+
+  Events.on("helpBtnClicked", helpBtnClicked);
+
   // #region Task event methods
   const newTaskClicked = () => {
     Events.emit("toggleBtn", { query: "TASK" });
