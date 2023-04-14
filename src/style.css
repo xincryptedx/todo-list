@@ -827,6 +827,9 @@ body {
   grid-column-start: 4;
   grid-column-end: 8;
 
+  display: grid;
+  align-items: center;
+
   height: 90%;
   width: 100%;
   background-color: var(--bg-color-2);
@@ -836,8 +839,14 @@ body {
   transition: opacity 0.5s ease-in;
 }
 
+.log-container .log-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
 .log-container.hide {
-  display: block;
+  display: grid;
 
   opacity: 0;
   height: 0;
