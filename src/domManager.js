@@ -36,6 +36,9 @@ const domManager = (() => {
   let prioritySortBtn;
   let dateSortBtn;
 
+  let subtaskTaskName;
+  let subtaskTaskProject;
+
   let dataLoaded = false;
   Events.on("dataLoaded", () => {
     dataLoaded = true;
@@ -626,12 +629,12 @@ const domManager = (() => {
       classList: ["grid-container", "task-details"],
       parent: element,
     });
-    newElement({
+    subtaskTaskName = newElement({
       tag: "p",
       classList: "task-name",
       parent: taskInfoGrid,
     });
-    newElement({
+    subtaskTaskProject = newElement({
       tag: "p",
       classList: "task-project",
       parent: taskInfoGrid,
@@ -1307,6 +1310,15 @@ const domManager = (() => {
 
   Events.on("taskViewChanged", renderFilterBtns);
   Events.on("toggleBtn", renderFilterBtns);
+
+  const renderSubtaskTaskDetails = () => {
+    if (openedTaskObject) {
+      subtaskTaskName.textContent = openedTaskObject.userSetName;
+      subtaskTaskProject.textContent = openedTaskObject.projectSetName;
+    }
+  };
+
+  Events.on("openedTaskSetForSubtasks", renderSubtaskTaskDetails);
 
   const reloadSubtaskContainer = () => {
     if (!dataLoaded) return;
