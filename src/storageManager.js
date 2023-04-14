@@ -115,6 +115,8 @@ const storageManager = (() => {
 
       localStorage.setItem("projects", projectString);
 
+      Events.emit("projectDeleted");
+
       return localStorage.projects;
     };
 
