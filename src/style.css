@@ -948,8 +948,24 @@ body {
 
   display: grid;
   grid-auto-rows: 1fr;
+  row-gap: 5px;
 
   height: 100%;
+
+  overflow-y: scroll;
+}
+
+.help .help-text {
+  display: flex;
+  align-items: center;
+
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  padding-left: 1ch;
+  padding-right: 1ch;
+
+  text-shadow: 1px 1px black;
+  color: var(--text-color);
 }
 
 /* #endregion */
