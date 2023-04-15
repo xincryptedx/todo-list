@@ -133,7 +133,7 @@ const domManager = (() => {
   // Helper method for adding touch and hold events to an element
   const addTouchAndHoldEvents = (payload) => {
     let touchTimer;
-    const touchTimeout = 1000;
+    const touchTimeout = 500;
 
     payload.element.addEventListener("contextmenu", (event) => {
       event.preventDefault();
