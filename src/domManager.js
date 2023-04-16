@@ -865,6 +865,12 @@ const domManager = (() => {
       parent: taskContentsGrid,
       textContent: taskData.projectSetName.toString(),
     });
+    const dateText = newElement({
+      tag: "p",
+      classList: ["date-text", "hide-480"],
+      parent: taskContentsGrid,
+      textContent: "Date",
+    });
     // Details btn
     const detailsBtn = newElement({
       tag: "div",
