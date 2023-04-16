@@ -1237,6 +1237,9 @@ body {
       ". format-btns format-btns .";
 
     z-index: 2;
+
+    border-left: 1px solid var(--bg-color);
+    border-bottom: 1px solid var(--bg-color);
   }
 
   .menu .new-project-div {
