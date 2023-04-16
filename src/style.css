@@ -1247,4 +1247,12 @@ body {
   .project .div-btn {
     max-height: 47px;
   }
+
+  .task-details {
+    background-color: var(--bg-color);
+  }
+
+  .subtasks-display {
+    background-color: var(--bg-color);
+  }
 }
