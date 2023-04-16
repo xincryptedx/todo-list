@@ -1104,6 +1104,17 @@ body {
     display: initial;
   }
 
+  body {
+    display: grid;
+    background-color: var(--bg-color-3);
+  }
+
+  .main-grid {
+    justify-self: center;
+    max-width: 1024px;
+    background-color: var(--bg-color);
+  }
+
   .content .task-contents {
     grid-template: 50% 50% / 5px repeat(7, 1fr) 5px;
     grid-template-areas:
@@ -1156,7 +1167,8 @@ body {
     filter: drop-shadow(1px 1px 1px var(--bg-color)) brightness(60%);
   }
 
-  .menu .new-project-div {
+  .menu .new-project-div,
+  .menu .format-btns {
     max-width: 200px;
   }
 
@@ -1191,10 +1203,14 @@ body {
 
     grid-template: 1fr / 5% repeat(6, 1fr) 5%;
     grid-template-areas: ". title title title . . new-task-btn .";
+
+    background-color: var(--bg-color-2);
+    box-shadow: none;
   }
 
   .header .new-task-btn {
     justify-self: center;
+    background-color: var(--bg-color-3);
   }
 
   .content,
@@ -1226,10 +1242,11 @@ body {
   }
 
   .menu .project-label-container {
-    max-height: 48px;
+    max-height: 47px;
+    justify-self: start;
   }
 
   .project .div-btn {
-    max-height: 48px;
+    max-height: 47px;
   }
 }
