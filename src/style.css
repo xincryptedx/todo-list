@@ -1079,6 +1079,14 @@ body {
   .menu .new-project-span-btn {
     text-align: center;
   }
+
+  .subtasks-display .close-btn {
+    max-height: 70px;
+    max-width: 70px;
+    height: 70%;
+    width: 70%;
+    justify-self: center;
+  }
 }
 
 @media screen and (min-width: 700px) {
