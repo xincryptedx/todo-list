@@ -290,6 +290,7 @@ body {
 }
 
 .content .div-btn {
+  justify-self: center;
   background-color: var(--bg-color-2);
   border-radius: 10px;
   box-shadow: 1px 1px 1px 1px var(--bg-color);
@@ -984,5 +985,15 @@ body {
 @media screen and (min-width: 481px) {
   .hide-480 {
     display: auto;
+  }
+
+  .content .task-contents {
+    grid-template-areas:
+      ". name name date date subtasks details ."
+      ". project project project project subtasks details .";
+  }
+
+  .content .date-text {
+    grid-area: date;
   }
 }
