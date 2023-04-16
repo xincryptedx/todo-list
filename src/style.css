@@ -1047,10 +1047,6 @@ body {
     width: 70%;
   }
 
-  .content .subtasks-btn {
-    justify-self: end;
-  }
-
   .task-details .close-btn,
   .task-details .date-btn {
     max-height: 70px;
@@ -1106,22 +1102,30 @@ body {
 }
 
 @media screen and (min-width: 769px) {
-  :root {
-    --font-size-XS: 0.8rem;
-    --font-size-S: 1rem;
-    --font-size-MS: 1.2rem;
-    --font-size-M: 1.4rem;
-    --font-size-ML: 1.6rem;
-    --font-size-L: 1.8rem;
-    --font-size-XL: 2.75rem;
-  }
-
   .display-none-769 {
     display: none;
   }
 
   .show-769-plus {
     display: initial;
+  }
+
+  .content .task-contents {
+    grid-template: 50% 50% / 5px repeat(7, 1fr) 5px;
+    grid-template-areas:
+      ". name name date date subtasks details del ."
+      ". project project project project subtasks details del .";
+    align-items: center;
+  }
+
+  .content .subtasks-btn {
+    justify-self: end;
+  }
+
+  .content .delete-btn {
+    grid-area: del;
+    display: grid;
+    justify-self: start;
   }
 }
 
