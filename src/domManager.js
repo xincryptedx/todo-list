@@ -908,7 +908,7 @@ const domManager = (() => {
     // Delete btn
     const deleteBtn = newElement({
       tag: "div",
-      classList: ["div-btn", "tasks-btn", "delete-btn", "show-769-plus"],
+      classList: ["div-btn", "menu-btn", "delete-btn", "show-769-plus"],
       parent: taskContentsGrid,
     });
     deleteBtn.addEventListener("click", (e) => {
