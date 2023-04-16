@@ -1164,13 +1164,11 @@ body {
     justify-self: end;
     display: grid;
     grid-area: del;
-    box-shadow: none;
 
     height: 80%;
     width: 80%;
 
     background-color: var(--bg-color-2);
-    border: 1px solid var(--bg-color);
   }
 }
 
