@@ -995,5 +995,6 @@ body {
 
   .content .date-text {
     grid-area: date;
+    justify-self: center;
   }
 }
