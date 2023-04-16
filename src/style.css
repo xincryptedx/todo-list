@@ -1122,6 +1122,11 @@ body {
     justify-self: start;
   }
 
+  .footer {
+    grid-template: 1fr / 3% 1fr 3%;
+    grid-template-areas: ". author .";
+  }
+
   .menu .project {
     grid-template: 1fr / 5% 1fr 1fr 1fr 1fr 1fr 5%;
     grid-template-areas: ". project project project label del .";
