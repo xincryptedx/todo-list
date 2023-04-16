@@ -1187,4 +1187,12 @@ body {
 
     z-index: 2;
   }
+
+  .menu .project-label-container {
+    max-height: 45px;
+  }
+
+  .project .div-btn {
+    max-height: 45px;
+  }
 }
