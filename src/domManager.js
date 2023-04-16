@@ -865,11 +865,13 @@ const domManager = (() => {
       parent: taskContentsGrid,
       textContent: taskData.projectSetName.toString(),
     });
-    const dateText = newElement({
+    const options = { month: "long", day: "numeric", year: "numeric" };
+    const date = new Date(taskData.dueDate);
+    newElement({
       tag: "p",
       classList: ["date-text", "hide-480"],
       parent: taskContentsGrid,
-      textContent: "Date",
+      textContent: date.toLocaleDateString("en-US", options),
     });
     // Details btn
     const detailsBtn = newElement({
