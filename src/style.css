@@ -1025,8 +1025,22 @@ body {
     justify-self: end;
   }
 
+  .menu {
+    grid-row: 2 / -1;
+    grid-column: 5 / -1;
+
+    grid-template: 1fr 1.25% min(100px, 25%) 8% / 3% 1fr 1fr 3%;
+    grid-template-areas:
+      ". projects projects ."
+      ". . . ."
+      ". new-project format-btns .";
+  }
+
   .menu .new-project-div {
     max-width: 200px;
-    justify-self: start;
+  }
+
+  .menu .new-project-span-btn {
+    text-align: center;
   }
 }
