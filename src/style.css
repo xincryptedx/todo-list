@@ -1084,7 +1084,15 @@ body {
     display: grid;
   }
 
-  .content {
-    grid-column: 1/8;
+  .content,
+  .task-details,
+  .subtasks-display {
+    grid-row: 2 / 10;
+    grid-column: 1 / 7;
+  }
+
+  .menu {
+    grid-row: 2 / 10;
+    grid-column: 7 / -1;
   }
 }
