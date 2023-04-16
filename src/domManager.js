@@ -973,6 +973,22 @@ const domManager = (() => {
         input: subtaskDetailsInput,
       });
     });
+    // Delete btn
+    const deleteBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "subtasks-btn", "delete-btn", "show-769-plus"],
+      parent: element,
+    });
+    deleteBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      Events.emit("deleteSubtaskClicked", subtaskData);
+    });
+    const deleteIcon = newElement({
+      tag: "div",
+      classList: ["icon", "delete-icon"],
+      parent: deleteBtn,
+    });
+    deleteIcon.innerHTML = Icons.trash;
 
     checkbox.checked = initialCheckedState;
 
