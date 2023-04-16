@@ -1220,6 +1220,10 @@ body {
     grid-column: 1 / 8;
   }
 
+  .footer {
+    background-color: var(--bg-color-2);
+  }
+
   .menu {
     grid-row: 1 / 10;
     grid-column: 8 / -1;
