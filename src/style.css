@@ -1255,4 +1255,8 @@ body {
   .subtasks-display {
     background-color: var(--bg-color);
   }
+
+  .subtasks-display .subtasks {
+    grid-auto-rows: 12%;
+  }
 }
