@@ -225,7 +225,7 @@ const domManager = (() => {
     // Title
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "header", "show"],
+      classList: ["grid-container", "header", "show", "display-grid-1024"],
       parent,
     });
     newElement({
@@ -339,7 +339,7 @@ const domManager = (() => {
   const footerGrid = (parent) => {
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "footer", "show"],
+      classList: ["grid-container", "footer", "show", "display-grid-1024"],
       parent,
     });
     // Author info
@@ -371,7 +371,7 @@ const domManager = (() => {
   const menuGrid = (parent) => {
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "menu", "hide", "hide-grid-1024"],
+      classList: ["grid-container", "menu", "hide", "display-grid-1024"],
       parent,
     });
     // Projects selection
