@@ -1029,7 +1029,7 @@ body {
     grid-row: 2 / -1;
     grid-column: 5 / -1;
 
-    grid-template: 1fr 1.25% min(100px, 25%) 8% / 3% 1fr 1fr 3%;
+    grid-template: 1fr 1.25% min(120px, 25%) 8% / 3% 1fr 1fr 3%;
     grid-template-areas:
       ". projects projects ."
       ". . . ."
@@ -1038,6 +1038,11 @@ body {
 
   .menu .new-project-div {
     max-width: 200px;
+  }
+
+  .menu .project-label-container {
+    max-height: 70px;
+    max-width: 70px;
   }
 
   .menu .new-project-span-btn {
