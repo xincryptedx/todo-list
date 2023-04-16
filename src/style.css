@@ -1075,6 +1075,22 @@ body {
   }
 }
 
+@media screen and (min-width: 769px) {
+  :root {
+    --font-size-XS: 0.8rem;
+    --font-size-S: 1rem;
+    --font-size-MS: 1.2rem;
+    --font-size-M: 1.4rem;
+    --font-size-ML: 1.6rem;
+    --font-size-L: 1.8rem;
+    --font-size-XL: 2.75rem;
+  }
+
+  .display-none-769 {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .show-1024 {
     display: none;

@@ -353,7 +353,7 @@ const domManager = (() => {
 
     const helpBtn = newElement({
       tag: "div",
-      classList: ["div-btn", "footer-btn", "help-btn"],
+      classList: ["div-btn", "footer-btn", "help-btn", "display-none-769"],
       parent: element,
     });
     helpBtn.addEventListener("click", () => Events.emit("helpBtnClicked"));
