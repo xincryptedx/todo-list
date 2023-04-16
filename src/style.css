@@ -1119,7 +1119,7 @@ body {
   }
 
   .header {
-    grid-column: 1 / 7;
+    grid-column: 1 / 8;
 
     grid-template: 1fr / 5% repeat(6, 1fr) 5%;
     grid-template-areas: ". title title title . . new-task-btn .";
@@ -1133,12 +1133,12 @@ body {
   .task-details,
   .subtasks-display {
     grid-row: 2 / 10;
-    grid-column: 1 / 7;
+    grid-column: 1 / 8;
   }
 
   .menu {
     grid-row: 1 / 10;
-    grid-column: 7 / -1;
+    grid-column: 8 / -1;
 
     z-index: 2;
   }
