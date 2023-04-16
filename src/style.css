@@ -1067,15 +1067,6 @@ body {
       ". new-project format-btns .";
   }
 
-  .menu .new-project-div {
-    max-width: 200px;
-  }
-
-  .menu .project-label-container {
-    max-height: 70px;
-    max-width: 70px;
-  }
-
   .menu .new-project-span-btn {
     text-align: center;
   }
@@ -1133,8 +1124,33 @@ body {
     grid-template-areas: ". project project project label del .";
   }
 
-  .menu .delete-btn {
+  .menu .project-label-container {
+    height: 70%;
+    max-height: 70px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .project .div-btn {
+    display: grid;
+
+    height: 70%;
+    max-height: 70px;
+    aspect-ratio: 1 / 1;
+
+    border-radius: 10px;
+  }
+
+  .project .delete-btn {
     grid-area: del;
+    fill: var(--pri-3-color);
+  }
+
+  .menu .project .delete-btn .icon {
+    filter: drop-shadow(1px 1px 1px var(--bg-color)) brightness(60%);
+  }
+
+  .menu .new-project-div {
+    max-width: 200px;
   }
 }
 
