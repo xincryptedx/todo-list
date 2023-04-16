@@ -1127,6 +1127,15 @@ body {
     display: grid;
     justify-self: start;
   }
+
+  .menu .project {
+    grid-template: 1fr / 5% 1fr 1fr 1fr 1fr 1fr 5%;
+    grid-template-areas: ". project project project label del .";
+  }
+
+  .menu .delete-btn {
+    grid-area: del;
+  }
 }
 
 @media screen and (min-width: 1024px) {
