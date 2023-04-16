@@ -252,7 +252,7 @@ const domManager = (() => {
     // Menu btn
     const menuBtn = newElement({
       tag: "div",
-      classList: ["div-btn", "header-btn", "menu-btn"],
+      classList: ["div-btn", "header-btn", "menu-btn", "show-1024"],
       parent: element,
     });
     menuBtn.addEventListener("click", () =>
@@ -371,7 +371,7 @@ const domManager = (() => {
   const menuGrid = (parent) => {
     const element = newElement({
       tag: "div",
-      classList: ["grid-container", "menu", "hide"],
+      classList: ["grid-container", "menu", "hide", "hide-grid-1024"],
       parent,
     });
     // Projects selection
