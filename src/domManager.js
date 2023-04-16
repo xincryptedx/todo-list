@@ -567,7 +567,7 @@ const domManager = (() => {
       classList: ["icon", "close-icon"],
       parent: closeBtn,
     });
-    closeIcon.innerHTML = Icons.close;
+    closeIcon.innerHTML = Icons.back;
     // Name input
     taskNameInput = newElement({
       tag: "input",
@@ -710,7 +710,7 @@ const domManager = (() => {
       classList: ["icon", "close-icon"],
       parent: closeBtn,
     });
-    closeIcon.innerHTML = Icons.close;
+    closeIcon.innerHTML = Icons.back;
     // Set global variable for subtask container
     subtaskContainer = newElement({
       tag: "div",
@@ -768,7 +768,7 @@ const domManager = (() => {
       classList: ["icon", "close-icon"],
       parent: closeBtn,
     });
-    closeIcon.innerHTML = Icons.close;
+    closeIcon.innerHTML = Icons.back;
 
     const helpTextContainer = newElement({
       tag: "div",
