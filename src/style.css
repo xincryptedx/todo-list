@@ -22,7 +22,9 @@
 
   --font-size-XS: 0.66rem;
   --font-size-S: 0.8rem;
+  --font-size-MS: 1rem;
   --font-size-M: 1.2rem;
+  --font-size-ML: 1.3rem;
   --font-size-L: 1.4rem;
   --font-size-XL: 2rem;
   --menu-text-shadow: 1px 1px var(--bg-color);
@@ -201,6 +203,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 
+  font-size: var(--font-size-MS);
   font-weight: 600;
   text-shadow: var(--task-text-shadow);
 }
@@ -289,6 +292,7 @@ body {
 
   align-self: start;
 
+  font-size: var(--font-size-MS);
   font-style: italic;
   text-shadow: var(--task-text-shadow);
 }
@@ -609,7 +613,7 @@ body {
 .task-details label {
   align-self: center;
 
-  font-size: var(--font-size-M);
+  font-size: var(--font-size-ML);
   color: var(--highlight-color);
 }
 
@@ -694,6 +698,7 @@ body {
 
 .task-details .priority-btn p {
   color: black;
+  font-size: var(--font-size-ML);
 }
 
 .task-details .priority-btns .low-btn {
@@ -729,6 +734,7 @@ body {
   background-color: var(--bg-color-2);
   border-radius: 10px;
 
+  font-size: var(--font-size-M);
   color: var(--text-color);
 }
 
@@ -843,6 +849,7 @@ body {
   display: flex;
   align-items: center;
 
+  font-size: var(--font-size-M);
   color: var(--text-color);
   font-weight: bold;
   text-shadow: var(--task-text-shadow);
@@ -1009,6 +1016,8 @@ body {
   .content .date-text {
     grid-area: date;
     justify-self: center;
+
+    font-size: var(--font-size-MS);
   }
 
   .content .div-btn {
@@ -1051,5 +1060,17 @@ body {
 
   .menu .new-project-span-btn {
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  :root {
+    --font-size-XS: 0.8rem;
+    --font-size-S: 1rem;
+    --font-size-MS: 1.2rem;
+    --font-size-M: 1.4rem;
+    --font-size-ML: 1.6rem;
+    --font-size-L: 1.8rem;
+    --font-size-XL: 2.75rem;
   }
 }
