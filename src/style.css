@@ -447,6 +447,8 @@ body {
 
   background-color: var(--bg-color);
   height: 75%;
+  max-height: 70px;
+  aspect-ratio: 1/1;
   border-radius: 10px;
   border: 1px solid var(--bg-color-3);
 }
@@ -1127,8 +1129,6 @@ body {
 
   .menu .project-label-container {
     height: 70%;
-    max-height: 70px;
-    aspect-ratio: 1 / 1;
   }
 
   .project .div-btn {
