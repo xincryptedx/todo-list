@@ -1938,6 +1938,16 @@ const domManager = (() => {
 
   Events.on("subtaskChecked", subtaskChecked);
 
+  const deleteSubtaskClicked = (payload) => {
+    const focusedElement = document.activeElement;
+    if (focusedElement) {
+      focusedElement.blur();
+    }
+    Events.emit("deleteUID", payload.uid);
+  };
+
+  Events.on("deleteSubtaskClicked", deleteSubtaskClicked);
+
   // #endregion
 
   // #endregion
