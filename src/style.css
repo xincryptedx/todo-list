@@ -987,6 +987,15 @@ body {
     display: initial;
   }
 
+  .header .div-btn {
+    max-height: 70px;
+    max-width: 70px;
+  }
+
+  .header .new-task-btn {
+    justify-self: end;
+  }
+
   .content .task-contents {
     grid-template-areas:
       ". name name date date subtasks details ."
@@ -996,5 +1005,28 @@ body {
   .content .date-text {
     grid-area: date;
     justify-self: center;
+  }
+
+  .content .div-btn {
+    height: 70%;
+    width: 70%;
+  }
+
+  .content .subtasks-btn {
+    justify-self: end;
+  }
+
+  .task-details .close-btn,
+  .task-details .date-btn {
+    max-height: 70px;
+    max-width: 70px;
+    height: 70%;
+    width: 70%;
+    justify-self: end;
+  }
+
+  .menu .new-project-div {
+    max-width: 200px;
+    justify-self: start;
   }
 }
