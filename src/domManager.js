@@ -869,7 +869,7 @@ const domManager = (() => {
     const date = new Date(taskData.dueDate);
     newElement({
       tag: "p",
-      classList: ["date-text", "hide-480"],
+      classList: ["date-text", "show-480-plus"],
       parent: taskContentsGrid,
       textContent: date.toLocaleDateString("en-US", options),
     });

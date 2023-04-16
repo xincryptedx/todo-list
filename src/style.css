@@ -1005,14 +1005,14 @@ body {
   display: none;
 }
 
-.hide-480 {
+.show-480-plus {
   display: none;
 }
 
 /* #endregion Subtask Details */
 
 @media screen and (min-width: 481px) {
-  .hide-480 {
+  .show-480-plus {
     display: initial;
   }
 
