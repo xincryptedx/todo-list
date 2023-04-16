@@ -1794,6 +1794,11 @@ const domManager = (() => {
   Events.on("projectLabelClicked", projectLabelClicked);
 
   const deleteProjectClicked = (payload) => {
+    const focusedElement = document.activeElement;
+    if (focusedElement) {
+      focusedElement.blur();
+    }
+
     Events.emit("deleteProject", payload);
   };
 
