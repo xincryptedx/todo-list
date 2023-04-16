@@ -1154,6 +1154,16 @@ body {
   .menu .new-project-div {
     max-width: 200px;
   }
+
+  .subtasks-display .subtask {
+    grid-template: 1fr / 3% 74% 10% 10% 3%;
+    grid-template-areas: ". description checkbox del .";
+  }
+
+  .subtasks-display .delete-btn {
+    display: grid;
+    grid-area: del;
+  }
 }
 
 @media screen and (min-width: 1024px) {
