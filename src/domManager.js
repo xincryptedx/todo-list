@@ -913,7 +913,7 @@ const domManager = (() => {
     });
     deleteBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      Events.emit("deleteClicked", taskData);
+      Events.emit("deleteTaskClicked", taskData);
     });
     const deleteIcon = newElement({
       tag: "div",
@@ -1626,11 +1626,11 @@ const domManager = (() => {
 
   Events.on("subtasksClicked", subtasksClicked);
 
-  const deleteClicked = (payload) => {
+  const deleteTaskClicked = (payload) => {
     Events.emit("moveToTrash", payload.uid);
   };
 
-  Events.on("deleteClicked", deleteClicked);
+  Events.on("deleteTaskClicked", deleteTaskClicked);
 
   const blurTaskName = () => {
     openedTaskObject.userSetName = taskNameInput.value;
