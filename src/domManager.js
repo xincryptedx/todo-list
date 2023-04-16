@@ -1610,6 +1610,12 @@ const domManager = (() => {
 
   Events.on("subtasksClicked", subtasksClicked);
 
+  const deleteClicked = (payload) => {
+    Events.emit("moveToTrash", payload.uid);
+  };
+
+  Events.on("deleteClicked", deleteClicked);
+
   const blurTaskName = () => {
     openedTaskObject.userSetName = taskNameInput.value;
 
