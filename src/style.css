@@ -440,6 +440,7 @@ body {
 
 .menu .project-label-container {
   grid-area: label;
+  justify-self: end;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1131,6 +1132,7 @@ body {
   }
 
   .project .div-btn {
+    justify-self: end;
     display: grid;
 
     height: 70%;
