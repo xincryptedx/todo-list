@@ -1211,6 +1211,20 @@ body {
     z-index: 2;
   }
 
+  .menu {
+    grid-template: 1fr 1.25% min(120px, 25%) 8% 8% / 3% 1fr 1fr 3%;
+    grid-template-areas:
+      ". projects projects ."
+      ". . . ."
+      ". new-project new-project ."
+      ". format-btns format-btns ."
+      ". format-btns format-btns .";
+  }
+
+  .menu .new-project-div {
+    max-height: 85px;
+  }
+
   .menu .project-label-container {
     max-height: 48px;
   }
