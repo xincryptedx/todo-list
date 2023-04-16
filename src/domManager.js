@@ -1777,6 +1777,12 @@ const domManager = (() => {
 
   Events.on("projectLabelClicked", projectLabelClicked);
 
+  const deleteProjectClicked = (payload) => {
+    Events.emit("deleteProject", payload);
+  };
+
+  Events.on("deleteProjectClicked", deleteProjectClicked);
+
   const projectTextClicked = (payload) => {
     if (!payload.uid) return undefined;
 
