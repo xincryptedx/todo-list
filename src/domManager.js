@@ -905,6 +905,22 @@ const domManager = (() => {
       parent: subtasksBtn,
     });
     subtaskIcon.innerHTML = Icons.subtasks;
+    // Delete btn
+    const deleteBtn = newElement({
+      tag: "div",
+      classList: ["div-btn", "tasks-btn", "delete-btn", "show-769-plus"],
+      parent: taskContentsGrid,
+    });
+    deleteBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      Events.emit("deleteClicked", taskData);
+    });
+    const deleteIcon = newElement({
+      tag: "div",
+      classList: ["icon", "delete-icon"],
+      parent: deleteBtn,
+    });
+    deleteIcon.innerHTML = Icons.trash;
 
     if (taskData.uid) element.setAttribute("data-UID", taskData.uid);
     else element.setAttribute("data-UID-Error", "ERROR");

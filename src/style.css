@@ -1009,6 +1009,10 @@ body {
   display: none;
 }
 
+.show-769-plus {
+  display: none;
+}
+
 /* #endregion Subtask Details */
 
 @media screen and (min-width: 481px) {
@@ -1114,6 +1118,10 @@ body {
 
   .display-none-769 {
     display: none;
+  }
+
+  .show-769-plus {
+    display: initial;
   }
 }
 
