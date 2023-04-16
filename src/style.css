@@ -218,6 +218,12 @@ body {
   row-gap: var(--task-grid-gap);
 
   overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.content .tasks::-webkit-scrollbar {
+  display: none;
 }
 
 .content .task {
@@ -390,6 +396,12 @@ body {
   grid-auto-rows: 18%;
 
   overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.menu .projects::-webkit-scrollbar {
+  display: none;
 }
 
 .menu .project {
@@ -829,6 +841,12 @@ body {
   grid-row-gap: 10px;
 
   overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.subtasks-display .subtasks::-webkit-scrollbar {
+  display: none;
 }
 
 .subtasks-display .subtask {
